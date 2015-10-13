@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>mogenerator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>versioner.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +33,16 @@
 			<true/>
 		</dict>
 		<key>2A74EBD01BCD50B8005F5E74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A74EBE41BCD567E005F5E74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A74EBE91BCD56F6005F5E74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
