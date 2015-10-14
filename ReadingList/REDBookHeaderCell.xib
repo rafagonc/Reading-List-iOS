@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="gTc-jG-T6s" customClass="REDBookHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gTc-jG-T6s" id="PvH-34-62f">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="101.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIu-cl-B3Q">
+                        <rect key="frame" x="76" y="0.0" width="236" height="51"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="done"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Author" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yge-5D-zaF">
+                        <rect key="frame" x="76" y="51" width="236" height="50.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itm-X2-Qeu">
+                        <rect key="frame" x="76" y="51" width="236" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="V8i-MZ-tRr"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Q5-zk-2v9">
+                        <rect key="frame" x="8" y="8" width="60" height="79.5"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="fji-lJ-xJU"/>
+                            <constraint firstAttribute="height" constant="79.5" id="ynO-cu-tWX"/>
+                        </constraints>
+                        <state key="normal" title="cover">
+                            <color key="titleColor" red="0.93725490196078431" green="0.31764705882352939" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="Yge-5D-zaF" firstAttribute="top" secondItem="LIu-cl-B3Q" secondAttribute="bottom" id="0zU-xR-dWx"/>
+                    <constraint firstAttribute="trailing" secondItem="Yge-5D-zaF" secondAttribute="trailing" constant="8" id="2lv-Mn-68b"/>
+                    <constraint firstItem="itm-X2-Qeu" firstAttribute="trailing" secondItem="PvH-34-62f" secondAttribute="trailingMargin" id="8lM-4Q-cdB"/>
+                    <constraint firstItem="Yge-5D-zaF" firstAttribute="height" secondItem="LIu-cl-B3Q" secondAttribute="height" id="AaX-9r-chc"/>
+                    <constraint firstItem="itm-X2-Qeu" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leadingMargin" constant="68" id="EsK-qA-wU9"/>
+                    <constraint firstAttribute="bottom" secondItem="Yge-5D-zaF" secondAttribute="bottom" id="IzM-sh-YC3"/>
+                    <constraint firstItem="9Q5-zk-2v9" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" constant="8" id="QUc-2S-5FB"/>
+                    <constraint firstItem="LIu-cl-B3Q" firstAttribute="top" secondItem="PvH-34-62f" secondAttribute="top" id="WiI-Hm-mjO"/>
+                    <constraint firstItem="Yge-5D-zaF" firstAttribute="top" secondItem="LIu-cl-B3Q" secondAttribute="bottom" id="a2Q-Vk-bQ0"/>
+                    <constraint firstItem="itm-X2-Qeu" firstAttribute="top" secondItem="LIu-cl-B3Q" secondAttribute="bottom" id="c2W-iO-Gnt"/>
+                    <constraint firstItem="LIu-cl-B3Q" firstAttribute="trailing" secondItem="PvH-34-62f" secondAttribute="trailingMargin" id="pSl-6w-8ju"/>
+                    <constraint firstItem="LIu-cl-B3Q" firstAttribute="leading" secondItem="9Q5-zk-2v9" secondAttribute="trailing" constant="8" id="q76-fz-23a"/>
+                    <constraint firstItem="9Q5-zk-2v9" firstAttribute="top" secondItem="PvH-34-62f" secondAttribute="top" constant="8" id="qpv-En-4rd"/>
+                    <constraint firstItem="Yge-5D-zaF" firstAttribute="leading" secondItem="9Q5-zk-2v9" secondAttribute="trailing" constant="8" id="rYq-dL-cYY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="authorTextField" destination="Yge-5D-zaF" id="ICk-md-fze"/>
+                <outlet property="coverButton" destination="9Q5-zk-2v9" id="iEK-vm-SKt"/>
+                <outlet property="nameTextField" destination="LIu-cl-B3Q" id="Ndb-1k-CFz"/>
+            </connections>
+            <point key="canvasLocation" x="302" y="328"/>
+        </tableViewCell>
+    </objects>
+</document>

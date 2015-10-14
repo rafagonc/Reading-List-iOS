@@ -9,6 +9,10 @@
 #import "REDBookAddViewController.h"
 #import "UIStaticTableView.h"
 #import "REDNavigationBarCustomizer.h"
+#import "REDBookHeaderCell.h"
+#import "REDBookCategoryCell.h"
+#import "REDBookPagesCell.h"
+#import "REDPageProgressCell.h"
 
 @interface REDBookAddViewController ()
 
@@ -29,7 +33,7 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Add Book";
+    self.title = @"New Book";
     [self createTableView];
     [self setUpBarButtonItems];
 }
@@ -51,6 +55,19 @@
 #pragma mark - table view
 -(void)createTableView {
     UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
+    [section setHeaderName:@"Book Info"];
+    
+    REDBookHeaderCell *headerCell = [[REDBookHeaderCell alloc] init];
+    [self.tableView addCell:headerCell onSection:section];
+    
+    REDBookCategoryCell *categoryCell = [[REDBookCategoryCell alloc] init];
+    [self.tableView addCell:categoryCell onSection:section];
+    
+    REDBookPagesCell *pagesCell = [[REDBookPagesCell alloc] init];
+    [self.tableView addCell:pagesCell onSection:section];
+    
+    REDPageProgressCell *progressCell = [[REDPageProgressCell alloc] init];
+    [self.tableView addCell:progressCell onSection:section];
     
     [self.tableView addSection:section];
 }

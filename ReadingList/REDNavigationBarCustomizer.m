@@ -8,6 +8,7 @@
 
 #import "REDNavigationBarCustomizer.h"
 #import "UIFont+ReadingList.h"
+#import "UIColor+ReadingList.h"
 
 @implementation REDNavigationBarCustomizer
 
@@ -21,7 +22,7 @@
 #pragma mark - customize
 -(void)customize {
     _navigationBar.barTintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-    _navigationBar.tintColor = [UIColor colorWithRed:(239/255.0) green:(81/255.0) blue:(79/255.0) alpha:1];
+    _navigationBar.tintColor = [UIColor red_redColor];
     _navigationBar.clipsToBounds = YES;
     _navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont AvenirNextBoldWithSize:18.0f],  NSForegroundColorAttributeName : [UIColor darkTextColor]};
     _navigationBar.shadowImage = [[UIImage alloc] init];

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="ZMg-sF-5iU" customClass="REDBookPagesCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZMg-sF-5iU" id="GQe-hj-I80">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pages" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bR-JP-Irf">
+                        <rect key="frame" x="15" y="0.0" width="290" height="49.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    </textField>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="7bR-JP-Irf" secondAttribute="trailing" constant="15" id="AOd-sT-KGV"/>
+                    <constraint firstAttribute="bottom" secondItem="7bR-JP-Irf" secondAttribute="bottom" id="Jmb-Do-ZaK"/>
+                    <constraint firstItem="7bR-JP-Irf" firstAttribute="top" secondItem="GQe-hj-I80" secondAttribute="top" id="ZBk-K2-UYx"/>
+                    <constraint firstItem="7bR-JP-Irf" firstAttribute="leading" secondItem="GQe-hj-I80" secondAttribute="leading" constant="15" id="vGE-m3-mGj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="pagesTextField" destination="7bR-JP-Irf" id="ne4-LM-Y1y"/>
+            </connections>
+            <point key="canvasLocation" x="217" y="390"/>
+        </tableViewCell>
+    </objects>
+</document>

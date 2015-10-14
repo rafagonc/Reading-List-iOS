@@ -23,5 +23,6 @@
 @property (nonatomic) NSUInteger pages;
 @property (nonatomic) NSUInteger pagesRead;
 @property (nonatomic) NSString * language;
+@property (nonatomic,readonly) NSUInteger percentage;
 
 @end

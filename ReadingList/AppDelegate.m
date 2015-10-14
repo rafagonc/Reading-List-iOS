@@ -10,6 +10,7 @@
 #import "REDBookListViewController.h"
 #import "REDDepedencyInjection.h"
 #import "Depend/DPInjector.h"
+#import "REDStaticData.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,7 @@
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
+    [REDStaticData craateStaticData];
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
