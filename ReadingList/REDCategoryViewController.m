@@ -33,6 +33,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Choose Category";
+    
     self.tableView.dataSource = self.datasource;
     self.tableView.delegate = self;
     
@@ -50,7 +52,7 @@
     id<REDCategoryProtocol> category = [self.datasource data][indexPath.row];
     if (self.callback) self.callback(category);
     self.callback = nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - dealloc

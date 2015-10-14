@@ -13,11 +13,17 @@
 #import "REDBookCategoryCell.h"
 #import "REDBookPagesCell.h"
 #import "REDPageProgressCell.h"
+#import "REDCategoryViewController.h"
 
-@interface REDBookAddViewController ()
+@interface REDBookAddViewController () <REDBookCategoryCellDelegate> {
+
+}
 
 #pragma mark - properties
 @property (weak, nonatomic) IBOutlet UIStaticTableView *tableView;
+
+#pragma mark - ui
+@property (nonatomic,strong) REDBookCategoryCell *categoryCell;
 
 @end
 
@@ -60,8 +66,9 @@
     REDBookHeaderCell *headerCell = [[REDBookHeaderCell alloc] init];
     [self.tableView addCell:headerCell onSection:section];
     
-    REDBookCategoryCell *categoryCell = [[REDBookCategoryCell alloc] init];
-    [self.tableView addCell:categoryCell onSection:section];
+    self.categoryCell = [[REDBookCategoryCell alloc] init];
+    self.categoryCell.delegate = self;
+    [self.tableView addCell:self.categoryCell onSection:section];
     
     REDBookPagesCell *pagesCell = [[REDBookPagesCell alloc] init];
     [self.tableView addCell:pagesCell onSection:section];
@@ -70,6 +77,15 @@
     [self.tableView addCell:progressCell onSection:section];
     
     [self.tableView addSection:section];
+}
+
+#pragma mark - category cell delegate
+-(void)didSelectCategoryCell:(REDBookCategoryCell *)cell {
+    REDCategoryViewController *categories = [[REDCategoryViewController alloc] init];
+    categories.callback = ^(id<REDCategoryProtocol> category){
+        [self.categoryCell setCategory:category];
+    };
+    [self.navigationController pushViewController:categories animated:YES];
 }
 
 #pragma mark - actions

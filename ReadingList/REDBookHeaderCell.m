@@ -28,4 +28,10 @@
     [self.authorTextField setText:[[book artist] name]];
 }
 
+#pragma mark - chain of responsiblity
+-(void)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
+    [book setName:self.nameTextField.text];
+
+}
+
 @end

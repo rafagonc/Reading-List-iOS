@@ -8,6 +8,7 @@
 
 #import "REDCategoryDatasource.h"
 #import "REDCategoryProtocol.h"
+#import "UIFont+ReadingList.h"
 
 @interface REDCategoryDatasource ()
 
@@ -43,6 +44,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        [cell.textLabel setFont:[UIFont AvenirNextBoldWithSize:14.0f]];
     }
     
     id<REDCategoryProtocol> category = self.categories[indexPath.row];

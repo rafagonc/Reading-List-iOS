@@ -9,16 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "REDCategoryProtocol.h"
 
+@class REDBookCategoryCell;
+
 @protocol REDBookCategoryCellDelegate <NSObject>
 
--(void)tableView
+-(void)didSelectCategoryCell:(REDBookCategoryCell *)cell;
 
 @end
 
 @interface REDBookCategoryCell : UITableViewCell
 
 #pragma mark - properties
-@property (nonatomic,weak) id<REDCategoryProtocol> category;
+@property (nonatomic,strong) id<REDCategoryProtocol> category;
+@property (nonatomic,weak) id<REDBookCategoryCellDelegate> delegate;
 
 @end
 

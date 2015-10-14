@@ -199,6 +199,7 @@
 		2A74EC4E1BCE3FAA005F5E74 /* REDStaticData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDStaticData.m; sourceTree = "<group>"; };
 		2A74EC541BCE4014005F5E74 /* REDEntityCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDEntityCreator.h; sourceTree = "<group>"; };
 		2A74EC551BCE4014005F5E74 /* REDEntityCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDEntityCreator.m; sourceTree = "<group>"; };
+		2A74EC581BCEB54A005F5E74 /* REDBookCreationChainProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookCreationChainProtocol.h; sourceTree = "<group>"; };
 		3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,6 +288,7 @@
 		2A19B88B1BCDB3F2009C8F25 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2A74EC571BCEB52F005F5E74 /* Abstract */,
 				2A19B8981BCDB6DC009C8F25 /* Book Cell */,
 				2A74EC1E1BCDE2D4005F5E74 /* Book Header Cell */,
 				2A74EC2C1BCDE8F8005F5E74 /* Category Cell */,
@@ -666,6 +668,14 @@
 				2A74EC4E1BCE3FAA005F5E74 /* REDStaticData.m */,
 			);
 			name = "Static Data";
+			sourceTree = "<group>";
+		};
+		2A74EC571BCEB52F005F5E74 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2A74EC581BCEB54A005F5E74 /* REDBookCreationChainProtocol.h */,
+			);
+			name = Abstract;
 			sourceTree = "<group>";
 		};
 		3C1B8AFD86E40D76DA605411 /* Frameworks */ = {

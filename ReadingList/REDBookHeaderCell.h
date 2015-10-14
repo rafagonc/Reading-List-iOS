@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "REDBookProtocol.h"
+#import "REDBookCreationChainProtocol.h"
 
 @interface REDBookHeaderCell : UITableViewCell
+
+<REDBookCreationChainProtocol>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIButton *coverButton;

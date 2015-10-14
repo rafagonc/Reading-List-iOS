@@ -90,10 +90,10 @@
     [cell layoutIfNeeded];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
-//    if ([cell respondsToSelector:@selector(selected)]) {
-//        [cell performSelector:@selector(selected)];
-//    }
+    UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+    if ([cell respondsToSelector:@selector(selected)]) {
+        [cell performSelector:@selector(selected)];
+    }
     [self deselectRowAtIndexPath:indexPath animated:YES];
 
 }
