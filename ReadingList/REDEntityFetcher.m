@@ -6,45 +6,45 @@
 //  Copyright (c) 2015 Rafael Gonçalves. All rights reserved.
 //
 
-#import "SHEntityClassFactory.h"
-#import "SHEntityFetcher.h"
-#import "SHDataStack.h"
+#import "REDEntityClassFactory.h"
+#import "REDEntityFetcher.h"
+#import "REDDataStack.h"
 
-@interface SHEntityFetcher ()
+@interface REDEntityFetcher ()
 
 @property (nonatomic,strong) NSString *entityName;
 @property (nonatomic,strong) NSFetchRequest *fetchRequest;
 
 @end
 
-@implementation SHEntityFetcher
+@implementation REDEntityFetcher
 
 #pragma mark - constructor
 -(instancetype)initWithProtocol:(Protocol *)protocol {
     if (self = [super init]) {
-        self.entityName = NSStringFromClass([SHEntityClassFactory entityForProtocol:protocol]);
+        self.entityName = NSStringFromClass([REDEntityClassFactory entityClassForProtocol:protocol]);
     } return self;
 }
 
 #pragma mark - builder
-+(SHEntityFetcher *)withProtocol:(Protocol *)protocol {
-    SHEntityFetcher *fetcher = [[self alloc] initWithProtocol:protocol];
++(REDEntityFetcher *)withProtocol:(Protocol *)protocol {
+    REDEntityFetcher *fetcher = [[self alloc] initWithProtocol:protocol];
     fetcher.fetchRequest = [fetcher baseFetchRequest];
     return fetcher;
 }
--(SHEntityFetcher *)setFetchLimit:(NSUInteger)fetchLimit {
+-(REDEntityFetcher *)setFetchLimit:(NSUInteger)fetchLimit {
     [self.fetchRequest setFetchLimit:fetchLimit];
     return self;
 }
--(SHEntityFetcher *)setPredicate:(NSPredicate *)predicate {
+-(REDEntityFetcher *)setPredicate:(NSPredicate *)predicate {
     [self.fetchRequest setPredicate:predicate];
     return self;
 }
--(SHEntityFetcher *)setSortDescriptors:(NSArray *)sortDescriptors {
+-(REDEntityFetcher *)setSortDescriptors:(NSArray *)sortDescriptors {
     [self.fetchRequest setSortDescriptors:sortDescriptors];
     return self;
 }
--(SHEntityFetcher *)setColumns:(NSArray<NSString *> *)columns {
+-(REDEntityFetcher *)setColumns:(NSArray<NSString *> *)columns {
     [self.fetchRequest setPropertiesToFetch:columns];
     return self;
 }
@@ -79,7 +79,7 @@
 
 #pragma mark - getters and setters
 -(NSManagedObjectContext *)context {
-    return [[SHDataStack sharedManager] managedObjectContext];
+    return [[REDDataStack sharedManager] managedObjectContext];
 }
 
 @end

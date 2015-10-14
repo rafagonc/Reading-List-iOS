@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SHEntityRemover : NSObject
+@interface REDEntityRemover : NSObject
 
 #pragma mark - constructor
 -(instancetype)initWithObject:(id)object;

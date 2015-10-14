@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Rafael Gonçalves. All rights reserved.
 //
 
-#import "RDDataStack.h"
+#import "REDDataStack.h"
 
-@interface RDDataStack ()
+@interface REDDataStack ()
 
 #pragma mark - properties
 @property (strong, nonatomic) NSManagedObjectModel          * managedObjectModel;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation RDDataStack
+@implementation REDDataStack
 
 #pragma mark - singleton
 -(instancetype)init {
@@ -25,11 +25,11 @@
         
     } return self;
 }
-+(RDDataStack *)sharedManager {
-    static RDDataStack *dataManager;
++(REDDataStack *)sharedManager {
+    static REDDataStack *dataManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        dataManager = [[RDDataStack alloc] init];
+        dataManager = [[REDDataStack alloc] init];
     });
     return dataManager;
 }

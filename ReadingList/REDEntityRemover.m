@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 Rafael Gonçalves. All rights reserved.
 //
 
-#import "SHEntityRemover.h"
+#import "REDEntityRemover.h"
 #import "REDDataStack.h"
 
-@interface SHEntityRemover ()
+@interface REDEntityRemover ()
 
 @property (nonatomic,readonly) NSManagedObjectContext *context;
 @property (nonatomic,strong) id object;
 
 @end
 
-@implementation SHEntityRemover
+@implementation REDEntityRemover
 
 #pragma mark - constructor
 -(instancetype)initWithObject:(id)object {
@@ -40,7 +40,7 @@
 
 #pragma mark - getters
 -(NSManagedObjectContext *)context {
-    return [[SHDataStack sharedManager] managedObjectContext];
+    return [[REDDataStack sharedManager] managedObjectContext];
 }
 
 @end

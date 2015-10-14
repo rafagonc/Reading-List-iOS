@@ -8,10 +8,10 @@
 
 @import CoreData;
 
-@interface RDDataStack : NSObject
+@interface REDDataStack : NSObject
 
 #pragma mark - singleton
-+(RDDataStack *)sharedManager;
++(REDDataStack *)sharedManager;
 
 #pragma mark - context
 -(NSManagedObjectContext *)managedObjectContext;
