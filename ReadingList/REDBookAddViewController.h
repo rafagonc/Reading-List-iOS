@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDBookProtocol.h"
 
 @interface REDBookAddViewController : UIViewController
+
+#pragma mark - constructor
+-(instancetype)init;
+-(instancetype)initWithBook:(id<REDBookProtocol>)book;
 
 @end

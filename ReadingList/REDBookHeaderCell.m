@@ -9,6 +9,7 @@
 #import "REDBookHeaderCell.h"
 #import "UITextField+DoneButton.h"
 
+
 @implementation REDBookHeaderCell
 
 #pragma mark - constructor
@@ -29,9 +30,18 @@
 }
 
 #pragma mark - chain of responsiblity
--(void)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
+-(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
+    if (self.nameTextField.text.length == 0) {
+        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose a book name."}];
+        return NO;
+    }
+    if (self.authorTextField.text.length == 0) {
+        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose a artist name."}];
+        return NO;
+    }
     [book setName:self.nameTextField.text];
-
+    
+    return YES;
 }
 
 @end

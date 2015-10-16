@@ -13,17 +13,21 @@
 #import "REDBookCategoryCell.h"
 #import "REDBookPagesCell.h"
 #import "REDPageProgressCell.h"
+#import "REDEntityCreator.h"
 #import "REDCategoryViewController.h"
 
-@interface REDBookAddViewController () <REDBookCategoryCellDelegate> {
 
-}
+@interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate>
 
 #pragma mark - properties
-@property (weak, nonatomic) IBOutlet UIStaticTableView *tableView;
+@property (nonatomic,strong) id<REDBookProtocol> book;
 
 #pragma mark - ui
 @property (nonatomic,strong) REDBookCategoryCell *categoryCell;
+@property (nonatomic,strong) REDBookHeaderCell * headerCell;
+@property (nonatomic,strong) REDBookPagesCell * pagesCell;
+@property (nonatomic,strong) REDPageProgressCell *progressCell;
+@property (nonatomic,  weak) IBOutlet UIStaticTableView *tableView;
 
 @end
 
@@ -32,7 +36,12 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
-        
+        self.book = (id<REDBookProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDBookProtocol)];
+    } return self;
+}
+-(instancetype)initWithBook:(id<REDBookProtocol>)book {
+    if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
+        self.book = book;
     } return self;
 }
 
@@ -63,23 +72,37 @@
     UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
     [section setHeaderName:@"Book Info"];
     
-    REDBookHeaderCell *headerCell = [[REDBookHeaderCell alloc] init];
-    [self.tableView addCell:headerCell onSection:section];
+    self.headerCell = [[REDBookHeaderCell alloc] init];
+    [self.tableView addCell:self.headerCell onSection:section];
     
     self.categoryCell = [[REDBookCategoryCell alloc] init];
     self.categoryCell.delegate = self;
     [self.tableView addCell:self.categoryCell onSection:section];
     
-    REDBookPagesCell *pagesCell = [[REDBookPagesCell alloc] init];
-    [self.tableView addCell:pagesCell onSection:section];
+    self.pagesCell = [[REDBookPagesCell alloc] init];
+    [self.tableView addCell:self.pagesCell onSection:section];
     
-    REDPageProgressCell *progressCell = [[REDPageProgressCell alloc] init];
-    [self.tableView addCell:progressCell onSection:section];
+    self.progressCell = [[REDPageProgressCell alloc] init];
+    [self.tableView addCell:self.progressCell onSection:section];
     
     [self.tableView addSection:section];
 }
 
-#pragma mark - category cell delegate
+#pragma mark - process book
+-(BOOL)processBook {
+    NSError *error;
+    NSArray *chainOfResponsilbiity = @[self.categoryCell, self.headerCell, self.pagesCell, self.progressCell];
+    for (id<REDBookCreationChainProtocol> processor in chainOfResponsilbiity) {
+        [processor setNewValuesOnBook:self.book error:&error];
+        if (error) {
+            NSLog(@"%@",error);
+            return NO;
+        }
+    }
+    return YES;
+}
+
+#pragma mark - cell delegates
 -(void)didSelectCategoryCell:(REDBookCategoryCell *)cell {
     REDCategoryViewController *categories = [[REDCategoryViewController alloc] init];
     categories.callback = ^(id<REDCategoryProtocol> category){
@@ -87,10 +110,14 @@
     };
     [self.navigationController pushViewController:categories animated:YES];
 }
+-(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
+    [self.progressCell setPages:pages];
+}
 
 #pragma mark - actions
 -(void)createAction:(UIBarButtonItem *)createButton {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    BOOL success = [self processBook];
+    if (success) [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)cancelAction:(UIBarButtonItem *)cancelAction {
     [self dismissViewControllerAnimated:YES completion:nil];

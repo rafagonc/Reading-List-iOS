@@ -32,6 +32,16 @@
     self.categoryLabel.textColor = category ? [UIColor darkTextColor] : [UIColor lightGrayColor];
 }
 
+#pragma mark - chain of responsibility
+-(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
+    if (self.category == nil) {
+        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Choose a category!"}];
+        return NO;
+    }
+    [book setCategory:self.category];
+    return YES;
+}
+
 #pragma mark - overrides
 -(void)selected {
     if ([self.delegate respondsToSelector:@selector(didSelectCategoryCell:)]) {

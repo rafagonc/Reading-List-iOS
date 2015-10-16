@@ -12,5 +12,6 @@
 @interface REDPageProgressCell : UITableViewCell
 
 @property (nonatomic, weak) id<REDBookProtocol> book;
+@property (nonatomic, assign) NSUInteger pages;
 
 @end

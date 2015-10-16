@@ -24,16 +24,38 @@
 -(instancetype)init {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
     if (self) {
+        [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     } return self;
 }
 
 #pragma mark - setters
 -(void)setBook:(id<REDBookProtocol>)book {
     _book = book;
+    self.pages = [book pages];
     self.slider.minimumValue = 0.0f;
-    self.slider.maximumValue = (CGFloat)[book pages];
+    self.slider.maximumValue = self.pages;
     self.slider.value = (CGFloat)[book pagesRead];
-    self.percentageLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[book percentage]];
+    [self updateProgressLabel];
+}
+-(void)setPages:(NSUInteger)pages {
+    self.slider.maximumValue = self.pages;
+}
+
+#pragma mark - actions
+-(void)sliderValueChanged:(UISlider *)slider {
+    [self.book setPagesRead:slider.value];
+    [self updateProgressLabel];
+}
+
+#pragma mark - chain of responsiblity
+-(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
+    [self.book setPagesRead:self.slider.value];
+    return YES;
+}
+
+#pragma mark - helper methods
+-(void)updateProgressLabel {
+    self.percentageLabel.text = [NSString stringWithFormat:@"%lu%%", [self.book percentage]];
 }
 
 

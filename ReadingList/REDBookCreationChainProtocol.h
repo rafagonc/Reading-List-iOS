@@ -8,8 +8,9 @@
 
 #import "REDBookProtocol.h"
 
+
 @protocol REDBookCreationChainProtocol <NSObject>
 
--(void)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError **)error;
+-(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError **)error;
 
 @end

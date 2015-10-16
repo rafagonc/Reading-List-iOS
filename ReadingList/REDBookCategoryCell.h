@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "REDCategoryProtocol.h"
+#import "REDBookCreationChainProtocol.h"
 
 @class REDBookCategoryCell;
 
@@ -18,6 +19,8 @@
 @end
 
 @interface REDBookCategoryCell : UITableViewCell
+
+<REDBookCreationChainProtocol>
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDCategoryProtocol> category;
