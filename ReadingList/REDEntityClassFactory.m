@@ -11,8 +11,8 @@
 #import "REDBookProtocol.h"
 #import "REDBook.h"
 
-#import "REDArtistProtocol.h"
-#import "REDArtist.h"
+#import "REDAuthorProtocol.h"
+#import "REDAuthor.h"
 
 #import "REDCategoryProtocol.h"
 #import "REDCategory.h"
@@ -32,7 +32,7 @@
         self.protocol = protocol;
         self.map = @{
                      NSStringFromProtocol(@protocol(REDBookProtocol)) : [REDBook class],
-                     NSStringFromProtocol(@protocol(REDArtistProtocol)) : [REDArtist class],
+                     NSStringFromProtocol(@protocol(REDAuthorProtocol)) : [REDAuthor class],
                      NSStringFromProtocol(@protocol(REDCategoryProtocol)) : [REDCategory class],
                      };
     } return self;

@@ -12,8 +12,9 @@
 
 #pragma mark - digits
 -(BOOL)onlyDigits {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self MATCHES [0-9]+"];
-    return [predicate evaluateWithObject:predicate];
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+    return isNumeric;
 }
 
 @end

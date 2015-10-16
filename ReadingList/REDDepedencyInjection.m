@@ -11,12 +11,14 @@
 #import "REDDatasourceProtocol.h"
 #import "REDBookDatasource.h"
 #import "REDCategoryDatasource.h"
+#import "REDAuthorDatasource.h"
 
 @implementation REDDepedencyInjection
 
 +(void)registerImplementations {
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"book"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"category"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"author"];
 
 }
 

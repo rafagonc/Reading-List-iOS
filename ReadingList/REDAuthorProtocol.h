@@ -8,7 +8,7 @@
 
 #import "REDNamable.h"
 
-@protocol REDArtistProtocol <REDNamable>
+@protocol REDAuthorProtocol <REDNamable>
 
 -(NSSet *)books;
 

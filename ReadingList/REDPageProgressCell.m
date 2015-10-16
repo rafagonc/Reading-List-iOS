@@ -38,7 +38,8 @@
     [self updateProgressLabel];
 }
 -(void)setPages:(NSUInteger)pages {
-    self.slider.maximumValue = self.pages;
+    _pages = pages;
+    self.slider.maximumValue = (CGFloat)self.pages;
 }
 
 #pragma mark - actions

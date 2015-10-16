@@ -13,7 +13,7 @@ const struct REDBookAttributes REDBookAttributes = {
 };
 
 const struct REDBookRelationships REDBookRelationships = {
-	.artist = @"artist",
+	.author = @"author",
 	.category = @"category",
 };
 
@@ -128,7 +128,7 @@ const struct REDBookRelationships REDBookRelationships = {
 	[self setPrimitivePagesRead:[NSNumber numberWithShort:value_]];
 }
 
-@dynamic artist;
+@dynamic author;
 
 @dynamic category;
 

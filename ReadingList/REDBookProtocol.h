@@ -8,13 +8,13 @@
 
 #import <UIKit/UIImage.h>
 #import "REDNamable.h"
-#import "REDArtistProtocol.h"
+#import "REDAuthorProtocol.h"
 #import "REDCategoryProtocol.h"
 
 @protocol REDBookProtocol <REDNamable>
 
 #pragma mark - relationships
-@property (nonatomic) id<REDArtistProtocol> artist;
+@property (nonatomic) id<REDAuthorProtocol> author;
 @property (nonatomic) id<REDCategoryProtocol> category;
 
 #pragma mark - properties

@@ -10,6 +10,15 @@
 #import "REDBookProtocol.h"
 #import "REDBookCreationChainProtocol.h"
 
+@class REDBookHeaderCell;
+@protocol REDBookHeaderCellDelegate <NSObject>
+
+-(void)didSelectAuthorInBookHeaderCell:(REDBookHeaderCell *)headerCell;
+-(void)didSelectCoverInBookHeaderCell:(REDBookHeaderCell *)headerCell;
+
+@end
+
+
 @interface REDBookHeaderCell : UITableViewCell
 
 <REDBookCreationChainProtocol>
@@ -17,9 +26,11 @@
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIButton *coverButton;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *authorTextField;
+@property (weak, nonatomic) IBOutlet UIButton *authorButton;
 
-#pragma mark - book
+#pragma mark - properties
 @property (nonatomic,weak) id<REDBookProtocol> book;
+@property (nonatomic,weak) id<REDAuthorProtocol> author;
+@property (nonatomic,weak) id<REDBookHeaderCellDelegate> delegate;
 
 @end

@@ -47,13 +47,13 @@
     return YES;
 }
 
-#pragma mark text field delegate
+#pragma mark - text field delegate
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField.text onlyDigits]) {
-        [self.delegate pagesCell:self didChangeBookPages:[textField.text integerValue]];
-        
-    }
+    if ([textField.text onlyDigits]) [self.delegate pagesCell:self didChangeBookPages:[textField.text integerValue]];
     return YES;
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    if ([textField.text onlyDigits]) [self.delegate pagesCell:self didChangeBookPages:[textField.text integerValue]];
 }
 
 @end

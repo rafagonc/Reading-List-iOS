@@ -1,37 +1,37 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to REDArtist.m instead.
+// Make changes to REDAuthor.m instead.
 
-#import "_REDArtist.h"
+#import "_REDAuthor.h"
 
-const struct REDArtistAttributes REDArtistAttributes = {
+const struct REDAuthorAttributes REDAuthorAttributes = {
 	.name = @"name",
 };
 
-const struct REDArtistRelationships REDArtistRelationships = {
+const struct REDAuthorRelationships REDAuthorRelationships = {
 	.books = @"books",
 };
 
-@implementation REDArtistID
+@implementation REDAuthorID
 @end
 
-@implementation _REDArtist
+@implementation _REDAuthor
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"REDArtist" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"REDAuthor" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"REDArtist";
+	return @"REDAuthor";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"REDArtist" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"REDAuthor" inManagedObjectContext:moc_];
 }
 
-- (REDArtistID*)objectID {
-	return (REDArtistID*)[super objectID];
+- (REDAuthorID*)objectID {
+	return (REDAuthorID*)[super objectID];
 }
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {

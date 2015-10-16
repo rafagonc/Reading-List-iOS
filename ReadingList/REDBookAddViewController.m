@@ -15,9 +15,10 @@
 #import "REDPageProgressCell.h"
 #import "REDEntityCreator.h"
 #import "REDCategoryViewController.h"
+#import "REDAuthorViewController.h"
 
 
-@interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate>
+@interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookProtocol> book;
@@ -73,6 +74,7 @@
     [section setHeaderName:@"Book Info"];
     
     self.headerCell = [[REDBookHeaderCell alloc] init];
+    self.headerCell.delegate = self;
     [self.tableView addCell:self.headerCell onSection:section];
     
     self.categoryCell = [[REDBookCategoryCell alloc] init];
@@ -80,6 +82,7 @@
     [self.tableView addCell:self.categoryCell onSection:section];
     
     self.pagesCell = [[REDBookPagesCell alloc] init];
+    self.pagesCell.delegate = self;
     [self.tableView addCell:self.pagesCell onSection:section];
     
     self.progressCell = [[REDPageProgressCell alloc] init];
@@ -112,6 +115,16 @@
 }
 -(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
     [self.progressCell setPages:pages];
+}
+-(void)didSelectCoverInBookHeaderCell:(REDBookHeaderCell *)headerCell {
+    
+}
+-(void)didSelectAuthorInBookHeaderCell:(REDBookHeaderCell *)headerCell {
+    REDAuthorViewController *authorViewController = [[REDAuthorViewController alloc] init];
+    authorViewController.callback = ^(id<REDAuthorProtocol> author) {
+        [self.headerCell setAuthor:author];
+    };
+    [self.navigationController pushViewController:authorViewController animated:YES];
 }
 
 #pragma mark - actions

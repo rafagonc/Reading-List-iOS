@@ -8,6 +8,9 @@
 
 @implementation REDBook
 
-// Custom logic goes here.
+#pragma mark - getters
+-(NSUInteger)percentage {
+    return (NSUInteger)(self.pagesRead/self.pages * 100);
+}
 
 @end

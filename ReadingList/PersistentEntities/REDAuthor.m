@@ -1,12 +1,12 @@
-#import "REDArtist.h"
+#import "REDAuthor.h"
 
-@interface REDArtist ()
+@interface REDAuthor ()
 
 // Private interface goes here.
 
 @end
 
-@implementation REDArtist
+@implementation REDAuthor
 
 // Custom logic goes here.
 

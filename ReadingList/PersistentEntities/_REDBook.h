@@ -13,11 +13,11 @@ extern const struct REDBookAttributes {
 } REDBookAttributes;
 
 extern const struct REDBookRelationships {
-	__unsafe_unretained NSString *artist;
+	__unsafe_unretained NSString *author;
 	__unsafe_unretained NSString *category;
 } REDBookRelationships;
 
-@class REDArtist;
+@class REDAuthor;
 @class REDCategory;
 
 @interface REDBookID : NSManagedObjectID {}
@@ -65,9 +65,9 @@ extern const struct REDBookRelationships {
 
 //- (BOOL)validatePagesRead:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) REDArtist *artist;
+@property (nonatomic, strong) REDAuthor *author;
 
-//- (BOOL)validateArtist:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateAuthor:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) REDCategory *category;
 
@@ -104,8 +104,8 @@ extern const struct REDBookRelationships {
 - (int16_t)primitivePagesReadValue;
 - (void)setPrimitivePagesReadValue:(int16_t)value_;
 
-- (REDArtist*)primitiveArtist;
-- (void)setPrimitiveArtist:(REDArtist*)value;
+- (REDAuthor*)primitiveAuthor;
+- (void)setPrimitiveAuthor:(REDAuthor*)value;
 
 - (REDCategory*)primitiveCategory;
 - (void)setPrimitiveCategory:(REDCategory*)value;

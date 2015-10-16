@@ -1,26 +1,26 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to REDArtist.h instead.
+// Make changes to REDAuthor.h instead.
 
 #import <CoreData/CoreData.h>
 
-extern const struct REDArtistAttributes {
+extern const struct REDAuthorAttributes {
 	__unsafe_unretained NSString *name;
-} REDArtistAttributes;
+} REDAuthorAttributes;
 
-extern const struct REDArtistRelationships {
+extern const struct REDAuthorRelationships {
 	__unsafe_unretained NSString *books;
-} REDArtistRelationships;
+} REDAuthorRelationships;
 
 @class REDBook;
 
-@interface REDArtistID : NSManagedObjectID {}
+@interface REDAuthorID : NSManagedObjectID {}
 @end
 
-@interface _REDArtist : NSManagedObject {}
+@interface _REDAuthor : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-@property (nonatomic, readonly, strong) REDArtistID* objectID;
+@property (nonatomic, readonly, strong) REDAuthorID* objectID;
 
 @property (nonatomic, strong) NSString* name;
 
@@ -32,7 +32,7 @@ extern const struct REDArtistRelationships {
 
 @end
 
-@interface _REDArtist (BooksCoreDataGeneratedAccessors)
+@interface _REDAuthor (BooksCoreDataGeneratedAccessors)
 - (void)addBooks:(NSSet*)value_;
 - (void)removeBooks:(NSSet*)value_;
 - (void)addBooksObject:(REDBook*)value_;
@@ -40,7 +40,7 @@ extern const struct REDArtistRelationships {
 
 @end
 
-@interface _REDArtist (CoreDataGeneratedPrimitiveAccessors)
+@interface _REDAuthor (CoreDataGeneratedPrimitiveAccessors)
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
