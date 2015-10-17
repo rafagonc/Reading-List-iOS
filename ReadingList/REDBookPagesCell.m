@@ -9,11 +9,12 @@
 #import "REDBookPagesCell.h"
 #import "UITextField+DoneButton.h"
 #import "NSString+Digits.h"
+#import "REDNoActionTextField.h"
 
 @interface REDBookPagesCell () <UITextFieldDelegate>
 
 #pragma mark - ui
-@property (weak, nonatomic) IBOutlet UITextField *pagesTextField;
+@property (weak, nonatomic) IBOutlet REDNoActionTextField *pagesTextField;
 
 @end
 

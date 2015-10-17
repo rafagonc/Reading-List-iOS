@@ -46,6 +46,7 @@
 		2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A19B8B61BCDC0CA009C8F25 /* UIStaticTableView.m */; settings = {ASSET_TAGS = (); }; };
 		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; settings = {ASSET_TAGS = (); }; };
 		2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */; settings = {ASSET_TAGS = (); }; };
+		2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E531BD3042600677868 /* REDNoActionTextField.m */; settings = {ASSET_TAGS = (); }; };
 		2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBAE1BCD50B7005F5E74 /* main.m */; };
 		2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */; };
 		2A74EBBB1BCD50B8005F5E74 /* ReadingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB91BCD50B8005F5E74 /* ReadingList.xcdatamodeld */; };
@@ -175,6 +176,8 @@
 		2A2A1E4C1BD2F0E000677868 /* UISearchBar+Toolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+Toolbar.h"; sourceTree = "<group>"; };
 		2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Toolbar.m"; sourceTree = "<group>"; };
 		2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "romeo-and-juliet.jpg"; sourceTree = "<group>"; };
+		2A2A1E521BD3042600677868 /* REDNoActionTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNoActionTextField.h; sourceTree = "<group>"; };
+		2A2A1E531BD3042600677868 /* REDNoActionTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNoActionTextField.m; sourceTree = "<group>"; };
 		2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74EBAE1BCD50B7005F5E74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A74EBB01BCD50B7005F5E74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -539,6 +542,7 @@
 				2ADCC0AB1BD2D370009F638A /* SHLoadingView */,
 				2ADCC09D1BD2D283009F638A /* Notification View */,
 				2A19B8B81BCDC0CF009C8F25 /* Static Table View */,
+				2A2A1E551BD3042A00677868 /* No Action Text Field */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -550,6 +554,15 @@
 				2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */,
 			);
 			name = UISearchBar;
+			sourceTree = "<group>";
+		};
+		2A2A1E551BD3042A00677868 /* No Action Text Field */ = {
+			isa = PBXGroup;
+			children = (
+				2A2A1E521BD3042600677868 /* REDNoActionTextField.h */,
+				2A2A1E531BD3042600677868 /* REDNoActionTextField.m */,
+			);
+			name = "No Action Text Field";
 			sourceTree = "<group>";
 		};
 		2A74EBA11BCD50B7005F5E74 = {
@@ -1537,6 +1550,7 @@
 				2ADCC0851BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m in Sources */,
 				2A19B89D1BCDB707009C8F25 /* REDDepedencyInjection.m in Sources */,
 				2ADCC05B1BD1FC69009F638A /* REDDELETEHTTPRequest.m in Sources */,
+				2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */,
 				2A74EC991BD0AA52005F5E74 /* REDImageSearchCall.m in Sources */,
 				2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */,
 				2A74EC861BD0A891005F5E74 /* REDImageSearchRequest.m in Sources */,
