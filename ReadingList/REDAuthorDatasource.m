@@ -9,6 +9,7 @@
 #import "REDAuthorDatasource.h"
 #import "REDAuthorProtocol.h"
 #import "UIFont+ReadingList.h"
+#import "UITableViewCell+Clear.h"
 
 @interface REDAuthorDatasource ()
 
@@ -21,6 +22,8 @@
 @end
 
 @implementation REDAuthorDatasource
+
+@synthesize delegate;
 
 #pragma mark - getters and setters
 -(void)setData:(NSArray *)data {
@@ -45,6 +48,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         [cell.textLabel setFont:[UIFont AvenirNextRegularWithSize:14.0f]];
+        [cell clearBackgroundSelection];
     }
     
     if (indexPath.section) {

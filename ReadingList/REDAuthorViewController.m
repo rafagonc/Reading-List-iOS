@@ -41,6 +41,10 @@
     
     [self updateData];
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateData];
+}
 
 #pragma mark - methods
 -(void)updateData {

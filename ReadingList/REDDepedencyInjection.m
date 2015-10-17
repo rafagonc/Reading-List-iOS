@@ -20,6 +20,8 @@
 #import "REDServiceDispatcherProtocol.h"
 #import "REDDictionary2ModelFactoryProtocol.h"
 #import "REDGoogleImageDictionary2ModelFactory.h"
+#import "REDCollectionViewDatasourceProtocol.h"
+#import "REDImageSearchCollectionViewDatasource.h"
 
 @implementation REDDepedencyInjection
 
@@ -31,6 +33,8 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDServiceResponse class] forProtocol:@protocol(REDServiceResponseProtocol) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDServiceDispatcher class] forProtocol:@protocol(REDServiceDispatcherProtocol) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleImageDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleImage"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDImageSearchCollectionViewDatasource class] forProtocol:@protocol(REDCollectionViewDatasourceProtocol) context:@"googleImage"];
+
 }
 
 @end

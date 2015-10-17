@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '93DA7911C24D5D93F297BAAF'
+               BlueprintIdentifier = 'DEF3F0D543EE008DC6E8856A'
                BlueprintName = 'Depend'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libDepend.a'>

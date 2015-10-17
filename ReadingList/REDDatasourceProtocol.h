@@ -13,4 +13,6 @@
 #pragma mark - properties
 @property (nonatomic,copy) NSArray *data;
 
+@property (nonatomic,weak) id delegate;
+
 @end

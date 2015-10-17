@@ -11,31 +11,46 @@
 #import "REDImageSearchRequest.h"
 #import "REDServiceDispatcherProtocol.h"
 #import "REDServiceResponseProtocol.h"
+#import "REDCollectionViewDatasourceProtocol.h"
 #import "REDNavigationBarCustomizer.h"
+#import "REDImageSearchCollectionViewDatasourceDelegate.h"
+#import "UIViewController+Loading.h"
 
-@interface REDImageSearchViewController ()
+@interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 #pragma mark - injected
 @property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> dispatcher;
+@property (setter=injected_googleImage:,readonly) id<REDCollectionViewDatasourceProtocol> datasource;
+
+#pragma mark - property
+@property (nonatomic,strong) NSString *bookName;
+@property (nonatomic,strong) NSString *authorName;
 
 @end
 
 @implementation REDImageSearchViewController
 
 #pragma mark - init
--(instancetype)init {
+-(instancetype)initWithBookName:(NSString *)bookName andAuthor:(NSString *)author {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
-        
+        self.authorName = author;
+        self.bookName = bookName;
     } return self;
 }
 
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Choose Image";
+    self.title = @"Choose Cover";
+    
+    self.collectionView.dataSource = self.datasource;
+    self.collectionView.delegate = self.datasource;
+    [self.datasource setDelegate:self];
+    
+    [self.collectionView reloadData];
     [self setUpBarButtonItems];
     [self consume];
 }
@@ -56,17 +71,32 @@
 
 #pragma mark - service
 -(void)consume {
-    REDImageSearchRequest *request = [[REDImageSearchRequest alloc] initWithQuery:@"monkey"];
+    [self startFullLoading];
+    REDImageSearchRequest *request = [[REDImageSearchRequest alloc] initWithQuery:[self query]];
     [request nextPage];
     [self.dispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
 }
 -(void)response:(NSNotification *)notification {
     id<REDServiceResponseProtocol> response = notification.object;
     if ([response success]) {
-        
+        [self.datasource setData:[response data]];
+        [self.collectionView reloadData];
     } else {
         
     }
+    [self stopFullLoading];
+}
+
+#pragma mark - datasource delegate
+-(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image {
+    if (self.callback) self.callback(image);
+    self.callback = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - getters
+-(NSString *)query {
+    return [NSString stringWithFormat:@"%@ - %@", self.bookName, self.authorName];
 }
 
 #pragma mark - actions

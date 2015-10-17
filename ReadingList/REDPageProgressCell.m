@@ -31,10 +31,11 @@
 #pragma mark - setters
 -(void)setBook:(id<REDBookProtocol>)book {
     _book = book;
-    self.pages = [book pages];
+    self.pages = [book pagesValue];
+    self.pagesRead = [book pagesReadValue];
     self.slider.minimumValue = 0.0f;
     self.slider.maximumValue = self.pages;
-    self.slider.value = (CGFloat)[book pagesRead];
+    self.slider.value = (CGFloat)[book pagesReadValue];
     [self updateProgressLabel];
 }
 -(void)setPages:(NSUInteger)pages {
@@ -44,19 +45,19 @@
 
 #pragma mark - actions
 -(void)sliderValueChanged:(UISlider *)slider {
-    [self.book setPagesRead:slider.value];
+    [self setPagesRead:slider.value];
     [self updateProgressLabel];
 }
 
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
-    [self.book setPagesRead:self.slider.value];
+    [self.book setPagesReadValue:self.pagesRead];
     return YES;
 }
 
 #pragma mark - helper methods
 -(void)updateProgressLabel {
-    self.percentageLabel.text = [NSString stringWithFormat:@"%lu%%", [self.book percentage]];
+    self.percentageLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.pagesRead];
 }
 
 

@@ -13,5 +13,6 @@
 
 @property (nonatomic, weak) id<REDBookProtocol> book;
 @property (nonatomic, assign) NSUInteger pages;
+@property (nonatomic, assign) NSUInteger pagesRead;
 
 @end

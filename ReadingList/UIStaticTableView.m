@@ -58,6 +58,7 @@
     self.dataSource = self;
 }
 
+#pragma GCC diagnostic ignored "-Wwarning-flag"
 #pragma mark - Table View Delegate And Datasource
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[self.sections[indexPath.section] cells] objectAtIndex:indexPath.row];
@@ -89,6 +90,8 @@
 -(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [cell layoutIfNeeded];
 }
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wundeclared-selector"
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
     if ([cell respondsToSelector:@selector(selected)]) {
@@ -97,6 +100,7 @@
     [self deselectRowAtIndexPath:indexPath animated:YES];
 
 }
+#pragma GCC diagnostic pop
 
 #pragma mark - overrided setters
 -(void)setDelegate:(id<UITableViewDelegate>)delegate {

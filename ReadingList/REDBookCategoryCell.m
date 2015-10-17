@@ -28,14 +28,14 @@
 #pragma mark - setter
 -(void)setCategory:(id<REDCategoryProtocol>)category {
     _category = category;
-    self.categoryLabel.text = [category name];
+    self.categoryLabel.text = category ? [category name] : @"Category";
     self.categoryLabel.textColor = category ? [UIColor darkTextColor] : [UIColor lightGrayColor];
 }
 
 #pragma mark - chain of responsibility
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     if (self.category == nil) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Choose a category!"}];
+        if (error) *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Choose a category!"}];
         return NO;
     }
     [book setCategory:self.category];

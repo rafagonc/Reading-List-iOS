@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDBookAddViewController">
             <connections>
+                <outlet property="quoteLabel" destination="9nn-8E-RR5" id="bOQ-0c-EDe"/>
                 <outlet property="tableView" destination="7Jk-oT-DeA" id="Z8H-Iv-AUm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,6 +21,27 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <view key="tableFooterView" contentMode="scaleToFill" id="vTf-My-Nza">
+                        <rect key="frame" x="0.0" y="411.5" width="320" height="91"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nn-8E-RR5">
+                                <rect key="frame" x="20" y="20" width="280" height="71"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9nn-8E-RR5" firstAttribute="top" secondItem="vTf-My-Nza" secondAttribute="top" constant="20" id="Dy3-aG-hbe"/>
+                            <constraint firstAttribute="bottom" secondItem="9nn-8E-RR5" secondAttribute="bottom" id="NaL-Qi-vAi"/>
+                            <constraint firstItem="9nn-8E-RR5" firstAttribute="leading" secondItem="vTf-My-Nza" secondAttribute="leading" constant="20" id="RUE-YF-OJa"/>
+                            <constraint firstAttribute="trailing" secondItem="9nn-8E-RR5" secondAttribute="trailing" constant="20" id="xxm-Sq-6yp"/>
+                        </constraints>
+                    </view>
                 </tableView>
             </subviews>
             <animations/>

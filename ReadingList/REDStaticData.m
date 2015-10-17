@@ -10,6 +10,8 @@
 #import "REDEntityCreator.h"
 #import "REDDataStack.h"
 #import "REDCategoryProtocol.h"
+#import "REDBookProtocol.h"
+#import "REDAuthorProtocol.h"
 
 static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 
@@ -44,9 +46,9 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
     NSArray *categories = @[@"Arts & Photohgraphy",
                             @"Biographies & Memories",
                             @"Business & Money",
-                            @"Children's Book",
                             @"Christian Books",
                             @"Comics",
+                            @"Children's Book",
                             @"Computers & Technology",
                             @"Cookbooks, Food & Wine",
                             @"Crafts, Hobbies & Home",
@@ -64,7 +66,6 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
                             @"Politics & Social",
                             @"Reference",
                             @"Religion",
-                            @"Romance",
                             @"Science & Math",
                             @"Science Fiction",
                             @"Spots & Outdoors",
@@ -76,6 +77,21 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
         id<REDCategoryProtocol> category  = (id<REDCategoryProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDCategoryProtocol)];
         [category setName:name];
     }
+    
+    id<REDCategoryProtocol> romanceCategory = (id<REDCategoryProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDCategoryProtocol)];
+    [romanceCategory setName:@"Romance"];
+    
+    id<REDAuthorProtocol> author = (id<REDAuthorProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDAuthorProtocol)];
+    [author setName:@"William Shakespeare"];
+    
+    id<REDBookProtocol> book = (id<REDBookProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDBookProtocol)];
+    [book setName:@"Romeo And Juliet"];
+    [book setAuthor:author];
+    [book setPagesValue:323];
+    [book setPagesReadValue:0];
+    [book setCategory:romanceCategory];
+    [book setCoverImage:[UIImage imageNamed:@"romeo-and-juliet.jpg"]];
+    
     
     [[REDDataStack sharedManager] commit];
 }

@@ -13,6 +13,7 @@
 #import "REDNavigationBarCustomizer.h"
 #import "REDEntityCreator.h"
 #import "REDAuthorProtocol.h"
+#import "UIViewController+NotificationShow.h"
 
 @interface REDAuthorCreateViewController ()
 
@@ -80,15 +81,15 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         if (self.callback) self.callback(author);
         self.callback = nil;
-        [[REDDataStack sharedManager] commit];
     }
 }
 
 #pragma mark - validation
 -(BOOL)isValid {
-    BOOL valid = self.authorNameCell.textField.text.length > 3;
+#warning MOVE RULE TO MODEL
+    BOOL valid = self.authorNameCell.textField.text.length > 0;
     if (!valid) {
-#warning show error
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Complete the author's name"];
         return NO;
     } else return YES;
 }

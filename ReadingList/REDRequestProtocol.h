@@ -6,7 +6,7 @@
 //  Copyright © 2015 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDHTMLEncodeProtocol.h"
+#import "REDHTTPEncodeProtocol.h"
 
 typedef NS_ENUM(NSUInteger, REDHTTPMethod) {
     REDHTTPMethodGET,

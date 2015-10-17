@@ -5,7 +5,6 @@
         <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="REDBook" inverseName="author" inverseEntity="REDBook" syncable="YES"/>
     </entity>
     <entity name="REDBook" representedClassName="REDBook" syncable="YES">
-        <attribute name="completed" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
         <attribute name="cover" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,8 +18,8 @@
         <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="REDBook" inverseName="category" inverseEntity="REDBook" syncable="YES"/>
     </entity>
     <elements>
-        <element name="REDBook" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="REDAuthor" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="REDBook" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="REDCategory" positionX="-36" positionY="9" width="128" height="75"/>
     </elements>
 </model>

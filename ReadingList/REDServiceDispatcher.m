@@ -8,7 +8,7 @@
 
 #import "REDServiceDispatcher.h"
 #import "REDServiceCallFactory.h"
-#import "REDHTMLEncodeProtocol.h"
+#import "REDHTTPEncodeProtocol.h"
 #import "REDRequestProtocol.h"
 
 @interface REDServiceDispatcher ()

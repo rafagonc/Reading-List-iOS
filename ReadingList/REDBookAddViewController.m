@@ -18,6 +18,9 @@
 #import "REDAuthorViewController.h"
 #import "REDEntityRemover.h"
 #import "REDImageSearchViewController.h"
+#import "REDDataStack.h"
+#import "UIViewController+NotificationShow.h"
+#import "REDRandomQuoteGenerator.h"
 
 
 @interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate>
@@ -32,6 +35,7 @@
 @property (nonatomic,strong) REDBookPagesCell * pagesCell;
 @property (nonatomic,strong) REDPageProgressCell *progressCell;
 @property (nonatomic,  weak) IBOutlet UIStaticTableView *tableView;
+@property (nonatomic,  weak) IBOutlet UILabel *quoteLabel;
 
 @end
 
@@ -54,23 +58,34 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"New Book";
+    self.title = self.isEditing ? @"Edit Book" : @"New Book";
     [self createTableView];
     [self setUpBarButtonItems];
+    [self.quoteLabel setText:[REDRandomQuoteGenerator quote]];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
 }
+-(void)viewWillDisappear:(BOOL)animated {
+    if (self.isMovingFromParentViewController) {
+        NSError * error;
+        if ([self processBook:&error] == NO && !self.isEditing) {
+            [REDEntityRemover removeObject:self.book];
+        } else {
+            [[REDDataStack sharedManager] commit];
+        }
+    }
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (!self.isEditing) [self.headerCell.nameTextField becomeFirstResponder];
+}
 
 #pragma mark - setups
 -(void)setUpBarButtonItems {
-    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStyleDone target:self action:@selector(createAction:)];
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
     [self.navigationItem setRightBarButtonItem:doneButton];
-    
-    UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
-    [self.navigationItem setLeftBarButtonItem:cancelButton];
-    
 }
 
 #pragma mark - table view
@@ -79,35 +94,48 @@
     [section setHeaderName:@"Book Info"];
     
     self.headerCell = [[REDBookHeaderCell alloc] init];
+    [self.headerCell setBook:self.book];
     self.headerCell.delegate = self;
     [self.tableView addCell:self.headerCell onSection:section];
     
     self.categoryCell = [[REDBookCategoryCell alloc] init];
+    [self.categoryCell setCategory:[self.book category]];
     self.categoryCell.delegate = self;
     [self.tableView addCell:self.categoryCell onSection:section];
     
     self.pagesCell = [[REDBookPagesCell alloc] init];
+    [self.pagesCell setPages:[[self book] pagesValue]];
     self.pagesCell.delegate = self;
     [self.tableView addCell:self.pagesCell onSection:section];
     
     self.progressCell = [[REDPageProgressCell alloc] init];
+    [self.progressCell setBook:self.book];
+    [self.progressCell setPages:[self.book pagesValue]];
     [self.tableView addCell:self.progressCell onSection:section];
     
     [self.tableView addSection:section];
 }
 
 #pragma mark - process book
--(BOOL)processBook {
-    NSError *error;
+-(BOOL)processBook:(NSError * _Nullable __autoreleasing *)error {
     NSArray *chainOfResponsilbiity = @[self.categoryCell, self.headerCell, self.pagesCell, self.progressCell];
     for (id<REDBookCreationChainProtocol> processor in chainOfResponsilbiity) {
-        [processor setNewValuesOnBook:self.book error:&error];
-        if (error) {
-            NSLog(@"%@",error);
+        [processor setNewValuesOnBook:self.book error:error];
+        if (*error) {
             return NO;
         }
     }
+    [[REDDataStack sharedManager] commit];
     return YES;
+}
+-(BOOL)finishBook {
+    NSError *error;
+    BOOL success = [self processBook:&error];
+    if (success) [self.navigationController popViewControllerAnimated:YES];
+    else {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+    }
+    return success;
 }
 
 #pragma mark - cell delegates
@@ -119,14 +147,21 @@
     [self.navigationController pushViewController:categories animated:YES];
 }
 -(void)didSelectCoverInBookHeaderCell:(REDBookHeaderCell *)headerCell {
-    REDImageSearchViewController *imageSearchViewController = [[REDImageSearchViewController alloc] init];
+    if (self.headerCell.nameTextField.text.length == 0) {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the book name to find a cover"];
+        return;
+    }
+    REDImageSearchViewController *imageSearchViewController = [[REDImageSearchViewController alloc] initWithBookName:headerCell.nameTextField.text andAuthor:headerCell.authorButton.currentTitle];
+    imageSearchViewController.callback = ^(UIImage *image) {
+        [headerCell setCoverImage:image];
+    };
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:imageSearchViewController] animated:YES completion:nil];
     
 }
 -(void)didSelectAuthorInBookHeaderCell:(REDBookHeaderCell *)headerCell {
     REDAuthorViewController *authorViewController = [[REDAuthorViewController alloc] init];
     authorViewController.callback = ^(id<REDAuthorProtocol> author) {
-        [self.headerCell setAuthor:author];
+        [headerCell setAuthor:author];
     };
     [self.navigationController pushViewController:authorViewController animated:YES];
 }
@@ -135,13 +170,11 @@
 }
 
 #pragma mark - actions
--(void)createAction:(UIBarButtonItem *)createButton {
-    BOOL success = [self processBook];
-    if (success) [self dismissViewControllerAnimated:YES completion:nil];
-}
--(void)cancelAction:(UIBarButtonItem *)cancelAction {
-    if (self.isEditing) [REDEntityRemover removeObject:self.book];
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(void)doneAction:(UIBarButtonItem *)createButton {
+    if ([self finishBook]) {
+        [self.navigationController popViewControllerAnimated:YES];
+        [[REDDataStack sharedManager] commit];
+    }
 }
 
 #pragma mark - dealloc

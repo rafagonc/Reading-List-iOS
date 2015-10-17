@@ -9,6 +9,7 @@
 #import "REDCategoryDatasource.h"
 #import "REDCategoryProtocol.h"
 #import "UIFont+ReadingList.h"
+#import "UITableViewCell+Clear.h"
 
 @interface REDCategoryDatasource ()
 
@@ -21,6 +22,8 @@
 @end
 
 @implementation REDCategoryDatasource
+
+@synthesize delegate;
 
 #pragma mark - getters and setters
 -(void)setData:(NSArray *)data {
@@ -45,6 +48,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         [cell.textLabel setFont:[UIFont AvenirNextRegularWithSize:14.0f]];
+        [cell clearBackgroundSelection];
     }
     
     id<REDCategoryProtocol> category = self.categories[indexPath.row];

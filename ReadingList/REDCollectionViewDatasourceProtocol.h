@@ -9,6 +9,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol REDCollectionViewDatasourceProtocol <UICollectionViewDelegate, UICollectionViewDatasource>
+@protocol REDCollectionViewDatasourceProtocol <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic,strong) NSArray *data;
+
+@property (nonatomic, weak) id delegate;
 
 @end

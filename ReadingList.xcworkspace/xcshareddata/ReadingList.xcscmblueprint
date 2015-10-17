@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "502F4617AAC2FC8ED6A226C330672FDC9B1DF34C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "502F4617AAC2FC8ED6A226C330672FDC9B1DF34C" : 0,
+    "D67D8E9BE09CFF1A0F40C583AD586E40168ADAD9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6579277A-8086-4D90-853E-03D3A284462B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "502F4617AAC2FC8ED6A226C330672FDC9B1DF34C" : "ReadingList\/",
+    "D67D8E9BE09CFF1A0F40C583AD586E40168ADAD9" : "share\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ReadingList",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ReadingList.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/rafagonc\/reading-list.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "502F4617AAC2FC8ED6A226C330672FDC9B1DF34C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/rafagonc\/share.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D67D8E9BE09CFF1A0F40C583AD586E40168ADAD9"
+    }
+  ]
+}

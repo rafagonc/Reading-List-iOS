@@ -31,7 +31,7 @@
 #pragma mark - setters
 -(void)setPages:(NSUInteger)pages {
     _pages = pages;
-    [self.pagesTextField setText:[NSString stringWithFormat:@"%lu",(unsigned long)pages]];
+    if (pages) [self.pagesTextField setText:[NSString stringWithFormat:@"%lu",(unsigned long)pages]];
 }
 
 #pragma mark - chain of responsiblity
@@ -43,13 +43,14 @@
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"The page number must be only digits"}];
         return NO;
     }
-    [book setPages:[self.pagesTextField.text intValue]];
+    [book setPagesValue:[self.pagesTextField.text intValue]];
     return YES;
 }
 
 #pragma mark - text field delegate
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField.text onlyDigits]) [self.delegate pagesCell:self didChangeBookPages:[textField.text integerValue]];
+
     return YES;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField {

@@ -8,29 +8,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Depend-Depend.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Depend.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
+		</dict>
+		<key>LLARingSpinnerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-ReadingList.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -40,12 +42,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>236372205E0DCDC17F6039F897B86CC5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>75097724E64B0C7C74E648DC094A088B</key>
+		<key>56C88F63B278DCDA3A2D605B7267045C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A8289F5697D1C6532C2B1F3EFCEF4D0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

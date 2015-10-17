@@ -9,6 +9,12 @@
 #import "REDBookHeaderCell.h"
 #import "UITextField+DoneButton.h"
 
+@interface REDBookHeaderCell ()
+
+#pragma mark - ui
+@property (weak, nonatomic) IBOutlet UIButton *coverButton;
+
+@end
 
 @implementation REDBookHeaderCell
 
@@ -23,13 +29,19 @@
 #pragma mark - setters
 -(void)setBook:(id<REDBookProtocol>)book {
     _book = book;
-    [self.coverButton setBackgroundImage:[book cover] forState:UIControlStateNormal];
+    [self setCoverImage:[book coverImage]];
+    [self setAuthor:[book author]];
     [self.nameTextField setText:[book name]];
 }
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
     _author = author;
-    [self.authorButton setTitle:[author name] forState:UIControlStateNormal];
+    [self.authorButton setTitle:author ? [author name] : @"Author" forState:UIControlStateNormal];
     [self.authorButton setTitleColor:author ? [UIColor darkTextColor] : [UIColor lightGrayColor] forState:UIControlStateNormal];
+}
+-(void)setCoverImage:(UIImage *)coverImage {
+    _coverImage = coverImage;
+    [self.coverButton setTitle:coverImage ? @"" : @"cover" forState:UIControlStateNormal];
+    [self.coverButton setBackgroundImage:coverImage forState:UIControlStateNormal];
 }
 
 #pragma mark - chain of responsiblity
@@ -38,12 +50,13 @@
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose a book name."}];
         return NO;
     }
-    if (self.author == nil) {
+    if (self.authorButton.currentTitle == nil) {
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose an author."}];
         return NO;
     }
     [book setName:self.nameTextField.text];
-    
+    [book setAuthor:self.author];
+    [book setCoverImage:self.coverButton.currentBackgroundImage];
     return YES;
 }
 

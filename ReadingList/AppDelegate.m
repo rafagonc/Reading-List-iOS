@@ -11,6 +11,8 @@
 #import "REDDepedencyInjection.h"
 #import "Depend/DPInjector.h"
 #import "REDStaticData.h"
+#import "UIColor+ReadingList.h"
+#import "REDDataStack.h"
 
 @interface AppDelegate ()
 
@@ -27,23 +29,13 @@
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:bookList];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor red_redColor];
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 -(void)applicationWillResignActive:(UIApplication *)application {
-
-}
--(void)applicationDidEnterBackground:(UIApplication *)application {
-
-}
--(void)applicationWillEnterForeground:(UIApplication *)application {
-}
--(void)applicationDidBecomeActive:(UIApplication *)application {
-}
--(void)applicationWillTerminate:(UIApplication *)application {
-
+    [[REDDataStack sharedManager] commit];
 }
 
 @end

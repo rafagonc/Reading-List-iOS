@@ -29,10 +29,12 @@
         if (error) {
             [self.response setSuccess:NO];
             [self.response setError:error];
+            [self error:self.response];
         } else {
             [self.googleImageFactory setInput:responseObject[@"responseData"][@"results"]];
             [self.response setData:[[self googleImageFactory] outputForMany]];
             [self.response setSuccess:YES];
+            [self success:self.response];
         }
     }];
 }

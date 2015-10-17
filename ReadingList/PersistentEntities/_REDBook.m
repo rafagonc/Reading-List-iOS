@@ -4,7 +4,6 @@
 #import "_REDBook.h"
 
 const struct REDBookAttributes REDBookAttributes = {
-	.completed = @"completed",
 	.cover = @"cover",
 	.language = @"language",
 	.name = @"name",
@@ -43,11 +42,6 @@ const struct REDBookRelationships REDBookRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	if ([key isEqualToString:@"completedValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"completed"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 	if ([key isEqualToString:@"pagesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"pages"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -60,26 +54,6 @@ const struct REDBookRelationships REDBookRelationships = {
 	}
 
 	return keyPaths;
-}
-
-@dynamic completed;
-
-- (BOOL)completedValue {
-	NSNumber *result = [self completed];
-	return [result boolValue];
-}
-
-- (void)setCompletedValue:(BOOL)value_ {
-	[self setCompleted:[NSNumber numberWithBool:value_]];
-}
-
-- (BOOL)primitiveCompletedValue {
-	NSNumber *result = [self primitiveCompleted];
-	return [result boolValue];
-}
-
-- (void)setPrimitiveCompletedValue:(BOOL)value_ {
-	[self setPrimitiveCompleted:[NSNumber numberWithBool:value_]];
 }
 
 @dynamic cover;

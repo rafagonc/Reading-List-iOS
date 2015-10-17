@@ -13,7 +13,5 @@
 
 <REDDictionary2ModelFactoryProtocol>
 
-#pragma mark - factory method
-+(NSArray *)outputForMany:(NSArray *)input;
 
 @end

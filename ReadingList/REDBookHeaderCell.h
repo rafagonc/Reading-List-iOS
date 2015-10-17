@@ -24,13 +24,13 @@
 <REDBookCreationChainProtocol>
 
 #pragma mark - ui
-@property (weak, nonatomic) IBOutlet UIButton *coverButton;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *authorButton;
 
 #pragma mark - properties
 @property (nonatomic,weak) id<REDBookProtocol> book;
-@property (nonatomic,weak) id<REDAuthorProtocol> author;
+@property (nonatomic,strong) id<REDAuthorProtocol> author;
 @property (nonatomic,weak) id<REDBookHeaderCellDelegate> delegate;
+@property (nonatomic,strong) UIImage *coverImage;
 
 @end

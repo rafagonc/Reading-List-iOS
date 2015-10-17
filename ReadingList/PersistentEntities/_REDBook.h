@@ -4,7 +4,6 @@
 #import <CoreData/CoreData.h>
 
 extern const struct REDBookAttributes {
-	__unsafe_unretained NSString *completed;
 	__unsafe_unretained NSString *cover;
 	__unsafe_unretained NSString *language;
 	__unsafe_unretained NSString *name;
@@ -28,14 +27,6 @@ extern const struct REDBookRelationships {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) REDBookID* objectID;
-
-@property (nonatomic, strong) NSNumber* completed;
-
-@property (atomic) BOOL completedValue;
-- (BOOL)completedValue;
-- (void)setCompletedValue:(BOOL)value_;
-
-//- (BOOL)validateCompleted:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSData* cover;
 
@@ -76,12 +67,6 @@ extern const struct REDBookRelationships {
 @end
 
 @interface _REDBook (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSNumber*)primitiveCompleted;
-- (void)setPrimitiveCompleted:(NSNumber*)value;
-
-- (BOOL)primitiveCompletedValue;
-- (void)setPrimitiveCompletedValue:(BOOL)value_;
 
 - (NSData*)primitiveCover;
 - (void)setPrimitiveCover:(NSData*)value;

@@ -44,6 +44,8 @@
 		2A19B8B21BCDBE94009C8F25 /* REDBookAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A19B8B01BCDBE94009C8F25 /* REDBookAddViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2A19B8B31BCDBE94009C8F25 /* REDBookAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A19B8B11BCDBE94009C8F25 /* REDBookAddViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A19B8B61BCDC0CA009C8F25 /* UIStaticTableView.m */; settings = {ASSET_TAGS = (); }; };
+		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; settings = {ASSET_TAGS = (); }; };
+		2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */; settings = {ASSET_TAGS = (); }; };
 		2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBAE1BCD50B7005F5E74 /* main.m */; };
 		2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */; };
 		2A74EBBB1BCD50B8005F5E74 /* ReadingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB91BCD50B8005F5E74 /* ReadingList.xcdatamodeld */; };
@@ -90,6 +92,28 @@
 		2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EC911BD0A8C4005F5E74 /* REDServiceCallFactory.m */; settings = {ASSET_TAGS = (); }; };
 		2A74EC991BD0AA52005F5E74 /* REDImageSearchCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EC981BD0AA52005F5E74 /* REDImageSearchCall.m */; settings = {ASSET_TAGS = (); }; };
 		2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC04D1BD1FB4C009F638A /* REDServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC04B1BD1FB4C009F638A /* REDServiceResponse.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0531BD1FB91009F638A /* REDHTTPRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0521BD1FB91009F638A /* REDHTTPRequestFactory.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC05B1BD1FC69009F638A /* REDDELETEHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC05A1BD1FC69009F638A /* REDDELETEHTTPRequest.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC05E1BD1FC76009F638A /* REDGETHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC05D1BD1FC76009F638A /* REDGETHTTPRequest.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0631BD1FC84009F638A /* REDPOSTHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0601BD1FC84009F638A /* REDPOSTHTTPRequest.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0641BD1FC84009F638A /* REDPUTHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0621BD1FC84009F638A /* REDPUTHTTPRequest.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC06C1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC06B1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0701BD1FD3D009F638A /* REDGoogleSearchImageResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC06F1BD1FD3D009F638A /* REDGoogleSearchImageResult.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0741BD1FD6A009F638A /* REDDictionary2ModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0731BD1FD6A009F638A /* REDDictionary2ModelFactory.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC07B1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0851BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0841BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC08C1BD2069C009F638A /* REDGoogleImageSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC08B1BD2069C009F638A /* REDGoogleImageSearchCell.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCC08D1BD20711009F638A /* REDGoogleImageSearchCell.xib */; settings = {ASSET_TAGS = (); }; };
+		2ADCC09B1BD2D281009F638A /* SHNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0991BD2D281009F638A /* SHNotificationView.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC09C1BD2D281009F638A /* SHNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCC09A1BD2D281009F638A /* SHNotificationView.xib */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0A41BD2D319009F638A /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0A31BD2D319009F638A /* UIViewController+Loading.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0A71BD2D347009F638A /* UIViewController+NotificationShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0A61BD2D347009F638A /* UIViewController+NotificationShow.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0AA1BD2D36E009F638A /* SHLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0A91BD2D36E009F638A /* SHLoadingView.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0AF1BD2E69A009F638A /* the-little-prince-summary.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCC0AE1BD2E69A009F638A /* the-little-prince-summary.jpg */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0B21BD2E85A009F638A /* UITableViewCell+Clear.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B11BD2E85A009F638A /* UITableViewCell+Clear.m */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0B51BD2EC90009F638A /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B41BD2EC90009F638A /* books.json */; settings = {ASSET_TAGS = (); }; };
+		2ADCC0B81BD2ECA1009F638A /* REDRandomQuoteGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */; settings = {ASSET_TAGS = (); }; };
 		F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7FEE50961509749458D464 /* libPods-ReadingList.a */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +172,9 @@
 		2A19B8B11BCDBE94009C8F25 /* REDBookAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDBookAddViewController.xib; sourceTree = "<group>"; };
 		2A19B8B51BCDC0CA009C8F25 /* UIStaticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStaticTableView.h; sourceTree = "<group>"; };
 		2A19B8B61BCDC0CA009C8F25 /* UIStaticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStaticTableView.m; sourceTree = "<group>"; };
+		2A2A1E4C1BD2F0E000677868 /* UISearchBar+Toolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+Toolbar.h"; sourceTree = "<group>"; };
+		2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Toolbar.m"; sourceTree = "<group>"; };
+		2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "romeo-and-juliet.jpg"; sourceTree = "<group>"; };
 		2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74EBAE1BCD50B7005F5E74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A74EBB01BCD50B7005F5E74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -224,7 +251,7 @@
 		2A74EC7B1BD0A558005F5E74 /* REDImageSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDImageSearchViewController.h; sourceTree = "<group>"; };
 		2A74EC7C1BD0A558005F5E74 /* REDImageSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDImageSearchViewController.m; sourceTree = "<group>"; };
 		2A74EC7D1BD0A558005F5E74 /* REDImageSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDImageSearchViewController.xib; sourceTree = "<group>"; };
-		2A74EC821BD0A87A005F5E74 /* REDHTMLEncodeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDHTMLEncodeProtocol.h; sourceTree = "<group>"; };
+		2A74EC821BD0A87A005F5E74 /* REDHTTPEncodeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDHTTPEncodeProtocol.h; sourceTree = "<group>"; };
 		2A74EC841BD0A891005F5E74 /* REDImageSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDImageSearchRequest.h; sourceTree = "<group>"; };
 		2A74EC851BD0A891005F5E74 /* REDImageSearchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDImageSearchRequest.m; sourceTree = "<group>"; };
 		2A74EC871BD0A89A005F5E74 /* REDServiceCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceCall.h; sourceTree = "<group>"; };
@@ -240,6 +267,53 @@
 		2A8D056C1BD042C3004364F5 /* global.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.pch; sourceTree = "<group>"; };
 		2A8D056D1BD05E0C004364F5 /* NSString+Digits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Digits.h"; sourceTree = "<group>"; };
 		2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Digits.m"; sourceTree = "<group>"; };
+		2ADCC04A1BD1FB4C009F638A /* REDServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponse.h; sourceTree = "<group>"; };
+		2ADCC04B1BD1FB4C009F638A /* REDServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDServiceResponse.m; sourceTree = "<group>"; };
+		2ADCC04C1BD1FB4C009F638A /* REDServiceResponseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponseProtocol.h; sourceTree = "<group>"; };
+		2ADCC0511BD1FB91009F638A /* REDHTTPRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDHTTPRequestFactory.h; sourceTree = "<group>"; };
+		2ADCC0521BD1FB91009F638A /* REDHTTPRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDHTTPRequestFactory.m; sourceTree = "<group>"; };
+		2ADCC0561BD1FBA6009F638A /* REDHTTPRequestFactoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REDHTTPRequestFactoryProtocol.h; sourceTree = "<group>"; };
+		2ADCC0591BD1FC69009F638A /* REDDELETEHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDELETEHTTPRequest.h; sourceTree = "<group>"; };
+		2ADCC05A1BD1FC69009F638A /* REDDELETEHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDELETEHTTPRequest.m; sourceTree = "<group>"; };
+		2ADCC05C1BD1FC76009F638A /* REDGETHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDGETHTTPRequest.h; sourceTree = "<group>"; };
+		2ADCC05D1BD1FC76009F638A /* REDGETHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDGETHTTPRequest.m; sourceTree = "<group>"; };
+		2ADCC05F1BD1FC84009F638A /* REDPOSTHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDPOSTHTTPRequest.h; sourceTree = "<group>"; };
+		2ADCC0601BD1FC84009F638A /* REDPOSTHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPOSTHTTPRequest.m; sourceTree = "<group>"; };
+		2ADCC0611BD1FC84009F638A /* REDPUTHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDPUTHTTPRequest.h; sourceTree = "<group>"; };
+		2ADCC0621BD1FC84009F638A /* REDPUTHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPUTHTTPRequest.m; sourceTree = "<group>"; };
+		2ADCC06A1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDGoogleImageDictionary2ModelFactory.h; sourceTree = "<group>"; };
+		2ADCC06B1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDGoogleImageDictionary2ModelFactory.m; sourceTree = "<group>"; };
+		2ADCC06E1BD1FD3D009F638A /* REDGoogleSearchImageResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDGoogleSearchImageResult.h; sourceTree = "<group>"; };
+		2ADCC06F1BD1FD3D009F638A /* REDGoogleSearchImageResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDGoogleSearchImageResult.m; sourceTree = "<group>"; };
+		2ADCC0721BD1FD6A009F638A /* REDDictionary2ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDictionary2ModelFactory.h; sourceTree = "<group>"; };
+		2ADCC0731BD1FD6A009F638A /* REDDictionary2ModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDictionary2ModelFactory.m; sourceTree = "<group>"; };
+		2ADCC0751BD1FD73009F638A /* REDDictionary2ModelFactory_Protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REDDictionary2ModelFactory_Protected.h; sourceTree = "<group>"; };
+		2ADCC0761BD1FD73009F638A /* REDDictionary2ModelFactoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REDDictionary2ModelFactoryProtocol.h; sourceTree = "<group>"; };
+		2ADCC07A1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAbstractClassMethodCallingException.h; sourceTree = "<group>"; };
+		2ADCC07B1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAbstractClassMethodCallingException.m; sourceTree = "<group>"; };
+		2ADCC0821BD2052B009F638A /* REDCollectionViewDatasourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = REDCollectionViewDatasourceProtocol.h; sourceTree = "<group>"; };
+		2ADCC0831BD2053B009F638A /* REDImageSearchCollectionViewDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDImageSearchCollectionViewDatasource.h; sourceTree = "<group>"; };
+		2ADCC0841BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDImageSearchCollectionViewDatasource.m; sourceTree = "<group>"; };
+		2ADCC08A1BD2069C009F638A /* REDGoogleImageSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDGoogleImageSearchCell.h; sourceTree = "<group>"; };
+		2ADCC08B1BD2069C009F638A /* REDGoogleImageSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDGoogleImageSearchCell.m; sourceTree = "<group>"; };
+		2ADCC08D1BD20711009F638A /* REDGoogleImageSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDGoogleImageSearchCell.xib; sourceTree = "<group>"; };
+		2ADCC0901BD21448009F638A /* REDImageSearchCollectionViewDatasourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDImageSearchCollectionViewDatasourceDelegate.h; sourceTree = "<group>"; };
+		2ADCC0971BD2C9D6009F638A /* REDBookDatasourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookDatasourceDelegate.h; sourceTree = "<group>"; };
+		2ADCC0981BD2D281009F638A /* SHNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHNotificationView.h; path = ../../share/Share/SHNotificationView.h; sourceTree = "<group>"; };
+		2ADCC0991BD2D281009F638A /* SHNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHNotificationView.m; path = ../../share/Share/SHNotificationView.m; sourceTree = "<group>"; };
+		2ADCC09A1BD2D281009F638A /* SHNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SHNotificationView.xib; path = ../../share/Share/SHNotificationView.xib; sourceTree = "<group>"; };
+		2ADCC0A21BD2D319009F638A /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
+		2ADCC0A31BD2D319009F638A /* UIViewController+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Loading.m"; sourceTree = "<group>"; };
+		2ADCC0A51BD2D347009F638A /* UIViewController+NotificationShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NotificationShow.h"; sourceTree = "<group>"; };
+		2ADCC0A61BD2D347009F638A /* UIViewController+NotificationShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NotificationShow.m"; sourceTree = "<group>"; };
+		2ADCC0A81BD2D36E009F638A /* SHLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLoadingView.h; sourceTree = "<group>"; };
+		2ADCC0A91BD2D36E009F638A /* SHLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLoadingView.m; sourceTree = "<group>"; };
+		2ADCC0AE1BD2E69A009F638A /* the-little-prince-summary.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "the-little-prince-summary.jpg"; sourceTree = "<group>"; };
+		2ADCC0B01BD2E85A009F638A /* UITableViewCell+Clear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Clear.h"; sourceTree = "<group>"; };
+		2ADCC0B11BD2E85A009F638A /* UITableViewCell+Clear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Clear.m"; sourceTree = "<group>"; };
+		2ADCC0B41BD2EC90009F638A /* books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books.json; sourceTree = "<group>"; };
+		2ADCC0B61BD2ECA1009F638A /* REDRandomQuoteGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRandomQuoteGenerator.h; sourceTree = "<group>"; };
+		2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRandomQuoteGenerator.m; sourceTree = "<group>"; };
 		3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,6 +356,8 @@
 		2A19B87E1BCDA1D4009C8F25 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				2ADCC0791BD1FD91009F638A /* Dictionary 2 Model Factory */,
+				2ADCC0541BD1FB93009F638A /* HTTP Request Factory */,
 				2A19B8821BCDA1F7009C8F25 /* Entity Class Factory */,
 				2A74EC931BD0A8C8005F5E74 /* Service Call Factory */,
 			);
@@ -323,6 +399,7 @@
 		2A19B88A1BCDB3E9009C8F25 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
+				2ADCC0881BD2056B009F638A /* Collection View */,
 				2A74EC2F1BCDEA3D005F5E74 /* Table View */,
 			);
 			name = Datasources;
@@ -332,11 +409,9 @@
 			isa = PBXGroup;
 			children = (
 				2A19B8981BCDB6DC009C8F25 /* Book Cell */,
-				2A74EC1E1BCDE2D4005F5E74 /* Book Header Cell */,
-				2A74EC2C1BCDE8F8005F5E74 /* Category Cell */,
-				2A74EC3A1BCDF479005F5E74 /* Pages Cell */,
-				2A74EC421BCDF5DA005F5E74 /* Page Progress Cell */,
-				2A74EC7A1BD09751005F5E74 /* Text Field cell */,
+				2ADCC0AC1BD2DE08009F638A /* Book Creation Cells */,
+				2A74EC7A1BD09751005F5E74 /* Text Field Cell */,
+				2ADCC08F1BD20796009F638A /* Google Image Cell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -355,6 +430,7 @@
 			children = (
 				2A19B88D1BCDB45A009C8F25 /* REDBookDatasource.h */,
 				2A19B88E1BCDB45A009C8F25 /* REDBookDatasource.m */,
+				2ADCC0971BD2C9D6009F638A /* REDBookDatasourceDelegate.h */,
 			);
 			name = "Book List Datasource";
 			sourceTree = "<group>";
@@ -390,8 +466,10 @@
 		2A19B8A11BCDBBEA009C8F25 /* General Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2ADCC0711BD1FD43009F638A /* Google Image Result */,
 				2A19B8A21BCDBBF3009C8F25 /* Customizer */,
 				2A74EC501BCE3FAD005F5E74 /* Static Data */,
+				2ADCC0B91BD2ECA3009F638A /* Quotes */,
 			);
 			name = "General Classes";
 			sourceTree = "<group>";
@@ -425,10 +503,13 @@
 		2A19B8A81BCDBC34009C8F25 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				2ADCC0A11BD2D29B009F638A /* UIViewController */,
 				2A74EC251BCDE758005F5E74 /* UIColor */,
 				2A19B8A71BCDBC30009C8F25 /* UIFont */,
 				2A74EC241BCDE754005F5E74 /* UITextField */,
 				2A8D05701BD05E11004364F5 /* NSString */,
+				2ADCC0B31BD2E85C009F638A /* UITableViewCell */,
+				2A2A1E4F1BD2F0F000677868 /* UISearchBar */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -455,9 +536,20 @@
 		2A19B8B91BCDC0D9009C8F25 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				2ADCC0AB1BD2D370009F638A /* SHLoadingView */,
+				2ADCC09D1BD2D283009F638A /* Notification View */,
 				2A19B8B81BCDC0CF009C8F25 /* Static Table View */,
 			);
 			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		2A2A1E4F1BD2F0F000677868 /* UISearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				2A2A1E4C1BD2F0E000677868 /* UISearchBar+Toolbar.h */,
+				2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */,
+			);
+			name = UISearchBar;
 			sourceTree = "<group>";
 		};
 		2A74EBA11BCD50B7005F5E74 = {
@@ -485,11 +577,11 @@
 		2A74EBAC1BCD50B7005F5E74 /* ReadingList */ = {
 			isa = PBXGroup;
 			children = (
+				2ADCC07E1BD1FE8E009F638A /* Exception */,
 				2A74EC811BD0A85D005F5E74 /* Service */,
 				2A19B8B91BCDC0D9009C8F25 /* Custom Views */,
 				2A19B8A81BCDBC34009C8F25 /* Categories */,
 				2A19B88C1BCDB3F7009C8F25 /* Depedency Injection */,
-				2A74EC571BCEB52F005F5E74 /* Protocols */,
 				2A19B88B1BCDB3F2009C8F25 /* Cells */,
 				2A19B88A1BCDB3E9009C8F25 /* Datasources */,
 				2A19B87E1BCDA1D4009C8F25 /* Factories */,
@@ -504,6 +596,9 @@
 		2A74EBAD1BCD50B7005F5E74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */,
+				2ADCC0B41BD2EC90009F638A /* books.json */,
+				2ADCC0AE1BD2E69A009F638A /* the-little-prince-summary.jpg */,
 				2A74EBB01BCD50B7005F5E74 /* AppDelegate.h */,
 				2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */,
 				2A74EBBC1BCD50B8005F5E74 /* Assets.xcassets */,
@@ -708,17 +803,6 @@
 			name = "Static Data";
 			sourceTree = "<group>";
 		};
-		2A74EC571BCEB52F005F5E74 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2A74EC581BCEB54A005F5E74 /* REDBookCreationChainProtocol.h */,
-				2A74EC821BD0A87A005F5E74 /* REDHTMLEncodeProtocol.h */,
-				2A74EC8C1BD0A8AD005F5E74 /* REDServiceCallProtocol.h */,
-				2A74EC9A1BD0AB1A005F5E74 /* REDRequestProtocol.h */,
-			);
-			name = Protocols;
-			sourceTree = "<group>";
-		};
 		2A74EC681BD0902C005F5E74 /* Author View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,14 +832,14 @@
 			name = "Author Create View Controller";
 			sourceTree = "<group>";
 		};
-		2A74EC7A1BD09751005F5E74 /* Text Field cell */ = {
+		2A74EC7A1BD09751005F5E74 /* Text Field Cell */ = {
 			isa = PBXGroup;
 			children = (
 				2A74EC751BD09746005F5E74 /* REDUITextFieldCell.h */,
 				2A74EC761BD09746005F5E74 /* REDUITextFieldCell.m */,
 				2A74EC771BD09746005F5E74 /* REDUITextFieldCell.xib */,
 			);
-			name = "Text Field cell";
+			name = "Text Field Cell";
 			sourceTree = "<group>";
 		};
 		2A74EC801BD0A7D8005F5E74 /* Image Search View Controller */ = {
@@ -771,7 +855,8 @@
 		2A74EC811BD0A85D005F5E74 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2A74EC951BD0A90C005F5E74 /* Cache */,
+				2ADCC0581BD1FC5A009F638A /* HTTP Request */,
+				2ADCC0501BD1FB59009F638A /* Response */,
 				2A74EC831BD0A882005F5E74 /* Request */,
 				2A74EC8A1BD0A89C005F5E74 /* Service Call */,
 				2A74EC941BD0A904005F5E74 /* Service Dispatcher */,
@@ -782,8 +867,8 @@
 		2A74EC831BD0A882005F5E74 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				2A74EC841BD0A891005F5E74 /* REDImageSearchRequest.h */,
-				2A74EC851BD0A891005F5E74 /* REDImageSearchRequest.m */,
+				2ADCC07F1BD1FEDA009F638A /* Abstract */,
+				2ADCC0811BD1FEE6009F638A /* Concrete */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -800,6 +885,7 @@
 		2A74EC8B1BD0A8A2005F5E74 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
+				2A74EC8C1BD0A8AD005F5E74 /* REDServiceCallProtocol.h */,
 				2A74EC871BD0A89A005F5E74 /* REDServiceCall.h */,
 				2A74EC881BD0A89A005F5E74 /* REDServiceCall.m */,
 			);
@@ -824,13 +910,6 @@
 			name = "Service Dispatcher";
 			sourceTree = "<group>";
 		};
-		2A74EC951BD0A90C005F5E74 /* Cache */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Cache;
-			sourceTree = "<group>";
-		};
 		2A74EC961BD0AA34005F5E74 /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,6 +926,315 @@
 				2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */,
 			);
 			name = NSString;
+			sourceTree = "<group>";
+		};
+		2ADCC04E1BD1FB50009F638A /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC04A1BD1FB4C009F638A /* REDServiceResponse.h */,
+				2ADCC04B1BD1FB4C009F638A /* REDServiceResponse.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ADCC04F1BD1FB54009F638A /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC04C1BD1FB4C009F638A /* REDServiceResponseProtocol.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2ADCC0501BD1FB59009F638A /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC04E1BD1FB50009F638A /* Concrete */,
+				2ADCC04F1BD1FB54009F638A /* Abstract */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		2ADCC0541BD1FB93009F638A /* HTTP Request Factory */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0571BD1FBAA009F638A /* Abstract */,
+				2ADCC0551BD1FB9C009F638A /* Concrete */,
+			);
+			name = "HTTP Request Factory";
+			sourceTree = "<group>";
+		};
+		2ADCC0551BD1FB9C009F638A /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0511BD1FB91009F638A /* REDHTTPRequestFactory.h */,
+				2ADCC0521BD1FB91009F638A /* REDHTTPRequestFactory.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ADCC0571BD1FBAA009F638A /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0561BD1FBA6009F638A /* REDHTTPRequestFactoryProtocol.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2ADCC0581BD1FC5A009F638A /* HTTP Request */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0691BD1FC9B009F638A /* Concrete */,
+			);
+			name = "HTTP Request";
+			sourceTree = "<group>";
+		};
+		2ADCC0651BD1FC87009F638A /* POST */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC05F1BD1FC84009F638A /* REDPOSTHTTPRequest.h */,
+				2ADCC0601BD1FC84009F638A /* REDPOSTHTTPRequest.m */,
+			);
+			name = POST;
+			sourceTree = "<group>";
+		};
+		2ADCC0661BD1FC8B009F638A /* PUT */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0611BD1FC84009F638A /* REDPUTHTTPRequest.h */,
+				2ADCC0621BD1FC84009F638A /* REDPUTHTTPRequest.m */,
+			);
+			name = PUT;
+			sourceTree = "<group>";
+		};
+		2ADCC0671BD1FC91009F638A /* DELETE */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0591BD1FC69009F638A /* REDDELETEHTTPRequest.h */,
+				2ADCC05A1BD1FC69009F638A /* REDDELETEHTTPRequest.m */,
+			);
+			name = DELETE;
+			sourceTree = "<group>";
+		};
+		2ADCC0681BD1FC97009F638A /* GET */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC05C1BD1FC76009F638A /* REDGETHTTPRequest.h */,
+				2ADCC05D1BD1FC76009F638A /* REDGETHTTPRequest.m */,
+			);
+			name = GET;
+			sourceTree = "<group>";
+		};
+		2ADCC0691BD1FC9B009F638A /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0651BD1FC87009F638A /* POST */,
+				2ADCC0661BD1FC8B009F638A /* PUT */,
+				2ADCC0671BD1FC91009F638A /* DELETE */,
+				2ADCC0681BD1FC97009F638A /* GET */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ADCC06D1BD1FCE3009F638A /* Google Image */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC06A1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.h */,
+				2ADCC06B1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.m */,
+			);
+			name = "Google Image";
+			sourceTree = "<group>";
+		};
+		2ADCC0711BD1FD43009F638A /* Google Image Result */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC06E1BD1FD3D009F638A /* REDGoogleSearchImageResult.h */,
+				2ADCC06F1BD1FD3D009F638A /* REDGoogleSearchImageResult.m */,
+			);
+			name = "Google Image Result";
+			sourceTree = "<group>";
+		};
+		2ADCC0771BD1FD81009F638A /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0751BD1FD73009F638A /* REDDictionary2ModelFactory_Protected.h */,
+				2ADCC0761BD1FD73009F638A /* REDDictionary2ModelFactoryProtocol.h */,
+				2ADCC0721BD1FD6A009F638A /* REDDictionary2ModelFactory.h */,
+				2ADCC0731BD1FD6A009F638A /* REDDictionary2ModelFactory.m */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2ADCC0781BD1FD8B009F638A /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC06D1BD1FCE3009F638A /* Google Image */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ADCC0791BD1FD91009F638A /* Dictionary 2 Model Factory */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0771BD1FD81009F638A /* Abstract */,
+				2ADCC0781BD1FD8B009F638A /* Concrete */,
+			);
+			name = "Dictionary 2 Model Factory";
+			sourceTree = "<group>";
+		};
+		2ADCC07D1BD1FE81009F638A /* Abstract Class Exception */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC07A1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.h */,
+				2ADCC07B1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m */,
+			);
+			name = "Abstract Class Exception";
+			sourceTree = "<group>";
+		};
+		2ADCC07E1BD1FE8E009F638A /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC07D1BD1FE81009F638A /* Abstract Class Exception */,
+			);
+			name = Exception;
+			sourceTree = "<group>";
+		};
+		2ADCC07F1BD1FEDA009F638A /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2A74EC821BD0A87A005F5E74 /* REDHTTPEncodeProtocol.h */,
+				2A74EC9A1BD0AB1A005F5E74 /* REDRequestProtocol.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2ADCC0801BD1FEE0009F638A /* Image Search */ = {
+			isa = PBXGroup;
+			children = (
+				2A74EC841BD0A891005F5E74 /* REDImageSearchRequest.h */,
+				2A74EC851BD0A891005F5E74 /* REDImageSearchRequest.m */,
+			);
+			name = "Image Search";
+			sourceTree = "<group>";
+		};
+		2ADCC0811BD1FEE6009F638A /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0801BD1FEE0009F638A /* Image Search */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ADCC0861BD2053F009F638A /* Image Search Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0831BD2053B009F638A /* REDImageSearchCollectionViewDatasource.h */,
+				2ADCC0841BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m */,
+				2ADCC0901BD21448009F638A /* REDImageSearchCollectionViewDatasourceDelegate.h */,
+			);
+			name = "Image Search Collection View";
+			sourceTree = "<group>";
+		};
+		2ADCC0871BD20563009F638A /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0821BD2052B009F638A /* REDCollectionViewDatasourceProtocol.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2ADCC0881BD2056B009F638A /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0891BD205AF009F638A /* Concrete */,
+				2ADCC0871BD20563009F638A /* Abstract */,
+			);
+			name = "Collection View";
+			sourceTree = "<group>";
+		};
+		2ADCC0891BD205AF009F638A /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0861BD2053F009F638A /* Image Search Collection View */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ADCC08F1BD20796009F638A /* Google Image Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC08A1BD2069C009F638A /* REDGoogleImageSearchCell.h */,
+				2ADCC08B1BD2069C009F638A /* REDGoogleImageSearchCell.m */,
+				2ADCC08D1BD20711009F638A /* REDGoogleImageSearchCell.xib */,
+			);
+			name = "Google Image Cell";
+			sourceTree = "<group>";
+		};
+		2ADCC09D1BD2D283009F638A /* Notification View */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0981BD2D281009F638A /* SHNotificationView.h */,
+				2ADCC0991BD2D281009F638A /* SHNotificationView.m */,
+				2ADCC09A1BD2D281009F638A /* SHNotificationView.xib */,
+			);
+			name = "Notification View";
+			sourceTree = "<group>";
+		};
+		2ADCC0A11BD2D29B009F638A /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0A51BD2D347009F638A /* UIViewController+NotificationShow.h */,
+				2ADCC0A61BD2D347009F638A /* UIViewController+NotificationShow.m */,
+				2ADCC0A21BD2D319009F638A /* UIViewController+Loading.h */,
+				2ADCC0A31BD2D319009F638A /* UIViewController+Loading.m */,
+			);
+			name = UIViewController;
+			sourceTree = "<group>";
+		};
+		2ADCC0AB1BD2D370009F638A /* SHLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0A81BD2D36E009F638A /* SHLoadingView.h */,
+				2ADCC0A91BD2D36E009F638A /* SHLoadingView.m */,
+			);
+			name = SHLoadingView;
+			sourceTree = "<group>";
+		};
+		2ADCC0AC1BD2DE08009F638A /* Book Creation Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2A74EC1E1BCDE2D4005F5E74 /* Book Header Cell */,
+				2A74EC2C1BCDE8F8005F5E74 /* Category Cell */,
+				2A74EC3A1BCDF479005F5E74 /* Pages Cell */,
+				2A74EC421BCDF5DA005F5E74 /* Page Progress Cell */,
+				2ADCC0AD1BD2DE10009F638A /* Chain Of Responsibility */,
+			);
+			name = "Book Creation Cells";
+			sourceTree = "<group>";
+		};
+		2ADCC0AD1BD2DE10009F638A /* Chain Of Responsibility */ = {
+			isa = PBXGroup;
+			children = (
+				2A74EC581BCEB54A005F5E74 /* REDBookCreationChainProtocol.h */,
+			);
+			name = "Chain Of Responsibility";
+			sourceTree = "<group>";
+		};
+		2ADCC0B31BD2E85C009F638A /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0B01BD2E85A009F638A /* UITableViewCell+Clear.h */,
+				2ADCC0B11BD2E85A009F638A /* UITableViewCell+Clear.m */,
+			);
+			name = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		2ADCC0B91BD2ECA3009F638A /* Quotes */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0B61BD2ECA1009F638A /* REDRandomQuoteGenerator.h */,
+				2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */,
+			);
+			name = Quotes;
 			sourceTree = "<group>";
 		};
 		3C1B8AFD86E40D76DA605411 /* Frameworks */ = {
@@ -977,11 +1365,16 @@
 				2A74EBC01BCD50B8005F5E74 /* LaunchScreen.storyboard in Resources */,
 				2A19B8B31BCDBE94009C8F25 /* REDBookAddViewController.xib in Resources */,
 				2A74EBBD1BCD50B8005F5E74 /* Assets.xcassets in Resources */,
+				2ADCC09C1BD2D281009F638A /* SHNotificationView.xib in Resources */,
 				2A74EC3C1BCDF489005F5E74 /* REDBookPagesCell.xib in Resources */,
 				2A74EC731BD0957D005F5E74 /* REDAuthorCreateViewController.xib in Resources */,
 				2A74EC791BD09746005F5E74 /* REDUITextFieldCell.xib in Resources */,
 				2A19B89A1BCDB6EE009C8F25 /* REDBookCell.xib in Resources */,
+				2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */,
 				2A74EC2E1BCDE9A7005F5E74 /* REDBookCategoryCell.xib in Resources */,
+				2ADCC0AF1BD2E69A009F638A /* the-little-prince-summary.jpg in Resources */,
+				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
+				2ADCC0B51BD2EC90009F638A /* books.json in Resources */,
 				2A19B8871BCDB3C2009C8F25 /* REDBookListViewController.xib in Resources */,
 				2A74EC6A1BD09041005F5E74 /* REDAuthorViewController.xib in Resources */,
 				2A74EC201BCDE2E2005F5E74 /* REDBookHeaderCell.xib in Resources */,
@@ -1088,6 +1481,7 @@
 			files = (
 				2A74EC461BCE0037005F5E74 /* REDCategoryViewController.m in Sources */,
 				2A19B8861BCDB3C2009C8F25 /* REDBookListViewController.m in Sources */,
+				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
 				2A74EC281BCDE768005F5E74 /* UIColor+ReadingList.m in Sources */,
 				2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */,
@@ -1095,28 +1489,43 @@
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
 				2A74EC4B1BCE3E9A005F5E74 /* REDCategoryDatasource.m in Sources */,
 				2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */,
+				2ADCC08C1BD2069C009F638A /* REDGoogleImageSearchCell.m in Sources */,
+				2ADCC0741BD1FD6A009F638A /* REDDictionary2ModelFactory.m in Sources */,
 				2A74EC671BD09029005F5E74 /* REDAuthorViewController.m in Sources */,
 				2A74EC781BD09746005F5E74 /* REDUITextFieldCell.m in Sources */,
+				2ADCC0641BD1FC84009F638A /* REDPUTHTTPRequest.m in Sources */,
 				2A19B8A01BCDBBE7009C8F25 /* REDNavigationBarCustomizer.m in Sources */,
+				2ADCC04D1BD1FB4C009F638A /* REDServiceResponse.m in Sources */,
+				2ADCC0B21BD2E85A009F638A /* UITableViewCell+Clear.m in Sources */,
 				2A19B8811BCDA1F1009C8F25 /* REDEntityClassFactory.m in Sources */,
 				2A74EC401BCDF5D8005F5E74 /* REDPageProgressCell.m in Sources */,
 				2A19B8B21BCDBE94009C8F25 /* REDBookAddViewController.m in Sources */,
+				2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */,
 				2A74EC6D1BD09119005F5E74 /* REDAuthorDatasource.m in Sources */,
 				2A74EC2B1BCDE8F3005F5E74 /* REDBookCategoryCell.m in Sources */,
 				2A74EC181BCD5BA4005F5E74 /* REDEntityFetcher.m in Sources */,
 				2A74EC191BCD5BA4005F5E74 /* REDEntityRemover.m in Sources */,
 				2A74EBFF1BCD59B1005F5E74 /* _REDBook.m in Sources */,
+				2ADCC0A41BD2D319009F638A /* UIViewController+Loading.m in Sources */,
 				2A74EC081BCD59B8005F5E74 /* REDBook.m in Sources */,
 				2A19B88F1BCDB45A009C8F25 /* REDBookDatasource.m in Sources */,
+				2ADCC0AA1BD2D36E009F638A /* SHLoadingView.m in Sources */,
 				2A74EC561BCE4014005F5E74 /* REDEntityCreator.m in Sources */,
 				2A74EC231BCDE656005F5E74 /* UITextField+DoneButton.m in Sources */,
 				2A74EC091BCD59B8005F5E74 /* REDCategory.m in Sources */,
+				2ADCC0531BD1FB91009F638A /* REDHTTPRequestFactory.m in Sources */,
 				2A74EC7E1BD0A558005F5E74 /* REDImageSearchViewController.m in Sources */,
+				2ADCC0A71BD2D347009F638A /* UIViewController+NotificationShow.m in Sources */,
 				2A74EC001BCD59B1005F5E74 /* _REDCategory.m in Sources */,
 				2A74EC891BD0A89A005F5E74 /* REDServiceCall.m in Sources */,
+				2ADCC05E1BD1FC76009F638A /* REDGETHTTPRequest.m in Sources */,
 				2A19B8971BCDB6DA009C8F25 /* REDBookCell.m in Sources */,
+				2ADCC0701BD1FD3D009F638A /* REDGoogleSearchImageResult.m in Sources */,
+				2ADCC0B81BD2ECA1009F638A /* REDRandomQuoteGenerator.m in Sources */,
 				2A19B8A61BCDBC2D009C8F25 /* UIFont+ReadingList.m in Sources */,
+				2ADCC09B1BD2D281009F638A /* SHNotificationView.m in Sources */,
 				2A74EC391BCDF477005F5E74 /* REDBookPagesCell.m in Sources */,
+				2ADCC06C1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.m in Sources */,
 				2A74EBF41BCD57BD005F5E74 /* REDDataStack.m in Sources */,
 				2A74EC721BD0957D005F5E74 /* REDAuthorCreateViewController.m in Sources */,
 				2A74EC631BD08FAD005F5E74 /* _REDAuthor.m in Sources */,
@@ -1124,7 +1533,10 @@
 				2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */,
 				2A74EC1D1BCDE2D0005F5E74 /* REDBookHeaderCell.m in Sources */,
 				2A74EC8F1BD0A8B8005F5E74 /* REDServiceDispatcher.m in Sources */,
+				2ADCC0631BD1FC84009F638A /* REDPOSTHTTPRequest.m in Sources */,
+				2ADCC0851BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m in Sources */,
 				2A19B89D1BCDB707009C8F25 /* REDDepedencyInjection.m in Sources */,
+				2ADCC05B1BD1FC69009F638A /* REDDELETEHTTPRequest.m in Sources */,
 				2A74EC991BD0AA52005F5E74 /* REDImageSearchCall.m in Sources */,
 				2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */,
 				2A74EC861BD0A891005F5E74 /* REDImageSearchRequest.m in Sources */,

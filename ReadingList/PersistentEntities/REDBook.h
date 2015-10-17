@@ -5,4 +5,6 @@
 
 <REDBookProtocol>
 
+@property (nonatomic,strong) UIImage *cacheImage;
+
 @end

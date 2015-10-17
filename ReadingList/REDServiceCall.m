@@ -43,10 +43,10 @@
 
 #pragma mark - results
 -(void)success:(id<REDServiceResponseProtocol>)response {
-    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%lu", (NSUInteger)self.request.hash] object:response];
+    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%lu", (unsigned long)self.request.hash] object:response];
 }
 -(void)error:(id<REDServiceResponseProtocol>)response {
-    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%lu", (NSUInteger)self.request.hash] object:response];
+    [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%lu", (unsigned long)self.request.hash] object:response];
 }
 
 @end
