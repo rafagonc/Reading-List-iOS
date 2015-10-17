@@ -12,4 +12,15 @@
 
 <REDRequestProtocol>
 
+#pragma mark - constructor
+-(instancetype)initWithQuery:(NSString *)query ;
+
+#pragma mark - properties
+@property (nonatomic,readonly) NSString *query;
+@property (nonatomic,readonly) NSUInteger limit;
+@property (nonatomic,readonly) NSUInteger page;
+
+#pragma mark - methods
+-(void)nextPage;
+
 @end

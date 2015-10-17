@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol REDHTMLEncodeProtocol <NSObject>
+@protocol REDHTTPEncodeProtocol <NSObject>
 
--(NSDictionary *)HTMLEncode;
+-(NSDictionary *)HTTPEncode;
 
 @end

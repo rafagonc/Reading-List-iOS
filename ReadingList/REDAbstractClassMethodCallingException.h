@@ -1,5 +1,5 @@
 //
-//  REDServiceDispatcher.h
+//  REDAbstractClassMethodCallingException.h
 //  ReadingList
 //
 //  Created by Rafael Gonzalves on 10/16/15.
@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "REDServiceDispatcherProtocol.h"
 
-@interface REDServiceDispatcher : NSObject
+@interface REDAbstractClassMethodCallingException : NSException
 
-<REDServiceDispatcherProtocol>
++(NSException *)raise;
 
 @end

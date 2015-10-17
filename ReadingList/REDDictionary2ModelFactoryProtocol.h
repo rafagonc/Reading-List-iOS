@@ -1,5 +1,5 @@
 //
-//  REDServiceDispatcher.h
+//  REDDictionary2ModelFactoryProtocol.h
 //  ReadingList
 //
 //  Created by Rafael Gonzalves on 10/16/15.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "REDServiceDispatcherProtocol.h"
 
-@interface REDServiceDispatcher : NSObject
+@protocol REDDictionary2ModelFactoryProtocol <NSObject>
 
-<REDServiceDispatcherProtocol>
+@property (nonatomic,strong) NSArray *input;
+-(NSArray *)outputForMany;
 
 @end

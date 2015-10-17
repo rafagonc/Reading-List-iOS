@@ -23,6 +23,7 @@
 #pragma mark - constructor
 -(instancetype)initWithRequestClass:(Class)requestClass {
     if (self = [super init]) {
+        self.requestClass = requestClass;
         self.bindings = @{
                           NSStringFromClass([REDImageSearchRequest class]) : [REDImageSearchCall class]
                           };

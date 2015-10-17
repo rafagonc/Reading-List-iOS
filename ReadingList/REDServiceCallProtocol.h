@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "REDRequestProtocol.h"
 
 @protocol REDServiceCallProtocol <NSObject>
+
+-(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void(^)(void))completion;
+-(BOOL)canCacheResult;
 
 @end

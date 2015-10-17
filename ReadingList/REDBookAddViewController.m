@@ -16,12 +16,15 @@
 #import "REDEntityCreator.h"
 #import "REDCategoryViewController.h"
 #import "REDAuthorViewController.h"
+#import "REDEntityRemover.h"
+#import "REDImageSearchViewController.h"
 
 
 @interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookProtocol> book;
+@property (nonatomic,assign) BOOL isEditing;
 
 #pragma mark - ui
 @property (nonatomic,strong) REDBookCategoryCell *categoryCell;
@@ -38,11 +41,13 @@
 -(instancetype)init {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
         self.book = (id<REDBookProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDBookProtocol)];
+        self.isEditing = NO;
     } return self;
 }
 -(instancetype)initWithBook:(id<REDBookProtocol>)book {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
         self.book = book;
+        self.isEditing = YES;
     } return self;
 }
 
@@ -113,10 +118,9 @@
     };
     [self.navigationController pushViewController:categories animated:YES];
 }
--(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
-    [self.progressCell setPages:pages];
-}
 -(void)didSelectCoverInBookHeaderCell:(REDBookHeaderCell *)headerCell {
+    REDImageSearchViewController *imageSearchViewController = [[REDImageSearchViewController alloc] init];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:imageSearchViewController] animated:YES completion:nil];
     
 }
 -(void)didSelectAuthorInBookHeaderCell:(REDBookHeaderCell *)headerCell {
@@ -126,6 +130,9 @@
     };
     [self.navigationController pushViewController:authorViewController animated:YES];
 }
+-(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
+    [self.progressCell setPages:pages];
+}
 
 #pragma mark - actions
 -(void)createAction:(UIBarButtonItem *)createButton {
@@ -133,6 +140,7 @@
     if (success) [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)cancelAction:(UIBarButtonItem *)cancelAction {
+    if (self.isEditing) [REDEntityRemover removeObject:self.book];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

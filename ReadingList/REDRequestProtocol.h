@@ -8,6 +8,15 @@
 
 #import "REDHTMLEncodeProtocol.h"
 
-@protocol REDRequestProtocol <REDHTMLEncodeProtocol>
+typedef NS_ENUM(NSUInteger, REDHTTPMethod) {
+    REDHTTPMethodGET,
+    REDHTTPMethodPOST,
+    REDHTTPMethodPUT,
+    REDHTTPMethodDELETE
+};
+
+@protocol REDRequestProtocol <REDHTTPEncodeProtocol>
+
+-(REDHTTPMethod)HTTPMethod;
 
 @end
