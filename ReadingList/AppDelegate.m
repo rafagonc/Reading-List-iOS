@@ -13,6 +13,9 @@
 #import "REDStaticData.h"
 #import "UIColor+ReadingList.h"
 #import "REDDataStack.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -22,6 +25,7 @@
 
 #pragma mark - Application Delegate
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[[Crashlytics class]]];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
     [REDStaticData craateStaticData];
@@ -34,8 +38,6 @@
     
     return YES;
 }
--(void)applicationWillResignActive:(UIApplication *)application {
-    [[REDDataStack sharedManager] commit];
-}
+
 
 @end
