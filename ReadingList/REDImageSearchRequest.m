@@ -20,7 +20,7 @@
 -(instancetype)initWithQuery:(NSString *)query {
     if (self = [super init]) {
         _page = -1;
-        _query = query;
+        _query = [NSString stringWithFormat:@"%@ book cover", query];
         _limit = 8;
     } return self;
 }
@@ -29,9 +29,13 @@
 -(NSDictionary *)HTTPEncode {
     return @{
              @"q" : self.query,
-             @"start" : @(self.offset),
+            // @"start" : @(self.offset),
              @"rsz" : @(self.limit),
-             @"v" : @"1.0"
+            // @"v" : @"1.0",
+             @"key" : @"AIzaSyAt4RNvJlgXsp-T2sGc8AHoejaMhN5r8IM",
+             @"cx" : @"005126926308198905537:wtspnjgitvi",
+             @"searchType" : @"image",
+             @"alt" : @"json"
              };
 }
 -(REDHTTPMethod)HTTPMethod {

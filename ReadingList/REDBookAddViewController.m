@@ -21,6 +21,7 @@
 #import "REDDataStack.h"
 #import "UIViewController+NotificationShow.h"
 #import "REDRandomQuoteGenerator.h"
+#import <Crashlytics/Answers.h>
 
 
 @interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate>
@@ -174,6 +175,17 @@
     if ([self finishBook]) {
         [self.navigationController popViewControllerAnimated:YES];
         [[REDDataStack sharedManager] commit];
+        if (self.isEditing) {
+            [Answers logContentViewWithName:@"Book"
+                                contentType:@"Viewing"
+                                  contentId:@""
+                           customAttributes:@{}];
+        } else {
+            [Answers logContentViewWithName:@"Book"
+                                contentType:@"Adding"
+                                  contentId:@""
+                           customAttributes:@{}];
+        }
     }
 }
 

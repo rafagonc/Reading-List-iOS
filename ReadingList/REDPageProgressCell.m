@@ -7,6 +7,7 @@
 //
 
 #import "REDPageProgressCell.h"
+#import <Crashlytics/Answers.h>
 
 @interface REDPageProgressCell ()
 
@@ -52,6 +53,12 @@
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     [self.book setPagesReadValue:self.pagesRead];
+    if (self.pages == self.pagesRead) {
+        [Answers logContentViewWithName:@"Book"
+                            contentType:@"Completed"
+                              contentId:@""
+                       customAttributes:@{}];
+    }
     return YES;
 }
 

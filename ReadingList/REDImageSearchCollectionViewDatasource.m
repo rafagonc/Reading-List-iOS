@@ -56,7 +56,11 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     REDGoogleImageSearchCell *cell = (REDGoogleImageSearchCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self.delegate datasource:self didSelectImage:cell.searchedImageView.image];
+    if (cell.searchedImageView.image) {
+        [self.delegate datasource:self didSelectImage:cell.searchedImageView.image error:nil];
+    } else {
+        [self.delegate datasource:self didSelectImage:nil error:[NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Wait for the image to load!"}]];
+    }
 }
 
 @end

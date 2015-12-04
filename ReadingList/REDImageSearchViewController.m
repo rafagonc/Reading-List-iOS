@@ -15,6 +15,7 @@
 #import "REDNavigationBarCustomizer.h"
 #import "REDImageSearchCollectionViewDatasourceDelegate.h"
 #import "UIViewController+Loading.h"
+#import "UIViewController+NotificationShow.h"
 
 @interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate>
 
@@ -82,16 +83,20 @@
         [self.datasource setData:[response data]];
         [self.collectionView reloadData];
     } else {
-        
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
     }
     [self stopFullLoading];
 }
 
 #pragma mark - datasource delegate
--(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image {
-    if (self.callback) self.callback(image);
-    self.callback = nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
+-(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image error:(NSError *)error {
+    if (!error) {
+        if (self.callback) self.callback(image);
+        self.callback = nil;
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+    }
 }
 
 #pragma mark - getters

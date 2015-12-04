@@ -11,6 +11,7 @@
 #import "REDServiceResponseProtocol.h"
 #import "REDDictionary2ModelFactoryProtocol.h"
 #import "REDHTTPRequestFactoryProtocol.h"
+#import "NSDictionary+Validation.h"
 
 @interface REDImageSearchCall ()
 
@@ -24,14 +25,14 @@
 
 -(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(void))completion {
     self.request = request;
-    self.URL = @"https://ajax.googleapis.com/ajax/services/search/images";
+    self.URL = @"https://www.googleapis.com/customsearch/v1";
     [self call:^(id responseObject, NSError *error) {
         if (error) {
             [self.response setSuccess:NO];
             [self.response setError:error];
             [self error:self.response];
         } else {
-            [self.googleImageFactory setInput:responseObject[@"responseData"][@"results"]];
+            [self.googleImageFactory setInput:[responseObject rd_validObjectForKey:@"items"]];
             [self.response setData:[[self googleImageFactory] outputForMany]];
             [self.response setSuccess:YES];
             [self success:self.response];
