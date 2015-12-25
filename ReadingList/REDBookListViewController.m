@@ -50,12 +50,20 @@
     [self.datasource setDelegate:self];
     
     [self updateData];
+    [self.tableView reloadData];
     [self setUpBarButtonItems];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
     [self updateData];
+    [self.tableView reloadData];
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updateData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - setups
@@ -110,8 +118,10 @@
 -(void)updateData {
     if (self.saerchBar.text.length > 0)  {
      [self.datasource setData:[[[[REDEntityFetcher withProtocol:@protocol(REDBookProtocol)] setPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", self.saerchBar.text]] all] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]]];
+        [self.tableView reloadData];
     } else {
         [self.datasource setData:[[[REDEntityFetcher withProtocol:@protocol(REDBookProtocol)] all] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]]];
+        [self.tableView reloadData];
     }
 }
 

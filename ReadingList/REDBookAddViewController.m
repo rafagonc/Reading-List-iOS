@@ -23,8 +23,7 @@
 #import "REDRandomQuoteGenerator.h"
 #import <Crashlytics/Answers.h>
 
-
-@interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate>
+@interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate, REDPageProgressCellDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookProtocol> book;
@@ -67,6 +66,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
+
 }
 -(void)viewWillDisappear:(BOOL)animated {
     if (self.isMovingFromParentViewController) {
@@ -111,6 +111,7 @@
     
     self.progressCell = [[REDPageProgressCell alloc] init];
     [self.progressCell setBook:self.book];
+    [self.progressCell setDelegate:self];
     [self.progressCell setPages:[self.book pagesValue]];
     [self.tableView addCell:self.progressCell onSection:section];
     
@@ -141,9 +142,10 @@
 
 #pragma mark - cell delegates
 -(void)didSelectCategoryCell:(REDBookCategoryCell *)cell {
+    __weak typeof(self) welf = self;
     REDCategoryViewController *categories = [[REDCategoryViewController alloc] init];
     categories.callback = ^(id<REDCategoryProtocol> category){
-        [self.categoryCell setCategory:category];
+        [welf.categoryCell setCategory:category];
     };
     [self.navigationController pushViewController:categories animated:YES];
 }
@@ -168,6 +170,9 @@
 }
 -(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
     [self.progressCell setPages:pages];
+}
+-(void)pageProgressCell:(REDPageProgressCell *)cell tryingToSetPagesWhileIsZeroForBook:(id<REDBookProtocol>)book {
+    [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the pages before reading it!"];
 }
 
 #pragma mark - actions
@@ -194,7 +199,7 @@
     [super didReceiveMemoryWarning];
 }
 -(void)dealloc {
-    
+    NSLog(@"DEALLOC");
 }
 
 

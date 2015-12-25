@@ -25,6 +25,7 @@
 -(instancetype)init {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
     } return self;
 }
@@ -60,6 +61,13 @@
                        customAttributes:@{}];
     }
     return YES;
+}
+
+#pragma makr - selected
+-(void)selected {
+    if (self.pages == 0) {
+        [self.delegate pageProgressCell:self tryingToSetPagesWhileIsZeroForBook:self.book];
+    }
 }
 
 #pragma mark - helper methods

@@ -22,6 +22,7 @@
 -(instancetype)init {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
     if (self) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.nameTextField addToolbar];
     } return self;
 }

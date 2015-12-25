@@ -29,7 +29,6 @@
 #pragma mark - properties
 -(void)setData:(NSArray *)data {
     _books = [data copy];
-    [_tableView reloadData];
 }
 -(NSArray *)data {
     return _books;
