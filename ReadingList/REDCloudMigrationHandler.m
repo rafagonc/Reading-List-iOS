@@ -51,7 +51,10 @@ static NSString * REDCloudMigrationHandlerAlreadyDone = @"REDCloudMigrationHandl
     NSArray *authors = [localAuthorDataAccessObject list];
     
     for (id<REDCategoryProtocol> category in categories) {
-        id<REDCategoryProtocol> cloudCategory = [cloudCategoryDataAccessObject create];
+        id<REDCategoryProtocol> cloudCategory = [[cloudCategoryDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", [category name]]] firstObject];
+        if (!cloudCategory) {
+            cloudCategory = [cloudCategoryDataAccessObject create];
+        }
         [cloudCategory setName:[category name]];
     }
     [[REDCloudDataStack sharedManager] commit];

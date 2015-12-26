@@ -29,8 +29,8 @@
     [Fabric with:@[[Crashlytics class]]];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
-    [REDStaticData craateStaticData];
     [REDCloudMigrationHandler migrateToTheCloud];
+    [REDStaticData craateStaticData];
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];
     REDRecommendedBooksViewController *reccomendedBooks = [[REDRecommendedBooksViewController alloc] init];

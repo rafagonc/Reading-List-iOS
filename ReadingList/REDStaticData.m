@@ -41,7 +41,7 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 
 #pragma mark - methods
 -(void)createStaticData {
-    if ([self.userDefaults objectForKey:REDStaticDataCreatedFlag] == nil || [self.categoryDataAccessObject list].count == 0) {
+    if ([self.userDefaults objectForKey:REDStaticDataCreatedFlag] == nil && [self.categoryDataAccessObject list].count == 0) {
         [self createCategories];
         
         //save flag
