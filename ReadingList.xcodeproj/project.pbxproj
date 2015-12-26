@@ -1065,13 +1065,13 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
-		2A77C0A21C2E188300E21551 /* Amazon Search */ = {
+		2A77C0A21C2E188300E21551 /* Google Books Search */ = {
 			isa = PBXGroup;
 			children = (
 				2A77C09F1C2E187F00E21551 /* REDGoogleBooksQueryRequest.h */,
 				2A77C0A01C2E187F00E21551 /* REDGoogleBooksQueryRequest.m */,
 			);
-			name = "Amazon Search";
+			name = "Google Books Search";
 			sourceTree = "<group>";
 		};
 		2A77C0B31C2E26AD00E21551 /* Transient Book */ = {
@@ -1323,7 +1323,7 @@
 			isa = PBXGroup;
 			children = (
 				2ADCC0801BD1FEE0009F638A /* Image Search */,
-				2A77C0A21C2E188300E21551 /* Amazon Search */,
+				2A77C0A21C2E188300E21551 /* Google Books Search */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";

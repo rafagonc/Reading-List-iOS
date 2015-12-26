@@ -25,7 +25,7 @@
     return @{};
 }
 -(NSDictionary *)HTTPEncode {
-    return @{@"q" : [NSString stringWithFormat:@"%@+subject", self.query], @"key" : @"AIzaSyCB9siucRVNmW3r8PLDcZu2DnZiofC68U8"};
+    return @{@"q" : [NSString stringWithFormat:@"%@", self.query], @"key" : @"AIzaSyCB9siucRVNmW3r8PLDcZu2DnZiofC68U8"};
 }
 -(REDSerializer)Serializer {
     return REDJSONSerializer;
