@@ -10,15 +10,21 @@
 #import "REDBookCell.h"
 #import "REDBookAddViewController.h"
 #import "UIFont+ReadingList.h"
-#import "REDEntityRemover.h"
 #import "REDBookDatasourceDelegate.h"
+#import "REDBookDataAccessObject.h"
 #import "UITableViewCell+Clear.h"
 
 @interface REDBookDatasource () {
 }
 
+#pragma mark - ui
 @property (nonatomic,weak) UITableView *tableView;
+
+#pragma mark - properties
 @property (nonatomic,strong) NSArray *books;
+
+#pragma mark - injected
+@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 
@@ -36,41 +42,31 @@
 
 #pragma mark - table view datasource
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 0 ? 80 : 50;
+    return 80;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     _tableView = tableView;
-    return section == 0 ? self.books.count : 1;
+    return self.books.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellID = NSStringFromClass([REDBookCell class]);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:indexPath.section == 0 ? cellID : @"CellID"];
     if (!cell) {
-        cell =  indexPath.section == 0 ?[[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([REDBookCell class]) owner:self options:nil] firstObject] : [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellID"];
+        cell =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([REDBookCell class]) owner:self options:nil] firstObject];
         [cell clearBackgroundSelection];
     }
     
-    if (indexPath.section == 0) {
-        REDBookCell *bookCell = (REDBookCell *)cell;
-        bookCell.book = self.books[indexPath.row];
-    } else {
-        cell.textLabel.text = @"New Book";
-        cell.textLabel.font = [UIFont AvenirNextRegularWithSize:15.0f];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    REDBookCell *bookCell = (REDBookCell *)cell;
+    bookCell.book = self.books[indexPath.row];
     
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self.delegate datasource:self didSelectBook:self.books[indexPath.row]];
-    } else {
-        [self.delegate datasourceWantsToAddNewBook:self];
-    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.delegate datasource:self didSelectBook:self.books[indexPath.row]];
     
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,7 +74,7 @@
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [REDEntityRemover removeObject:self.books[indexPath.row]];
+        [self.bookDataAccessObject remove:self.books[indexPath.row]];
         [self.delegate datasource:self didDeleteBook:self.books[indexPath.row]];
     }
 }

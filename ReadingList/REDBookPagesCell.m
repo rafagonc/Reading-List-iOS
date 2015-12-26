@@ -37,10 +37,7 @@
 
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
-    if (self.pagesTextField.text.length == 0) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Set the number of pages"}];
-        return NO;
-    } else if ([self.pagesTextField.text onlyDigits] == NO) {
+    if ([self.pagesTextField.text onlyDigits] == NO) {
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"The page number must be only digits"}];
         return NO;
     }

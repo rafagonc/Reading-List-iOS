@@ -22,7 +22,6 @@
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDRequestProtocol> request;
-@property (nonatomic,strong) NSString *URL;
 
 
 

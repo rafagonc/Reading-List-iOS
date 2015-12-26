@@ -16,6 +16,7 @@
 -(void)callWithRequest:(id<REDRequestProtocol>)request andURL:(NSString *)url andCallback:(REDHTTPRequestProtocolCallback)callback {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [request Serializer] == REDXMLSerializer ? [AFXMLParserResponseSerializer serializer] : [AFJSONResponseSerializer serializer];
     [manager GET:url parameters:[request HTTPEncode] success:^(NSURLSessionDataTask *task, id responseObject) {
         callback(responseObject, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

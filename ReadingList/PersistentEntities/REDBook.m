@@ -12,6 +12,7 @@
 
 #pragma mark - getters
 -(NSUInteger)percentage {
+    if (self.pagesValue == 0) return 0;
     return (NSUInteger)((CGFloat)self.pagesReadValue/(CGFloat)self.pagesValue * 100);
 }
 -(UIImage *)coverImage {
@@ -21,6 +22,7 @@
     return self.cacheImage;
 }
 -(BOOL)completed {
+    if (self.pagesValue == 0) return NO;
     return self.pagesReadValue == self.pagesValue;
 }
 
@@ -28,15 +30,6 @@
 -(void)setCoverImage:(UIImage *)coverImage {
     self.cover = UIImagePNGRepresentation(coverImage);
     self.cacheImage = nil;
-}
-
-#pragma mark - validation
--(BOOL)validateForInsert:(NSError * _Nullable __autoreleasing *)error {
-    BOOL canBeInserted = self.name != nil && self.author != nil && self.pagesValue != 0 && self.category != nil;
-    if (!canBeInserted) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Values are not valid"}];
-    }
-    return canBeInserted;
 }
 
 @end

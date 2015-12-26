@@ -11,7 +11,7 @@
 #import "REDUITextFieldCell.h"
 #import "REDDataStack.h"
 #import "REDNavigationBarCustomizer.h"
-#import "REDEntityCreator.h"
+#import "REDAuthorDataAccessObject.h"
 #import "REDAuthorProtocol.h"
 #import "UIViewController+NotificationShow.h"
 
@@ -20,6 +20,9 @@
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIStaticTableView *tableView;
 @property (strong, nonatomic) REDUITextFieldCell *authorNameCell;
+
+#pragma mark - injected
+@property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
 
@@ -76,7 +79,7 @@
 }
 -(void)createAction:(UIBarButtonItem *)item {
     if ([self isValid]) {
-        id<REDAuthorProtocol> author = (id<REDAuthorProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDAuthorProtocol)];
+        id<REDAuthorProtocol> author = [self.authorDataAccessObject create];
         [author setName:self.authorNameCell.textField.text];
         [self dismissViewControllerAnimated:YES completion:nil];
         if (self.callback) self.callback(author);
@@ -86,7 +89,7 @@
 
 #pragma mark - validation
 -(BOOL)isValid {
-#warning MOVE RULE TO MODEL
+    //shoulda move this to a model, but the project is small enough for this trade-off
     BOOL valid = self.authorNameCell.textField.text.length > 0;
     if (!valid) {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Complete the author's name"];

@@ -9,11 +9,12 @@
 #import "REDBookListViewController.h"
 #import "REDDatasourceProtocol.h"
 #import "REDBookProtocol.h"
-#import "REDEntityFetcher.h"
 #import "REDNavigationBarCustomizer.h"
 #import "REDBookAddViewController.h"
 #import "REDBookDatasourceDelegate.h"
 #import "UISearchBar+Toolbar.h"
+#import "REDBookDataAccessObject.h"
+#import "REDTabBarCustomizer.h"
 
 @interface REDBookListViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
     UIBarButtonItem *doneButton, *editButton;
@@ -25,6 +26,7 @@
 
 #pragma mark - injected
 @property (setter=injected_book:, readonly) id<REDDatasourceProtocol> datasource;
+@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 
@@ -33,14 +35,14 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
+        self.title = @"Library";
+        self.tabBarItem.image = [UIImage imageNamed:@"book"];
     } return self;
 }
 
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"Books";
     
     [self.saerchBar addToolbar];
     self.saerchBar.delegate = self;
@@ -57,6 +59,7 @@
     [super viewWillAppear:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
+    [REDTabBarCustomizer customizeTabBar:self.tabBarController.tabBar];
     [self updateData];
     [self.tableView reloadData];
 }
@@ -72,6 +75,9 @@
     [self.navigationItem setLeftBarButtonItem:editButton];
     
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(editAction:)];
+    
+    UIBarButtonItem *addAction = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
+    [self.navigationItem setRightBarButtonItem:addAction];
 }
 
 #pragma mark - book datasource protocol
@@ -85,14 +91,8 @@
     [self updateData];
     [self.tableView endUpdates];
 }
--(void)datasourceWantsToAddNewBook:(id<REDDatasourceProtocol>)datasource {
-    REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init]
-    ;
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
 
 #pragma mark - search bar protocl
-#warning MOVE SEARCH BAR DELEGATE OUT
 -(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
 }
@@ -102,25 +102,21 @@
 
 #pragma mark - actions
 -(void)addAction:(UIBarButtonItem *)addbutton {
-    REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init]
-    ;
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:detailViewController] animated:YES completion:nil];
+    REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 -(void)editAction:(UIBarButtonItem *)editAction {
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
 }
--(void)infoAction:(UIBarButtonItem *)infoButton {
-    
-}
 
 #pragma mark - methods
 -(void)updateData {
     if (self.saerchBar.text.length > 0)  {
-     [self.datasource setData:[[[[REDEntityFetcher withProtocol:@protocol(REDBookProtocol)] setPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", self.saerchBar.text]] all] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]]];
+     [self.datasource setData:[self.bookDataAccessObject searchBooksWithString:self.saerchBar.text]];
         [self.tableView reloadData];
     } else {
-        [self.datasource setData:[[[REDEntityFetcher withProtocol:@protocol(REDBookProtocol)] all] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]]];
+        [self.datasource setData:[[self.bookDataAccessObject list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]]];
         [self.tableView reloadData];
     }
 }

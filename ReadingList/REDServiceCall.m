@@ -20,7 +20,6 @@
 #pragma mark - injected
 @property (setter=injected:, readonly) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
 
-
 @end
 
 @implementation REDServiceCall
@@ -28,7 +27,7 @@
 #pragma mark - concrete calling
 -(void)call:(REDHTTPRequestProtocolCallback)callback {
     self.HTTPRequest = [self.HTTPRequestFactory HTTPMethodFor:[self.request HTTPMethod]];
-    [self.HTTPRequest callWithRequest:self.request andURL:self.URL andCallback:^(id responseObject, NSError *error) {
+    [self.HTTPRequest callWithRequest:self.request andURL:[self.request URL] andCallback:^(id responseObject, NSError *error) {
         callback(responseObject, error);
     }];
 }

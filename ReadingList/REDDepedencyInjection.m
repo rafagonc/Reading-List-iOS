@@ -22,6 +22,14 @@
 #import "REDGoogleImageDictionary2ModelFactory.h"
 #import "REDCollectionViewDatasourceProtocol.h"
 #import "REDImageSearchCollectionViewDatasource.h"
+#import "REDBookDataAccessObject.h"
+#import "REDBookDataAccessObjectImpl.h"
+#import "REDCategoryDataAccessObject.h"
+#import "REDCategoryDataAccessObjectImpl.h"
+#import "REDAuthorDataAccessObject.h"
+#import "REDAuthorDataAccessObjectImpl.h"
+#import "REDGoogleBooksFactory.h"
+#import "REDTransientBookDatasource.h"
 
 @implementation REDDepedencyInjection
 
@@ -33,7 +41,13 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDServiceResponse class] forProtocol:@protocol(REDServiceResponseProtocol) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDServiceDispatcher class] forProtocol:@protocol(REDServiceDispatcherProtocol) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleImageDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleImage"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleBooksFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleBooks"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDImageSearchCollectionViewDatasource class] forProtocol:@protocol(REDCollectionViewDatasourceProtocol) context:@"googleImage"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDBookDataAccessObjectImpl class] forProtocol:@protocol(REDBookDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryDataAccessObjectImpl class] forProtocol:@protocol(REDCategoryDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorDataAccessObjectImpl class] forProtocol:@protocol(REDAuthorDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDTransientBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"transientBook"];
+
 
 }
 

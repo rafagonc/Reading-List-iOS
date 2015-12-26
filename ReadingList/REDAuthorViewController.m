@@ -8,8 +8,8 @@
 
 #import "REDAuthorViewController.h"
 #import "REDDatasourceProtocol.h"
-#import "REDEntityFetcher.h"
 #import "REDAuthorCreateViewController.h"
+#import "REDAuthorDataAccessObject.h"
 
 @interface REDAuthorViewController () <UITableViewDelegate>
 
@@ -18,6 +18,7 @@
 
 #pragma mark - injected
 @property (setter=injected_author:,readonly) id<REDDatasourceProtocol> datasource;
+@property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
 
@@ -48,7 +49,7 @@
 
 #pragma mark - methods
 -(void)updateData {
-    [self.datasource setData:[[[REDEntityFetcher withProtocol:@protocol(REDAuthorProtocol)] setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]] all]];
+    [self.datasource setData:[self.authorDataAccessObject authorsSortedByName]];
 }
 
 #pragma mark - table view delegate

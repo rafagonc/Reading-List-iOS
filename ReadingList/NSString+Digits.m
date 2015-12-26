@@ -12,6 +12,7 @@
 
 #pragma mark - digits
 -(BOOL)onlyDigits {
+    if (self.length == 0) return YES;
     NSScanner *scanner = [NSScanner scannerWithString:self];
     BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
     return isNumeric;

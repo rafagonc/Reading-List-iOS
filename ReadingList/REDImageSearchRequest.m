@@ -41,6 +41,12 @@
 -(REDHTTPMethod)HTTPMethod {
     return REDHTTPMethodGET;
 }
+-(REDSerializer)Serializer {
+    return REDJSONSerializer;
+}
+-(NSString *)URL {
+    return @"https://www.googleapis.com/customsearch/v1";
+}
 
 #pragma mark - methods
 -(void)nextPage {

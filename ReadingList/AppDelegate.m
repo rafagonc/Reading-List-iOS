@@ -15,7 +15,8 @@
 #import "REDDataStack.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-
+#import "REDRecommendedBooksViewController.h"
+#import "REDCloudMigrationHandler.h"
 
 @interface AppDelegate ()
 
@@ -29,10 +30,17 @@
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
     [REDStaticData craateStaticData];
+    [REDCloudMigrationHandler migrateToTheCloud];
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];
+    REDRecommendedBooksViewController *reccomendedBooks = [[REDRecommendedBooksViewController alloc] init];
+    
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    [tab setViewControllers:@[[[UINavigationController alloc] initWithRootViewController:bookList],
+                              [[UINavigationController alloc] initWithRootViewController:reccomendedBooks]]];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:bookList];
+    self.window.rootViewController = tab;
     self.window.backgroundColor = [UIColor red_redColor];
     [self.window makeKeyAndVisible];
     

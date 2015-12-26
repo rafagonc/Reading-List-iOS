@@ -9,6 +9,8 @@
 #import "REDServiceCallFactory.h"
 #import "REDImageSearchRequest.h"
 #import "REDImageSearchCall.h"
+#import "REDGoogleBooksQueryRequest.h"
+#import "REDGoogleBooksQueryCall.h"
 
 @interface REDServiceCallFactory ()
 
@@ -25,7 +27,9 @@
     if (self = [super init]) {
         self.requestClass = requestClass;
         self.bindings = @{
-                          NSStringFromClass([REDImageSearchRequest class]) : [REDImageSearchCall class]
+                          NSStringFromClass([REDImageSearchRequest class]) : [REDImageSearchCall class],
+                          NSStringFromClass([REDGoogleBooksQueryRequest class]) : [REDGoogleBooksQueryCall class]
+
                           };
     } return self;
 }

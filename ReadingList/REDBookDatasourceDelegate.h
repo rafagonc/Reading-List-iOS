@@ -14,7 +14,6 @@
 
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didSelectBook:(id<REDBookProtocol>)book;
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book;
--(void)datasourceWantsToAddNewBook:(id<REDDatasourceProtocol>)datasource;
 
 
 @end

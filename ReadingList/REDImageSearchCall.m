@@ -25,7 +25,6 @@
 
 -(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(void))completion {
     self.request = request;
-    self.URL = @"https://www.googleapis.com/customsearch/v1";
     [self call:^(id responseObject, NSError *error) {
         if (error) {
             [self.response setSuccess:NO];
@@ -42,4 +41,5 @@
 -(BOOL)canCacheResult {
     return NO;
 }
+
 @end

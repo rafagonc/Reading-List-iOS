@@ -10,6 +10,8 @@
 
 @protocol REDHTTPEncodeProtocol <NSObject>
 
+@optional
 -(NSDictionary *)HTTPEncode;
+-(NSDictionary *)HTTPHeader;
 
 @end

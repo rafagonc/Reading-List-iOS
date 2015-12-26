@@ -8,7 +8,7 @@
 
 #import "REDCategoryViewController.h"
 #import "REDDatasourceProtocol.h"
-#import "REDEntityFetcher.h"
+#import "REDCategoryDataAccessObject.h"
 
 @interface REDCategoryViewController () <UITableViewDelegate>
 
@@ -17,6 +17,7 @@
 
 #pragma mark - injected
 @property (setter=injected_category:, readonly) id<REDDatasourceProtocol> datasource;
+@property (setter=injected:, readonly) id<REDCategoryDataAccessObject> categoryDataAccessObject;
 
 @end
 
@@ -43,7 +44,7 @@
 
 #pragma mark - methods
 -(void)updateData {
-    [self.datasource setData:[[[REDEntityFetcher withProtocol:@protocol(REDCategoryProtocol)] setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]] all]];
+    [self.datasource setData:[self.categoryDataAccessObject categoriesSortedByName]];
 }
 
 #pragma mark - table view delegate

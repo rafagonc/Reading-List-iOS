@@ -13,6 +13,8 @@
 
 @protocol REDBookProtocol <REDNamable>
 
+@optional;
+
 #pragma mark - relationships
 @property (nonatomic) id<REDAuthorProtocol> author;
 @property (nonatomic) id<REDCategoryProtocol> category;

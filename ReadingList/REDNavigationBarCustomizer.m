@@ -21,12 +21,11 @@
 
 #pragma mark - customize
 -(void)customize {
-    _navigationBar.barTintColor = [UIColor whiteColor];
     _navigationBar.tintColor = [UIColor red_redColor];
     //_navigationBar.clipsToBounds = YES;
     _navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont AvenirNextBoldWithSize:18.0f],  NSForegroundColorAttributeName : [UIColor darkTextColor]};
     _navigationBar.shadowImage = [[UIImage alloc] init];
-    _navigationBar.translucent = NO;
+    _navigationBar.translucent = YES;
 }
 
 #pragma mark - factory method

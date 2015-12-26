@@ -13,21 +13,28 @@
 #import "REDBookCategoryCell.h"
 #import "REDBookPagesCell.h"
 #import "REDPageProgressCell.h"
-#import "REDEntityCreator.h"
 #import "REDCategoryViewController.h"
 #import "REDAuthorViewController.h"
-#import "REDEntityRemover.h"
 #import "REDImageSearchViewController.h"
 #import "REDDataStack.h"
 #import "UIViewController+NotificationShow.h"
 #import "REDRandomQuoteGenerator.h"
 #import <Crashlytics/Answers.h>
+#import "REDTransientBook.h"
+#import "REDBookDataAccessObject.h"
+
+typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
+    REDBookAddViewControllerActionTypeAdding,
+    REDBookAddViewControllerActionTypeEditing,
+    REDBookAddViewControllerActionTypeTransientBook,
+};
 
 @interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate, REDPageProgressCellDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookProtocol> book;
-@property (nonatomic,assign) BOOL isEditing;
+@property (nonatomic,strong) id<REDBookProtocol> transientBook;
+@property (nonatomic,assign) REDBookAddViewControllerActionType actionType;
 
 #pragma mark - ui
 @property (nonatomic,strong) REDBookCategoryCell *categoryCell;
@@ -37,6 +44,9 @@
 @property (nonatomic,  weak) IBOutlet UIStaticTableView *tableView;
 @property (nonatomic,  weak) IBOutlet UILabel *quoteLabel;
 
+#pragma mark - injected
+@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+
 @end
 
 @implementation REDBookAddViewController
@@ -44,21 +54,27 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
-        self.book = (id<REDBookProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDBookProtocol)];
-        self.isEditing = NO;
+        self.book = [self.bookDataAccessObject create];
+        self.actionType = REDBookAddViewControllerActionTypeAdding;
     } return self;
 }
 -(instancetype)initWithBook:(id<REDBookProtocol>)book {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
-        self.book = book;
-        self.isEditing = YES;
+        if ([book isKindOfClass:[REDTransientBook class]]) {
+            self.book = [self.bookDataAccessObject create];
+            self.actionType = REDBookAddViewControllerActionTypeTransientBook;
+            self.transientBook = book;
+        } else {
+            self.book = book;
+            self.actionType = REDBookAddViewControllerActionTypeEditing;
+        }
     } return self;
 }
 
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.isEditing ? @"Edit Book" : @"New Book";
+    self.title = self.actionType == REDBookAddViewControllerActionTypeAdding || self.actionType == REDBookAddViewControllerActionTypeTransientBook ? @"New Book" : @"Edit Book";
     [self createTableView];
     [self setUpBarButtonItems];
     [self.quoteLabel setText:[REDRandomQuoteGenerator quote]];
@@ -71,8 +87,8 @@
 -(void)viewWillDisappear:(BOOL)animated {
     if (self.isMovingFromParentViewController) {
         NSError * error;
-        if ([self processBook:&error] == NO && !self.isEditing) {
-            [REDEntityRemover removeObject:self.book];
+        if ([self processBook:&error] == NO && (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding)) {
+            [self.bookDataAccessObject remove:self.book];
         } else {
             [[REDDataStack sharedManager] commit];
         }
@@ -80,7 +96,9 @@
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (!self.isEditing) [self.headerCell.nameTextField becomeFirstResponder];
+    if (self.actionType == REDBookAddViewControllerActionTypeAdding) {
+        [self.headerCell.nameTextField becomeFirstResponder];
+    }
 }
 
 #pragma mark - setups
@@ -95,7 +113,7 @@
     [section setHeaderName:@"Book Info"];
     
     self.headerCell = [[REDBookHeaderCell alloc] init];
-    [self.headerCell setBook:self.book];
+    [self.headerCell setBook:self.actionType == REDBookAddViewControllerActionTypeTransientBook ? self.transientBook : self.book];
     self.headerCell.delegate = self;
     [self.tableView addCell:self.headerCell onSection:section];
     
@@ -180,14 +198,19 @@
     if ([self finishBook]) {
         [self.navigationController popViewControllerAnimated:YES];
         [[REDDataStack sharedManager] commit];
-        if (self.isEditing) {
+        if (self.actionType == REDBookAddViewControllerActionTypeEditing) {
             [Answers logContentViewWithName:@"Book"
                                 contentType:@"Viewing"
                                   contentId:@""
                            customAttributes:@{}];
-        } else {
+        } else if (self.actionType == REDBookAddViewControllerActionTypeAdding) {
             [Answers logContentViewWithName:@"Book"
                                 contentType:@"Adding"
+                                  contentId:@""
+                           customAttributes:@{}];
+        } else {
+            [Answers logContentViewWithName:@"Book"
+                                contentType:@"Added Transient"
                                   contentId:@""
                            customAttributes:@{}];
         }
@@ -199,7 +222,6 @@
     [super didReceiveMemoryWarning];
 }
 -(void)dealloc {
-    NSLog(@"DEALLOC");
 }
 
 

@@ -10,6 +10,8 @@
 
 @protocol REDNamable <NSObject>
 
+@optional
+
 #pragma mark - properties
 @property (nonatomic) NSString *name;
 

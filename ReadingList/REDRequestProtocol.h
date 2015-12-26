@@ -15,8 +15,15 @@ typedef NS_ENUM(NSUInteger, REDHTTPMethod) {
     REDHTTPMethodDELETE
 };
 
+typedef NS_ENUM(NSUInteger, REDSerializer) {
+    REDJSONSerializer,
+    REDXMLSerializer,
+};
+
 @protocol REDRequestProtocol <REDHTTPEncodeProtocol>
 
 -(REDHTTPMethod)HTTPMethod;
+-(REDSerializer)Serializer;
+-(NSString *)URL;
 
 @end

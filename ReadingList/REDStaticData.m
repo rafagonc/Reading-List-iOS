@@ -7,17 +7,26 @@
 //
 
 #import "REDStaticData.h"
-#import "REDEntityCreator.h"
 #import "REDDataStack.h"
 #import "REDCategoryProtocol.h"
 #import "REDBookProtocol.h"
 #import "REDAuthorProtocol.h"
+#import "REDCategoryDataAccessObject.h"
+#import "REDBookDataAccessObject.h"
+#import "REDCloudDataStack.h"
+#import "REDAuthorDataAccessObject.h"
 
 static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 
 @interface REDStaticData ()
 
+#pragma mark - properties
 @property (nonatomic,readonly) NSUserDefaults *userDefaults;
+
+#pragma mark - injected
+@property (setter=injected:,readonly) id<REDCategoryDataAccessObject> categoryDataAccessObject;
+@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
 
@@ -32,7 +41,7 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 
 #pragma mark - methods
 -(void)createStaticData {
-    if ([self.userDefaults objectForKey:REDStaticDataCreatedFlag] == nil) {
+    if ([self.userDefaults objectForKey:REDStaticDataCreatedFlag] == nil || [self.categoryDataAccessObject list].count == 0) {
         [self createCategories];
         
         //save flag
@@ -74,17 +83,17 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
                             @"Travel"];
     
     for (NSString *name in categories) {
-        id<REDCategoryProtocol> category  = (id<REDCategoryProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDCategoryProtocol)];
+        id<REDCategoryProtocol> category  = [self.categoryDataAccessObject create];
         [category setName:name];
     }
     
-    id<REDCategoryProtocol> romanceCategory = (id<REDCategoryProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDCategoryProtocol)];
+    id<REDCategoryProtocol> romanceCategory = [self.categoryDataAccessObject create];
     [romanceCategory setName:@"Romance"];
     
-    id<REDAuthorProtocol> author = (id<REDAuthorProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDAuthorProtocol)];
+    id<REDAuthorProtocol> author = [self.authorDataAccessObject create];
     [author setName:@"William Shakespeare"];
     
-    id<REDBookProtocol> book = (id<REDBookProtocol>)[REDEntityCreator newEntityWithProtocol:@protocol(REDBookProtocol)];
+    id<REDBookProtocol> book = [self.bookDataAccessObject create];
     [book setName:@"Romeo And Juliet"];
     [book setAuthor:author];
     [book setPagesValue:323];
@@ -92,7 +101,7 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
     [book setCategory:romanceCategory];
     [book setCoverImage:[UIImage imageNamed:@"romeo-and-juliet.jpg"]];
     
-    
+    [[REDCloudDataStack sharedManager] commit];
     [[REDDataStack sharedManager] commit];
 }
 

@@ -5,7 +5,7 @@
 
 target 'ReadingList' do
 
-pod 'AFNetworking'
+pod 'AFNetworking', '~> 2.5'
 pod 'Depend'
 pod 'SDWebImage'
 pod 'LLARingSpinnerView'
