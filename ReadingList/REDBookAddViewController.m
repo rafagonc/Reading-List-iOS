@@ -22,6 +22,10 @@
 #import <Crashlytics/Answers.h>
 #import "REDTransientBook.h"
 #import "REDBookDataAccessObject.h"
+#import "REDGoogleBooksQueryRequest.h"
+#import "REDServiceDispatcherProtocol.h"
+#import "REDServiceResponse.h"
+#import "REDCloudDataStack.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -46,6 +50,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 
 #pragma mark - injected
 @property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 
@@ -76,6 +81,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [super viewDidLoad];
     self.title = self.actionType == REDBookAddViewControllerActionTypeAdding || self.actionType == REDBookAddViewControllerActionTypeTransientBook ? @"New Book" : @"Edit Book";
     [self createTableView];
+    if (![self.book snippet] && self.actionType == REDBookAddViewControllerActionTypeEditing) [self callServiceForBookDescription];
     [self setUpBarButtonItems];
     [self.quoteLabel setText:[REDRandomQuoteGenerator quote]];
 }
@@ -90,7 +96,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         if ([self processBook:&error] == NO && (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding)) {
             [self.bookDataAccessObject remove:self.book];
         } else {
-            [[REDDataStack sharedManager] commit];
+            [[REDCloudDataStack sharedManager] commit];
         }
     }
 }
@@ -110,10 +116,10 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 #pragma mark - table view
 -(void)createTableView {
     UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
-    [section setHeaderName:@"Book Info"];
     
     self.headerCell = [[REDBookHeaderCell alloc] init];
     [self.headerCell setBook:self.actionType == REDBookAddViewControllerActionTypeTransientBook ? self.transientBook : self.book];
+    [self.headerCell setSnippet:self.actionType == REDBookAddViewControllerActionTypeTransientBook ? [self.transientBook snippet] :[self.book snippet]];
     self.headerCell.delegate = self;
     [self.tableView addCell:self.headerCell onSection:section];
     
@@ -145,7 +151,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
             return NO;
         }
     }
-    [[REDDataStack sharedManager] commit];
+    [[REDCloudDataStack sharedManager] commit];
     return YES;
 }
 -(BOOL)finishBook {
@@ -193,11 +199,28 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the pages before reading it!"];
 }
 
+#pragma mark - query description
+-(void)callServiceForBookDescription {
+    [self.headerCell setIsLoading:YES];
+    REDGoogleBooksQueryRequest *request = [[REDGoogleBooksQueryRequest alloc] initWithQuery:[NSString stringWithFormat:@"%@ %@",[[self book] name], [[[self book] author] name]]];
+    [self.serviceDispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
+}
+-(void)response:(NSNotification *)notification {
+    id<REDServiceResponseProtocol> response = notification.object;
+    if ([response success] && [[response data] count]) {
+        NSString *description = [[[response data] firstObject] snippet];
+        [self.headerCell setSnippet:description];
+    } else {
+        [self.headerCell setSnippet:@"No description available."];
+    }
+    [self.headerCell setIsLoading:NO];
+}
+
 #pragma mark - actions
 -(void)doneAction:(UIBarButtonItem *)createButton {
     if ([self finishBook]) {
         [self.navigationController popViewControllerAnimated:YES];
-        [[REDDataStack sharedManager] commit];
+        [[REDCloudDataStack sharedManager] commit];
         if (self.actionType == REDBookAddViewControllerActionTypeEditing) {
             [Answers logContentViewWithName:@"Book"
                                 contentType:@"Viewing"

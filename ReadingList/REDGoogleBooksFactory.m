@@ -20,6 +20,7 @@
     transientBook.title = [[dict rd_validObjectForKey:@"volumeInfo"] rd_validObjectForKey:@"title"];
     transientBook.imageURL = [[[dict rd_validObjectForKey:@"volumeInfo"] rd_validObjectForKey:@"imageLinks"] rd_validObjectForKey:@"thumbnail"];
     transientBook.authorsName = [[[dict rd_validObjectForKey:@"volumeInfo"] rd_validObjectForKey:@"authors"] firstObject] ? [[[dict rd_validObjectForKey:@"volumeInfo"] rd_validObjectForKey:@"authors"] firstObject] : @"Unknown Author";
+    transientBook.snippet = [[dict rd_validObjectForKey:@"volumeInfo"] rd_validObjectForKey:@"description"];
     return transientBook;
 }
 

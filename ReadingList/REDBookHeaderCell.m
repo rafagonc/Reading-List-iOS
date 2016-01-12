@@ -8,11 +8,15 @@
 
 #import "REDBookHeaderCell.h"
 #import "UITextField+DoneButton.h"
+#import "UIImage+Blur.h"
 
 @interface REDBookHeaderCell ()
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIButton *coverButton;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -32,17 +36,30 @@
     _book = book;
     [self setCoverImage:[book coverImage]];
     [self setAuthor:[book author]];
-    [self.nameTextField setText:[book name]];
+    if ([book name].length) [self.nameTextField setText:[book name]];
 }
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
     _author = author;
     [self.authorButton setTitle:author ? [author name] : @"Author" forState:UIControlStateNormal];
-    [self.authorButton setTitleColor:author ? [UIColor darkTextColor] : [UIColor lightGrayColor] forState:UIControlStateNormal];
+    [self.authorButton setTitleColor:author ? [UIColor whiteColor] : [UIColor whiteColor] forState:UIControlStateNormal];
 }
 -(void)setCoverImage:(UIImage *)coverImage {
     _coverImage = coverImage;
+    [self.coverImageView setImage:coverImage ? [coverImage applyBlurToImageWithRadius:80.0f] : [UIImage imageNamed:@"default_blur"]];
     [self.coverButton setTitle:coverImage ? @"" : @"cover" forState:UIControlStateNormal];
     [self.coverButton setBackgroundImage:coverImage forState:UIControlStateNormal];
+}
+-(void)setSnippet:(NSString *)snippet {
+    _snippet = snippet;
+    [self.descriptionTextView setText:snippet];
+}
+-(void)setIsLoading:(BOOL)isLoading {
+    _isLoading = isLoading;
+    if (isLoading) {
+        [self.activityIndicator startAnimating];
+    } else {
+        [self.activityIndicator stopAnimating];
+    }
 }
 
 #pragma mark - chain of responsiblity
@@ -58,6 +75,7 @@
     [book setName:self.nameTextField.text];
     [book setAuthor:self.author];
     [book setCoverImage:self.coverButton.currentBackgroundImage];
+    [book setSnippet:self.snippet];
     return YES;
 }
 

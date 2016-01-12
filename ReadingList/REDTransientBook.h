@@ -17,6 +17,7 @@
 @property (nonatomic,strong) NSString *authorsName;
 @property (nonatomic,strong) NSString *imageURL;
 @property (nonatomic,strong) UIImage *coverImage;
+@property (nonatomic,strong) NSString *snippet;
 
 
 @end

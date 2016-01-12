@@ -21,6 +21,7 @@
 
 #pragma mark - properties
 @property (nonatomic) UIImage * coverImage;
+@property (nonatomic) NSString * snippet;
 @property (nonatomic,readonly) BOOL completed;
 @property (nonatomic) NSUInteger pagesValue;
 @property (nonatomic) NSUInteger pagesReadValue;

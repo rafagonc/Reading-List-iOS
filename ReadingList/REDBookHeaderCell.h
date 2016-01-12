@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *authorButton;
 
 #pragma mark - properties
+@property (nonatomic,assign) BOOL isLoading;
+@property (nonatomic,strong) NSString *snippet;
 @property (nonatomic,weak) id<REDBookProtocol> book;
 @property (nonatomic,strong) id<REDAuthorProtocol> author;
 @property (nonatomic,weak) id<REDBookHeaderCellDelegate> delegate;

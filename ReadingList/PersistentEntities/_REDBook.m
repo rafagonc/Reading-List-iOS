@@ -9,6 +9,7 @@ const struct REDBookAttributes REDBookAttributes = {
 	.name = @"name",
 	.pages = @"pages",
 	.pagesRead = @"pagesRead",
+	.snippet = @"snippet",
 };
 
 const struct REDBookRelationships REDBookRelationships = {
@@ -101,6 +102,8 @@ const struct REDBookRelationships REDBookRelationships = {
 - (void)setPrimitivePagesReadValue:(int16_t)value_ {
 	[self setPrimitivePagesRead:[NSNumber numberWithShort:value_]];
 }
+
+@dynamic snippet;
 
 @dynamic author;
 

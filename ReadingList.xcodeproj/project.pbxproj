@@ -130,6 +130,7 @@
 		2ADCC0B21BD2E85A009F638A /* UITableViewCell+Clear.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B11BD2E85A009F638A /* UITableViewCell+Clear.m */; };
 		2ADCC0B51BD2EC90009F638A /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B41BD2EC90009F638A /* books.json */; };
 		2ADCC0B81BD2ECA1009F638A /* REDRandomQuoteGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */; };
+		2AECF4C71C447910007BA281 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AECF4C61C447910007BA281 /* UIImage+Blur.m */; };
 		F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7FEE50961509749458D464 /* libPods-ReadingList.a */; };
 /* End PBXBuildFile section */
 
@@ -364,6 +365,9 @@
 		2ADCC0B41BD2EC90009F638A /* books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books.json; sourceTree = "<group>"; };
 		2ADCC0B61BD2ECA1009F638A /* REDRandomQuoteGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRandomQuoteGenerator.h; sourceTree = "<group>"; };
 		2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRandomQuoteGenerator.m; sourceTree = "<group>"; };
+		2AECF4C51C447910007BA281 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
+		2AECF4C61C447910007BA281 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
+		2AECF4C91C44842D007BA281 /* ReadingList 1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.2.xcdatamodel"; sourceTree = "<group>"; };
 		3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -568,6 +572,7 @@
 				2ADCC0B31BD2E85C009F638A /* UITableViewCell */,
 				2A2A1E4F1BD2F0F000677868 /* UISearchBar */,
 				2A7DA3851C10133A00B179D0 /* NSDictionary */,
+				2AECF4C81C44799E007BA281 /* UIImage */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1441,6 +1446,15 @@
 			name = Quotes;
 			sourceTree = "<group>";
 		};
+		2AECF4C81C44799E007BA281 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				2AECF4C51C447910007BA281 /* UIImage+Blur.h */,
+				2AECF4C61C447910007BA281 /* UIImage+Blur.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
 		3C1B8AFD86E40D76DA605411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1776,6 +1790,7 @@
 				2ADCC0631BD1FC84009F638A /* REDPOSTHTTPRequest.m in Sources */,
 				2ADCC0851BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m in Sources */,
 				2A19B89D1BCDB707009C8F25 /* REDDepedencyInjection.m in Sources */,
+				2AECF4C71C447910007BA281 /* UIImage+Blur.m in Sources */,
 				2ADCC05B1BD1FC69009F638A /* REDDELETEHTTPRequest.m in Sources */,
 				2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */,
 				2A74EC991BD0AA52005F5E74 /* REDImageSearchCall.m in Sources */,
@@ -1925,9 +1940,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rafael Gonzalves (A7R335TQR4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rafael Gonzalves (A7R335TQR4)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1948,8 +1963,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Gonzalves (8P5355PV9G)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Gonzalves (8P5355PV9G)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2103,9 +2119,10 @@
 		2A74EBB91BCD50B8005F5E74 /* ReadingList.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2AECF4C91C44842D007BA281 /* ReadingList 1.2.xcdatamodel */,
 				2A74EBBA1BCD50B8005F5E74 /* ReadingList.xcdatamodel */,
 			);
-			currentVersion = 2A74EBBA1BCD50B8005F5E74 /* ReadingList.xcdatamodel */;
+			currentVersion = 2AECF4C91C44842D007BA281 /* ReadingList 1.2.xcdatamodel */;
 			path = ReadingList.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
