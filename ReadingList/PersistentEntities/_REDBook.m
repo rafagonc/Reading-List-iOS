@@ -9,6 +9,7 @@ const struct REDBookAttributes REDBookAttributes = {
 	.name = @"name",
 	.pages = @"pages",
 	.pagesRead = @"pagesRead",
+	.rate = @"rate",
 	.snippet = @"snippet",
 };
 
@@ -50,6 +51,11 @@ const struct REDBookRelationships REDBookRelationships = {
 	}
 	if ([key isEqualToString:@"pagesReadValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"pagesRead"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"rateValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"rate"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -101,6 +107,26 @@ const struct REDBookRelationships REDBookRelationships = {
 
 - (void)setPrimitivePagesReadValue:(int16_t)value_ {
 	[self setPrimitivePagesRead:[NSNumber numberWithShort:value_]];
+}
+
+@dynamic rate;
+
+- (float)rateValue {
+	NSNumber *result = [self rate];
+	return [result floatValue];
+}
+
+- (void)setRateValue:(float)value_ {
+	[self setRate:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveRateValue {
+	NSNumber *result = [self primitiveRate];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveRateValue:(float)value_ {
+	[self setPrimitiveRate:[NSNumber numberWithFloat:value_]];
 }
 
 @dynamic snippet;

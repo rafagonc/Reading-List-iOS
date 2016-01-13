@@ -321,6 +321,8 @@
 		2A8D056C1BD042C3004364F5 /* global.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.pch; sourceTree = "<group>"; };
 		2A8D056D1BD05E0C004364F5 /* NSString+Digits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Digits.h"; sourceTree = "<group>"; };
 		2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Digits.m"; sourceTree = "<group>"; };
+		2AA857811C45B5A20015AFAC /* ReadingList 1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.3.xcdatamodel"; sourceTree = "<group>"; };
+		2AA857821C45B81E0015AFAC /* ReadingList 1.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.4.xcdatamodel"; sourceTree = "<group>"; };
 		2ADCC04A1BD1FB4C009F638A /* REDServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponse.h; sourceTree = "<group>"; };
 		2ADCC04B1BD1FB4C009F638A /* REDServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDServiceResponse.m; sourceTree = "<group>"; };
 		2ADCC04C1BD1FB4C009F638A /* REDServiceResponseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponseProtocol.h; sourceTree = "<group>"; };
@@ -2119,10 +2121,12 @@
 		2A74EBB91BCD50B8005F5E74 /* ReadingList.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2AA857821C45B81E0015AFAC /* ReadingList 1.4.xcdatamodel */,
+				2AA857811C45B5A20015AFAC /* ReadingList 1.3.xcdatamodel */,
 				2AECF4C91C44842D007BA281 /* ReadingList 1.2.xcdatamodel */,
 				2A74EBBA1BCD50B8005F5E74 /* ReadingList.xcdatamodel */,
 			);
-			currentVersion = 2AECF4C91C44842D007BA281 /* ReadingList 1.2.xcdatamodel */;
+			currentVersion = 2AA857811C45B5A20015AFAC /* ReadingList 1.3.xcdatamodel */;
 			path = ReadingList.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

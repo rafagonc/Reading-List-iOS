@@ -9,6 +9,7 @@ extern const struct REDBookAttributes {
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *pages;
 	__unsafe_unretained NSString *pagesRead;
+	__unsafe_unretained NSString *rate;
 	__unsafe_unretained NSString *snippet;
 } REDBookAttributes;
 
@@ -57,6 +58,14 @@ extern const struct REDBookRelationships {
 
 //- (BOOL)validatePagesRead:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSNumber* rate;
+
+@property (atomic) float rateValue;
+- (float)rateValue;
+- (void)setRateValue:(float)value_;
+
+//- (BOOL)validateRate:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* snippet;
 
 //- (BOOL)validateSnippet:(id*)value_ error:(NSError**)error_;
@@ -93,6 +102,12 @@ extern const struct REDBookRelationships {
 
 - (int16_t)primitivePagesReadValue;
 - (void)setPrimitivePagesReadValue:(int16_t)value_;
+
+- (NSNumber*)primitiveRate;
+- (void)setPrimitiveRate:(NSNumber*)value;
+
+- (float)primitiveRateValue;
+- (void)setPrimitiveRateValue:(float)value_;
 
 - (NSString*)primitiveSnippet;
 - (void)setPrimitiveSnippet:(NSString*)value;

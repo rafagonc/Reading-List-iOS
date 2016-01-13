@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EDStarRating.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>LLARingSpinnerView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,11 +47,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>236372205E0DCDC17F6039F897B86CC5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
@@ -57,12 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8289F5697D1C6532C2B1F3EFCEF4D0F</key>
+		<key>8EF8D4A3C72D29C17477A43CB33C90C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9BEE5F063D739BF8536958FD76629434</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B24E0E02E9746BC60C12F9F7395259A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F19C44C8002ABA417A5AF53139EE5F60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

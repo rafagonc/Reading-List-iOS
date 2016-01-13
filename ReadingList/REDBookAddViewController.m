@@ -207,9 +207,13 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 }
 -(void)response:(NSNotification *)notification {
     id<REDServiceResponseProtocol> response = notification.object;
-    if ([response success] && [[response data] count]) {
+    if ([response success]) {
         NSString *description = [[[response data] firstObject] snippet];
-        [self.headerCell setSnippet:description];
+        if (description.length) {
+            [self.headerCell setSnippet:description];
+        } else {
+            [self.headerCell setSnippet:@"No description available."];
+        }
     } else {
         [self.headerCell setSnippet:@"No description available."];
     }

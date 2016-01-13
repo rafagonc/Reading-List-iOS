@@ -9,6 +9,7 @@ pod 'AFNetworking', '~> 2.5'
 pod 'Depend'
 pod 'SDWebImage'
 pod 'LLARingSpinnerView'
+pod 'EDStarRating'
 
 end
 

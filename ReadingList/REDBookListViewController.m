@@ -116,7 +116,7 @@
      [self.datasource setData:[self.bookDataAccessObject searchBooksWithString:self.saerchBar.text]];
         [self.tableView reloadData];
     } else {
-        [self.datasource setData:[[self.bookDataAccessObject list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]]];
+        [self.datasource setData:[self.bookDataAccessObject allBooksSorted]];
         [self.tableView reloadData];
     }
 }

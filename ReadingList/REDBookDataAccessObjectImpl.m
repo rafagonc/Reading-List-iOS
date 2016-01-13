@@ -15,6 +15,9 @@
     NSArray * books = [self listWithPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", name]];
     return [books sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]];
 }
+-(NSArray <id<REDBookProtocol>> *)allBooksSorted {
+    return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+}
 -(NSString *)allBooksNamesConcanated {
     NSArray < NSString * > * bookNames = [[self list] valueForKeyPath:@"@unionOfObjects.name"];
     NSMutableString * concanatedBookNames = [[NSMutableString alloc] init];

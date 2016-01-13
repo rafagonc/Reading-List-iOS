@@ -21,6 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Depend (0.1.3)
+  - EDStarRating (1.1)
   - LLARingSpinnerView (0.1.3)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -29,12 +30,14 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - Depend
+  - EDStarRating
   - LLARingSpinnerView
   - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Depend: 3626f36923415485bedcfad4ae21f07151727aad
+  EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
   LLARingSpinnerView: d5f9057460e97989aff1c52a247c6acb62b8d883
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
 
