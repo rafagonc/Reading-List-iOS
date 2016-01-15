@@ -62,12 +62,8 @@
 
 #pragma mark - setups
 -(void)setUpBarButtonItems {
-    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
-    [self.navigationItem setRightBarButtonItem:doneButton];
-    
     UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
-    
 }
 
 #pragma mark - service
@@ -105,9 +101,6 @@
 }
 
 #pragma mark - actions
--(void)doneAction:(UIBarButtonItem *)item {
-    
-}
 -(void)cancelAction:(UIBarButtonItem *)item {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
