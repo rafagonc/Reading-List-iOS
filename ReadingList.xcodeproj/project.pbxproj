@@ -45,6 +45,9 @@
 		2A19B8B21BCDBE94009C8F25 /* REDBookAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A19B8B01BCDBE94009C8F25 /* REDBookAddViewController.m */; };
 		2A19B8B31BCDBE94009C8F25 /* REDBookAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A19B8B11BCDBE94009C8F25 /* REDBookAddViewController.xib */; };
 		2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A19B8B61BCDC0CA009C8F25 /* UIStaticTableView.m */; };
+		2A23ABDB1C47501500E48BF6 /* REDBookRatingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDA1C47501500E48BF6 /* REDBookRatingRequest.m */; };
+		2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDE1C47511100E48BF6 /* REDBookRatingCall.m */; };
+		2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */; };
 		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; };
 		2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */; };
 		2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E531BD3042600677868 /* REDNoActionTextField.m */; };
@@ -193,6 +196,13 @@
 		2A19B8B11BCDBE94009C8F25 /* REDBookAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDBookAddViewController.xib; sourceTree = "<group>"; };
 		2A19B8B51BCDC0CA009C8F25 /* UIStaticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStaticTableView.h; sourceTree = "<group>"; };
 		2A19B8B61BCDC0CA009C8F25 /* UIStaticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStaticTableView.m; sourceTree = "<group>"; };
+		2A23ABD91C47501500E48BF6 /* REDBookRatingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRatingRequest.h; sourceTree = "<group>"; };
+		2A23ABDA1C47501500E48BF6 /* REDBookRatingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRatingRequest.m; sourceTree = "<group>"; };
+		2A23ABDD1C47511100E48BF6 /* REDBookRatingCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRatingCall.h; sourceTree = "<group>"; };
+		2A23ABDE1C47511100E48BF6 /* REDBookRatingCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRatingCall.m; sourceTree = "<group>"; };
+		2A23ABE01C4751D500E48BF6 /* REDBookRatingUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRatingUploader.h; sourceTree = "<group>"; };
+		2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRatingUploader.m; sourceTree = "<group>"; };
+		2A23ABE51C4752D400E48BF6 /* REDBookUploaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookUploaderProtocol.h; sourceTree = "<group>"; };
 		2A2A1E4C1BD2F0E000677868 /* UISearchBar+Toolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+Toolbar.h"; sourceTree = "<group>"; };
 		2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Toolbar.m"; sourceTree = "<group>"; };
 		2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "romeo-and-juliet.jpg"; sourceTree = "<group>"; };
@@ -532,6 +542,7 @@
 				2ADCC0B91BD2ECA3009F638A /* Quotes */,
 				2A77C0B31C2E26AD00E21551 /* Transient Book */,
 				2A13EEA81C2E56BE005DB34E /* Migration */,
+				2A23ABE41C4752C500E48BF6 /* Uploader */,
 			);
 			name = "General Classes";
 			sourceTree = "<group>";
@@ -607,6 +618,41 @@
 				2A2A1E551BD3042A00677868 /* No Action Text Field */,
 			);
 			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		2A23ABDC1C47501900E48BF6 /* Book Rating Request */ = {
+			isa = PBXGroup;
+			children = (
+				2A23ABD91C47501500E48BF6 /* REDBookRatingRequest.h */,
+				2A23ABDA1C47501500E48BF6 /* REDBookRatingRequest.m */,
+			);
+			name = "Book Rating Request";
+			sourceTree = "<group>";
+		};
+		2A23ABE31C4752C100E48BF6 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2A23ABE01C4751D500E48BF6 /* REDBookRatingUploader.h */,
+				2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2A23ABE41C4752C500E48BF6 /* Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				2A23ABE31C4752C100E48BF6 /* Concrete */,
+				2A23ABE61C4752DA00E48BF6 /* Abstract */,
+			);
+			name = Uploader;
+			sourceTree = "<group>";
+		};
+		2A23ABE61C4752DA00E48BF6 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2A23ABE51C4752D400E48BF6 /* REDBookUploaderProtocol.h */,
+			);
+			name = Abstract;
 			sourceTree = "<group>";
 		};
 		2A2A1E4F1BD2F0F000677868 /* UISearchBar */ = {
@@ -982,6 +1028,8 @@
 				2A74EC981BD0AA52005F5E74 /* REDImageSearchCall.m */,
 				2A77C0A31C2E1FE200E21551 /* REDGoogleBooksQueryCall.h */,
 				2A77C0A41C2E1FE200E21551 /* REDGoogleBooksQueryCall.m */,
+				2A23ABDD1C47511100E48BF6 /* REDBookRatingCall.h */,
+				2A23ABDE1C47511100E48BF6 /* REDBookRatingCall.m */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -1331,6 +1379,7 @@
 			children = (
 				2ADCC0801BD1FEE0009F638A /* Image Search */,
 				2A77C0A21C2E188300E21551 /* Google Books Search */,
+				2A23ABDC1C47501900E48BF6 /* Book Rating Request */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -1733,10 +1782,12 @@
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
 				2A74EC281BCDE768005F5E74 /* UIColor+ReadingList.m in Sources */,
 				2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */,
+				2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */,
 				2A74EBBB1BCD50B8005F5E74 /* ReadingList.xcdatamodeld in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
 				2A77C0971C2DDA0A00E21551 /* REDAuthorDataAccessObjectImpl.m in Sources */,
 				2A74EC4B1BCE3E9A005F5E74 /* REDCategoryDatasource.m in Sources */,
+				2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */,
 				2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */,
 				2ADCC08C1BD2069C009F638A /* REDGoogleImageSearchCell.m in Sources */,
 				2A7DA3841C10132800B179D0 /* NSDictionary+Validation.m in Sources */,
@@ -1781,6 +1832,7 @@
 				2A13EEAB1C2E5C1C005DB34E /* REDCloudDataStack.m in Sources */,
 				2A74EC391BCDF477005F5E74 /* REDBookPagesCell.m in Sources */,
 				2ADCC06C1BD1FCD7009F638A /* REDGoogleImageDictionary2ModelFactory.m in Sources */,
+				2A23ABDB1C47501500E48BF6 /* REDBookRatingRequest.m in Sources */,
 				2A74EBF41BCD57BD005F5E74 /* REDDataStack.m in Sources */,
 				2A74EC721BD0957D005F5E74 /* REDAuthorCreateViewController.m in Sources */,
 				2A74EC631BD08FAD005F5E74 /* _REDAuthor.m in Sources */,

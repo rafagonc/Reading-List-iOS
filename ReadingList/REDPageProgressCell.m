@@ -54,7 +54,6 @@
     self.pages = [book pagesValue];
     self.pagesRead = [book pagesReadValue];
     self.ratingView.rating = [book rateValue];
-    NSLog(@"%f",[book rateValue]);
     self.slider.minimumValue = 0.0f;
     self.slider.maximumValue = self.pages;
     self.slider.value = (CGFloat)[book pagesReadValue];
@@ -63,6 +62,11 @@
 -(void)setPages:(NSUInteger)pages {
     _pages = pages;
     self.slider.maximumValue = (CGFloat)self.pages;
+}
+
+#pragma mark - getters
+-(CGFloat)rating {
+    return self.ratingView.rating;
 }
 
 #pragma mark - actions
@@ -75,7 +79,6 @@
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     [book setPagesReadValue:self.pagesRead];
     [book setRateValue:self.ratingView.rating];
-    NSLog(@"%f %f",[book rateValue], self.ratingView.rating);
     if (self.pages == self.pagesRead) {
         [Answers logContentViewWithName:@"Book"
                             contentType:@"Completed"
@@ -94,7 +97,7 @@
 
 #pragma mark - delegate
 -(void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating {
-    self.didChangeRate = YES;
+    if (rating > 0) self.didChangeRate = YES;
 }
 
 #pragma mark - helper methods

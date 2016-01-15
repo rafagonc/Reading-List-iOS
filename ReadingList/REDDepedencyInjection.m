@@ -30,6 +30,8 @@
 #import "REDAuthorDataAccessObjectImpl.h"
 #import "REDGoogleBooksFactory.h"
 #import "REDTransientBookDatasource.h"
+#import "REDBookUploaderProtocol.h"
+#import "REDBookRatingUploader.h"
 
 @implementation REDDepedencyInjection
 
@@ -47,7 +49,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryDataAccessObjectImpl class] forProtocol:@protocol(REDCategoryDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorDataAccessObjectImpl class] forProtocol:@protocol(REDAuthorDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDTransientBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"transientBook"];
-
+    [[DPRegistry sharedRegistry] registerImplementation:[REDBookRatingUploader sharedUploader] forProtocol:@protocol(REDBookUploaderProtocol) context:nil];
 
 }
 

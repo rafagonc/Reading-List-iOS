@@ -98,6 +98,10 @@
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [self updateData];
+    [self.tableView reloadData];
+}
+-(BOOL)isSearcingBooks {
+    return self.saerchBar.text.length > 0;
 }
 
 #pragma mark - actions
@@ -112,13 +116,8 @@
 
 #pragma mark - methods
 -(void)updateData {
-    if (self.saerchBar.text.length > 0)  {
-     [self.datasource setData:[self.bookDataAccessObject searchBooksWithString:self.saerchBar.text]];
-        [self.tableView reloadData];
-    } else {
-        [self.datasource setData:[self.bookDataAccessObject allBooksSorted]];
-        [self.tableView reloadData];
-    }
+    [self.datasource setData:[self isSearcingBooks] ? [self.bookDataAccessObject searchBooksWithString:self.saerchBar.text] : [self.bookDataAccessObject allBooksSorted]];
+
 }
 
 @end

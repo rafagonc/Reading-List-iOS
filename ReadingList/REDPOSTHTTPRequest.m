@@ -19,7 +19,7 @@
     [manager POST:url parameters:[request HTTPEncode] success:^(NSURLSessionDataTask *task, id responseObject) {
         callback(responseObject, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        callback(nil, [NSError errorWithDomain:REDErrorDomain code:error.code userInfo :@{ NSLocalizedDescriptionKey : error.localizedDescription , NSLocalizedFailureReasonErrorKey : error.localizedFailureReason}]);
+        callback(nil, [NSError errorWithDomain:REDErrorDomain code:error.code userInfo :@{ NSLocalizedDescriptionKey : error.localizedDescription}]);
     }];
 }
 

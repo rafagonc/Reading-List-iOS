@@ -20,6 +20,7 @@
 #import "REDTransientBookDatasourceDelegate.h"
 #import "REDBookAddViewController.h"
 #import "REDBookDataAccessObject.h"
+#import "UISearchBar+Toolbar.h"
 
 @interface REDRecommendedBooksViewController ()
 
@@ -52,6 +53,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.searchBar addToolbar];
     [self.searchBar setDelegate:self];
     [self.datasource setDelegate:self];
     [self.tableView setDataSource:self.datasource];

@@ -11,6 +11,8 @@
 #import "REDImageSearchCall.h"
 #import "REDGoogleBooksQueryRequest.h"
 #import "REDGoogleBooksQueryCall.h"
+#import "REDBookRatingCall.h"
+#import "REDBookRatingRequest.h"
 
 @interface REDServiceCallFactory ()
 
@@ -28,8 +30,8 @@
         self.requestClass = requestClass;
         self.bindings = @{
                           NSStringFromClass([REDImageSearchRequest class]) : [REDImageSearchCall class],
-                          NSStringFromClass([REDGoogleBooksQueryRequest class]) : [REDGoogleBooksQueryCall class]
-
+                          NSStringFromClass([REDGoogleBooksQueryRequest class]) : [REDGoogleBooksQueryCall class],
+                          NSStringFromClass([REDBookRatingRequest class]) : [REDBookRatingCall class]
                           };
     } return self;
 }

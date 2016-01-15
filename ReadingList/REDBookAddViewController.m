@@ -26,6 +26,7 @@
 #import "REDServiceDispatcherProtocol.h"
 #import "REDServiceResponse.h"
 #import "REDCloudDataStack.h"
+#import "REDBookUploaderProtocol.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -49,6 +50,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (nonatomic,  weak) IBOutlet UILabel *quoteLabel;
 
 #pragma mark - injected
+@property (setter=injected:,readonly) id<REDBookUploaderProtocol> bookUploader;
 @property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
@@ -157,11 +159,18 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 -(BOOL)finishBook {
     NSError *error;
     BOOL success = [self processBook:&error];
-    if (success) [self.navigationController popViewControllerAnimated:YES];
-    else {
+    if (success) {
+        [self.navigationController popViewControllerAnimated:YES];
+        [self uploadRatingIfChanged];
+    } else {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }
     return success;
+}
+-(void)uploadRatingIfChanged {
+    if (self.progressCell.didChangeRate) {
+        [self.bookUploader uploadBook:self.book forRating:self.progressCell.rating];
+    }
 }
 
 #pragma mark - cell delegates
