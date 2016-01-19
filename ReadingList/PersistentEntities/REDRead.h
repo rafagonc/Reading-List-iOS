@@ -6,5 +6,4 @@
 <REDReadProtocol>
 
 {}
-// Custom logic goes here.
 @end

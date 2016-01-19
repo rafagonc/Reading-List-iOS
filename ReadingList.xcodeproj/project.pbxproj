@@ -722,7 +722,6 @@
 		2A74EBAC1BCD50B7005F5E74 /* ReadingList */ = {
 			isa = PBXGroup;
 			children = (
-				2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */,
 				2ADCC07E1BD1FE8E009F638A /* Exception */,
 				2A74EC811BD0A85D005F5E74 /* Service */,
 				2A19B8B91BCDC0D9009C8F25 /* Custom Views */,
@@ -743,6 +742,7 @@
 		2A74EBAD1BCD50B7005F5E74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */,
 				2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */,
 				2ADCC0B41BD2EC90009F638A /* books.json */,
 				2ADCC0AE1BD2E69A009F638A /* the-little-prince-summary.jpg */,
@@ -2065,9 +2065,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Rafael Gonzalves (A7R335TQR4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rafael Gonzalves (A7R335TQR4)";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2078,7 +2078,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "96c92318-496c-4c65-83c9-f938b3f656e9";
 			};
 			name = Debug;
 		};
@@ -2088,9 +2088,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Rafael Gonzalves (8P5355PV9G)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Gonzalves (8P5355PV9G)";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2101,7 +2101,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "69644a43-6927-4455-9ce0-760c2d7e402b";
 			};
 			name = Release;
 		};
