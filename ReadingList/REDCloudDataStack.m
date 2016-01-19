@@ -56,8 +56,6 @@
     NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType
                                                                                               URL:storeURL
                                                                                             error:&error];
-    BOOL isCompatibile = [self.managedObjectModel isConfiguration:nil compatibleWithStoreMetadata:sourceMetadata];
-    BOOL needsMigration = !isCompatibile;
     
     
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:

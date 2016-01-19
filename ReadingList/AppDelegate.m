@@ -16,7 +16,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import "REDRecommendedBooksViewController.h"
-#import "REDCloudMigrationHandler.h"
+#import "REDLocalMigrationHandler.h"
 
 @interface AppDelegate ()
 
@@ -29,7 +29,7 @@
     [Fabric with:@[[Crashlytics class]]];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
-    [REDCloudMigrationHandler migrateToTheCloud];
+    [REDLocalMigrationHandler migrateBackToLocal];
     [REDStaticData craateStaticData];
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];

@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet EDStarRating *ratingView;
 
+#pragma mark - properties
+@property (nonatomic,assign) NSUInteger pagedReadInitialValue;
+
 
 @end
 
@@ -30,6 +33,7 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+        [self.slider addTarget:self action:@selector(sliderEditEnd:) forControlEvents:UIControlEventTouchUpInside];
         self.didChangeRate = NO;
         
         //rating setup
@@ -53,6 +57,7 @@
     _book = book;
     self.pages = [book pagesValue];
     self.pagesRead = [book pagesReadValue];
+    self.pagedReadInitialValue = [book pagesReadValue];
     self.ratingView.rating = [book rateValue];
     self.slider.minimumValue = 0.0f;
     self.slider.maximumValue = self.pages;
@@ -71,8 +76,12 @@
 
 #pragma mark - actions
 -(void)sliderValueChanged:(UISlider *)slider {
-    [self setPagesRead:slider.value];
     [self updateProgressLabel];
+}
+-(void)sliderEditEnd:(UISlider *)slider {
+    if ((NSUInteger)slider.value - (NSUInteger)self.pagedReadInitialValue > 0)
+    self.diff = (NSUInteger)slider.value - (NSUInteger)self.pagedReadInitialValue;
+    [self setPagesRead:slider.value];
 }
 
 #pragma mark - chain of responsiblity
@@ -85,6 +94,8 @@
                               contentId:@""
                        customAttributes:@{}];
     }
+    
+    
     return YES;
 }
 
@@ -102,7 +113,7 @@
 
 #pragma mark - helper methods
 -(void)updateProgressLabel {
-    self.percentageLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.pagesRead];
+    self.percentageLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.slider.value];
 }
 
 

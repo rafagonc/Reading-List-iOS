@@ -27,6 +27,7 @@
 #import "REDServiceResponse.h"
 #import "REDCloudDataStack.h"
 #import "REDBookUploaderProtocol.h"
+#import "REDReadFactoryProtocol.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -51,6 +52,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 
 #pragma mark - injected
 @property (setter=injected:,readonly) id<REDBookUploaderProtocol> bookUploader;
+@property (setter=injected:,readonly) id<REDReadFactoryProtocol> readFactory;;
 @property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
@@ -98,7 +100,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         if ([self processBook:&error] == NO && (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding)) {
             [self.bookDataAccessObject remove:self.book];
         } else {
-            [[REDCloudDataStack sharedManager] commit];
+            [[REDDataStack sharedManager] commit];
         }
     }
 }
@@ -153,7 +155,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
             return NO;
         }
     }
-    [[REDCloudDataStack sharedManager] commit];
+    [self savePageChangedIfNeeded];
+    [[REDDataStack sharedManager] commit];
     return YES;
 }
 -(BOOL)finishBook {
@@ -171,6 +174,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     if (self.progressCell.didChangeRate) {
         [self.bookUploader uploadBook:self.book forRating:self.progressCell.rating];
     }
+}
+-(void)savePageChangedIfNeeded {
+    if (self.progressCell.diff > 0)[self.readFactory createReadWithPageDiff:self.progressCell.diff forBook:self.book];
 }
 
 #pragma mark - cell delegates
@@ -233,7 +239,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 -(void)doneAction:(UIBarButtonItem *)createButton {
     if ([self finishBook]) {
         [self.navigationController popViewControllerAnimated:YES];
-        [[REDCloudDataStack sharedManager] commit];
+        [[REDDataStack sharedManager] commit];
         if (self.actionType == REDBookAddViewControllerActionTypeEditing) {
             [Answers logContentViewWithName:@"Book"
                                 contentType:@"Viewing"

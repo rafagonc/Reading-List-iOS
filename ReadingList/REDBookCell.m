@@ -29,7 +29,7 @@
 -(void)setBook:(id<REDBookProtocol>)book {
     _book = book;
     self.nameLabel.text = book.name;
-    self.coverImageView.image = [book coverImage];
+    self.coverImageView.image = [book coverImage] ? [book coverImage] : [UIImage imageNamed:@"404"];
     if ([book completed]) {
         self.tintColor = [UIColor red_redColor];
         self.accessoryType = UITableViewCellAccessoryCheckmark;

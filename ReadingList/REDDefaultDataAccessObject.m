@@ -15,7 +15,7 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super init]) {
-        self.cloudEnabled = YES;
+        self.cloudEnabled = NO;
     } return self;
 }
 
@@ -56,7 +56,11 @@
     return fetchRequest;
 }
 -(NSManagedObjectContext *)context {
-    return self.cloudEnabled ? [[REDCloudDataStack sharedManager] managedObjectContext] : [[REDDataStack sharedManager] managedObjectContext];
+    if (self.cloudEnabled) {
+        return [[REDCloudDataStack sharedManager] managedObjectContext];
+    } else {
+        return [[REDDataStack sharedManager] managedObjectContext];;
+    }
 }
 
 

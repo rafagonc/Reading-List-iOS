@@ -68,7 +68,7 @@
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose a book name."}];
         return NO;
     }
-    if (self.authorButton.currentTitle == nil) {
+    if (self.author == nil) {
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose an author."}];
         return NO;
     }

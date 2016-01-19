@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="REDAuthor" representedClassName="REDAuthor" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="REDBook" inverseName="author" inverseEntity="REDBook" syncable="YES"/>
+    </entity>
+    <entity name="REDBook" representedClassName="REDBook" syncable="YES">
+        <attribute name="cover" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pages" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="pagesRead" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="snippet" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="REDAuthor" inverseName="books" inverseEntity="REDAuthor" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="REDCategory" inverseName="books" inverseEntity="REDCategory" syncable="YES"/>
+    </entity>
+    <entity name="REDCategory" representedClassName="REDCategory" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="REDBook" inverseName="category" inverseEntity="REDBook" syncable="YES"/>
+    </entity>
+    <entity name="REDRead" representedClassName="REDRead" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="pages" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="REDAuthor" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="REDBook" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="REDCategory" positionX="-36" positionY="9" width="128" height="75"/>
+        <element name="REDRead" positionX="-54" positionY="45" width="128" height="75"/>
+    </elements>
+</model>
