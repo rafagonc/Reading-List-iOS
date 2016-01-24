@@ -43,7 +43,7 @@
 }
 -(void)remove:(id)object {
     if (object) [[self context] deleteObject:object];
-    self.cloudEnabled ? [[REDCloudDataStack sharedManager] commit] : [[REDCloudDataStack sharedManager] commit];
+    self.cloudEnabled ? [[REDCloudDataStack sharedManager] commit] : [[REDDataStack sharedManager] commit];
 }
 -(NSString *)entityName {
     @throw [NSException exceptionWithName:@"Abstract Class" reason:@"Need to override this method" userInfo:@{}];
