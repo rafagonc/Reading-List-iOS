@@ -22,7 +22,7 @@
 -(void)createReadWithPageDiff:(NSInteger)page_diff forBook:(id<REDBookProtocol>)book {
     id<REDReadProtocol> newRead = [self.readDataAccessObject create];
     [newRead setDate:[NSDate date]];
-    [newRead setBookName:[book name]];
+    [newRead setBook:book];
     [newRead setPagesValue:page_diff];
 }
 

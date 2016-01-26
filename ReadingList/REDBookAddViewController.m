@@ -98,6 +98,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     if (self.isMovingFromParentViewController) {
         NSError * error;
         if ([self processBook:&error] == NO && (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding)) {
+            [self savePageChangedIfNeeded];
             [self.bookDataAccessObject remove:self.book];
         } else {
             [[REDDataStack sharedManager] commit];
@@ -155,7 +156,6 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
             return NO;
         }
     }
-    [self savePageChangedIfNeeded];
     [[REDDataStack sharedManager] commit];
     return YES;
 }
@@ -238,6 +238,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 #pragma mark - actions
 -(void)doneAction:(UIBarButtonItem *)createButton {
     if ([self finishBook]) {
+        [self savePageChangedIfNeeded];
         [self.navigationController popViewControllerAnimated:YES];
         [[REDDataStack sharedManager] commit];
         if (self.actionType == REDBookAddViewControllerActionTypeEditing) {

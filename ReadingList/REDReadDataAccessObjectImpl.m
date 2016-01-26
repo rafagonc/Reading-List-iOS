@@ -10,6 +10,9 @@
 
 @implementation REDReadDataAccessObjectImpl
 
+-(NSArray<id<REDReadProtocol>> *)logsOrderedByDate {
+    return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
+}
 -(NSString *)entityName {
     return @"REDRead";
 }

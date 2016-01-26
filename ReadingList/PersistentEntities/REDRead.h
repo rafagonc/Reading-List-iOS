@@ -5,5 +5,4 @@
 
 <REDReadProtocol>
 
-{}
 @end

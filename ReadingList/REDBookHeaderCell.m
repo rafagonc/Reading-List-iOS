@@ -9,6 +9,7 @@
 #import "REDBookHeaderCell.h"
 #import "UITextField+DoneButton.h"
 #import "UIImage+Blur.h"
+#import "REDValidator.h"
 
 @interface REDBookHeaderCell ()
 
@@ -17,6 +18,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+#pragma mark - injected
+@property (setter=injected_name:,readonly) id<REDValidator> bookNameValidator;
+@property (setter=injected_author:,readonly) id<REDValidator> authorValidator;
+
 
 @end
 
@@ -64,14 +70,8 @@
 
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
-    if (self.nameTextField.text.length == 0) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose a book name."}];
-        return NO;
-    }
-    if (self.author == nil) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose an author."}];
-        return NO;
-    }
+    if (![self.bookNameValidator validate:self.nameTextField.text error:error]) return NO;
+    if (![self.authorValidator validate:self.author error:error]) return NO;
     [book setName:self.nameTextField.text];
     [book setAuthor:self.author];
     [book setCoverImage:self.coverButton.currentBackgroundImage];

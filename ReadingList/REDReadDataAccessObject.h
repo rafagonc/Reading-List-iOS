@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "REDDataAccessObject.h"
+#import "REDReadProtocol.h"
 
 @protocol REDReadDataAccessObject <REDDataAccessObject>
 
+-(NSArray <id<REDReadProtocol>> *)logsOrderedByDate;
 
 @end

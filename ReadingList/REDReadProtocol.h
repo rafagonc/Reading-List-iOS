@@ -13,6 +13,6 @@
 
 @property (nonatomic,strong) NSDate * date;
 @property (nonatomic,assign) NSInteger pagesValue;
-@property (nonatomic,strong) NSString * bookName;
+@property (nonatomic,strong) id<REDBookProtocol> book;
 
 @end
