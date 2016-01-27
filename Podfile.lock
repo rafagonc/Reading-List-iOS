@@ -26,6 +26,8 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - UIActionSheet+Blocks (0.9)
+  - UIAlertView+Blocks (0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
@@ -33,6 +35,8 @@ DEPENDENCIES:
   - EDStarRating
   - LLARingSpinnerView
   - SDWebImage
+  - UIActionSheet+Blocks
+  - UIAlertView+Blocks
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -40,5 +44,7 @@ SPEC CHECKSUMS:
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
   LLARingSpinnerView: d5f9057460e97989aff1c52a247c6acb62b8d883
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
+  UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
 COCOAPODS: 0.39.0

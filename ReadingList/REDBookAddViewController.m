@@ -25,6 +25,7 @@
 #import "REDGoogleBooksQueryRequest.h"
 #import "REDServiceDispatcherProtocol.h"
 #import "REDServiceResponse.h"
+#import "REDValidator.h"
 #import "REDCloudDataStack.h"
 #import "REDBookUploaderProtocol.h"
 #import "REDReadFactoryProtocol.h"
@@ -51,6 +52,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (nonatomic,  weak) IBOutlet UILabel *quoteLabel;
 
 #pragma mark - injected
+@property (setter=injected_name:,readonly) id<REDValidator> bookNameValidator;
+@property (setter=injected_author:,readonly) id<REDValidator> authorValidator;
 @property (setter=injected:,readonly) id<REDBookUploaderProtocol> bookUploader;
 @property (setter=injected:,readonly) id<REDReadFactoryProtocol> readFactory;;
 @property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
@@ -91,6 +94,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
 
 }
@@ -189,8 +193,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self.navigationController pushViewController:categories animated:YES];
 }
 -(void)didSelectCoverInBookHeaderCell:(REDBookHeaderCell *)headerCell {
-    if (self.headerCell.nameTextField.text.length == 0) {
-        [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the book name to find a cover"];
+    NSError *error;
+    if (![self.bookNameValidator validate:self.headerCell.nameTextField.text error:&error] || ![self.authorValidator validate:self.headerCell.author error:&error]) {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
         return;
     }
     REDImageSearchViewController *imageSearchViewController = [[REDImageSearchViewController alloc] initWithBookName:headerCell.nameTextField.text andAuthor:headerCell.authorButton.currentTitle];

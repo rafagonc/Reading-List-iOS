@@ -8,10 +8,20 @@
 
 #import "REDLogDatasource.h"
 #import "REDLogCell.h"
+#import "REDReadDataAccessObject.h"
+#import "REDReadProtocol.h"
+#import "REDLogCellDelegate.h"
+#import "REDLogDatasourceDelegate.h"
 
 @interface REDLogDatasource ()
 
-@property (nonatomic,strong) NSArray * logs;
+<REDLogCellDelegate>
+
+#pragma mark - injected
+@property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
+
+#pragma mark - properties
+@property (nonatomic,strong) NSMutableArray * logs;
 
 @end
 
@@ -22,10 +32,10 @@
 
 #pragma mark - getters and setters
 -(void)setData:(NSArray *)data {
-    _logs = data;
+    _logs = [data mutableCopy];
 }
 -(NSArray *)data {
-    return _logs;
+    return [_logs copy];
 }
 
 #pragma mark - table view datasource and delegate
@@ -46,8 +56,23 @@
     }
     
     cell.read = self.logs[indexPath.row];
+    cell.delegate = self;
     
     return cell;
+}
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    id<REDReadProtocol> read = self.logs[indexPath.row];
+    [tableView beginUpdates];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+    [self.logs removeObject:read];
+    [self.readDataAccessObject remove:read];
+    [tableView endUpdates];
+}
+-(void)logCell:(REDLogCell *)logCell wantsToCheckOutBook:(id<REDBookProtocol>)book {
+    [self.delegate datasource:self wantsToCheckOutBook:book];
 }
 
 @end

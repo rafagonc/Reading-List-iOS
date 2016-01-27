@@ -11,8 +11,10 @@
 #import "REDUserView.h"
 #import "REDDatasourceProtocol.h"
 #import "REDReadDataAccessObject.h"
+#import "REDLogDatasourceDelegate.h"
+#import "REDBookAddViewController.h"
 
-@interface REDLogViewController ()
+@interface REDLogViewController () <REDLogDatasourceDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -53,6 +55,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     self.navigationController.navigationBarHidden = YES;
 }
 -(void)viewDidAppear:(BOOL)animated {
@@ -62,6 +65,12 @@
     [super viewDidLayoutSubviews];
     self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 240);
     self.tableView.tableHeaderView = self.tableView.tableHeaderView; //update height
+}
+
+#pragma mark - datasource
+-(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
+    REDBookAddViewController *bookAdd = [[REDBookAddViewController alloc] initWithBook:book];
+    [self.navigationController pushViewController:bookAdd animated:YES];
 }
 
 #pragma mark - dealloc

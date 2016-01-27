@@ -10,6 +10,8 @@ pod 'Depend'
 pod 'SDWebImage'
 pod 'LLARingSpinnerView'
 pod 'EDStarRating'
+pod 'UIAlertView+Blocks'
+pod 'UIActionSheet+Blocks'
 
 end
 

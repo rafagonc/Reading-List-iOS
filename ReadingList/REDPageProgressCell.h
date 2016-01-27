@@ -13,6 +13,7 @@
 @protocol REDPageProgressCellDelegate <NSObject>
 
 -(void)pageProgressCell:(REDPageProgressCell *)cell tryingToSetPagesWhileIsZeroForBook:(id<REDBookProtocol>)book;
+
 @end
 
 @interface REDPageProgressCell : UITableViewCell
@@ -22,7 +23,7 @@
 @property (nonatomic, assign) BOOL didChangeRate;
 @property (nonatomic, assign) NSUInteger pages;
 @property (nonatomic, assign) NSUInteger pagesRead;
-@property (nonatomic, assign) NSUInteger diff;
+@property (nonatomic, assign) NSInteger diff;
 @property (nonatomic, readonly) CGFloat rating;
 
 @end

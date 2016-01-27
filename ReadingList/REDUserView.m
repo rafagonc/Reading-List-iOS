@@ -37,6 +37,20 @@
     [super layoutSubviews];
 }
 
+#pragma mark - setters
+-(void)setUser:(id<REDUserProtocol>)user {
+    _user = user;
+    
+}
+
+#pragma mark - actions
+-(IBAction)addAction:(id)sender {
+    [self.delegate userViewWantsToAddCustomLog:self];
+}
+-(IBAction)pickPhoto:(id)sender {
+    [self.delegate userViewWantsToSelectProfilePhoto:self];
+}
+
 #pragma mark - dealloc
 -(void)dealloc {
     

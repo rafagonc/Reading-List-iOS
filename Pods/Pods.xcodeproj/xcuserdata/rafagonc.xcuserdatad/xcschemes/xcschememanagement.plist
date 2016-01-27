@@ -39,10 +39,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIActionSheet+Blocks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIAlertView+Blocks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>19B7E936EAFA3B2AD017AB0A96352D46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>33FEB96070EFDF5DB6DC3DC797AFA89A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EF8D4A3C72D29C17477A43CB33C90C7</key>
+		<key>7C9131F8D303BCBAB49F881DBCBD945A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9E7CBB7BD8C624F4A65261AD7025A07D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B24E0E02E9746BC60C12F9F7395259A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F19C44C8002ABA417A5AF53139EE5F60</key>
+		<key>EFB420BC8BD87D8AF7151CB0BC983262</key>
 		<dict>
 			<key>primary</key>
 			<true/>

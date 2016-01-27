@@ -8,10 +8,17 @@
 
 #import "UIFont+ReadingList.h"
 #import "REDLogCell.h"
+#import "REDBookDataAccessObject.h"
+#import "REDBookAddViewController.h"
 
 @interface REDLogCell () <UITextViewDelegate>
+
+#pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
+
+#pragma mark - injected
+@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 
@@ -46,9 +53,9 @@
 
 #pragma mark - text view delegate
 -(BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange {
-    
-    NSLog(@"%@",URL);
-    
+    NSString *bookName = [[self.read book] name];
+    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithString:bookName] firstObject];
+    [self.delegate logCell:self wantsToCheckOutBook:book];
     return YES;
 }
 
