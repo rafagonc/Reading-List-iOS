@@ -5,13 +5,18 @@
 
 @end
 
+static NSString * const REDUserPhotoDataKey = @"REDUserPhotoDataKey";
+
 @implementation REDUser
 
-//-(void)setPhoto:(UIImage *)photo {
-//    self.photoData = UIImagePNGRepresentation(photo);
-//}
-//-(UIImage *)photo {
-//    return [UIImage imageWithData:self.photoData];
-//}
+#pragma mark - getters and setters
+-(void)setPhoto:(UIImage *)photo {
+    NSData * data = UIImagePNGRepresentation(photo);
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:REDUserPhotoDataKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+-(UIImage *)photo {
+    return [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:REDUserPhotoDataKey]];
+}
 
 @end

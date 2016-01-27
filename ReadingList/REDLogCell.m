@@ -38,7 +38,7 @@
     self.coverImageView.image = [[read book] coverImage];
     
     //attr string
-    NSString * descString = [NSString stringWithFormat:@"Read %lu pages of the book %@", [read pagesValue], [[read book] name]];
+    NSString * descString = [NSString stringWithFormat:@"Read %lu pages of the book %@", (long)[read pagesValue], [[read book] name]];
     NSMutableAttributedString * attrString = [[NSMutableAttributedString alloc] initWithString:descString];
     [attrString addAttribute:NSFontAttributeName value:[UIFont AvenirNextRegularWithSize:15.f] range:NSMakeRange(0,[descString rangeOfString:[[read book]name]].location)];
     [attrString addAttribute:NSLinkAttributeName value:[NSURL URLWithString:@"book"] range:[descString rangeOfString:[[read book] name]]];

@@ -41,6 +41,8 @@
 #import "REDBookNameValidator.h"
 #import "REDAuthorValidator.h"
 #import "REDCategoryValidator.h"
+#import "REDPhotoPickerPresenter.h"
+#import "REDPhotoPickerPresenterProtocol.h"
 
 @implementation REDDepedencyInjection
 
@@ -75,6 +77,9 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookNameValidator class] forProtocol:@protocol(REDValidator) context:@"name"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryValidator class] forProtocol:@protocol(REDValidator) context:@"category"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorValidator class] forProtocol:@protocol(REDValidator) context:@"author"];
+    
+    //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDPhotoPickerPresenter class] forProtocol:@protocol(REDPhotoPickerPresenterProtocol) context:nil];
 
 
 

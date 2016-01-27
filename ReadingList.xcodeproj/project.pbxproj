@@ -37,6 +37,7 @@
 		2A1632D11C580DE10015F06E /* REDPhotoPickerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1632CF1C580DE10015F06E /* REDPhotoPickerPresenter.m */; };
 		2A1632D91C580E6C0015F06E /* _REDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1632D61C580E6C0015F06E /* _REDUser.m */; };
 		2A1632DA1C580E6C0015F06E /* REDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1632D81C580E6C0015F06E /* REDUser.m */; };
+		2A1632E71C59148C0015F06E /* ReadingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A1632DF1C59148C0015F06E /* ReadingList.xcdatamodeld */; };
 		2A19B8861BCDB3C2009C8F25 /* REDBookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A19B8841BCDB3C2009C8F25 /* REDBookListViewController.m */; };
 		2A19B8871BCDB3C2009C8F25 /* REDBookListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A19B8851BCDB3C2009C8F25 /* REDBookListViewController.xib */; };
 		2A19B88F1BCDB45A009C8F25 /* REDBookDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A19B88E1BCDB45A009C8F25 /* REDBookDatasource.m */; };
@@ -75,7 +76,6 @@
 		2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */; };
 		2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBAE1BCD50B7005F5E74 /* main.m */; };
 		2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */; };
-		2A74EBBB1BCD50B8005F5E74 /* ReadingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB91BCD50B8005F5E74 /* ReadingList.xcdatamodeld */; };
 		2A74EBBD1BCD50B8005F5E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A74EBBC1BCD50B8005F5E74 /* Assets.xcassets */; };
 		2A74EBC01BCD50B8005F5E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A74EBBE1BCD50B8005F5E74 /* LaunchScreen.storyboard */; };
 		2A74EBCB1BCD50B8005F5E74 /* ReadingListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBCA1BCD50B8005F5E74 /* ReadingListTests.m */; };
@@ -209,8 +209,13 @@
 		2A1632D81C580E6C0015F06E /* REDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = REDUser.m; path = PersistentEntities/REDUser.m; sourceTree = "<group>"; };
 		2A1632DB1C580E840015F06E /* REDUserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserProtocol.h; sourceTree = "<group>"; };
 		2A1632DC1C581B950015F06E /* REDUserViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserViewDelegate.h; sourceTree = "<group>"; };
-		2A1632DD1C581D3A0015F06E /* ReadingList 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.8.xcdatamodel"; sourceTree = "<group>"; };
-		2A1632DE1C581E280015F06E /* ReadingList 1.9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.9.xcdatamodel"; sourceTree = "<group>"; };
+		2A1632E01C59148C0015F06E /* ReadingList 1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.2.xcdatamodel"; sourceTree = "<group>"; };
+		2A1632E11C59148C0015F06E /* ReadingList 1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.3.xcdatamodel"; sourceTree = "<group>"; };
+		2A1632E21C59148C0015F06E /* ReadingList 1.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.4.xcdatamodel"; sourceTree = "<group>"; };
+		2A1632E31C59148C0015F06E /* ReadingList 1.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.5.xcdatamodel"; sourceTree = "<group>"; };
+		2A1632E41C59148C0015F06E /* ReadingList 1.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.6.xcdatamodel"; sourceTree = "<group>"; };
+		2A1632E51C59148C0015F06E /* ReadingList 1.7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.7.xcdatamodel"; sourceTree = "<group>"; };
+		2A1632E61C59148C0015F06E /* ReadingList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReadingList.xcdatamodel; sourceTree = "<group>"; };
 		2A19B8831BCDB3C2009C8F25 /* REDBookListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookListViewController.h; sourceTree = "<group>"; };
 		2A19B8841BCDB3C2009C8F25 /* REDBookListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookListViewController.m; sourceTree = "<group>"; };
 		2A19B8851BCDB3C2009C8F25 /* REDBookListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDBookListViewController.xib; sourceTree = "<group>"; };
@@ -274,12 +279,10 @@
 		2A52A01D1BE520A1005809CC /* SHNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHNotificationView.xib; sourceTree = "<group>"; };
 		2A61F7CF1C4DC4F40083B768 /* REDLocalMigrationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalMigrationHandler.h; sourceTree = "<group>"; };
 		2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLocalMigrationHandler.m; sourceTree = "<group>"; };
-		2A61F7D21C4DD91B0083B768 /* ReadingList 1.7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.7.xcdatamodel"; sourceTree = "<group>"; };
 		2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74EBAE1BCD50B7005F5E74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A74EBB01BCD50B7005F5E74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2A74EBBA1BCD50B8005F5E74 /* ReadingList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReadingList.xcdatamodel; sourceTree = "<group>"; };
 		2A74EBBC1BCD50B8005F5E74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A74EBBF1BCD50B8005F5E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A74EBC11BCD50B8005F5E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -393,9 +396,6 @@
 		2A8D056C1BD042C3004364F5 /* global.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.pch; sourceTree = "<group>"; };
 		2A8D056D1BD05E0C004364F5 /* NSString+Digits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Digits.h"; sourceTree = "<group>"; };
 		2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Digits.m"; sourceTree = "<group>"; };
-		2AA857811C45B5A20015AFAC /* ReadingList 1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.3.xcdatamodel"; sourceTree = "<group>"; };
-		2AA857821C45B81E0015AFAC /* ReadingList 1.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.4.xcdatamodel"; sourceTree = "<group>"; };
-		2AD1747C1C4D793700AFB560 /* ReadingList 1.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.5.xcdatamodel"; sourceTree = "<group>"; };
 		2AD1747D1C4D79BD00AFB560 /* _REDRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _REDRead.h; path = PersistentEntities/_REDRead.h; sourceTree = "<group>"; };
 		2AD1747E1C4D79BD00AFB560 /* _REDRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _REDRead.m; path = PersistentEntities/_REDRead.m; sourceTree = "<group>"; };
 		2AD1747F1C4D79BD00AFB560 /* REDRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = REDRead.h; path = PersistentEntities/REDRead.h; sourceTree = "<group>"; };
@@ -407,7 +407,6 @@
 		2AD1748B1C4D7ED100AFB560 /* REDReadDataAccessObjectImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDReadDataAccessObjectImpl.h; sourceTree = "<group>"; };
 		2AD1748C1C4D7ED100AFB560 /* REDReadDataAccessObjectImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDReadDataAccessObjectImpl.m; sourceTree = "<group>"; };
 		2AD1748F1C4D7F0500AFB560 /* REDReadDataAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDReadDataAccessObject.h; sourceTree = "<group>"; };
-		2AD174901C4DC02600AFB560 /* ReadingList 1.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.6.xcdatamodel"; sourceTree = "<group>"; };
 		2ADCC04A1BD1FB4C009F638A /* REDServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponse.h; sourceTree = "<group>"; };
 		2ADCC04B1BD1FB4C009F638A /* REDServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDServiceResponse.m; sourceTree = "<group>"; };
 		2ADCC04C1BD1FB4C009F638A /* REDServiceResponseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponseProtocol.h; sourceTree = "<group>"; };
@@ -454,7 +453,6 @@
 		2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRandomQuoteGenerator.m; sourceTree = "<group>"; };
 		2AECF4C51C447910007BA281 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
 		2AECF4C61C447910007BA281 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
-		2AECF4C91C44842D007BA281 /* ReadingList 1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.2.xcdatamodel"; sourceTree = "<group>"; };
 		3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -982,7 +980,6 @@
 		2A74EBE31BCD545B005F5E74 /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
-				2A74EBB91BCD50B8005F5E74 /* ReadingList.xcdatamodeld */,
 				2A74EBF51BCD57F5005F5E74 /* Data Stack */,
 				2A74EBF71BCD59A6005F5E74 /* Generated */,
 				2A74EBF61BCD59A3005F5E74 /* Usable */,
@@ -1004,6 +1001,7 @@
 		2A74EBF61BCD59A3005F5E74 /* Usable */ = {
 			isa = PBXGroup;
 			children = (
+				2A1632DF1C59148C0015F06E /* ReadingList.xcdatamodeld */,
 				2A74EC0B1BCD59D1005F5E74 /* Abstract */,
 				2A74EC0A1BCD59CB005F5E74 /* Concrete */,
 			);
@@ -2065,13 +2063,13 @@
 				2A74EC281BCDE768005F5E74 /* UIColor+ReadingList.m in Sources */,
 				2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */,
 				2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */,
-				2A74EBBB1BCD50B8005F5E74 /* ReadingList.xcdatamodeld in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
 				2A77C0971C2DDA0A00E21551 /* REDAuthorDataAccessObjectImpl.m in Sources */,
 				2A74EC4B1BCE3E9A005F5E74 /* REDCategoryDatasource.m in Sources */,
 				2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */,
 				2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */,
 				2A1FF5C41C56DEE500520949 /* REDCategoryValidator.m in Sources */,
+				2A1632E71C59148C0015F06E /* ReadingList.xcdatamodeld in Sources */,
 				2ADCC08C1BD2069C009F638A /* REDGoogleImageSearchCell.m in Sources */,
 				2A7DA3841C10132800B179D0 /* NSDictionary+Validation.m in Sources */,
 				2ADCC0741BD1FD6A009F638A /* REDDictionary2ModelFactory.m in Sources */,
@@ -2304,7 +2302,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96c92318-496c-4c65-83c9-f938b3f656e9";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -2467,20 +2465,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2A74EBB91BCD50B8005F5E74 /* ReadingList.xcdatamodeld */ = {
+		2A1632DF1C59148C0015F06E /* ReadingList.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2A1632DE1C581E280015F06E /* ReadingList 1.9.xcdatamodel */,
-				2A1632DD1C581D3A0015F06E /* ReadingList 1.8.xcdatamodel */,
-				2A61F7D21C4DD91B0083B768 /* ReadingList 1.7.xcdatamodel */,
-				2AD174901C4DC02600AFB560 /* ReadingList 1.6.xcdatamodel */,
-				2AD1747C1C4D793700AFB560 /* ReadingList 1.5.xcdatamodel */,
-				2AA857821C45B81E0015AFAC /* ReadingList 1.4.xcdatamodel */,
-				2AA857811C45B5A20015AFAC /* ReadingList 1.3.xcdatamodel */,
-				2AECF4C91C44842D007BA281 /* ReadingList 1.2.xcdatamodel */,
-				2A74EBBA1BCD50B8005F5E74 /* ReadingList.xcdatamodel */,
+				2A1632E01C59148C0015F06E /* ReadingList 1.2.xcdatamodel */,
+				2A1632E11C59148C0015F06E /* ReadingList 1.3.xcdatamodel */,
+				2A1632E21C59148C0015F06E /* ReadingList 1.4.xcdatamodel */,
+				2A1632E31C59148C0015F06E /* ReadingList 1.5.xcdatamodel */,
+				2A1632E41C59148C0015F06E /* ReadingList 1.6.xcdatamodel */,
+				2A1632E51C59148C0015F06E /* ReadingList 1.7.xcdatamodel */,
+				2A1632E61C59148C0015F06E /* ReadingList.xcdatamodel */,
 			);
-			currentVersion = 2A61F7D21C4DD91B0083B768 /* ReadingList 1.7.xcdatamodel */;
+			currentVersion = 2A1632E51C59148C0015F06E /* ReadingList 1.7.xcdatamodel */;
 			path = ReadingList.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
