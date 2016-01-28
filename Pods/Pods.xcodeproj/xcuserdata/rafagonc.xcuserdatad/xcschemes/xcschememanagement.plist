@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NSDate-Escort.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ReadingList.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,11 +62,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>33FEB96070EFDF5DB6DC3DC797AFA89A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
@@ -72,7 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C9131F8D303BCBAB49F881DBCBD945A</key>
+		<key>7DA6162A6AA5F177E03AA1A6927595EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F1875A6330D3D48B878B26E9606EDD9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97E97D6AEFA0E05B2C9F9FEC344F3BA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9E7CBB7BD8C624F4A65261AD7025A07D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B24E0E02E9746BC60C12F9F7395259A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFB420BC8BD87D8AF7151CB0BC983262</key>
+		<key>C72EBF3631AB69E7F55C68043CDEA988</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C7D65D34D9350085E1B8CC62F36E0F44</key>
 		<dict>
 			<key>primary</key>
 			<true/>

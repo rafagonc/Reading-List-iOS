@@ -13,5 +13,6 @@
 @protocol REDReadDataAccessObject <REDDataAccessObject>
 
 -(NSArray <id<REDReadProtocol>> *)logsOrderedByDate;
+-(CGFloat)perDay;
 
 @end

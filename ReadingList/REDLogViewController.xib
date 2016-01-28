@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDLogViewController">
             <connections>
+                <outlet property="blurImageView" destination="bEo-o5-VK9" id="3DN-Hj-si7"/>
                 <outlet property="tableView" destination="4LP-eA-AgY" id="Led-eE-lHF"/>
+                <outlet property="userScrollView" destination="uBf-x1-NCg" id="cNS-xu-VaM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="hMc-IV-TeF"/>
             </connections>
         </placeholder>
@@ -19,6 +21,38 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4LP-eA-AgY">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="wwt-9O-PBn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-o5-VK9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                            </imageView>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LG-Pp-rDI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBf-x1-NCg" customClass="REDUserScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bEo-o5-VK9" firstAttribute="leading" secondItem="wwt-9O-PBn" secondAttribute="leading" id="2Hn-jg-LKR"/>
+                            <constraint firstItem="uBf-x1-NCg" firstAttribute="leading" secondItem="wwt-9O-PBn" secondAttribute="leading" id="31Y-bb-kBN"/>
+                            <constraint firstItem="bEo-o5-VK9" firstAttribute="top" secondItem="wwt-9O-PBn" secondAttribute="top" id="6aY-ar-0xa"/>
+                            <constraint firstAttribute="bottom" secondItem="8LG-Pp-rDI" secondAttribute="bottom" id="HJF-UM-yUd"/>
+                            <constraint firstAttribute="bottom" secondItem="bEo-o5-VK9" secondAttribute="bottom" id="Q4r-HY-q0V"/>
+                            <constraint firstAttribute="trailing" secondItem="uBf-x1-NCg" secondAttribute="trailing" id="RcC-JG-OXI"/>
+                            <constraint firstAttribute="trailing" secondItem="8LG-Pp-rDI" secondAttribute="trailing" id="Ukf-Ju-vPT"/>
+                            <constraint firstItem="8LG-Pp-rDI" firstAttribute="top" secondItem="wwt-9O-PBn" secondAttribute="top" id="aFC-ek-HXi"/>
+                            <constraint firstAttribute="bottom" secondItem="uBf-x1-NCg" secondAttribute="bottom" id="hMk-w7-Zk2"/>
+                            <constraint firstItem="uBf-x1-NCg" firstAttribute="top" secondItem="wwt-9O-PBn" secondAttribute="top" id="j9j-Qh-1UN"/>
+                            <constraint firstItem="8LG-Pp-rDI" firstAttribute="leading" secondItem="wwt-9O-PBn" secondAttribute="leading" id="lYG-Jm-dOE"/>
+                            <constraint firstAttribute="trailing" secondItem="bEo-o5-VK9" secondAttribute="trailing" id="qTh-Pr-Qvo"/>
+                        </constraints>
+                    </view>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

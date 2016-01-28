@@ -4,6 +4,7 @@
 #import "_REDUser.h"
 
 const struct REDUserAttributes REDUserAttributes = {
+	.firstReadCreated = @"firstReadCreated",
 	.name = @"name",
 };
 
@@ -35,6 +36,8 @@ const struct REDUserAttributes REDUserAttributes = {
 
 	return keyPaths;
 }
+
+@dynamic firstReadCreated;
 
 @dynamic name;
 

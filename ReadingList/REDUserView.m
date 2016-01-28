@@ -7,8 +7,11 @@
 //
 
 #import "REDUserView.h"
+#import "REDUserProtocol.h"
+#import "UITextField+DoneButton.h"
+#import "REDDataStack.h"
 
-@interface REDUserView ()
+@interface REDUserView () <UITextFieldDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -30,6 +33,8 @@
 #pragma mark - overrides
 -(void)awakeFromNib {
     [super awakeFromNib];
+    [self.nameTextField addToolbar];
+    self.nameTextField.delegate = self;
 }
 
 #pragma mark - layout
@@ -40,13 +45,19 @@
 #pragma mark - setters
 -(void)setUser:(id<REDUserProtocol>)user {
     _user = user;
-    
+    self.nameTextField.text = [user hasName] ? [self.user name] : @"Your Name";
+    if ([user hasPhoto]) [self.photoButton setBackgroundImage:[user photo] forState:UIControlStateNormal];
+    else [self.photoButton setBackgroundImage:nil forState:UIControlStateNormal];
+    [self.photoButton setTitle:[user hasPhoto] ? @"" : @"photo" forState:UIControlStateNormal];
+}
+
+#pragma mark - text field delegate
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.user setName:textField.text];
+    [[REDDataStack sharedManager] commit];
 }
 
 #pragma mark - actions
--(IBAction)addAction:(id)sender {
-    [self.delegate userViewWantsToAddCustomLog:self];
-}
 -(IBAction)pickPhoto:(id)sender {
     [self.delegate userViewWantsToSelectProfilePhoto:self];
 }

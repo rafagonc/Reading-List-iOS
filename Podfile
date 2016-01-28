@@ -12,6 +12,7 @@ pod 'LLARingSpinnerView'
 pod 'EDStarRating'
 pod 'UIAlertView+Blocks'
 pod 'UIActionSheet+Blocks'
+pod 'NSDate-Escort'
 
 end
 

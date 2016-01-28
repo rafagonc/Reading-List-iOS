@@ -13,6 +13,6 @@
 
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted;
 -(NSArray <id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name;
--(NSString *)allBooksNamesConcanated;
+-(NSUInteger)totalPages;
 
 @end

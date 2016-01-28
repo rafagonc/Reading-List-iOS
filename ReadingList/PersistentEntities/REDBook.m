@@ -16,9 +16,6 @@
     return (NSUInteger)((CGFloat)self.pagesReadValue/(CGFloat)self.pagesValue * 100);
 }
 -(UIImage *)coverImage {
-    if (!self.cover) {
-        return [UIImage imageNamed:@"404"];
-    }
     if (!self.cacheImage) {
         self.cacheImage = [UIImage imageWithData:self.cover];
     }

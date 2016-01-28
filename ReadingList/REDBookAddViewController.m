@@ -272,5 +272,4 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 -(void)dealloc {
 }
 
-
 @end

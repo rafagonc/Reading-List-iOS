@@ -7,14 +7,24 @@
 //
 
 #import "REDBookNameValidator.h"
+#import "REDBookDataAccessObject.h"
+
+@interface REDBookNameValidator ()
+
+@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+
+@end
 
 @implementation REDBookNameValidator
-
 
 -(BOOL)validate:(id)obj error:(NSError *__autoreleasing *)error {
     NSString *bookName = (NSString *)obj;
     if (bookName.length == 0 && [bookName isEqualToString:@"Book Name"]) {
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose a book name."}];
+        return NO;
+    }
+    if ([self.bookDataAccessObject searchBooksWithString:bookName].count) {
+        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"A book with that name alredy exists."}];
         return NO;
     }
     return YES;

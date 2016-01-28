@@ -43,10 +43,19 @@
 #import "REDCategoryValidator.h"
 #import "REDPhotoPickerPresenter.h"
 #import "REDPhotoPickerPresenterProtocol.h"
+#import "REDUserProtocol.h"
+#import "REDUserDataAccessObject.h"
+#import "REDUserDataAccessObjectImpl.h"
+#import "REDBookValidator.h"
+#import "REDPagesValidator.h"
+#import "REDDateValidator.h"
 
 @implementation REDDepedencyInjection
 
 +(void)registerImplementations {
+    
+    //user
+    [[DPRegistry sharedRegistry] registerImplementation:[[[REDUserDataAccessObjectImpl alloc] init] user] forProtocol:@protocol(REDUserProtocol) context:nil];
     
     //datasources
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"book"];
@@ -68,12 +77,16 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDReadFactory class] forProtocol:@protocol(REDReadFactoryProtocol) context:nil];
     
     //DAOs
+    [[DPRegistry sharedRegistry] registerImplementation:[REDUserDataAccessObjectImpl class] forProtocol:@protocol(REDUserDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookDataAccessObjectImpl class] forProtocol:@protocol(REDBookDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryDataAccessObjectImpl class] forProtocol:@protocol(REDCategoryDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorDataAccessObjectImpl class] forProtocol:@protocol(REDAuthorDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDReadDataAccessObjectImpl class] forProtocol:@protocol(REDReadDataAccessObject) context:nil];
     
     //validators
+    [[DPRegistry sharedRegistry] registerImplementation:[REDPagesValidator class] forProtocol:@protocol(REDValidator) context:@"pages"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDBookValidator class] forProtocol:@protocol(REDValidator) context:@"book"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDDateValidator class] forProtocol:@protocol(REDValidator) context:@"date"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookNameValidator class] forProtocol:@protocol(REDValidator) context:@"name"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryValidator class] forProtocol:@protocol(REDValidator) context:@"category"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorValidator class] forProtocol:@protocol(REDValidator) context:@"author"];

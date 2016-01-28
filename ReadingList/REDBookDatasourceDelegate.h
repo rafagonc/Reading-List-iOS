@@ -13,6 +13,10 @@
 @protocol REDBookDatasourceDelegate <NSObject>
 
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didSelectBook:(id<REDBookProtocol>)book;
+-(BOOL)datasourceCanEditBooks:(id<REDDatasourceProtocol>)datasource;
+-(BOOL)datasourceShouldShowAccessoryType:(id<REDDatasourceProtocol>)datasource;
+
+@optional
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book;
 
 

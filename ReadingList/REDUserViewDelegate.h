@@ -12,6 +12,5 @@
 @protocol REDUserViewDelegate <NSObject>
 
 -(void)userViewWantsToSelectProfilePhoto:(REDUserView *)userView;
--(void)userViewWantsToAddCustomLog:(REDUserView *)userView;
 
 @end

@@ -13,16 +13,27 @@
 #import "REDReadDataAccessObject.h"
 #import "REDLogDatasourceDelegate.h"
 #import "REDBookAddViewController.h"
+#import "REDUserProtocol.h"
+#import "REDUserScrollView.h"
+#import "REDUserViewDelegate.h"
+#import "REDPhotoPickerPresenterProtocol.h"
+#import "UIViewController+NotificationShow.h"
+#import "REDAddLogViewController.h"
+#import "REDNavigationBarCustomizer.h"
+#import "UIImage+Blur.h"
 
-@interface REDLogViewController () <REDLogDatasourceDelegate>
+@interface REDLogViewController () <REDLogDatasourceDelegate, REDUserViewDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) REDUserView *userView;
+@property (weak, nonatomic) IBOutlet REDUserScrollView *userScrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
 
 #pragma mark - injected
 @property (setter=injected_log:,readonly) id<REDDatasourceProtocol> datasource;
 @property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected:,readonly) id<REDPhotoPickerPresenterProtocol> photoPicker;
+@property (setter=injected:,readonly) id<REDUserProtocol> user;
 
 @end
 
@@ -40,6 +51,13 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    //scroll view
+    self.userScrollView.userViewDelegate = self;
+    self.userScrollView.user = self.user;
+    
+    //blur image
+    [self setBlurImageIfExists];
+    
     //datasource
     [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
     [self.datasource setDelegate:self];
@@ -47,30 +65,56 @@
     [self.tableView setDelegate:self.datasource];
     [self.tableView reloadData];
     
-    //retain user view
-    REDUserView *userView = [[REDUserView alloc] init];
-    self.tableView.tableHeaderView = userView;
-    self.userView = userView;
-    
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    self.navigationController.navigationBarHidden = YES;
+    [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
+    [self updateData];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
+    [self.navigationItem setRightBarButtonItem:addButton];
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 240);
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 190);
     self.tableView.tableHeaderView = self.tableView.tableHeaderView; //update height
+    [self updateData];
 }
 
-#pragma mark - datasource
+#pragma mark - methods
+-(void)updateData {
+    [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
+    [self.tableView reloadData];
+}
+-(void)setBlurImageIfExists {
+    self.blurImageView.image = [self.user hasPhoto] ? [self.user cover]: nil;
+}
+
+#pragma mark - delegates
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
     REDBookAddViewController *bookAdd = [[REDBookAddViewController alloc] initWithBook:book];
     [self.navigationController pushViewController:bookAdd animated:YES];
+}
+-(void)userViewWantsToSelectProfilePhoto:(REDUserView *)userView {
+    __weak typeof(self) welf = self;
+    [self.photoPicker pickPhotoFromViewController:self hasPhoto:[self.user hasPhoto] withCallback:^(UIImage *image, NSError *error) {
+        if (error) {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+        } else {
+            [welf.user setPhoto:image];
+            [welf.userScrollView setUser:welf.user];
+            [welf setBlurImageIfExists];
+        }
+    }];
+}
+
+#pragma mark - actions
+-(void)addAction:(UIBarButtonItem *)addButton {
+    REDAddLogViewController *addLog = [[REDAddLogViewController alloc] init];
+    [self.navigationController pushViewController:addLog animated:YES];
 }
 
 #pragma mark - dealloc

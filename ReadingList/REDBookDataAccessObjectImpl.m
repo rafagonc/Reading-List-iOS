@@ -18,13 +18,13 @@
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted {
     return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
--(NSString *)allBooksNamesConcanated {
-    NSArray < NSString * > * bookNames = [[self list] valueForKeyPath:@"@unionOfObjects.name"];
-    NSMutableString * concanatedBookNames = [[NSMutableString alloc] init];
-    for (NSString *name  in bookNames) {
-        [concanatedBookNames appendFormat:@"%@ ,", name];
+-(NSUInteger)totalPages {
+    NSUInteger totalPages = 0;
+    NSArray <id<REDBookProtocol>> * books = [self list];
+    for (id<REDBookProtocol> book in books) {
+        totalPages += [book pagesReadValue];
     }
-    return [concanatedBookNames copy];
+    return totalPages;
 }
 
 #pragma mark - overrides

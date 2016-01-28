@@ -62,6 +62,10 @@
     REDBookCell *bookCell = (REDBookCell *)cell;
     bookCell.book = self.books[indexPath.row];
     
+    if ([self.delegate datasourceShouldShowAccessoryType:self] == NO) {
+        bookCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,7 +74,7 @@
     
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 0;
+    return [self.delegate datasourceCanEditBooks:self];
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {

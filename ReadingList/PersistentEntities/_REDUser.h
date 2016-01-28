@@ -4,6 +4,7 @@
 #import <CoreData/CoreData.h>
 
 extern const struct REDUserAttributes {
+	__unsafe_unretained NSString *firstReadCreated;
 	__unsafe_unretained NSString *name;
 } REDUserAttributes;
 
@@ -16,6 +17,10 @@ extern const struct REDUserAttributes {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) REDUserID* objectID;
 
+@property (nonatomic, strong) NSDate* firstReadCreated;
+
+//- (BOOL)validateFirstReadCreated:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
@@ -23,6 +28,9 @@ extern const struct REDUserAttributes {
 @end
 
 @interface _REDUser (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSDate*)primitiveFirstReadCreated;
+- (void)setPrimitiveFirstReadCreated:(NSDate*)value;
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;

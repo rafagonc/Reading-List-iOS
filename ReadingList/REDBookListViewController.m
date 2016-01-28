@@ -91,6 +91,12 @@
     [self updateData];
     [self.tableView endUpdates];
 }
+-(BOOL)datasourceCanEditBooks:(id<REDDatasourceProtocol>)datasource {
+    return YES;
+}
+-(BOOL)datasourceShouldShowAccessoryType:(id<REDDatasourceProtocol>)datasource {
+    return YES;
+}
 
 #pragma mark - search bar protocl
 -(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {

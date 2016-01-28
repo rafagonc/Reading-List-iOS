@@ -114,19 +114,24 @@
 #pragma mark Drawing
 -(CGPoint)pointOfStarAtPosition:(NSInteger)position highlighted:(BOOL)hightlighted
 {
-    CGSize size = hightlighted?starHighlightedImage.size:starImage.size;
-    
-    NSInteger starsSpace = self.bounds.size.width - 2*horizontalMargin;
-    
-    NSInteger interSpace = 0;
-    interSpace = maxRating-1>0?(starsSpace - (maxRating)*size.width)/(maxRating-1):0;
-    if( interSpace <0 )
-        interSpace=0;
-    CGFloat x = horizontalMargin + size.width*position;
-    if( position >0 )
-        x+=interSpace*position;
-    CGFloat y = (self.bounds.size.height - size.height)/2.0;
-    return CGPointMake(x  ,y);
+    if (starHighlightedImage && starImage) {
+        CGSize size = hightlighted?starHighlightedImage.size:starImage.size;
+        
+        NSInteger starsSpace = self.bounds.size.width - 2*horizontalMargin;
+        
+        NSInteger interSpace = 0;
+        interSpace = maxRating-1>0?(starsSpace - (maxRating)*size.width)/(maxRating-1):0;
+        if( interSpace <0 )
+            interSpace=0;
+        CGFloat x = horizontalMargin + size.width*position;
+        if( position >0 )
+            x+=interSpace*position;
+        CGFloat y = (self.bounds.size.height - size.height)/2.0;
+        return CGPointMake(x  ,y);
+    } else {
+        return CGPointZero;
+    }
+
 }
 
 -(void)drawBackgroundImage
