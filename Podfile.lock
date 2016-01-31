@@ -24,6 +24,7 @@ PODS:
   - EDStarRating (1.1)
   - LLARingSpinnerView (0.1.3)
   - NSDate-Escort (1.7.0)
+  - OCMock (3.2.2)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - EDStarRating
   - LLARingSpinnerView
   - NSDate-Escort
+  - OCMock
   - SDWebImage
   - UIActionSheet+Blocks
   - UIAlertView+Blocks
@@ -46,6 +48,7 @@ SPEC CHECKSUMS:
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
   LLARingSpinnerView: d5f9057460e97989aff1c52a247c6acb62b8d883
   NSDate-Escort: 3469fefab423c094108c2e864416b61b6ac0edbc
+  OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3

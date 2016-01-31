@@ -26,7 +26,7 @@
 #pragma mark - constructor
 -(instancetype)init {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
-    if (self = [super init]) {
+    if (self) {
         
     }return self;
 }

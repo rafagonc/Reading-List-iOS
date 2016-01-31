@@ -39,6 +39,9 @@
             <date key="date" timeIntervalSinceReferenceDate="475639552.62107098">
                 <!--2016-01-28 02:05:52 +0000-->
             </date>
+            <connections>
+                <action selector="datePickerChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="idO-2V-pQP"/>
+            </connections>
             <point key="canvasLocation" x="227" y="262"/>
         </datePicker>
     </objects>

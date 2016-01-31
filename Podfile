@@ -18,9 +18,15 @@ end
 
 target 'ReadingListTests' do
 
-end
-
-target 'ReadingListUITests' do
+pod 'AFNetworking', '~> 2.5'
+pod 'Depend'
+pod 'SDWebImage'
+pod 'LLARingSpinnerView'
+pod 'EDStarRating'
+pod 'UIAlertView+Blocks'
+pod 'UIActionSheet+Blocks'
+pod 'NSDate-Escort'
+pod 'OCMock'
 
 end
 

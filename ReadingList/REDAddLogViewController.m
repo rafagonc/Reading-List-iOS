@@ -17,6 +17,7 @@
 #import "REDLogCreateChainProtocol.h"
 #import "REDReadDataAccessObject.h"
 #import "UIViewController+NotificationShow.h"
+#import "REDDataStack.h"
 
 @interface REDAddLogViewController () <REDChooseBookCellDelegate, REDChooseBookViewControllerDelegate, REDLogCreateChainProtocol>
 
@@ -115,6 +116,7 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
         return;
     }
+    [[REDDataStack sharedManager] commit];
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)cancelAction:(UIBarButtonItem *)item {

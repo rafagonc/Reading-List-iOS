@@ -13,7 +13,7 @@
 
 -(BOOL)validate:(id)obj error:(NSError *__autoreleasing *)error {
     id<REDAuthorProtocol> author = (id<REDAuthorProtocol>)obj;
-    if (author == nil) {
+    if (author == nil || [author name].length == 0) {
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose an author."}];
         return NO;
     }

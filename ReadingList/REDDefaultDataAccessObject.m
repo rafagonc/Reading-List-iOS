@@ -43,7 +43,7 @@
 }
 -(void)remove:(id)object {
     if (object) [[self context] deleteObject:object];
-    self.cloudEnabled ? [[REDCloudDataStack sharedManager] commit] : [[REDDataStack sharedManager] commit];
+    [[REDDataStack sharedManager] commit];
 }
 -(NSString *)entityName {
     @throw [NSException exceptionWithName:@"Abstract Class" reason:@"Need to override this method" userInfo:@{}];
@@ -56,11 +56,7 @@
     return fetchRequest;
 }
 -(NSManagedObjectContext *)context {
-    if (self.cloudEnabled) {
-        return [[REDCloudDataStack sharedManager] managedObjectContext];
-    } else {
-        return [[REDDataStack sharedManager] managedObjectContext];;
-    }
+    return [[REDDataStack sharedManager] managedObjectContext];;
 }
 
 

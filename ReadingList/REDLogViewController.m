@@ -21,6 +21,7 @@
 #import "REDAddLogViewController.h"
 #import "REDNavigationBarCustomizer.h"
 #import "UIImage+Blur.h"
+#import "REDChartViewController.h"
 
 @interface REDLogViewController () <REDLogDatasourceDelegate, REDUserViewDelegate>
 
@@ -28,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet REDUserScrollView *userScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
+@property (weak, nonatomic) REDChartViewController *chartViewController;
 
 #pragma mark - injected
 @property (setter=injected_log:,readonly) id<REDDatasourceProtocol> datasource;
@@ -50,6 +52,9 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+    //orientation change
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     //scroll view
     self.userScrollView.userViewDelegate = self;
@@ -91,6 +96,18 @@
 }
 -(void)setBlurImageIfExists {
     self.blurImageView.image = [self.user hasPhoto] ? [self.user cover]: nil;
+}
+
+#pragma mark - orientation
+-(void)orientationChanged:(NSNotification *)ntif {
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
+        [self presentViewController:chartViewController animated:NO completion:nil];
+        self.chartViewController = chartViewController;
+    } else {
+        [self.chartViewController dismissViewControllerAnimated:NO completion:nil];
+    }
 }
 
 #pragma mark - delegates

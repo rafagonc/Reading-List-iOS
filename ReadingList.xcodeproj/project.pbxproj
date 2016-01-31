@@ -72,6 +72,10 @@
 		2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E531BD3042600677868 /* REDNoActionTextField.m */; };
 		2A2A1E591BD309BD00677868 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2A1E571BD309BD00677868 /* Fabric.framework */; };
 		2A2A1E5A1BD309BD00677868 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2A1E581BD309BD00677868 /* Crashlytics.framework */; };
+		2A44B8CC1C5C293300E09F5E /* REDCategoryValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */; };
+		2A44B8CE1C5C293A00E09F5E /* REDPagesValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */; };
+		2A44B8D01C5C294100E09F5E /* REDBookValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */; };
+		2A44B8D21C5C294700E09F5E /* REDDateValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8D11C5C294700E09F5E /* REDDateValidatorTest.m */; };
 		2A52A01E1BE520A1005809CC /* SHNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A52A01C1BE520A1005809CC /* SHNotificationView.m */; };
 		2A52A01F1BE520A1005809CC /* SHNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A52A01D1BE520A1005809CC /* SHNotificationView.xib */; };
 		2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */; };
@@ -79,8 +83,6 @@
 		2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */; };
 		2A74EBBD1BCD50B8005F5E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A74EBBC1BCD50B8005F5E74 /* Assets.xcassets */; };
 		2A74EBC01BCD50B8005F5E74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A74EBBE1BCD50B8005F5E74 /* LaunchScreen.storyboard */; };
-		2A74EBCB1BCD50B8005F5E74 /* ReadingListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBCA1BCD50B8005F5E74 /* ReadingListTests.m */; };
-		2A74EBD61BCD50B8005F5E74 /* ReadingListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBD51BCD50B8005F5E74 /* ReadingListUITests.m */; };
 		2A74EBF41BCD57BD005F5E74 /* REDDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBF31BCD57BD005F5E74 /* REDDataStack.m */; };
 		2A74EBFF1BCD59B1005F5E74 /* _REDBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBFB1BCD59B1005F5E74 /* _REDBook.m */; };
 		2A74EC001BCD59B1005F5E74 /* _REDCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBFD1BCD59B1005F5E74 /* _REDCategory.m */; };
@@ -132,6 +134,10 @@
 		2A77C0C01C2E2ED400E21551 /* REDTransientBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A77C0BF1C2E2ED400E21551 /* REDTransientBookCell.xib */; };
 		2A7DA3841C10132800B179D0 /* NSDictionary+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DA3831C10132800B179D0 /* NSDictionary+Validation.m */; };
 		2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */; };
+		2A9979531C5A733200DBEABB /* REDChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9979521C5A733200DBEABB /* REDChartViewController.m */; };
+		2A9979551C5A733C00DBEABB /* REDChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9979541C5A733C00DBEABB /* REDChartViewController.xib */; };
+		2A99B4721C5C168F0058EB7E /* REDBookNameValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A99795B1C5C133900DBEABB /* REDBookNameValidatorTest.m */; };
+		2ACA3BFA1C5C264900ED34DC /* REDAuthorValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA3BF91C5C264900ED34DC /* REDAuthorValidatorTest.m */; };
 		2AD174811C4D79BD00AFB560 /* _REDRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1747E1C4D79BD00AFB560 /* _REDRead.m */; };
 		2AD174821C4D79BD00AFB560 /* REDRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD174801C4D79BD00AFB560 /* REDRead.m */; };
 		2AD174861C4D7B1200AFB560 /* REDReadFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD174851C4D7B1200AFB560 /* REDReadFactory.m */; };
@@ -171,18 +177,12 @@
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
 		2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AFD3C481C5931EE0003C423 /* REDPagesInfoView.xib */; };
 		2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */; };
+		CC3172322892F3A347775881 /* libPods-ReadingListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */; };
 		F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7FEE50961509749458D464 /* libPods-ReadingList.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2A74EBC71BCD50B8005F5E74 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A74EBA21BCD50B7005F5E74 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A74EBA91BCD50B7005F5E74;
-			remoteInfo = ReadingList;
-		};
-		2A74EBD21BCD50B8005F5E74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A74EBA21BCD50B7005F5E74 /* Project object */;
 			proxyType = 1;
@@ -206,7 +206,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BD1FC2164450A190DF7E4E7 /* Pods-ReadingListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B7FEE50961509749458D464 /* libPods-ReadingList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingListTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A13EEA01C2E433D005DB34E /* REDTransientBookDatasourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTransientBookDatasourceDelegate.h; sourceTree = "<group>"; };
 		2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ReadingList.entitlements; sourceTree = "<group>"; };
 		2A13EEA51C2E5550005DB34E /* REDCloudMigrationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCloudMigrationHandler.h; sourceTree = "<group>"; };
@@ -291,6 +293,10 @@
 		2A2A1E531BD3042600677868 /* REDNoActionTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNoActionTextField.m; sourceTree = "<group>"; };
 		2A2A1E571BD309BD00677868 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		2A2A1E581BD309BD00677868 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCategoryValidatorTest.m; sourceTree = "<group>"; };
+		2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPagesValidatorTest.m; sourceTree = "<group>"; };
+		2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookValidatorTest.m; sourceTree = "<group>"; };
+		2A44B8D11C5C294700E09F5E /* REDDateValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDateValidatorTest.m; sourceTree = "<group>"; };
 		2A52A01B1BE520A1005809CC /* SHNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNotificationView.h; sourceTree = "<group>"; };
 		2A52A01C1BE520A1005809CC /* SHNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNotificationView.m; sourceTree = "<group>"; };
 		2A52A01D1BE520A1005809CC /* SHNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHNotificationView.xib; sourceTree = "<group>"; };
@@ -304,9 +310,7 @@
 		2A74EBBF1BCD50B8005F5E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A74EBC11BCD50B8005F5E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A74EBC61BCD50B8005F5E74 /* ReadingListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A74EBCA1BCD50B8005F5E74 /* ReadingListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadingListTests.m; sourceTree = "<group>"; };
 		2A74EBCC1BCD50B8005F5E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A74EBD11BCD50B8005F5E74 /* ReadingListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74EBD51BCD50B8005F5E74 /* ReadingListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadingListUITests.m; sourceTree = "<group>"; };
 		2A74EBD71BCD50B8005F5E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A74EBF21BCD57BD005F5E74 /* REDDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDataStack.h; sourceTree = "<group>"; };
@@ -413,6 +417,11 @@
 		2A8D056C1BD042C3004364F5 /* global.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.pch; sourceTree = "<group>"; };
 		2A8D056D1BD05E0C004364F5 /* NSString+Digits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Digits.h"; sourceTree = "<group>"; };
 		2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Digits.m"; sourceTree = "<group>"; };
+		2A9979511C5A733200DBEABB /* REDChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDChartViewController.h; sourceTree = "<group>"; };
+		2A9979521C5A733200DBEABB /* REDChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDChartViewController.m; sourceTree = "<group>"; };
+		2A9979541C5A733C00DBEABB /* REDChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDChartViewController.xib; sourceTree = "<group>"; };
+		2A99795B1C5C133900DBEABB /* REDBookNameValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookNameValidatorTest.m; sourceTree = "<group>"; };
+		2ACA3BF91C5C264900ED34DC /* REDAuthorValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAuthorValidatorTest.m; sourceTree = "<group>"; };
 		2AD1747D1C4D79BD00AFB560 /* _REDRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _REDRead.h; path = PersistentEntities/_REDRead.h; sourceTree = "<group>"; };
 		2AD1747E1C4D79BD00AFB560 /* _REDRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _REDRead.m; path = PersistentEntities/_REDRead.m; sourceTree = "<group>"; };
 		2AD1747F1C4D79BD00AFB560 /* REDRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = REDRead.h; path = PersistentEntities/REDRead.h; sourceTree = "<group>"; };
@@ -498,6 +507,7 @@
 		2AFD3C501C5935DC0003C423 /* ReadingList 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.8.xcdatamodel"; sourceTree = "<group>"; };
 		3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
+		CE877B61704399AE560739E1 /* Pods-ReadingListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,13 +525,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A74EBCE1BCD50B8005F5E74 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CC3172322892F3A347775881 /* libPods-ReadingListTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +537,8 @@
 			children = (
 				3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */,
 				A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */,
+				0BD1FC2164450A190DF7E4E7 /* Pods-ReadingListTests.debug.xcconfig */,
+				CE877B61704399AE560739E1 /* Pods-ReadingListTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -618,6 +624,7 @@
 				2A1FF5911C554E9400520949 /* Log View Controller */,
 				2A218FBF1C57DA7000D5D6FA /* Add Log View Controller */,
 				2ADA28711C59A9210068CCAC /* Choose Book View Controller */,
+				2A9979561C5A734000DBEABB /* Chart View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -979,7 +986,6 @@
 			children = (
 				2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */,
 				2A74EBC61BCD50B8005F5E74 /* ReadingListTests.xctest */,
-				2A74EBD11BCD50B8005F5E74 /* ReadingListUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1027,8 +1033,8 @@
 		2A74EBC91BCD50B8005F5E74 /* ReadingListTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A74EBCA1BCD50B8005F5E74 /* ReadingListTests.m */,
-				2A74EBCC1BCD50B8005F5E74 /* Info.plist */,
+				2A99795A1C5C12E500DBEABB /* Supporting Files */,
+				2A99795D1C5C133E00DBEABB /* Validators Test */,
 			);
 			path = ReadingListTests;
 			sourceTree = "<group>";
@@ -1490,6 +1496,37 @@
 			name = NSString;
 			sourceTree = "<group>";
 		};
+		2A9979561C5A734000DBEABB /* Chart View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A9979511C5A733200DBEABB /* REDChartViewController.h */,
+				2A9979521C5A733200DBEABB /* REDChartViewController.m */,
+				2A9979541C5A733C00DBEABB /* REDChartViewController.xib */,
+			);
+			name = "Chart View Controller";
+			sourceTree = "<group>";
+		};
+		2A99795A1C5C12E500DBEABB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A74EBCC1BCD50B8005F5E74 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A99795D1C5C133E00DBEABB /* Validators Test */ = {
+			isa = PBXGroup;
+			children = (
+				2A99795B1C5C133900DBEABB /* REDBookNameValidatorTest.m */,
+				2ACA3BF91C5C264900ED34DC /* REDAuthorValidatorTest.m */,
+				2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */,
+				2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */,
+				2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */,
+				2A44B8D11C5C294700E09F5E /* REDDateValidatorTest.m */,
+			);
+			name = "Validators Test";
+			sourceTree = "<group>";
+		};
 		2AD174871C4D7B1500AFB560 /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
@@ -1927,6 +1964,7 @@
 				2A2A1E571BD309BD00677868 /* Fabric.framework */,
 				2A2A1E581BD309BD00677868 /* Crashlytics.framework */,
 				1B7FEE50961509749458D464 /* libPods-ReadingList.a */,
+				278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1961,9 +1999,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A74EBDD1BCD50B8005F5E74 /* Build configuration list for PBXNativeTarget "ReadingListTests" */;
 			buildPhases = (
+				7730A4EA2CC8BFE4DD2C9966 /* Check Pods Manifest.lock */,
 				2A74EBC21BCD50B8005F5E74 /* Sources */,
 				2A74EBC31BCD50B8005F5E74 /* Frameworks */,
 				2A74EBC41BCD50B8005F5E74 /* Resources */,
+				D97F2F71F01D7373D6D690DA /* Embed Pods Frameworks */,
+				E8AE09A17E10DDFC683179E8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1974,24 +2015,6 @@
 			productName = ReadingListTests;
 			productReference = 2A74EBC61BCD50B8005F5E74 /* ReadingListTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2A74EBD01BCD50B8005F5E74 /* ReadingListUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A74EBE01BCD50B8005F5E74 /* Build configuration list for PBXNativeTarget "ReadingListUITests" */;
-			buildPhases = (
-				2A74EBCD1BCD50B8005F5E74 /* Sources */,
-				2A74EBCE1BCD50B8005F5E74 /* Frameworks */,
-				2A74EBCF1BCD50B8005F5E74 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2A74EBD31BCD50B8005F5E74 /* PBXTargetDependency */,
-			);
-			name = ReadingListUITests;
-			productName = ReadingListUITests;
-			productReference = 2A74EBD11BCD50B8005F5E74 /* ReadingListUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -2007,15 +2030,11 @@
 						DevelopmentTeam = 8P5355PV9G;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
 					2A74EBC51BCD50B8005F5E74 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 2A74EBA91BCD50B7005F5E74;
-					};
-					2A74EBD01BCD50B8005F5E74 = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 2A74EBA91BCD50B7005F5E74;
 					};
@@ -2042,7 +2061,6 @@
 			targets = (
 				2A74EBA91BCD50B7005F5E74 /* ReadingList */,
 				2A74EBC51BCD50B8005F5E74 /* ReadingListTests */,
-				2A74EBD01BCD50B8005F5E74 /* ReadingListUITests */,
 				2A74EBE41BCD567E005F5E74 /* mogenerator */,
 				2A74EBE91BCD56F6005F5E74 /* versioner */,
 			);
@@ -2077,6 +2095,7 @@
 				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
 				2A1FF5901C554E9000520949 /* REDLogViewController.xib in Resources */,
 				2ADCC0B51BD2EC90009F638A /* books.json in Resources */,
+				2A9979551C5A733C00DBEABB /* REDChartViewController.xib in Resources */,
 				2A19B8871BCDB3C2009C8F25 /* REDBookListViewController.xib in Resources */,
 				2A74EC6A1BD09041005F5E74 /* REDAuthorViewController.xib in Resources */,
 				2A74EC201BCDE2E2005F5E74 /* REDBookHeaderCell.xib in Resources */,
@@ -2089,13 +2108,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2A74EBC41BCD50B8005F5E74 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A74EBCF1BCD50B8005F5E74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2161,6 +2173,21 @@
 			shellPath = /bin/sh;
 			shellScript = "#enviroment variables\nPROJECTNAME='ReadingList' #spaces not allowed (otherwise escape chars)\nINFONAME='Info.plist'\nFIELD=\"CFBundleVersion\"\n\n#script\ncd \"$PROJECTNAME\"\nLINE=$(grep -n \"CFBundleVersion\" $INFONAME | cut -c 1,2)\nNUMBERLINE=$((LINE+1))\nVERSIONSTRING=$(sed -n \"$NUMBERLINE p\" $INFONAME | cut -d \">\" -f 2 | cut -d \"<\" -f 1)\nDATE=$(date +\"%s\")\nsed \"s/$VERSIONSTRING/$DATE/g\" $INFONAME > versioner.txt\nrm Info.plist\ncp versioner.txt Info.plist\nrm versioner.txt";
 		};
+		7730A4EA2CC8BFE4DD2C9966 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		D738BDF5C3DDD16BB5A016F3 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2174,6 +2201,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D97F2F71F01D7373D6D690DA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8AE09A17E10DDFC683179E8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F13CC73411B17F87CC8ECD7A /* Copy Pods Resources */ = {
@@ -2301,6 +2358,7 @@
 				2A1FF5B81C568C9600520949 /* REDLogCell.m in Sources */,
 				2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */,
 				2A74EC861BD0A891005F5E74 /* REDImageSearchRequest.m in Sources */,
+				2A9979531C5A733200DBEABB /* REDChartViewController.m in Sources */,
 				2ADA28681C5995310068CCAC /* REDChooseBookCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2309,15 +2367,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A74EBCB1BCD50B8005F5E74 /* ReadingListTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A74EBCD1BCD50B8005F5E74 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A74EBD61BCD50B8005F5E74 /* ReadingListUITests.m in Sources */,
+				2A99B4721C5C168F0058EB7E /* REDBookNameValidatorTest.m in Sources */,
+				2ACA3BFA1C5C264900ED34DC /* REDAuthorValidatorTest.m in Sources */,
+				2A44B8D01C5C294100E09F5E /* REDBookValidatorTest.m in Sources */,
+				2A44B8CC1C5C293300E09F5E /* REDCategoryValidatorTest.m in Sources */,
+				2A44B8D21C5C294700E09F5E /* REDDateValidatorTest.m in Sources */,
+				2A44B8CE1C5C293A00E09F5E /* REDPagesValidatorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2328,11 +2383,6 @@
 			isa = PBXTargetDependency;
 			target = 2A74EBA91BCD50B7005F5E74 /* ReadingList */;
 			targetProxy = 2A74EBC71BCD50B8005F5E74 /* PBXContainerItemProxy */;
-		};
-		2A74EBD31BCD50B8005F5E74 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2A74EBA91BCD50B7005F5E74 /* ReadingList */;
-			targetProxy = 2A74EBD21BCD50B8005F5E74 /* PBXContainerItemProxy */;
 		};
 		2A74EBEF1BCD571D005F5E74 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2445,7 +2495,6 @@
 			baseConfigurationReference = 3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rafael Gonzalves (A7R335TQR4)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2468,7 +2517,6 @@
 			baseConfigurationReference = A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Rafael Gonzalves (8P5355PV9G)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2488,6 +2536,7 @@
 		};
 		2A74EBDE1BCD50B8005F5E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BD1FC2164450A190DF7E4E7 /* Pods-ReadingListTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReadingListTests/Info.plist;
@@ -2500,6 +2549,7 @@
 		};
 		2A74EBDF1BCD50B8005F5E74 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE877B61704399AE560739E1 /* Pods-ReadingListTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReadingListTests/Info.plist;
@@ -2507,30 +2557,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafa.gonc.ReadingListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReadingList.app/ReadingList";
-			};
-			name = Release;
-		};
-		2A74EBE11BCD50B8005F5E74 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ReadingListUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafa.gonc.ReadingListUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ReadingList;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		2A74EBE21BCD50B8005F5E74 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = ReadingListUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rafa.gonc.ReadingListUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ReadingList;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -2588,15 +2614,6 @@
 			buildConfigurations = (
 				2A74EBDE1BCD50B8005F5E74 /* Debug */,
 				2A74EBDF1BCD50B8005F5E74 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A74EBE01BCD50B8005F5E74 /* Build configuration list for PBXNativeTarget "ReadingListUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A74EBE11BCD50B8005F5E74 /* Debug */,
-				2A74EBE21BCD50B8005F5E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -24,16 +24,22 @@
 #pragma mark - constructor
 -(instancetype)init {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
-    if (self = [super init]) {
+    if (self) {
         
     } return self;
 }
 
 #pragma mark - overrides
 -(void)awakeFromNib {
-    [super awakeFromNib];
     self.dateTextField.inputView = self.datePicker;
     [self.dateTextField addToolbar];
+}
+
+#pragma mark - actions
+-(IBAction)datePickerChanged:(id)sender {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    self.dateTextField.text = [dateFormatter stringFromDate:self.datePicker.date];
 }
 
 #pragma mark - chain

@@ -41,7 +41,7 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 
 #pragma mark - methods
 -(void)createStaticData {
-    if ([self.userDefaults objectForKey:REDStaticDataCreatedFlag] == nil && [self.categoryDataAccessObject list].count == 0) {
+    if ([self.userDefaults objectForKey:REDStaticDataCreatedFlag] == nil) {
         [self createCategories];
         
         //save flag
@@ -52,43 +52,50 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 
 #pragma mark - specifics
 -(void)createCategories {
-    NSArray *categories = @[@"Arts & Photohgraphy",
-                            @"Biographies & Memories",
-                            @"Business & Money",
-                            @"Christian Books",
-                            @"Comics",
-                            @"Children's Book",
-                            @"Computers & Technology",
-                            @"Cookbooks, Food & Wine",
-                            @"Crafts, Hobbies & Home",
-                            @"Education & Teaching",
-                            @"Engineering & Transportation",
-                            @"Gay & Lesbian",
-                            @"Health & Fitness",
-                            @"History",
-                            @"Humor & Entertainment",
-                            @"Law",
-                            @"Literatute & Fiction",
-                            @"Medical Books",
-                            @"Mystery, Thriller & Suspense",
-                            @"Parenting & Relationships",
-                            @"Politics & Social",
-                            @"Reference",
-                            @"Religion",
-                            @"Science & Math",
-                            @"Science Fiction",
-                            @"Spots & Outdoors",
-                            @"Teen & Young Adult",
-                            @"Test Preparation",
-                            @"Travel"];
-    
-    for (NSString *name in categories) {
-        id<REDCategoryProtocol> category  = [self.categoryDataAccessObject create];
-        [category setName:name];
+    if ([self.categoryDataAccessObject list].count == 0) {
+        NSArray *categories = @[@"Arts & Photohgraphy",
+                                @"Biographies & Memories",
+                                @"Business & Money",
+                                @"Christian Books",
+                                @"Comics",
+                                @"Children's Book",
+                                @"Computers & Technology",
+                                @"Cookbooks, Food & Wine",
+                                @"Crafts, Hobbies & Home",
+                                @"Education & Teaching",
+                                @"Engineering & Transportation",
+                                @"Gay & Lesbian",
+                                @"Health & Fitness",
+                                @"History",
+                                @"Humor & Entertainment",
+                                @"Law",
+                                @"Literatute & Fiction",
+                                @"Medical Books",
+                                @"Mystery, Thriller & Suspense",
+                                @"Parenting & Relationships",
+                                @"Politics & Social",
+                                @"Reference",
+                                @"Religion",
+                                @"Science & Math",
+                                @"Science Fiction",
+                                @"Spots & Outdoors",
+                                @"Teen & Young Adult",
+                                @"Test Preparation",
+                                @"Travel"];
+        
+        for (NSString *name in categories) {
+            id<REDCategoryProtocol> category  = [self.categoryDataAccessObject create];
+            [category setName:name];
+        }
+
     }
     
-    id<REDCategoryProtocol> romanceCategory = [self.categoryDataAccessObject create];
-    [romanceCategory setName:@"Romance"];
+    id<REDCategoryProtocol> romanceCategory = [[self.categoryDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE 'Romance'"]] firstObject];
+    if (romanceCategory == nil) {
+        romanceCategory = [self.categoryDataAccessObject create];
+        [romanceCategory setName:@"Romance"];
+    }
+    
     
     id<REDAuthorProtocol> author = [self.authorDataAccessObject create];
     [author setName:@"William Shakespeare"];
