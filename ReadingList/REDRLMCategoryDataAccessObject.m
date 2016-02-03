@@ -1,15 +1,28 @@
 //
-//  REDCategoryDataAccessObjectImpl.m
+//  REDRLMCategoryDataAccessObject.m
 //  ReadingList
 //
-//  Created by Rafael Gonzalves on 12/25/15.
-//  Copyright © 2015 Rafael Gonzalves. All rights reserved.
+//  Created by Rafael Gonzalves on 2/3/16.
+//  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDCategoryDataAccessObjectImpl.h"
+#import "REDRLMCategoryDataAccessObject.h"
+#import "REDRLMCategory.h"
 
-@implementation REDCategoryDataAccessObjectImpl
+@implementation REDRLMCategoryDataAccessObject
 
+#pragma mark - creating
+-(id)create {
+    return [[REDRLMCategory alloc] init];
+}
+
+#pragma mark - queries
+-(NSArray *)list {
+    return (NSArray *)[REDRLMCategory allObjects];
+}
+-(NSArray *)listWithPredicate:(NSPredicate *)predicate {
+    return (NSArray *)[REDRLMCategory objectsWithPredicate:predicate];
+}
 
 #pragma mark - methods
 -(NSArray<id<REDCategoryProtocol>> *)categoriesSortedByName {
@@ -26,9 +39,5 @@
     return [categoryWithMostBooks name];
 }
 
-#pragma mark - dao
--(NSString *)entityName {
-    return @"REDCategory";
-}
 
 @end

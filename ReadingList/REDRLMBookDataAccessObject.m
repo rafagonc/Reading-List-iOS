@@ -1,17 +1,30 @@
 //
-//  REDBookDataAccessObjectImpl.m
+//  REDRLMBookDataAccessObject.m
 //  ReadingList
 //
-//  Created by Rafael Gonzalves on 12/25/15.
-//  Copyright © 2015 Rafael Gonzalves. All rights reserved.
+//  Created by Rafael Gonzalves on 2/3/16.
+//  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDBookDataAccessObjectImpl.h"
+#import "REDRLMBookDataAccessObject.h"
+#import "REDRLMBook.h"
 
-@implementation REDBookDataAccessObjectImpl
+@implementation REDRLMBookDataAccessObject
 
+#pragma mark - creating
+-(id)create {
+    return [[REDRLMBook alloc] init];
+}
 
-#pragma mark - methods
+#pragma mark - queries
+-(NSArray *)list {
+    return (NSArray *)[REDRLMBook allObjects];
+}
+-(NSArray *)listWithPredicate:(NSPredicate *)predicate {
+    return (NSArray *)[REDRLMBook objectsWithPredicate:predicate];
+}
+
+#pragma mark - specific queries
 -(NSArray<id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name {
     NSArray * books = [self listWithPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", name]];
     return [books sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]];
@@ -26,11 +39,6 @@
         totalPages += [book pagesReadValue];
     }
     return totalPages;
-}
-
-#pragma mark - overrides
--(NSString *)entityName {
-    return @"REDBook";
 }
 
 @end
