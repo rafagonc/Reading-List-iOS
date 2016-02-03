@@ -22,7 +22,7 @@
 #pragma mark - properties
 @property (nonatomic) UIImage * coverImage;
 @property (nonatomic) NSString * snippet;
-@property (nonatomic) float rateValue;
+@property (nonatomic) double rate;
 @property (nonatomic,readonly) BOOL completed;
 @property (nonatomic) NSUInteger pagesValue;
 @property (nonatomic) NSUInteger pagesReadValue;

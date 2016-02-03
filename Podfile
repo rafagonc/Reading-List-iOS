@@ -13,11 +13,13 @@ pod 'EDStarRating'
 pod 'UIAlertView+Blocks'
 pod 'UIActionSheet+Blocks'
 pod 'NSDate-Escort'
+pod 'Realm'
 
 end
 
 target 'ReadingListTests' do
 
+pod 'Realm/Headers'
 pod 'AFNetworking', '~> 2.5'
 pod 'Depend'
 pod 'SDWebImage'

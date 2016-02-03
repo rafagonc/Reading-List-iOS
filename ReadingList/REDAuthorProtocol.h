@@ -10,6 +10,6 @@
 
 @protocol REDAuthorProtocol <REDNamable>
 
--(NSSet *)books;
+-(NSArray *)books;
 
 @end

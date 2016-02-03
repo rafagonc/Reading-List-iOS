@@ -12,9 +12,9 @@
 @protocol REDUserProtocol <REDNamable>
 
 #pragma mark - properties
-@property UIImage * photo;
-@property UIImage * cover;
-@property NSDate * firstReadCreated;
+@property (nonatomic) UIImage * photo;
+@property (nonatomic) UIImage * cover;
+@property (nonatomic) NSDate * firstReadCreated;
 
 #pragma mark - helpers
 -(BOOL)hasName;

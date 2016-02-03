@@ -76,6 +76,11 @@
 		2A44B8CE1C5C293A00E09F5E /* REDPagesValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */; };
 		2A44B8D01C5C294100E09F5E /* REDBookValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */; };
 		2A44B8D21C5C294700E09F5E /* REDDateValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8D11C5C294700E09F5E /* REDDateValidatorTest.m */; };
+		2A4597621C6192500010D135 /* REDRLMBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4597611C6192500010D135 /* REDRLMBook.m */; };
+		2A4597651C6192560010D135 /* REDRLMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4597641C6192560010D135 /* REDRLMCategory.m */; };
+		2A4597681C6192670010D135 /* REDRLMAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4597671C6192670010D135 /* REDRLMAuthor.m */; };
+		2A45976B1C61926D0010D135 /* REDRLMRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45976A1C61926D0010D135 /* REDRLMRead.m */; };
+		2A45976E1C6192730010D135 /* REDRLMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45976D1C6192730010D135 /* REDRLMUser.m */; };
 		2A52A01E1BE520A1005809CC /* SHNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A52A01C1BE520A1005809CC /* SHNotificationView.m */; };
 		2A52A01F1BE520A1005809CC /* SHNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A52A01D1BE520A1005809CC /* SHNotificationView.xib */; };
 		2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */; };
@@ -297,6 +302,16 @@
 		2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPagesValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8D11C5C294700E09F5E /* REDDateValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDateValidatorTest.m; sourceTree = "<group>"; };
+		2A4597601C6192500010D135 /* REDRLMBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMBook.h; sourceTree = "<group>"; };
+		2A4597611C6192500010D135 /* REDRLMBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMBook.m; sourceTree = "<group>"; };
+		2A4597631C6192560010D135 /* REDRLMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMCategory.h; sourceTree = "<group>"; };
+		2A4597641C6192560010D135 /* REDRLMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMCategory.m; sourceTree = "<group>"; };
+		2A4597661C6192670010D135 /* REDRLMAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMAuthor.h; sourceTree = "<group>"; };
+		2A4597671C6192670010D135 /* REDRLMAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMAuthor.m; sourceTree = "<group>"; };
+		2A4597691C61926D0010D135 /* REDRLMRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMRead.h; sourceTree = "<group>"; };
+		2A45976A1C61926D0010D135 /* REDRLMRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMRead.m; sourceTree = "<group>"; };
+		2A45976C1C6192730010D135 /* REDRLMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMUser.h; sourceTree = "<group>"; };
+		2A45976D1C6192730010D135 /* REDRLMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMUser.m; sourceTree = "<group>"; };
 		2A52A01B1BE520A1005809CC /* SHNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNotificationView.h; sourceTree = "<group>"; };
 		2A52A01C1BE520A1005809CC /* SHNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNotificationView.m; sourceTree = "<group>"; };
 		2A52A01D1BE520A1005809CC /* SHNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHNotificationView.xib; sourceTree = "<group>"; };
@@ -1109,6 +1124,16 @@
 				2A74EC041BCD59B8005F5E74 /* REDBook.m */,
 				2A74EC051BCD59B8005F5E74 /* REDCategory.h */,
 				2A74EC061BCD59B8005F5E74 /* REDCategory.m */,
+				2A4597601C6192500010D135 /* REDRLMBook.h */,
+				2A4597611C6192500010D135 /* REDRLMBook.m */,
+				2A4597631C6192560010D135 /* REDRLMCategory.h */,
+				2A4597641C6192560010D135 /* REDRLMCategory.m */,
+				2A4597661C6192670010D135 /* REDRLMAuthor.h */,
+				2A4597671C6192670010D135 /* REDRLMAuthor.m */,
+				2A4597691C61926D0010D135 /* REDRLMRead.h */,
+				2A45976A1C61926D0010D135 /* REDRLMRead.m */,
+				2A45976C1C6192730010D135 /* REDRLMUser.h */,
+				2A45976D1C6192730010D135 /* REDRLMUser.m */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -2261,6 +2286,7 @@
 				2A77C09B1C2DDA1A00E21551 /* REDCategoryDataAccessObjectImpl.m in Sources */,
 				2A77C0811C2DCE8800E21551 /* REDRecommendedBooksViewController.m in Sources */,
 				2A19B8861BCDB3C2009C8F25 /* REDBookListViewController.m in Sources */,
+				2A45976E1C6192730010D135 /* REDRLMUser.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
@@ -2269,6 +2295,7 @@
 				2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */,
 				2ADA28821C59B2B90068CCAC /* REDDateValidator.m in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
+				2A4597681C6192670010D135 /* REDRLMAuthor.m in Sources */,
 				2A77C0971C2DDA0A00E21551 /* REDAuthorDataAccessObjectImpl.m in Sources */,
 				2A74EC4B1BCE3E9A005F5E74 /* REDCategoryDatasource.m in Sources */,
 				2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */,
@@ -2277,6 +2304,7 @@
 				2A1632E71C59148C0015F06E /* ReadingList.xcdatamodeld in Sources */,
 				2ADCC08C1BD2069C009F638A /* REDGoogleImageSearchCell.m in Sources */,
 				2A7DA3841C10132800B179D0 /* NSDictionary+Validation.m in Sources */,
+				2A4597651C6192560010D135 /* REDRLMCategory.m in Sources */,
 				2ADCC0741BD1FD6A009F638A /* REDDictionary2ModelFactory.m in Sources */,
 				2A1632DA1C580E6C0015F06E /* REDUser.m in Sources */,
 				2A74EC671BD09029005F5E74 /* REDAuthorViewController.m in Sources */,
@@ -2315,6 +2343,7 @@
 				2A1FF5BE1C56DED100520949 /* REDBookNameValidator.m in Sources */,
 				2ADCC0531BD1FB91009F638A /* REDHTTPRequestFactory.m in Sources */,
 				2AD1748D1C4D7ED100AFB560 /* REDReadDataAccessObjectImpl.m in Sources */,
+				2A45976B1C61926D0010D135 /* REDRLMRead.m in Sources */,
 				2A1FF58E1C554E8600520949 /* REDLogViewController.m in Sources */,
 				2A1FF5B31C568BCA00520949 /* REDLogDatasource.m in Sources */,
 				2A74EC7E1BD0A558005F5E74 /* REDImageSearchViewController.m in Sources */,
@@ -2341,6 +2370,7 @@
 				2A74EC721BD0957D005F5E74 /* REDAuthorCreateViewController.m in Sources */,
 				2ADA28751C59AD8B0068CCAC /* REDChooseDateCell.m in Sources */,
 				2A74EC631BD08FAD005F5E74 /* _REDAuthor.m in Sources */,
+				2A4597621C6192500010D135 /* REDRLMBook.m in Sources */,
 				2A74EC4F1BCE3FAA005F5E74 /* REDStaticData.m in Sources */,
 				2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */,
 				2A74EC1D1BCDE2D0005F5E74 /* REDBookHeaderCell.m in Sources */,

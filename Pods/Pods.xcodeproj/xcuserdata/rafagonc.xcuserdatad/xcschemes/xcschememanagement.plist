@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-ReadingList-Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ReadingList.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,6 +82,21 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1E573CF3E8CDF1642DA6462F754F001A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37CD590B8F9DD91A34B46309B20EA8C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3CDA3BFADEAB02F7D14DE9443DF4F71B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
@@ -92,17 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DA6162A6AA5F177E03AA1A6927595EF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7F1875A6330D3D48B878B26E9606EDD9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>97E97D6AEFA0E05B2C9F9FEC344F3BA2</key>
+		<key>59143EB5BFBE8B0F3ECD0BCDCD2F35A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +127,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C72EBF3631AB69E7F55C68043CDEA988</key>
+		<key>C7D65D34D9350085E1B8CC62F36E0F44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7D65D34D9350085E1B8CC62F36E0F44</key>
+		<key>F71D5AEA2FD0BE21F422391A92593CE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

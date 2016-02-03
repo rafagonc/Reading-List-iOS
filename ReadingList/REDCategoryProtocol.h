@@ -10,6 +10,6 @@
 
 @protocol REDCategoryProtocol <REDNamable>
 
--(NSSet *)books;
+-(NSArray *)books;
 
 @end

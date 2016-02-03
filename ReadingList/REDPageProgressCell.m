@@ -58,7 +58,7 @@
     self.pages = [book pagesValue];
     self.pagesRead = [book pagesReadValue];
     self.pagedReadInitialValue = [book pagesReadValue];
-    self.ratingView.rating = [book rateValue];
+    self.ratingView.rating = [book rate];
     self.slider.minimumValue = 0.0f;
     self.slider.maximumValue = self.pages;
     self.slider.value = (CGFloat)[book pagesReadValue];
@@ -87,7 +87,7 @@
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     [book setPagesReadValue:self.pagesRead];
-    [book setRateValue:self.ratingView.rating];
+    [book setRate:self.ratingView.rating];
     if (self.pages == self.pagesRead) {
         [Answers logContentViewWithName:@"Book"
                             contentType:@"Completed"
