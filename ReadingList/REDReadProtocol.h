@@ -13,6 +13,9 @@
 
 @property (nonatomic,strong) NSDate * date;
 @property (nonatomic,assign) NSInteger pagesValue;
-@property (nonatomic,strong) id<REDBookProtocol> book;
+
+#pragma mark - relationships
+-(void)setBook:(id<REDBookProtocol>)book;
+-(id<REDBookProtocol>)book;
 
 @end

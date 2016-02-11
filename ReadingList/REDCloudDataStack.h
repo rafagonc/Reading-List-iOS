@@ -7,8 +7,11 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "REDTransactionManager.h"
 
 @interface REDCloudDataStack : NSObject
+
+<REDTransactionManager>
 
 #pragma mark - singleton
 +(REDCloudDataStack *)sharedManager;

@@ -30,7 +30,7 @@
     [Fabric with:@[[Crashlytics class]]];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
-    [REDLocalMigrationHandler migrateBackToLocal];
+    //[REDLocalMigrationHandler migrateBackToLocal];
     [REDStaticData craateStaticData];
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];

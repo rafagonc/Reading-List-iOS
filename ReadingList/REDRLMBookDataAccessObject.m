@@ -8,29 +8,41 @@
 
 #import "REDRLMBookDataAccessObject.h"
 #import "REDRLMBook.h"
+#import "REDRLMArrayHelper.h"
+
+@interface REDRLMBookDataAccessObject ()
+
+@property (setter=injected:,readonly) id<REDRLMArrayHelper> rlm_arrayHelper;
+
+@end
 
 @implementation REDRLMBookDataAccessObject
 
 #pragma mark - creating
 -(id)create {
-    return [[REDRLMBook alloc] init];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    REDRLMBook * book = [[REDRLMBook alloc] init];
+    [realm addObject:book];
+    [realm commitWriteTransaction];
+    return book;
 }
 
 #pragma mark - queries
--(NSArray *)list {
-    return (NSArray *)[REDRLMBook allObjects];
+-(id)list {
+    return [self.rlm_arrayHelper arrayFromResults:[REDRLMBook allObjects]];
 }
--(NSArray *)listWithPredicate:(NSPredicate *)predicate {
-    return (NSArray *)[REDRLMBook objectsWithPredicate:predicate];
+-(id)listWithPredicate:(NSPredicate *)predicate {
+    return [[self list] filteredArrayUsingPredicate:predicate];
 }
 
 #pragma mark - specific queries
 -(NSArray<id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name {
     NSArray * books = [self listWithPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", name]];
-    return [books sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]];
+    return (NSArray *)[books sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]];
 }
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted {
-    return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
 -(NSUInteger)totalPages {
     NSUInteger totalPages = 0;

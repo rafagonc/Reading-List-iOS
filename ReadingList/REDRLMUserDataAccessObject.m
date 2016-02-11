@@ -13,7 +13,12 @@
 
 #pragma mark - creating
 -(id)create {
-    return [[REDRLMUser alloc] init];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    REDRLMUser * user = [[REDRLMUser alloc] init];
+    [realm beginWriteTransaction];
+    [realm addObject:user];
+    [realm commitWriteTransaction];
+    return user;
 }
 
 #pragma mark - queries

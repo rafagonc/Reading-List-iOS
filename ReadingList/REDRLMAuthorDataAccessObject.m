@@ -8,25 +8,37 @@
 
 #import "REDRLMAuthorDataAccessObject.h"
 #import "REDRLMAuthor.h"
+#import "REDRLMArrayHelper.h"
+
+@interface REDRLMAuthorDataAccessObject ()
+
+@property (setter=injected:,readonly) id<REDRLMArrayHelper> rlm_arrayHelper;
+
+@end
 
 @implementation REDRLMAuthorDataAccessObject
 
 #pragma mark - creating
 -(id)create {
-    return [[REDRLMAuthor alloc] init];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    REDRLMAuthor *author = [[REDRLMAuthor alloc] init];
+    [realm addObject:author];
+    [realm commitWriteTransaction];
+    return author;
 }
 
 #pragma mark - queries
--(NSArray *)list {
-    return (NSArray *)[REDRLMAuthor allObjects];
+-(id)list {
+    return [self.rlm_arrayHelper arrayFromResults:[REDRLMAuthor allObjects]];
 }
--(NSArray *)listWithPredicate:(NSPredicate *)predicate {
-    return (NSArray *)[REDRLMAuthor objectsWithPredicate:predicate];
+-(id)listWithPredicate:(NSPredicate *)predicate {
+    return [[self list] filteredArrayUsingPredicate:predicate];
 }
 
 #pragma mark - specific queries
 -(NSArray<id<REDAuthorProtocol>> *)authorsSortedByName {
-    return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
 
 

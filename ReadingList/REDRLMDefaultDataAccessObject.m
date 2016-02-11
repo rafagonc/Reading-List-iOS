@@ -17,6 +17,12 @@
 
 @implementation REDRLMDefaultDataAccessObject
 
+#pragma mark - constructor
+-(instancetype)init {
+    if (self = [super init]) {
+    } return self;
+}
+
 #pragma mark - default
 -(void)remove:(id)object {
     [self.realm beginWriteTransaction];
@@ -27,6 +33,8 @@
 #pragma mark - entity
 -(NSString *)entityName {
     return nil;
+}
+-(void)dealloc {
 }
 
 @end

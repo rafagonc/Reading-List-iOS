@@ -8,25 +8,37 @@
 
 #import "REDRLMReadDataAccessObject.h"
 #import "REDRLMRead.h"
+#import "REDRLMArrayHelper.h"
+
+@interface REDRLMReadDataAccessObject ()
+
+@property (setter=injected:,readonly) id<REDRLMArrayHelper> rlm_arrayHelper;
+
+@end
 
 @implementation REDRLMReadDataAccessObject
 
 #pragma mark - creating
 -(id)create {
-    return [[REDRLMRead alloc] init];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    REDRLMRead *read = [[REDRLMRead alloc] init];
+    [realm addObject:read];
+    [realm commitWriteTransaction];
+    return read;
 }
 
 #pragma mark - queries
--(NSArray *)list {
-    return (NSArray *)[REDRLMRead allObjects];
+-(id)list {
+    return [self.rlm_arrayHelper arrayFromResults:[REDRLMRead allObjects]];
 }
--(NSArray *)listWithPredicate:(NSPredicate *)predicate {
-    return (NSArray *)[REDRLMRead objectsWithPredicate:predicate];
+-(id)listWithPredicate:(NSPredicate *)predicate {
+    return [[self list] filteredArrayUsingPredicate:predicate];
 }
 
 #pragma mark - fetching
 -(NSArray<id<REDReadProtocol>> *)logsOrderedByDate {
-    return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
+    return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
 }
 -(NSUInteger)totalPages {
     NSUInteger totalPages = 0;

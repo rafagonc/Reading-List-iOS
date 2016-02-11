@@ -20,12 +20,13 @@
 @property (nonatomic) NSString *        name;
 @property (nonatomic) NSString *        language;
 @property (nonatomic) NSString *        snippet;
-@property (nonatomic) NSUInteger        pagesValue;
-@property (nonatomic) NSUInteger        pagesReadValue;
+@property (nonatomic) NSInteger         pagesValue;
+@property (nonatomic) NSInteger         pagesReadValue;
 @property (nonatomic) double            rate;
 @property (nonatomic) REDRLMAuthor *    _author;
 @property (nonatomic) REDRLMCategory *  _category;
 @property (nonatomic) NSData *          cover;
+@property (nonatomic) BOOL completed;
 
 
 @end

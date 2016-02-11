@@ -11,7 +11,7 @@
 @implementation REDRLMCategory
 
 -(NSArray *)books {
-    return [self linkingObjectsOfClass:@"REDBook" forProperty:@"category"];
+    return [self linkingObjectsOfClass:@"REDRLMBook" forProperty:@"category"];
 }
 
 @end

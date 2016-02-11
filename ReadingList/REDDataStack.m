@@ -7,6 +7,7 @@
 //
 
 #import "REDDataStack.h"
+#import <Realm/Realm.h>
 
 @interface REDDataStack ()
 
@@ -87,7 +88,6 @@
     return storeURL;
 }
 
-
 #pragma mark - saving
 -(void)commit {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
@@ -98,6 +98,8 @@
         }
     }
 }
-
+-(void)begin {
+    
+}
 
 @end

@@ -11,5 +11,6 @@
 
 @interface REDRLMDefaultDataAccessObject : NSObject
 
+-(void)remove:(id)object;
 
 @end

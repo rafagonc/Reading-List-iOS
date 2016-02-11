@@ -38,10 +38,10 @@
 -(id<REDCategoryProtocol>)category {
     return nil;
 }
--(NSUInteger)pagesValue {
+-(NSInteger)pagesValue {
     return 0;
 }
--(NSUInteger)pagesReadValue {
+-(NSInteger)pagesReadValue {
     return 0;
 }
 -(NSUInteger)percentage {

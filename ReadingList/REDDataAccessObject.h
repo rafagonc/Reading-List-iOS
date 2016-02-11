@@ -14,6 +14,6 @@
 -(NSArray *)listWithPredicate:(NSPredicate *)predicate;
 -(void)remove:(id)object;
 -(id)create;
--(NSString *)entityName;
+//-(NSString *)entityName;
 
 @end

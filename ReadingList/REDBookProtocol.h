@@ -15,17 +15,19 @@
 
 @optional;
 
-#pragma mark - relationships
-@property (nonatomic) id<REDAuthorProtocol> author;
-@property (nonatomic) id<REDCategoryProtocol> category;
+#pragma mark - relationships setters
+-(void)setAuthor:(id<REDAuthorProtocol>)author;
+-(void)setCategory:(id<REDCategoryProtocol>)category;
+-(id<REDCategoryProtocol>)category;
+-(id<REDAuthorProtocol>)author;
 
 #pragma mark - properties
 @property (nonatomic) UIImage * coverImage;
 @property (nonatomic) NSString * snippet;
 @property (nonatomic) double rate;
 @property (nonatomic,readonly) BOOL completed;
-@property (nonatomic) NSUInteger pagesValue;
-@property (nonatomic) NSUInteger pagesReadValue;
+@property (nonatomic) NSInteger pagesValue;
+@property (nonatomic) NSInteger pagesReadValue;
 @property (nonatomic) NSString * language;
 @property (nonatomic,readonly) NSUInteger percentage;
 

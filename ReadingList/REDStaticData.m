@@ -7,13 +7,12 @@
 //
 
 #import "REDStaticData.h"
-#import "REDDataStack.h"
+#import "REDTransactionManager.h"
 #import "REDCategoryProtocol.h"
 #import "REDBookProtocol.h"
 #import "REDAuthorProtocol.h"
 #import "REDCategoryDataAccessObject.h"
 #import "REDBookDataAccessObject.h"
-#import "REDCloudDataStack.h"
 #import "REDAuthorDataAccessObject.h"
 
 static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
@@ -24,6 +23,7 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 @property (nonatomic,readonly) NSUserDefaults *userDefaults;
 
 #pragma mark - injected
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
 @property (setter=injected:,readonly) id<REDCategoryDataAccessObject> categoryDataAccessObject;
 @property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
@@ -85,31 +85,36 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
         
         for (NSString *name in categories) {
             id<REDCategoryProtocol> category  = [self.categoryDataAccessObject create];
+            [self.transactionManager begin];
             [category setName:name];
+            [self.transactionManager commit];
         }
 
     }
     
-    id<REDCategoryProtocol> romanceCategory = [[self.categoryDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE 'Romance'"]] firstObject];
+    id<REDCategoryProtocol> romanceCategory = [[[self.categoryDataAccessObject list] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"name LIKE 'Romance'"]] firstObject];
     if (romanceCategory == nil) {
         romanceCategory = [self.categoryDataAccessObject create];
+        [self.transactionManager begin];
         [romanceCategory setName:@"Romance"];
+        [self.transactionManager commit];
     }
     
     
     id<REDAuthorProtocol> author = [self.authorDataAccessObject create];
+    [self.transactionManager begin];
     [author setName:@"William Shakespeare"];
+    [self.transactionManager commit];
     
     id<REDBookProtocol> book = [self.bookDataAccessObject create];
+    [self.transactionManager begin];
     [book setName:@"Romeo And Juliet"];
     [book setAuthor:author];
     [book setPagesValue:323];
     [book setPagesReadValue:0];
     [book setCategory:romanceCategory];
     [book setCoverImage:[UIImage imageNamed:@"romeo-and-juliet.jpg"]];
-    
-    [[REDCloudDataStack sharedManager] commit];
-    [[REDDataStack sharedManager] commit];
+    [self.transactionManager commit];
 }
 
 #pragma mark - getters and setters

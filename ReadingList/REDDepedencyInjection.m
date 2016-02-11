@@ -49,6 +49,15 @@
 #import "REDBookValidator.h"
 #import "REDPagesValidator.h"
 #import "REDDateValidator.h"
+#import "REDRLMReadDataAccessObject.h"
+#import "REDRLMBookDataAccessObject.h"
+#import "REDRLMCategoryDataAccessObject.h"
+#import "REDRLMAuthorDataAccessObject.h"
+#import "REDRLMUserDataAccessObject.h"
+#import "REDRLMArrayHelper.h"
+#import "REDRLMResultsToNSArray.h"
+#import "REDRealm.h"
+#import "REDTransactionManager.h"
 
 @implementation REDDepedencyInjection
 
@@ -77,11 +86,11 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDReadFactory class] forProtocol:@protocol(REDReadFactoryProtocol) context:nil];
     
     //DAOs
-    [[DPRegistry sharedRegistry] registerImplementation:[REDUserDataAccessObjectImpl class] forProtocol:@protocol(REDUserDataAccessObject) context:nil];
-    [[DPRegistry sharedRegistry] registerImplementation:[REDBookDataAccessObjectImpl class] forProtocol:@protocol(REDBookDataAccessObject) context:nil];
-    [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryDataAccessObjectImpl class] forProtocol:@protocol(REDCategoryDataAccessObject) context:nil];
-    [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorDataAccessObjectImpl class] forProtocol:@protocol(REDAuthorDataAccessObject) context:nil];
-    [[DPRegistry sharedRegistry] registerImplementation:[REDReadDataAccessObjectImpl class] forProtocol:@protocol(REDReadDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRLMUserDataAccessObject class] forProtocol:@protocol(REDUserDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRLMBookDataAccessObject class] forProtocol:@protocol(REDBookDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRLMCategoryDataAccessObject class] forProtocol:@protocol(REDCategoryDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRLMAuthorDataAccessObject class] forProtocol:@protocol(REDAuthorDataAccessObject) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRLMReadDataAccessObject class] forProtocol:@protocol(REDReadDataAccessObject) context:nil];
     
     //validators
     [[DPRegistry sharedRegistry] registerImplementation:[REDPagesValidator class] forProtocol:@protocol(REDValidator) context:@"pages"];
@@ -92,7 +101,9 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorValidator class] forProtocol:@protocol(REDValidator) context:@"author"];
     
     //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDPhotoPickerPresenter class] forProtocol:@protocol(REDPhotoPickerPresenterProtocol) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRLMResultsToNSArray class] forProtocol:@protocol(REDRLMArrayHelper) context:nil];
 
 
 

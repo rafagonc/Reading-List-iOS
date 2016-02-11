@@ -40,4 +40,9 @@
     return self.pagesReadValue == self.pagesValue;
 }
 
+#pragma mark - override
++(NSArray<NSString *> *)ignoredProperties {
+    return @[@"coverImage", @"completed", @"percentage"];
+}
+
 @end

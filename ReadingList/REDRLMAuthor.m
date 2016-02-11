@@ -11,7 +11,7 @@
 @implementation REDRLMAuthor
 
 -(NSArray *)books {
-    return [self linkingObjectsOfClass:@"REDBook" forProperty:@"author"];
+    return [self linkingObjectsOfClass:@"REDRLMBook" forProperty:@"author"];
 }
 
 @end

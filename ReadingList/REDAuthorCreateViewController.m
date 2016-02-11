@@ -14,6 +14,7 @@
 #import "REDAuthorDataAccessObject.h"
 #import "REDAuthorProtocol.h"
 #import "UIViewController+NotificationShow.h"
+#import "REDTransactionManager.h"
 
 @interface REDAuthorCreateViewController ()
 
@@ -23,6 +24,7 @@
 
 #pragma mark - injected
 @property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -80,7 +82,9 @@
 -(void)createAction:(UIBarButtonItem *)item {
     if ([self isValid]) {
         id<REDAuthorProtocol> author = [self.authorDataAccessObject create];
+        [self.transactionManager begin];
         [author setName:self.authorNameCell.textField.text];
+        [self.transactionManager commit];
         [self dismissViewControllerAnimated:YES completion:nil];
         if (self.callback) self.callback(author);
         self.callback = nil;

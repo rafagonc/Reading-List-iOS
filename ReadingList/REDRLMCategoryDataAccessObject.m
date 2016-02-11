@@ -8,25 +8,37 @@
 
 #import "REDRLMCategoryDataAccessObject.h"
 #import "REDRLMCategory.h"
+#import "REDRLMArrayHelper.h"
+
+@interface REDRLMCategoryDataAccessObject ()
+
+@property (setter=injected:,readonly) id<REDRLMArrayHelper> rlm_arrayHelper;
+
+@end
 
 @implementation REDRLMCategoryDataAccessObject
 
 #pragma mark - creating
 -(id)create {
-    return [[REDRLMCategory alloc] init];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    REDRLMCategory *category = [[REDRLMCategory alloc] init];
+    [realm addObject:category];
+    [realm commitWriteTransaction];
+    return category;
 }
 
 #pragma mark - queries
 -(NSArray *)list {
-    return (NSArray *)[REDRLMCategory allObjects];
+    return [self.rlm_arrayHelper arrayFromResults:[REDRLMCategory allObjects]];
 }
 -(NSArray *)listWithPredicate:(NSPredicate *)predicate {
-    return (NSArray *)[REDRLMCategory objectsWithPredicate:predicate];
+    return [[self list] filteredArrayUsingPredicate:predicate];
 }
 
 #pragma mark - methods
 -(NSArray<id<REDCategoryProtocol>> *)categoriesSortedByName {
-    return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
 -(NSString *)mostUsedCategoryName {
     NSArray <id<REDCategoryProtocol>> * categories = [self list];

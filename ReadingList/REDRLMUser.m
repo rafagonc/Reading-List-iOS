@@ -34,4 +34,9 @@
     return self.photoData != nil;
 }
 
+#pragma mark - overrides
++(NSArray<NSString *> *)ignoredProperties {
+    return @[@"cover", @"photo"];
+}
+
 @end
