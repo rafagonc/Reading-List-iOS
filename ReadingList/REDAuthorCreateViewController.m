@@ -15,6 +15,7 @@
 #import "REDAuthorProtocol.h"
 #import "UIViewController+NotificationShow.h"
 #import "REDTransactionManager.h"
+#import "REDValidator.h"
 
 @interface REDAuthorCreateViewController ()
 
@@ -25,6 +26,7 @@
 #pragma mark - injected
 @property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
 @property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
+@property (setter=injected_authorName:,readonly) id<REDValidator> authorNameValidator;
 
 @end
 
@@ -93,12 +95,12 @@
 
 #pragma mark - validation
 -(BOOL)isValid {
-    //shoulda move this to a model, but the project is small enough for this trade-off
-    BOOL valid = self.authorNameCell.textField.text.length > 0;
-    if (!valid) {
-        [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Complete the author's name"];
+    NSError *error;
+    if (![self.authorNameValidator validate:self.authorNameCell.textField.text error:&error]) {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
         return NO;
-    } else return YES;
+    }
+    return YES;
 }
 
 #pragma mark - dealloc

@@ -58,6 +58,7 @@
 #import "REDRLMResultsToNSArray.h"
 #import "REDRealm.h"
 #import "REDTransactionManager.h"
+#import "REDAuthorNameValidator.h"
 
 @implementation REDDepedencyInjection
 
@@ -99,7 +100,8 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookNameValidator class] forProtocol:@protocol(REDValidator) context:@"name"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryValidator class] forProtocol:@protocol(REDValidator) context:@"category"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorValidator class] forProtocol:@protocol(REDValidator) context:@"author"];
-    
+    [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorNameValidator class] forProtocol:@protocol(REDValidator) context:@"authorName"];
+
     //others
     [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDPhotoPickerPresenter class] forProtocol:@protocol(REDPhotoPickerPresenterProtocol) context:nil];

@@ -55,6 +55,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (setter=injected_name:,readonly) id<REDValidator> bookNameValidator;
 @property (setter=injected_author:,readonly) id<REDValidator> authorValidator;
 @property (setter=injected:,readonly) id<REDBookUploaderProtocol> bookUploader;
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
 @property (setter=injected:,readonly) id<REDReadFactoryProtocol> readFactory;;
 @property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> serviceDispatcher;
@@ -96,6 +97,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
+    [self.transactionManager begin];
 
 }
 -(void)viewWillDisappear:(BOOL)animated {
@@ -104,10 +106,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         if ([self processBook:&error] == NO && (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding)) {
             [self savePageChangedIfNeeded];
             [self.bookDataAccessObject remove:self.book];
-        } else {
-            [[REDDataStack sharedManager] commit];
         }
     }
+    [self.transactionManager commit];
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -160,7 +161,6 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
             return NO;
         }
     }
-    [[REDDataStack sharedManager] commit];
     return YES;
 }
 -(BOOL)finishBook {

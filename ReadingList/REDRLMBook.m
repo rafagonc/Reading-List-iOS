@@ -12,21 +12,21 @@
 
 #pragma mark - relationships
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
-    __author = author;
+    self._author = author;
 }
 -(void)setCategory:(id<REDCategoryProtocol>)category {
-    __category = category;
+    self._category = category;
 }
 -(id<REDAuthorProtocol>)author {
-    return __author;
+    return self._author;
 }
 -(id<REDCategoryProtocol>)category {
-    return __category;
+    return self._category;
 }
 
 #pragma mark - protocol
 -(void)setCoverImage:(UIImage *)coverImage {
-    _cover = UIImagePNGRepresentation(coverImage);
+    self.cover = UIImagePNGRepresentation(coverImage);
 }
 -(UIImage *)coverImage {
     return [UIImage imageWithData:self.cover];

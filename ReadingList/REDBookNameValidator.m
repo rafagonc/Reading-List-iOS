@@ -23,10 +23,10 @@
         *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"Choose a book name."}];
         return NO;
     }
-    if ([self.bookDataAccessObject searchBooksWithString:bookName].count) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"A book with that name alredy exists."}];
-        return NO;
-    }
+//    if ([self.bookDataAccessObject searchBooksWithString:bookName].count) {
+//        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey: @"A book with that name alredy exists."}];
+//        return NO;
+//    }
     return YES;
 }
 

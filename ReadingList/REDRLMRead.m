@@ -13,10 +13,10 @@
 
 #pragma mark - relationships
 -(void)setBook:(id<REDBookProtocol>)book {
-    __book = book;
+    self._book = book;
 }
 -(id<REDBookProtocol>)book {
-    return __book;
+    return self._book;
 }
 
 @end
