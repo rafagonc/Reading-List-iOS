@@ -65,7 +65,7 @@
 +(void)registerImplementations {
     
     //user
-    [[DPRegistry sharedRegistry] registerImplementation:[[[REDUserDataAccessObjectImpl alloc] init] user] forProtocol:@protocol(REDUserProtocol) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[[[REDRLMUserDataAccessObject alloc] init] user] forProtocol:@protocol(REDUserProtocol) context:nil];
     
     //datasources
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"book"];

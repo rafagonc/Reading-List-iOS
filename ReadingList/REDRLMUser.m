@@ -7,23 +7,25 @@
 //
 
 #import "REDRLMUser.h"
+#import "UIImage+Blur.h"
 
 @implementation REDRLMUser
 
 #pragma mark - setters
 -(void)setCover:(UIImage *)cover {
-    _coverData = UIImagePNGRepresentation(cover);
+    self.coverData = UIImagePNGRepresentation(cover);
 }
 -(void)setPhoto:(UIImage *)photo {
-    _photoData = UIImagePNGRepresentation(photo);
+    self.photoData = UIImagePNGRepresentation(photo);
+    self.cover = [photo applyBlurToImageWithRadius:100.f];
 }
 
 #pragma mark - getters
 -(UIImage *)cover {
-    return [UIImage imageWithData:_coverData];
+    return [UIImage imageWithData:self.coverData];
 }
 -(UIImage *)photo {
-    return [UIImage imageWithData:_photoData];
+    return [UIImage imageWithData:self.photoData];
 }
 
 #pragma mark - protocol

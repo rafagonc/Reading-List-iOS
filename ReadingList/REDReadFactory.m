@@ -10,10 +10,12 @@
 #import "REDReadDataAccessObject.h"
 #import "REDReadProtocol.h"
 #import "REDCloudDataStack.h"
+#import "REDTransactionManager.h"
 
 @interface REDReadFactory ()
 
 @property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -21,9 +23,11 @@
 
 -(void)createReadWithPageDiff:(NSInteger)page_diff forBook:(id<REDBookProtocol>)book {
     id<REDReadProtocol> newRead = [self.readDataAccessObject create];
+    [self.transactionManager begin];
     [newRead setDate:[NSDate date]];
     [newRead setBook:book];
     [newRead setPagesValue:page_diff];
+    [self.transactionManager commit];
 }
 
 @end

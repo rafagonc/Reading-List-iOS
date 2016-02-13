@@ -97,8 +97,6 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
-    [self.transactionManager begin];
-
 }
 -(void)viewWillDisappear:(BOOL)animated {
     if (self.isMovingFromParentViewController) {
@@ -106,9 +104,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         if ([self processBook:&error] == NO && (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding)) {
             [self savePageChangedIfNeeded];
             [self.bookDataAccessObject remove:self.book];
+        } else {
         }
     }
-    [self.transactionManager commit];
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -154,13 +152,16 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 
 #pragma mark - process book
 -(BOOL)processBook:(NSError * _Nullable __autoreleasing *)error {
+    [self.transactionManager begin];
     NSArray *chainOfResponsilbiity = @[self.categoryCell, self.headerCell, self.pagesCell, self.progressCell];
     for (id<REDBookCreationChainProtocol> processor in chainOfResponsilbiity) {
         [processor setNewValuesOnBook:self.book error:error];
         if (*error) {
+            [self.transactionManager commit];
             return NO;
         }
     }
+    [self.transactionManager commit];
     return YES;
 }
 -(BOOL)finishBook {

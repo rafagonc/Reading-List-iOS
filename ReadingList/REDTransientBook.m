@@ -8,10 +8,12 @@
 
 #import "REDTransientBook.h"
 #import "REDAuthorDataAccessObject.h"
+#import "REDTransactionManager.h"
 
 @interface REDTransientBook ()
 
 #pragma mark - injected
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
 @property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
@@ -31,7 +33,9 @@
     id<REDAuthorProtocol> author = [[self.authorDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name = %@", self.authorsName]] firstObject];
     if (!author) {
         author = [self.authorDataAccessObject create];
+        [self.transactionManager begin];
         [author setName:self.authorsName];
+        [self.transactionManager commit];
     }
     return author;
 }

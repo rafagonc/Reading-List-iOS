@@ -188,6 +188,7 @@
 		2ADCC0B51BD2EC90009F638A /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B41BD2EC90009F638A /* books.json */; };
 		2ADCC0B81BD2ECA1009F638A /* REDRandomQuoteGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */; };
 		2AECF4C71C447910007BA281 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AECF4C61C447910007BA281 /* UIImage+Blur.m */; };
+		2AFCE53F1C6EC14C00680A53 /* REDLocalToRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFCE53E1C6EC14C00680A53 /* REDLocalToRealm.m */; };
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
 		2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AFD3C481C5931EE0003C423 /* REDPagesInfoView.xib */; };
 		2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */; };
@@ -542,6 +543,8 @@
 		2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRandomQuoteGenerator.m; sourceTree = "<group>"; };
 		2AECF4C51C447910007BA281 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
 		2AECF4C61C447910007BA281 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
+		2AFCE53D1C6EC14C00680A53 /* REDLocalToRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalToRealm.h; sourceTree = "<group>"; };
+		2AFCE53E1C6EC14C00680A53 /* REDLocalToRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLocalToRealm.m; sourceTree = "<group>"; };
 		2AFD3C3F1C592E6D0003C423 /* REDUserDataAccessObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserDataAccessObject.h; sourceTree = "<group>"; };
 		2AFD3C401C5931C80003C423 /* REDPagesInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDPagesInfoView.h; sourceTree = "<group>"; };
 		2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPagesInfoView.m; sourceTree = "<group>"; };
@@ -594,6 +597,8 @@
 				2A13EEA61C2E5550005DB34E /* REDCloudMigrationHandler.m */,
 				2A61F7CF1C4DC4F40083B768 /* REDLocalMigrationHandler.h */,
 				2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */,
+				2AFCE53D1C6EC14C00680A53 /* REDLocalToRealm.h */,
+				2AFCE53E1C6EC14C00680A53 /* REDLocalToRealm.m */,
 			);
 			name = Migration;
 			sourceTree = "<group>";
@@ -2479,6 +2484,7 @@
 				2A74EC4F1BCE3FAA005F5E74 /* REDStaticData.m in Sources */,
 				2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */,
 				2A74EC1D1BCDE2D0005F5E74 /* REDBookHeaderCell.m in Sources */,
+				2AFCE53F1C6EC14C00680A53 /* REDLocalToRealm.m in Sources */,
 				2A52A01E1BE520A1005809CC /* SHNotificationView.m in Sources */,
 				2A1FF5AD1C56831200520949 /* REDUserView.m in Sources */,
 				2A74EC8F1BD0A8B8005F5E74 /* REDServiceDispatcher.m in Sources */,

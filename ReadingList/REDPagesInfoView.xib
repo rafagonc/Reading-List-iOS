@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -19,56 +19,31 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvQ-e8-ma9">
-                    <rect key="frame" x="8" y="8" width="304" height="201"/>
+                    <rect key="frame" x="8" y="87" width="304" height="43"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.3 pages per day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ErP-iB-gOp">
-                            <rect key="frame" x="0.0" y="147.5" width="304" height="38.5"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVP-ND-E2L">
+                            <rect key="frame" x="8" y="0.0" width="288" height="21"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total pages read:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="aP1-Rv-nzG">
-                            <rect key="frame" x="0.0" y="0.0" width="304" height="26"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32.103 pages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="juj-Oz-Xxe">
-                            <rect key="frame" x="0.0" y="34" width="304" height="38.5"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pages per day:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ivj-z5-yCu">
-                            <rect key="frame" x="0.0" y="113.5" width="304" height="26"/>
-                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR7-pl-Q3Z">
+                            <rect key="frame" x="8" y="22" width="288" height="21"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="ivj-z5-yCu" secondAttribute="trailing" id="0sD-a6-Gmi"/>
-                        <constraint firstItem="aP1-Rv-nzG" firstAttribute="leading" secondItem="nvQ-e8-ma9" secondAttribute="leading" id="3Y0-Zw-hLK"/>
-                        <constraint firstItem="juj-Oz-Xxe" firstAttribute="leading" secondItem="nvQ-e8-ma9" secondAttribute="leading" id="8Rc-Fj-EQe"/>
-                        <constraint firstItem="juj-Oz-Xxe" firstAttribute="top" secondItem="aP1-Rv-nzG" secondAttribute="bottom" constant="8" id="8tl-Rx-cyL"/>
-                        <constraint firstItem="ErP-iB-gOp" firstAttribute="top" secondItem="ivj-z5-yCu" secondAttribute="bottom" constant="8" id="CZi-Uu-be3"/>
-                        <constraint firstAttribute="trailing" secondItem="aP1-Rv-nzG" secondAttribute="trailing" id="D1W-oN-o2g"/>
-                        <constraint firstItem="aP1-Rv-nzG" firstAttribute="top" secondItem="nvQ-e8-ma9" secondAttribute="top" id="FqV-l8-JHu"/>
-                        <constraint firstItem="ErP-iB-gOp" firstAttribute="leading" secondItem="nvQ-e8-ma9" secondAttribute="leading" id="Hbl-te-A55"/>
-                        <constraint firstItem="ivj-z5-yCu" firstAttribute="top" secondItem="juj-Oz-Xxe" secondAttribute="bottom" constant="8" id="RTq-gI-KtO"/>
-                        <constraint firstAttribute="trailing" secondItem="juj-Oz-Xxe" secondAttribute="trailing" id="XZm-y2-Eyx"/>
                         <constraint firstAttribute="height" constant="178" id="Yrg-XF-TC6"/>
-                        <constraint firstAttribute="trailing" secondItem="ErP-iB-gOp" secondAttribute="trailing" id="kMm-0A-Eap"/>
-                        <constraint firstItem="ivj-z5-yCu" firstAttribute="leading" secondItem="nvQ-e8-ma9" secondAttribute="leading" id="n76-bW-19p"/>
-                        <constraint firstAttribute="bottom" secondItem="ErP-iB-gOp" secondAttribute="bottom" constant="15" id="nEd-yw-r1f"/>
                         <constraint firstAttribute="width" constant="304" id="swM-1M-aPe"/>
+                        <constraint firstAttribute="height" constant="43" id="wvg-uZ-hng"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="Yrg-XF-TC6"/>
                             <exclude reference="swM-1M-aPe"/>
-                            <exclude reference="RTq-gI-KtO"/>
                         </mask>
                     </variation>
                 </view>
@@ -76,9 +51,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="T4F-k2-wCP" secondAttribute="bottom" id="3Qa-K0-nUP"/>
-                <constraint firstItem="T4F-k2-wCP" firstAttribute="top" secondItem="nvQ-e8-ma9" secondAttribute="bottom" constant="8" id="5x1-PC-SGb"/>
                 <constraint firstItem="nvQ-e8-ma9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="61F-aO-PkV"/>
-                <constraint firstItem="nvQ-e8-ma9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="NAH-Jo-R1L"/>
+                <constraint firstItem="nvQ-e8-ma9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Snn-We-eJE"/>
                 <constraint firstItem="nvQ-e8-ma9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UKo-4I-UyE"/>
                 <constraint firstItem="nvQ-e8-ma9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fFV-y4-q5s"/>
                 <constraint firstAttribute="trailing" secondItem="nvQ-e8-ma9" secondAttribute="trailing" constant="8" id="mhs-Ng-LW3"/>
@@ -94,8 +68,8 @@
                 </mask>
             </variation>
             <connections>
-                <outlet property="perDayLabel" destination="ErP-iB-gOp" id="Tp2-Qj-gEU"/>
-                <outlet property="totalPagesLabel" destination="juj-Oz-Xxe" id="eHb-cv-ux4"/>
+                <outlet property="perDayLabel" destination="XR7-pl-Q3Z" id="mQ3-gR-Evv"/>
+                <outlet property="totalPagesLabel" destination="gVP-ND-E2L" id="FPH-DA-N2T"/>
             </connections>
             <point key="canvasLocation" x="428" y="362"/>
         </view>

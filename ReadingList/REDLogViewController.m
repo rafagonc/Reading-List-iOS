@@ -22,6 +22,7 @@
 #import "REDNavigationBarCustomizer.h"
 #import "UIImage+Blur.h"
 #import "REDChartViewController.h"
+#import "REDTransactionManager.h"
 
 @interface REDLogViewController () <REDLogDatasourceDelegate, REDUserViewDelegate>
 
@@ -36,6 +37,7 @@
 @property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
 @property (setter=injected:,readonly) id<REDPhotoPickerPresenterProtocol> photoPicker;
 @property (setter=injected:,readonly) id<REDUserProtocol> user;
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -121,9 +123,11 @@
         if (error) {
             [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
         } else {
+            [welf.transactionManager begin];
             [welf.user setPhoto:image];
             [welf.userScrollView setUser:welf.user];
             [welf setBlurImageIfExists];
+            [welf.transactionManager commit];
         }
     }];
 }

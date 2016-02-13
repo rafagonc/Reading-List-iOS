@@ -10,8 +10,15 @@
 #import "REDUserProtocol.h"
 #import "UITextField+DoneButton.h"
 #import "REDDataStack.h"
+#import "REDTransactionManager.h"
+#import "REDBookDataAccessObject.h"
 
 @interface REDUserView () <UITextFieldDelegate>
+
+#pragma mark - injected
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
+@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -35,6 +42,7 @@
     [super awakeFromNib];
     [self.nameTextField addToolbar];
     self.nameTextField.delegate = self;
+    self.booksLabel.text = [self.bookDataAccessObject booksCompletedAndTotalBooks];
 }
 
 #pragma mark - layout
@@ -53,8 +61,9 @@
 
 #pragma mark - text field delegate
 -(void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.transactionManager begin];
     [self.user setName:textField.text];
-    [[REDDataStack sharedManager] commit];
+    [self.transactionManager commit];
 }
 
 #pragma mark - actions

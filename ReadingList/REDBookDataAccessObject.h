@@ -14,5 +14,6 @@
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted;
 -(NSArray <id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name;
 -(NSUInteger)totalPages;
+-(NSString *)booksCompletedAndTotalBooks;
 
 @end

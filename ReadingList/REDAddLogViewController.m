@@ -17,7 +17,7 @@
 #import "REDLogCreateChainProtocol.h"
 #import "REDReadDataAccessObject.h"
 #import "UIViewController+NotificationShow.h"
-#import "REDDataStack.h"
+#import "REDTransactionManager.h"
 
 @interface REDAddLogViewController () <REDChooseBookCellDelegate, REDChooseBookViewControllerDelegate, REDLogCreateChainProtocol>
 
@@ -30,6 +30,7 @@
 @property (nonatomic,strong) id<REDReadProtocol> read;
 
 #pragma mark - injected
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
 @property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end
@@ -46,9 +47,7 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
     self.processors = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
-    
     [self createTableView];
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -98,12 +97,16 @@
 
 #pragma mark - chain of responsibility
 -(BOOL)process:(id<REDReadProtocol>)read error:(NSError *__autoreleasing *)error {
+    [self.transactionManager begin];
     NSArray *processorsArray = [self.processors allObjects];
     for (id<REDLogCreateChainProtocol> chainObject in processorsArray) {
         if (![chainObject process:read error:error]) {
+            [self.transactionManager commit];
             return NO;
         }
     }
+    [[read book] setPagesReadValue:[[read book] pagesReadValue] + [read pagesValue]];
+    [self.transactionManager commit];
     return YES;
 }
 
@@ -116,7 +119,6 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
         return;
     }
-    [[REDDataStack sharedManager] commit];
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)cancelAction:(UIBarButtonItem *)item {

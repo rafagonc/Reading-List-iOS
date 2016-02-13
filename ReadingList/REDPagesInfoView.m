@@ -40,8 +40,8 @@
 
 #pragma mark - methods
 -(void)updateData {
-    self.totalPagesLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.bookDataAccessObject totalPages]];
-    self.perDayLabel.text = [NSString stringWithFormat:@"%.1f", [self.readDataAccessObject perDay]];
+    self.totalPagesLabel.text = [NSString stringWithFormat:@"total pages read: %lu", (unsigned long)[self.bookDataAccessObject totalPages]];
+    self.perDayLabel.text = [NSString stringWithFormat:@"pages read per day: %.1f", [self.readDataAccessObject perDay]];
 }
 
 @end

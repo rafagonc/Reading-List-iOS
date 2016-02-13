@@ -18,6 +18,7 @@
 #import "REDRecommendedBooksViewController.h"
 #import "REDLocalMigrationHandler.h"
 #import "REDLogViewController.h"
+#import "REDLocalToRealm.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +31,7 @@
     [Fabric with:@[[Crashlytics class]]];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
-    //[REDLocalMigrationHandler migrateBackToLocal];
+    [[[REDLocalToRealm alloc] init] migrateToRealm];
     [REDStaticData craateStaticData];
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];

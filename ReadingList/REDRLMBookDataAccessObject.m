@@ -52,5 +52,10 @@
     }
     return totalPages;
 }
+-(NSString *)booksCompletedAndTotalBooks {
+    NSArray <id<REDBookProtocol>> * books = [self list];
+    NSUInteger booksCompleted = [books filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"completed = 1"]].count;
+    return [NSString stringWithFormat:@"%lu/%lu books completed", (unsigned long)booksCompleted, (unsigned long)books.count];
+}
 
 @end

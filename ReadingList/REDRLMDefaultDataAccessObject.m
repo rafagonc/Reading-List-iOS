@@ -20,6 +20,7 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super init]) {
+        self.realm = [RLMRealm defaultRealm];
     } return self;
 }
 

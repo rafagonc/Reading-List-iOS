@@ -34,7 +34,6 @@
     id<REDUserProtocol> user = [[self list] firstObject];
     if (!user) {
         user = [self create];
-//        [[REDDataStack sharedManager] commit];
     }
     return user;
 }

@@ -38,6 +38,9 @@
     self.coverImageView.image = [[read book] coverImage];
     
     //attr string
+    if (![read book]) {
+        return;
+    }
     NSString * descString = [NSString stringWithFormat:@"Read %lu pages of the book %@", (long)[read pagesValue], [[read book] name]];
     NSMutableAttributedString * attrString = [[NSMutableAttributedString alloc] initWithString:descString];
     [attrString addAttribute:NSFontAttributeName value:[UIFont AvenirNextRegularWithSize:15.f] range:NSMakeRange(0,[descString rangeOfString:[[read book]name]].location)];
