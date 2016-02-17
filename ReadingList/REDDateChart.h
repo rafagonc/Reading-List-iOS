@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDDateChartItem.h"
+#import "REDDateChartDelegate.h"
 
 @interface REDDateChart : UIView
 
@@ -16,8 +18,17 @@
 @property (nonatomic,strong) UIColor * gradientStartColor;
 @property (nonatomic,strong) UIColor * gradientEndColor;
 
+#pragma mark - properties
+@property (nonatomic,weak) id<REDDateChartDelegate> delegate;
+
 #pragma mark - adding
 -(void)addValue:(CGFloat)value forDate:(NSDate *)date;
--(void)logValues;
+-(void)sizeToFitWithPerDayWidth:(CGFloat)width;
+
+#pragma mark - enumarate
+-(void)enumerateWithPositionOfItems:(void(^)(REDDateChartItem * __nullable item, CGFloat x, CGFloat y, NSDate *currentDate))callback;
+
+#pragma mark - remove
+-(void)clean;
 
 @end

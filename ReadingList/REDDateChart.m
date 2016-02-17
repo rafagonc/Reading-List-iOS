@@ -15,6 +15,8 @@
 
 #pragma mark - properties
 @property (nonatomic,strong) NSMutableArray <REDDateChartItem *> * items;
+@property (nonatomic,assign) CGFloat absoluteWidth;
+@property (nonatomic,assign) BOOL fitting;
 
 @end
 
@@ -36,6 +38,9 @@
         [self commonInit];
     } return self;
 }
+-(void)awakeFromNib {
+    [self commonInit];
+}
 -(void)commonInit {
     self.items = [[NSMutableArray alloc] init];
     self.margin = UIEdgeInsetsMake(20, 5, 5, 10);
@@ -43,6 +48,7 @@
     self.lineColor = [UIColor redColor];
     self.gradientStartColor = [UIColor colorWithRed:(239/255.0) green:(81/255.0) blue:(79/255.0) alpha:0.4];
     self.gradientEndColor = [UIColor whiteColor];
+    self.fitting = YES;
 }
 
 #pragma mark - drawing
@@ -78,7 +84,9 @@
 -(void)drawLineForContext:(CGContextRef)context {
     CGContextSaveGState(context);
     CGMutablePathRef lines = CGPathCreateMutable();
-    CGPathMoveToPoint(lines, NULL, [self xForDate:[self minDate]], [self yForValue:[self.items.firstObject value]]);
+    REDDateChartItem *firstItem = [[self.items filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@", [self minDate]]] firstObject];
+    CGPathMoveToPoint(lines, NULL, [self xForDate:[self minDate]], [self yForValue:firstItem.value
+                                                                    ]);
     [self enumerateWithPositionOfItems:^(REDDateChartItem * _Nullable item, CGFloat x, CGFloat y, NSDate *currentDate) {
         CGPathAddLineToPoint(lines, NULL, x, y);
     }];
@@ -102,7 +110,7 @@
 
 #pragma mark - positioning
 -(CGFloat)xForDate:(NSDate *)date {
-    return ([self usableChartFrame].size.width / [self daysFromMinDateToMaxDate]) * [[self minDate] daysBeforeDate:date] + self.margin.left;
+    return self.fitting == NO ?  (self.absoluteWidth * ([self daysFromMinDateToMaxDate] * [[self minDate] daysBeforeDate:date]) + self.margin.left) : (([self usableChartFrame].size.width / [self daysFromMinDateToMaxDate]) * [[self minDate] daysBeforeDate:date] + self.margin.left);
 }
 -(CGFloat)yForValue:(CGFloat)value {
     return [self usableChartFrame].size.height - ([self usableChartFrame].size.height * ((double)value/(double)[self highestValue])) + self.margin.top;
@@ -118,6 +126,11 @@
     }
     callback = nil;
 }
+-(void)sizeToFitWithPerDayWidth:(CGFloat)width {
+    self.fitting = NO;
+    self.absoluteWidth = width;
+    [self setNeedsDisplay];
+}
 
 #pragma mark - adding
 -(void)addValue:(CGFloat)value forDate:(NSDate *)date {
@@ -128,6 +141,12 @@
         REDDateChartItem *item = [[REDDateChartItem alloc] initWithDate:[date dateAtStartOfDay] forValue:value];
         [self.items addObject:item];
     }
+}
+
+#pragma mark - remove
+-(void)clean {
+    [self.items removeAllObjects];
+    [self setNeedsDisplay];
 }
 
 #pragma mark - getters

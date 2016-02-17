@@ -195,6 +195,7 @@
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
 		2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AFD3C481C5931EE0003C423 /* REDPagesInfoView.xib */; };
 		2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */; };
+		445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 445786981C74AF900029355D /* REDDateChart+Interaction.m */; };
 		CC3172322892F3A347775881 /* libPods-ReadingListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */; };
 		F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7FEE50961509749458D464 /* libPods-ReadingList.a */; };
 /* End PBXBuildFile section */
@@ -562,6 +563,9 @@
 		2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUserScrollView.m; sourceTree = "<group>"; };
 		2AFD3C501C5935DC0003C423 /* ReadingList 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.8.xcdatamodel"; sourceTree = "<group>"; };
 		3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
+		445786971C74AF900029355D /* REDDateChart+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REDDateChart+Interaction.h"; sourceTree = "<group>"; };
+		445786981C74AF900029355D /* REDDateChart+Interaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "REDDateChart+Interaction.m"; sourceTree = "<group>"; };
+		4457869A1C74F7300029355D /* REDDateChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChartDelegate.h; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
 		CE877B61704399AE560739E1 /* Pods-ReadingListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1275,6 +1279,8 @@
 		2A74EC251BCDE758005F5E74 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
+				2AE8BAF51C74189E004C1BB0 /* UIColor+Components.h */,
+				2AE8BAF61C74189E004C1BB0 /* UIColor+Components.m */,
 				2A74EC261BCDE768005F5E74 /* UIColor+ReadingList.h */,
 				2A74EC271BCDE768005F5E74 /* UIColor+ReadingList.m */,
 			);
@@ -2083,8 +2089,9 @@
 				2AE8BAF21C74189E004C1BB0 /* REDDateChart.m */,
 				2AE8BAF31C74189E004C1BB0 /* REDDateChartItem.h */,
 				2AE8BAF41C74189E004C1BB0 /* REDDateChartItem.m */,
-				2AE8BAF51C74189E004C1BB0 /* UIColor+Components.h */,
-				2AE8BAF61C74189E004C1BB0 /* UIColor+Components.m */,
+				445786971C74AF900029355D /* REDDateChart+Interaction.h */,
+				445786981C74AF900029355D /* REDDateChart+Interaction.m */,
+				4457869A1C74F7300029355D /* REDDateChartDelegate.h */,
 			);
 			name = REDDateChart;
 			sourceTree = "<group>";
@@ -2412,6 +2419,7 @@
 				2A77C0811C2DCE8800E21551 /* REDRecommendedBooksViewController.m in Sources */,
 				2A19B8861BCDB3C2009C8F25 /* REDBookListViewController.m in Sources */,
 				2A45976E1C6192730010D135 /* REDRLMUser.m in Sources */,
+				445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */,
 				2AE8BAF71C74189E004C1BB0 /* REDDateChart.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
