@@ -9,9 +9,14 @@
 #import "REDRLMReadDataAccessObject.h"
 #import "REDRLMRead.h"
 #import "REDRLMArrayHelper.h"
+#import "REDUserProtocol.h"
+#import "NSDate+Escort.h"
+#import "REDTransactionManager.h"
 
 @interface REDRLMReadDataAccessObject ()
 
+@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
+@property (setter=injected:,readonly) id<REDUserProtocol> user;
 @property (setter=injected:,readonly) id<REDRLMArrayHelper> rlm_arrayHelper;
 
 @end
@@ -49,12 +54,13 @@
     return totalPages;
 }
 -(CGFloat)perDay {
-//    if ([self.user firstReadCreated] == nil) [self.user setFirstReadCreated:[NSDate date]];
-//    NSInteger daysTilNow = [[NSDate date] daysAfterDate:[self.user firstReadCreated]];
-//    if (daysTilNow == 0) return [self totalPages];
-//    CGFloat perDay = (CGFloat)[self totalPages]/(CGFloat)daysTilNow;
-//    return perDay;
-    return 0.0;
+    [self.transactionManager begin];
+    if ([self.user firstReadCreated] == nil) [self.user setFirstReadCreated:[NSDate date]];
+    [self.transactionManager commit];
+    NSInteger daysTilNow = [[NSDate date] daysAfterDate:[self.user firstReadCreated]];
+    if (daysTilNow == 0) return [self totalPages];
+    CGFloat perDay = (CGFloat)[self totalPages]/(CGFloat)daysTilNow;
+    return perDay;
 }
 
 

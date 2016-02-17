@@ -187,6 +187,9 @@
 		2ADCC0B21BD2E85A009F638A /* UITableViewCell+Clear.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B11BD2E85A009F638A /* UITableViewCell+Clear.m */; };
 		2ADCC0B51BD2EC90009F638A /* books.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B41BD2EC90009F638A /* books.json */; };
 		2ADCC0B81BD2ECA1009F638A /* REDRandomQuoteGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */; };
+		2AE8BAF71C74189E004C1BB0 /* REDDateChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8BAF21C74189E004C1BB0 /* REDDateChart.m */; };
+		2AE8BAF81C74189E004C1BB0 /* REDDateChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8BAF41C74189E004C1BB0 /* REDDateChartItem.m */; };
+		2AE8BAF91C74189E004C1BB0 /* UIColor+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8BAF61C74189E004C1BB0 /* UIColor+Components.m */; };
 		2AECF4C71C447910007BA281 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AECF4C61C447910007BA281 /* UIImage+Blur.m */; };
 		2AFCE53F1C6EC14C00680A53 /* REDLocalToRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFCE53E1C6EC14C00680A53 /* REDLocalToRealm.m */; };
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
@@ -541,6 +544,12 @@
 		2ADCC0B41BD2EC90009F638A /* books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = books.json; sourceTree = "<group>"; };
 		2ADCC0B61BD2ECA1009F638A /* REDRandomQuoteGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRandomQuoteGenerator.h; sourceTree = "<group>"; };
 		2ADCC0B71BD2ECA1009F638A /* REDRandomQuoteGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRandomQuoteGenerator.m; sourceTree = "<group>"; };
+		2AE8BAF11C74189E004C1BB0 /* REDDateChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChart.h; sourceTree = "<group>"; };
+		2AE8BAF21C74189E004C1BB0 /* REDDateChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDateChart.m; sourceTree = "<group>"; };
+		2AE8BAF31C74189E004C1BB0 /* REDDateChartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChartItem.h; sourceTree = "<group>"; };
+		2AE8BAF41C74189E004C1BB0 /* REDDateChartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDateChartItem.m; sourceTree = "<group>"; };
+		2AE8BAF51C74189E004C1BB0 /* UIColor+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Components.h"; sourceTree = "<group>"; };
+		2AE8BAF61C74189E004C1BB0 /* UIColor+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Components.m"; sourceTree = "<group>"; };
 		2AECF4C51C447910007BA281 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
 		2AECF4C61C447910007BA281 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
 		2AFCE53D1C6EC14C00680A53 /* REDLocalToRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalToRealm.h; sourceTree = "<group>"; };
@@ -838,6 +847,7 @@
 		2A19B8B91BCDC0D9009C8F25 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				2AFCE5401C6FE04200680A53 /* REDDateChart */,
 				2ADCC0AB1BD2D370009F638A /* SHLoadingView */,
 				2ADCC09D1BD2D283009F638A /* Notification View */,
 				2A19B8B81BCDC0CF009C8F25 /* Static Table View */,
@@ -2066,6 +2076,19 @@
 			name = UIImage;
 			sourceTree = "<group>";
 		};
+		2AFCE5401C6FE04200680A53 /* REDDateChart */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8BAF11C74189E004C1BB0 /* REDDateChart.h */,
+				2AE8BAF21C74189E004C1BB0 /* REDDateChart.m */,
+				2AE8BAF31C74189E004C1BB0 /* REDDateChartItem.h */,
+				2AE8BAF41C74189E004C1BB0 /* REDDateChartItem.m */,
+				2AE8BAF51C74189E004C1BB0 /* UIColor+Components.h */,
+				2AE8BAF61C74189E004C1BB0 /* UIColor+Components.m */,
+			);
+			name = REDDateChart;
+			sourceTree = "<group>";
+		};
 		2AFD3C4A1C5931F50003C423 /* Total Pages View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2389,6 +2412,7 @@
 				2A77C0811C2DCE8800E21551 /* REDRecommendedBooksViewController.m in Sources */,
 				2A19B8861BCDB3C2009C8F25 /* REDBookListViewController.m in Sources */,
 				2A45976E1C6192730010D135 /* REDRLMUser.m in Sources */,
+				2AE8BAF71C74189E004C1BB0 /* REDDateChart.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
@@ -2398,6 +2422,7 @@
 				2ADA28821C59B2B90068CCAC /* REDDateValidator.m in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
 				2A4597901C6C21500010D135 /* REDAuthorNameValidator.m in Sources */,
+				2AE8BAF91C74189E004C1BB0 /* UIColor+Components.m in Sources */,
 				2A4597681C6192670010D135 /* REDRLMAuthor.m in Sources */,
 				2A77C0971C2DDA0A00E21551 /* REDAuthorDataAccessObjectImpl.m in Sources */,
 				2A74EC4B1BCE3E9A005F5E74 /* REDCategoryDatasource.m in Sources */,
@@ -2422,6 +2447,7 @@
 				2A77C0B61C2E28F700E21551 /* REDGoogleBooksFactory.m in Sources */,
 				2ADCC0B21BD2E85A009F638A /* UITableViewCell+Clear.m in Sources */,
 				2A1FF5951C554EAC00520949 /* REDAchievementsViewController.m in Sources */,
+				2AE8BAF81C74189E004C1BB0 /* REDDateChartItem.m in Sources */,
 				2A1632D11C580DE10015F06E /* REDPhotoPickerPresenter.m in Sources */,
 				2A1FF5C11C56DEDF00520949 /* REDAuthorValidator.m in Sources */,
 				2ADA287C1C59B2AB0068CCAC /* REDPagesValidator.m in Sources */,

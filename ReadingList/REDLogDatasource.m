@@ -70,6 +70,7 @@
     [self.logs removeObject:read];
     [self.readDataAccessObject remove:read];
     [tableView endUpdates];
+    [self.delegate datasource:self didDeleteRead:read];
 }
 -(void)logCell:(REDLogCell *)logCell wantsToCheckOutBook:(id<REDBookProtocol>)book {
     [self.delegate datasource:self wantsToCheckOutBook:book];

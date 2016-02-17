@@ -113,6 +113,9 @@
 }
 
 #pragma mark - delegates
+-(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id<REDReadProtocol>)read {
+    [self.userScrollView updateData];
+}
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
     REDBookAddViewController *bookAdd = [[REDBookAddViewController alloc] initWithBook:book];
     [self.navigationController pushViewController:bookAdd animated:YES];
