@@ -1,0 +1,7 @@
+Some new features:
+
+- The user page shows information about all the books that you have been reading.
+- Rotate the user page to show the log chart.
+- While editing a book, you can edit the current page by clicking on the label (Me Leinad’s suggestion).
+- Check out how many pages you’ve read and how many pages you read each day.
+- You can request any feature by reviewing the app or twitting to @rafagonc77.

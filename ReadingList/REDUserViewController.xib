@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDUserViewController">
             <connections>
                 <outlet property="blurImageView" destination="bEo-o5-VK9" id="3DN-Hj-si7"/>
+                <outlet property="pageControl" destination="VYa-tD-jh8" id="bkX-zh-Nv1"/>
                 <outlet property="tableView" destination="4LP-eA-AgY" id="Led-eE-lHF"/>
                 <outlet property="userScrollView" destination="uBf-x1-NCg" id="cNS-xu-VaM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="hMc-IV-TeF"/>
@@ -22,20 +23,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                     <view key="tableHeaderView" contentMode="scaleToFill" id="wwt-9O-PBn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-o5-VK9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
                             </imageView>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LG-Pp-rDI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBf-x1-NCg" customClass="REDUserScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="VYa-tD-jh8">
+                                <rect key="frame" x="140" y="169" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -43,6 +47,8 @@
                             <constraint firstItem="uBf-x1-NCg" firstAttribute="leading" secondItem="wwt-9O-PBn" secondAttribute="leading" id="31Y-bb-kBN"/>
                             <constraint firstItem="bEo-o5-VK9" firstAttribute="top" secondItem="wwt-9O-PBn" secondAttribute="top" id="6aY-ar-0xa"/>
                             <constraint firstAttribute="bottom" secondItem="8LG-Pp-rDI" secondAttribute="bottom" id="HJF-UM-yUd"/>
+                            <constraint firstItem="VYa-tD-jh8" firstAttribute="centerX" secondItem="wwt-9O-PBn" secondAttribute="centerX" id="J8r-GR-S1Y"/>
+                            <constraint firstAttribute="bottom" secondItem="VYa-tD-jh8" secondAttribute="bottom" id="JmH-Nj-BBg"/>
                             <constraint firstAttribute="bottom" secondItem="bEo-o5-VK9" secondAttribute="bottom" id="Q4r-HY-q0V"/>
                             <constraint firstAttribute="trailing" secondItem="uBf-x1-NCg" secondAttribute="trailing" id="RcC-JG-OXI"/>
                             <constraint firstAttribute="trailing" secondItem="8LG-Pp-rDI" secondAttribute="trailing" id="Ukf-Ju-vPT"/>

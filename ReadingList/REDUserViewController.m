@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet REDUserScrollView *userScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
 @property (weak, nonatomic) REDChartViewController *chartViewController;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 #pragma mark - injected
 @property (setter=injected_log:,readonly) id<REDDatasourceProtocol> datasource;
@@ -61,6 +62,7 @@
     //scroll view
     self.userScrollView.userViewDelegate = self;
     self.userScrollView.user = self.user;
+    self.userScrollView.pageControl = self.pageControl;
     
     //blur image
     [self setBlurImageIfExists];
@@ -91,7 +93,7 @@
 }
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 190);
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 220);
     self.tableView.tableHeaderView = self.tableView.tableHeaderView; //update height
     [self updateData];
 }

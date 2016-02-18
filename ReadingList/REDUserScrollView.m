@@ -11,7 +11,7 @@
 #import "REDUserView.h"
 #import "REDPagesInfoView.h"
 
-@interface REDUserScrollView ()
+@interface REDUserScrollView () <UIScrollViewDelegate>
 
 #pragma mark - ui
 @property (nonatomic,weak) REDUserView *userView;
@@ -28,6 +28,7 @@
 -(void)didMoveToSuperview {
     [super didMoveToSuperview];
     
+    self.delegate = self;
     self.showsHorizontalScrollIndicator = NO;
     self.pagingEnabled = YES;
     self.scrollingSubviews = [@[] mutableCopy];
@@ -49,6 +50,15 @@
 }
 -(void)setUserViewDelegate:(id<REDUserViewDelegate>)userViewDelegate {
     self.userView.delegate = userViewDelegate;
+}
+-(void)setPageControl:(UIPageControl *)pageControl {
+    _pageControl = pageControl;
+    [pageControl setNumberOfPages:2];
+}
+
+#pragma mark - delegate
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.pageControl.currentPage = (int)(scrollView.contentOffset.x/scrollView.frame.size.width);
 }
 
 #pragma mark - methods

@@ -12,5 +12,6 @@
 #define global_pch
 
 static NSString *const REDErrorDomain = @"com.rafa.gonc.ReadingList";
+static NSString *const REDShowedNewFeaturesKey = @"com.rafa.gonc.ReadingList";
 
 #endif /* global_pch */

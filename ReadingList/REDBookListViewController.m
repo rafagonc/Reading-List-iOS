@@ -15,6 +15,7 @@
 #import "UISearchBar+Toolbar.h"
 #import "REDBookDataAccessObject.h"
 #import "REDTabBarCustomizer.h"
+#import "REDNewViewController.h"
 
 @interface REDBookListViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
     UIBarButtonItem *doneButton, *editButton;
@@ -67,6 +68,11 @@
     [super viewDidAppear:animated];
     [self updateData];
     [self.tableView reloadData];
+    
+    if (![self didShowNew]) {
+        REDNewViewController *new = [[REDNewViewController alloc] init];
+        [self presentViewController:new animated:YES completion:nil];
+    }
 }
 
 #pragma mark - setups
@@ -108,6 +114,11 @@
 }
 -(BOOL)isSearcingBooks {
     return self.saerchBar.text.length > 0;
+}
+
+#pragma mark - helpers
+-(BOOL)didShowNew {
+    return [[[NSUserDefaults standardUserDefaults] objectForKey:REDShowedNewFeaturesKey] boolValue];
 }
 
 #pragma mark - actions

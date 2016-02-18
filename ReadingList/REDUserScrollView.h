@@ -14,6 +14,7 @@
 
 @property (nonatomic,weak) id<REDUserProtocol> user;
 @property (nonatomic,weak) id<REDUserViewDelegate> userViewDelegate;
+@property (nonatomic,weak) UIPageControl *pageControl;
 -(void)updateData;
 
 

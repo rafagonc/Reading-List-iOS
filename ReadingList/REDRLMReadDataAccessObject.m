@@ -54,10 +54,7 @@
     return totalPages;
 }
 -(CGFloat)perDay {
-    [self.transactionManager begin];
-    if ([self.user firstReadCreated] == nil) [self.user setFirstReadCreated:[NSDate date]];
-    [self.transactionManager commit];
-    NSInteger daysTilNow = [[NSDate date] daysAfterDate:[self.user firstReadCreated]];
+    NSInteger daysTilNow = [[NSDate date] daysAfterDate:[[self list] valueForKeyPath:@"@min.date"]];
     if (daysTilNow == 0) return [self totalPages];
     CGFloat perDay = (CGFloat)[self totalPages]/(CGFloat)daysTilNow;
     return perDay;

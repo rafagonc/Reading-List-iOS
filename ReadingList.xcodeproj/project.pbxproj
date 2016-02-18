@@ -195,6 +195,9 @@
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
 		2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AFD3C481C5931EE0003C423 /* REDPagesInfoView.xib */; };
 		2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */; };
+		441701F11C7648FB0076F9C7 /* REDNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 441701EF1C7648FB0076F9C7 /* REDNewViewController.m */; };
+		441701F21C7648FB0076F9C7 /* REDNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441701F01C7648FB0076F9C7 /* REDNewViewController.xib */; };
+		441701F51C764C560076F9C7 /* new.txt in Resources */ = {isa = PBXBuildFile; fileRef = 441701F41C764C560076F9C7 /* new.txt */; };
 		445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 445786981C74AF900029355D /* REDDateChart+Interaction.m */; };
 		44AF20941C76255200F6FC48 /* REDLogSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */; };
 		44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */; };
@@ -565,6 +568,10 @@
 		2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUserScrollView.m; sourceTree = "<group>"; };
 		2AFD3C501C5935DC0003C423 /* ReadingList 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.8.xcdatamodel"; sourceTree = "<group>"; };
 		3E45B861C0B764E9EA275FCE /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
+		441701EE1C7648FB0076F9C7 /* REDNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNewViewController.h; sourceTree = "<group>"; };
+		441701EF1C7648FB0076F9C7 /* REDNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNewViewController.m; sourceTree = "<group>"; };
+		441701F01C7648FB0076F9C7 /* REDNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDNewViewController.xib; sourceTree = "<group>"; };
+		441701F41C764C560076F9C7 /* new.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new.txt; sourceTree = "<group>"; };
 		445786971C74AF900029355D /* REDDateChart+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REDDateChart+Interaction.h"; sourceTree = "<group>"; };
 		445786981C74AF900029355D /* REDDateChart+Interaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "REDDateChart+Interaction.m"; sourceTree = "<group>"; };
 		4457869A1C74F7300029355D /* REDDateChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChartDelegate.h; sourceTree = "<group>"; };
@@ -694,6 +701,7 @@
 				2ADA28711C59A9210068CCAC /* Choose Book View Controller */,
 				2A9979561C5A734000DBEABB /* Chart View Controller */,
 				44AF20971C7628EA00F6FC48 /* Log Summary View Controller */,
+				441701F31C7648FE0076F9C7 /* New View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1134,6 +1142,7 @@
 		2A74EBAD1BCD50B7005F5E74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				441701F41C764C560076F9C7 /* new.txt */,
 				2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */,
 				2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */,
 				2ADCC0B41BD2EC90009F638A /* books.json */,
@@ -2132,6 +2141,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		441701F31C7648FE0076F9C7 /* New View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				441701EE1C7648FB0076F9C7 /* REDNewViewController.h */,
+				441701EF1C7648FB0076F9C7 /* REDNewViewController.m */,
+				441701F01C7648FB0076F9C7 /* REDNewViewController.xib */,
+			);
+			name = "New View Controller";
+			sourceTree = "<group>";
+		};
 		44AF20971C7628EA00F6FC48 /* Log Summary View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -2248,6 +2267,7 @@
 				2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */,
 				2A74EC471BCE0037005F5E74 /* REDCategoryViewController.xib in Resources */,
 				2A52A01F1BE520A1005809CC /* SHNotificationView.xib in Resources */,
+				441701F21C7648FB0076F9C7 /* REDNewViewController.xib in Resources */,
 				2A74EBC01BCD50B8005F5E74 /* LaunchScreen.storyboard in Resources */,
 				2A19B8B31BCDBE94009C8F25 /* REDBookAddViewController.xib in Resources */,
 				2A74EBBD1BCD50B8005F5E74 /* Assets.xcassets in Resources */,
@@ -2265,6 +2285,7 @@
 				2A74EC2E1BCDE9A7005F5E74 /* REDBookCategoryCell.xib in Resources */,
 				2ADA28761C59AD8B0068CCAC /* REDChooseDateCell.xib in Resources */,
 				2A1FF5B01C56832200520949 /* REDUserView.xib in Resources */,
+				441701F51C764C560076F9C7 /* new.txt in Resources */,
 				2ADCC0AF1BD2E69A009F638A /* the-little-prince-summary.jpg in Resources */,
 				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
 				2A1FF5901C554E9000520949 /* REDUserViewController.xib in Resources */,
@@ -2438,6 +2459,7 @@
 				2A45976E1C6192730010D135 /* REDRLMUser.m in Sources */,
 				445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */,
 				2AE8BAF71C74189E004C1BB0 /* REDDateChart.m in Sources */,
+				441701F11C7648FB0076F9C7 /* REDNewViewController.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
