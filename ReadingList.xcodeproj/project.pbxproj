@@ -190,6 +190,8 @@
 		2AE8BAF71C74189E004C1BB0 /* REDDateChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8BAF21C74189E004C1BB0 /* REDDateChart.m */; };
 		2AE8BAF81C74189E004C1BB0 /* REDDateChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8BAF41C74189E004C1BB0 /* REDDateChartItem.m */; };
 		2AE8BAF91C74189E004C1BB0 /* UIColor+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8BAF61C74189E004C1BB0 /* UIColor+Components.m */; };
+		2AE8BAFC1C7561DE004C1BB0 /* REDChartCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8BAFB1C7561DE004C1BB0 /* REDChartCallout.m */; };
+		2AE8BAFE1C7561E4004C1BB0 /* REDChartCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AE8BAFD1C7561E4004C1BB0 /* REDChartCallout.xib */; };
 		2AECF4C71C447910007BA281 /* UIImage+Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AECF4C61C447910007BA281 /* UIImage+Blur.m */; };
 		2AFCE53F1C6EC14C00680A53 /* REDLocalToRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFCE53E1C6EC14C00680A53 /* REDLocalToRealm.m */; };
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
@@ -551,6 +553,9 @@
 		2AE8BAF41C74189E004C1BB0 /* REDDateChartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDateChartItem.m; sourceTree = "<group>"; };
 		2AE8BAF51C74189E004C1BB0 /* UIColor+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Components.h"; sourceTree = "<group>"; };
 		2AE8BAF61C74189E004C1BB0 /* UIColor+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Components.m"; sourceTree = "<group>"; };
+		2AE8BAFA1C7561DE004C1BB0 /* REDChartCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDChartCallout.h; sourceTree = "<group>"; };
+		2AE8BAFB1C7561DE004C1BB0 /* REDChartCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDChartCallout.m; sourceTree = "<group>"; };
+		2AE8BAFD1C7561E4004C1BB0 /* REDChartCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDChartCallout.xib; sourceTree = "<group>"; };
 		2AECF4C51C447910007BA281 /* UIImage+Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blur.h"; sourceTree = "<group>"; };
 		2AECF4C61C447910007BA281 /* UIImage+Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blur.m"; sourceTree = "<group>"; };
 		2AFCE53D1C6EC14C00680A53 /* REDLocalToRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalToRealm.h; sourceTree = "<group>"; };
@@ -859,6 +864,7 @@
 				2A1FF5AE1C56831500520949 /* User View */,
 				2AFD3C4A1C5931F50003C423 /* Total Pages View */,
 				2AFD3C4F1C59321B0003C423 /* User Scroll View */,
+				2AE8BAFF1C7561E7004C1BB0 /* Chart Callout */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -2073,6 +2079,16 @@
 			name = Quotes;
 			sourceTree = "<group>";
 		};
+		2AE8BAFF1C7561E7004C1BB0 /* Chart Callout */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8BAFA1C7561DE004C1BB0 /* REDChartCallout.h */,
+				2AE8BAFB1C7561DE004C1BB0 /* REDChartCallout.m */,
+				2AE8BAFD1C7561E4004C1BB0 /* REDChartCallout.xib */,
+			);
+			name = "Chart Callout";
+			sourceTree = "<group>";
+		};
 		2AECF4C81C44799E007BA281 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2261,6 +2277,7 @@
 				2A74EC7F1BD0A558005F5E74 /* REDImageSearchViewController.xib in Resources */,
 				2A74EC411BCDF5D8005F5E74 /* REDPageProgressCell.xib in Resources */,
 				2A1FF5961C554EAC00520949 /* REDAchievementsViewController.xib in Resources */,
+				2AE8BAFE1C7561E4004C1BB0 /* REDChartCallout.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2470,6 +2487,7 @@
 				2A77C0861C2DD51A00E21551 /* REDTabBarCustomizer.m in Sources */,
 				2A218FBE1C57DA6D00D5D6FA /* REDAddLogViewController.m in Sources */,
 				2A74EC6D1BD09119005F5E74 /* REDAuthorDatasource.m in Sources */,
+				2AE8BAFC1C7561DE004C1BB0 /* REDChartCallout.m in Sources */,
 				2ADA28631C5995280068CCAC /* REDPagesReadCell.m in Sources */,
 				2A74EC2B1BCDE8F3005F5E74 /* REDBookCategoryCell.m in Sources */,
 				2A4597771C619A130010D135 /* REDRLMAuthorDataAccessObject.m in Sources */,

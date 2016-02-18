@@ -43,7 +43,7 @@
 }
 -(void)commonInit {
     self.items = [[NSMutableArray alloc] init];
-    self.margin = UIEdgeInsetsMake(20, 5, 5, 10);
+    self.margin = UIEdgeInsetsMake(5, 5, 10, 10);
     self.backgroundColor = [UIColor clearColor];
     self.lineColor = [UIColor redColor];
     self.gradientStartColor = [UIColor colorWithRed:(239/255.0) green:(81/255.0) blue:(79/255.0) alpha:0.4];
@@ -106,11 +106,24 @@
     CGContextSetFillColorWithColor(context, [self.lineColor CGColor]);
     CGContextFillPath(context);
     CGContextRestoreGState(context);
+    
+    //today ball
+    [self enumerateWithPositionOfItems:^(REDDateChartItem * _Nullable item, CGFloat x, CGFloat y, NSDate *currentDate) {
+        if ([currentDate isEqualToDateIgnoringTime:[NSDate date]]) {
+            CGContextSaveGState(context);
+            CGMutablePathRef todayBall = CGPathCreateMutable();
+            CGPathAddArc(todayBall, NULL, x, y, 8, 0, M_PI * 2, 1);
+            CGContextAddPath(context, todayBall);
+            CGContextSetStrokeColorWithColor(context, [self.lineColor CGColor]);
+            CGContextStrokePath(context);
+            CGContextRestoreGState(context);
+        }
+    }];
 }
 
 #pragma mark - positioning
 -(CGFloat)xForDate:(NSDate *)date {
-    return self.fitting == NO ?  (self.absoluteWidth * ([self daysFromMinDateToMaxDate] * [[self minDate] daysBeforeDate:date]) + self.margin.left) : (([self usableChartFrame].size.width / [self daysFromMinDateToMaxDate]) * [[self minDate] daysBeforeDate:date] + self.margin.left);
+    return self.fitting == NO ?  (self.absoluteWidth * [[self minDate] daysBeforeDate:date] + self.margin.left) : (([self usableChartFrame].size.width / [self daysFromMinDateToMaxDate]) * [[self minDate] daysBeforeDate:date] + self.margin.left);
 }
 -(CGFloat)yForValue:(CGFloat)value {
     return [self usableChartFrame].size.height - ([self usableChartFrame].size.height * ((double)value/(double)[self highestValue])) + self.margin.top;
@@ -171,11 +184,17 @@
     gradient[1] = self.gradientStartColor.green;
     gradient[2] = self.gradientStartColor.blue;
     gradient[3] = self.gradientStartColor.alpha;
-    gradient[4] = 1.0;
-    gradient[5] = 1.0;
-    gradient[6] = 1.0;
-    gradient[7] = 0.2;
+    gradient[4] = self.gradientEndColor.red;
+    gradient[5] = self.gradientEndColor.green;
+    gradient[6] = self.gradientEndColor.blue;
+    gradient[7] = self.gradientEndColor.alpha;
     return gradient;
+}
+-(CGSize)sizeForChart {
+    return self.fitting == NO ? CGSizeMake([self daysFromMinDateToMaxDate] * self.absoluteWidth + self.margin.left + self.margin.right, self.frame.size.height): self.frame.size;
+}
+-(NSDate *)dateForX:(CGFloat)x {
+    return nil;
 }
 
 -(void)logValues {

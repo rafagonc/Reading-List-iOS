@@ -17,6 +17,7 @@
 @property (nonatomic,strong) UIColor * lineColor;
 @property (nonatomic,strong) UIColor * gradientStartColor;
 @property (nonatomic,strong) UIColor * gradientEndColor;
+@property (nonatomic,assign) BOOL shouldShowTodayLine;
 
 #pragma mark - properties
 @property (nonatomic,weak) id<REDDateChartDelegate> delegate;
@@ -24,6 +25,9 @@
 #pragma mark - adding
 -(void)addValue:(CGFloat)value forDate:(NSDate *)date;
 -(void)sizeToFitWithPerDayWidth:(CGFloat)width;
+
+#pragma mark - size
+-(CGSize)sizeForChart;
 
 #pragma mark - enumarate
 -(void)enumerateWithPositionOfItems:(void(^)(REDDateChartItem * __nullable item, CGFloat x, CGFloat y, NSDate *currentDate))callback;

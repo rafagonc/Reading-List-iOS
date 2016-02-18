@@ -8,6 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDChartViewController">
             <connections>
                 <outlet property="chart" destination="eh4-cA-Mnd" id="AYQ-AP-2Gn"/>
+                <outlet property="contentView" destination="3T0-fc-yfo" id="fVV-l1-od2"/>
+                <outlet property="scrollView" destination="Q2t-Tv-Sjf" id="Rch-pE-FqX"/>
                 <outlet property="titleLabel" destination="qIT-bp-8lL" id="VEx-We-NPM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mKx-EZ-iLz"/>
             </connections>
@@ -24,38 +26,41 @@
                             <rect key="frame" x="0.0" y="0.0" width="568" height="240"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eh4-cA-Mnd" customClass="REDDateChart">
-                                    <rect key="frame" x="8" y="90" width="552" height="150"/>
+                                    <rect key="frame" x="0.0" y="90" width="568" height="150"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="150" id="Agx-Rj-qAQ"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="uxO-hY-Odv"/>
                                     </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="eh4-cA-Mnd" secondAttribute="bottom" id="GHE-Tq-0cv"/>
-                                <constraint firstAttribute="trailing" secondItem="eh4-cA-Mnd" secondAttribute="trailing" constant="8" id="H3j-rV-OeB"/>
-                                <constraint firstItem="eh4-cA-Mnd" firstAttribute="leading" secondItem="3T0-fc-yfo" secondAttribute="leading" constant="8" id="OZC-3F-ZZ2"/>
+                                <constraint firstItem="eh4-cA-Mnd" firstAttribute="leading" secondItem="3T0-fc-yfo" secondAttribute="leading" id="4RJ-uv-C4l"/>
+                                <constraint firstAttribute="bottom" secondItem="eh4-cA-Mnd" secondAttribute="bottom" id="bQr-Qq-3ex"/>
+                                <constraint firstAttribute="trailing" secondItem="eh4-cA-Mnd" secondAttribute="trailing" id="lrc-pg-KwQ"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="3T0-fc-yfo" firstAttribute="width" secondItem="Q2t-Tv-Sjf" secondAttribute="width" id="194-QQ-mRl"/>
                         <constraint firstItem="3T0-fc-yfo" firstAttribute="height" secondItem="Q2t-Tv-Sjf" secondAttribute="height" id="2FO-aD-lAE"/>
+                        <constraint firstItem="3T0-fc-yfo" firstAttribute="height" secondItem="Q2t-Tv-Sjf" secondAttribute="height" id="Chv-Pv-kLG"/>
                         <constraint firstItem="3T0-fc-yfo" firstAttribute="top" secondItem="Q2t-Tv-Sjf" secondAttribute="top" id="M4H-GK-DOq"/>
                         <constraint firstAttribute="trailing" secondItem="3T0-fc-yfo" secondAttribute="trailing" id="OuN-01-oQI"/>
                         <constraint firstAttribute="bottom" secondItem="3T0-fc-yfo" secondAttribute="bottom" id="dLi-la-g5e"/>
+                        <constraint firstItem="3T0-fc-yfo" firstAttribute="centerX" secondItem="Q2t-Tv-Sjf" secondAttribute="centerX" id="qad-dq-D1g"/>
                         <constraint firstItem="3T0-fc-yfo" firstAttribute="leading" secondItem="Q2t-Tv-Sjf" secondAttribute="leading" id="rm3-Pa-Bua"/>
+                        <constraint firstItem="3T0-fc-yfo" firstAttribute="centerY" secondItem="Q2t-Tv-Sjf" secondAttribute="centerY" id="tXt-zm-UO0"/>
                     </constraints>
                 </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading Chart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIT-bp-8lL">
                     <rect key="frame" x="15" y="15" width="538" height="30.5"/>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your reading throughtout the days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXt-iS-4by">
-                    <rect key="frame" x="15" y="45.5" width="545" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your reading throughout the days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXt-iS-4by">
+                    <rect key="frame" x="15" y="45" width="545" height="20.5"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>

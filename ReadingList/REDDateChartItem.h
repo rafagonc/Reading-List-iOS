@@ -13,7 +13,7 @@
 
 -(instancetype)initWithDate:(NSDate *)date forValue:(CGFloat)value;
 
-@property (nonatomic,assign) CGFloat value;
-@property (nonatomic,strong) NSDate *date;
+@property (nonatomic,assign) CGFloat  value;
+@property (nonatomic,strong) NSDate * date;
 
 @end
