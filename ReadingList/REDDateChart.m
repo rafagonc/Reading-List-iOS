@@ -43,7 +43,7 @@
 }
 -(void)commonInit {
     self.items = [[NSMutableArray alloc] init];
-    self.margin = UIEdgeInsetsMake(5, 5, 10, 10);
+    self.margin = UIEdgeInsetsMake(15, 5, 10, 10);
     self.backgroundColor = [UIColor clearColor];
     self.lineColor = [UIColor redColor];
     self.gradientStartColor = [UIColor colorWithRed:(239/255.0) green:(81/255.0) blue:(79/255.0) alpha:0.4];
@@ -168,6 +168,9 @@
 }
 -(CGFloat)highestValue {
     return [[self.items valueForKeyPath:@"@max.value"] floatValue];
+}
+-(CGFloat)highestY {
+    return [self yForValue:[self highestValue]];
 }
 -(NSDate *)maxDate {
     return [self.items valueForKeyPath:@"@max.date"];

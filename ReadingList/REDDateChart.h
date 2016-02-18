@@ -28,6 +28,7 @@
 
 #pragma mark - size
 -(CGSize)sizeForChart;
+-(CGFloat)highestY;
 
 #pragma mark - enumarate
 -(void)enumerateWithPositionOfItems:(void(^)(REDDateChartItem * __nullable item, CGFloat x, CGFloat y, NSDate *currentDate))callback;

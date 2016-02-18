@@ -20,14 +20,6 @@
         [self.delegate dateChart:welf isNearItem:item inPosition:position];
     }];
 }
--(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    __weak typeof(self) welf = self;
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:self];
-    [self nearestItemInPosition:location andCallback:^(CGPoint position, REDDateChartItem *item) {
-        [self.delegate dateChart:welf isNearItem:item inPosition:position];
-    }];
-}
 
 #pragma mark - poisition
 -(void)nearestItemInPosition:(CGPoint)location andCallback:(void(^)(CGPoint position, REDDateChartItem *item))callback {
