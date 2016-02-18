@@ -14,5 +14,6 @@
 
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id<REDReadProtocol>)read;
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book;
+-(BOOL)datasourceCanDeleteLogs:(id<REDDatasourceProtocol>)datasource;
 
 @end

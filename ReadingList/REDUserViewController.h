@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface REDLogViewController : UIViewController
+@interface REDUserViewController : UIViewController
 
 @end

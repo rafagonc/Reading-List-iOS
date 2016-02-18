@@ -17,7 +17,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import "REDRecommendedBooksViewController.h"
 #import "REDLocalMigrationHandler.h"
-#import "REDLogViewController.h"
+#import "REDUserViewController.h"
 #import "REDLocalToRealm.h"
 
 @interface AppDelegate ()
@@ -36,7 +36,7 @@
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];
     REDRecommendedBooksViewController *reccomendedBooks = [[REDRecommendedBooksViewController alloc] init];
-    REDLogViewController *log = [[REDLogViewController alloc] init];
+    REDUserViewController *log = [[REDUserViewController alloc] init];
     
     UITabBarController *tab = [[UITabBarController alloc] init];
     [tab setViewControllers:@[[[UINavigationController alloc] initWithRootViewController:bookList],

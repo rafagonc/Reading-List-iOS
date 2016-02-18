@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDLogViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDUserViewController">
             <connections>
                 <outlet property="blurImageView" destination="bEo-o5-VK9" id="3DN-Hj-si7"/>
                 <outlet property="tableView" destination="4LP-eA-AgY" id="Led-eE-lHF"/>

@@ -12,7 +12,7 @@
 #import "REDReadProtocol.h"
 #import "UIColor+ReadingList.h"
 #import "NSDate+Escort.h"
-#import "REDChartCallout.h"
+#import "REDLogSummaryViewController.h"
 
 @interface REDChartViewController () <REDDateChartDelegate>
 
@@ -20,7 +20,6 @@
 @property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
 
 #pragma mark - ui
-@property (weak, nonatomic) REDChartCallout *callout;
 @property (strong, nonatomic) REDDateChart *chart;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -48,14 +47,11 @@
     [self.chart setDelegate:self];
     [self.scrollView addSubview:self.chart];
     [self updateData];
-    
-    REDChartCallout *callout = [[REDChartCallout alloc] init];
-    callout.hidden = YES;
-    [self.scrollView addSubview:callout];
-    [self setCallout:callout];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+    self.tabBarController.tabBar.hidden = YES;
     [self updateData];
 }
 -(void)viewDidLayoutSubviews {
@@ -65,9 +61,9 @@
 
 #pragma mark - chart delegate
 -(void)dateChart:(REDDateChart *)dateChart isNearItem:(REDDateChartItem *)item inPosition:(CGPoint)position {
-    self.callout.hidden = item == nil;
-    self.callout.frame = CGRectMake(position.x, position.y , self.callout.frame.size.width, self.callout.frame.size.height);
-    [self.callout setItem:item];
+    NSArray <id<REDReadProtocol>> * readsForDay = [self.readDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"date > %@ AND date < %@", [[item date] dateAtStartOfDay], [[item date] dateAtEndOfDay]]];
+    REDLogSummaryViewController * summary = [[REDLogSummaryViewController alloc] initWithLogs:readsForDay andDate:item.date];
+    [self.navigationController pushViewController:summary animated:YES];
 }
 
 #pragma mark - update

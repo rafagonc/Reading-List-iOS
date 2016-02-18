@@ -61,7 +61,7 @@
     return cell;
 }
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    return [self.delegate datasourceCanDeleteLogs:self];
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     id<REDReadProtocol> read = self.logs[indexPath.row];

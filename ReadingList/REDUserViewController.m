@@ -6,7 +6,7 @@
 //  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDLogViewController.h"
+#import "REDUserViewController.h"
 #import "REDNavigationBarCustomizer.h"
 #import "REDUserView.h"
 #import "REDDatasourceProtocol.h"
@@ -24,7 +24,7 @@
 #import "REDChartViewController.h"
 #import "REDTransactionManager.h"
 
-@interface REDLogViewController () <REDLogDatasourceDelegate, REDUserViewDelegate>
+@interface REDUserViewController () <REDLogDatasourceDelegate, REDUserViewDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -41,7 +41,7 @@
 
 @end
 
-@implementation REDLogViewController
+@implementation REDUserViewController
 
 #pragma mark - constructor
 -(instancetype)init {
@@ -75,6 +75,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    self.tabBarController.tabBar.hidden = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
     [self updateData];
     
@@ -105,10 +107,10 @@
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if (UIInterfaceOrientationIsLandscape(orientation)) {
         REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
-        [self presentViewController:chartViewController animated:NO completion:nil];
+        [self.navigationController pushViewController:chartViewController animated:NO];
         self.chartViewController = chartViewController;
     } else {
-        [self.chartViewController dismissViewControllerAnimated:NO completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:NO];
     }
 }
 
@@ -119,6 +121,9 @@
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
     REDBookAddViewController *bookAdd = [[REDBookAddViewController alloc] initWithBook:book];
     [self.navigationController pushViewController:bookAdd animated:YES];
+}
+-(BOOL)datasourceCanDeleteLogs:(id<REDDatasourceProtocol>)datasource {
+    return YES;
 }
 -(void)userViewWantsToSelectProfilePhoto:(REDUserView *)userView {
     __weak typeof(self) welf = self;
