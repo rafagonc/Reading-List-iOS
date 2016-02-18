@@ -104,13 +104,15 @@
 
 #pragma mark - orientation
 -(void)orientationChanged:(NSNotification *)ntif {
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    if (UIInterfaceOrientationIsLandscape(orientation)) {
-        REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
-        [self.navigationController pushViewController:chartViewController animated:NO];
-        self.chartViewController = chartViewController;
-    } else {
-        [self.navigationController popToRootViewControllerAnimated:NO];
+    if ([self.navigationController.topViewController isEqual:self]) {
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        if (UIInterfaceOrientationIsLandscape(orientation)) {
+            REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
+            [self.navigationController pushViewController:chartViewController animated:NO];
+            self.chartViewController = chartViewController;
+        } else {
+            [self.navigationController popToRootViewControllerAnimated:NO];
+        }
     }
 }
 
@@ -119,8 +121,6 @@
     [self.userScrollView updateData];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
-    REDBookAddViewController *bookAdd = [[REDBookAddViewController alloc] initWithBook:book];
-    [self.navigationController pushViewController:bookAdd animated:YES];
 }
 -(BOOL)datasourceCanDeleteLogs:(id<REDDatasourceProtocol>)datasource {
     return YES;
