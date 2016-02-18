@@ -58,11 +58,15 @@
     [super viewWillAppear:animated];
     [self updateData];
 }
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.chart.frame = CGRectMake(0, 70 , [self.chart sizeForChart].width, self.scrollView.frame.size.height - 70);
+}
 
 #pragma mark - chart delegate
 -(void)dateChart:(REDDateChart *)dateChart isNearItem:(REDDateChartItem *)item inPosition:(CGPoint)position {
     self.callout.hidden = item == nil;
-    self.callout.frame = CGRectMake(position.x, position.y - 15, self.callout.frame.size.width, self.callout.frame.size.height);
+    self.callout.frame = CGRectMake(position.x, position.y , self.callout.frame.size.width, self.callout.frame.size.height);
     [self.callout setItem:item];
 }
 
@@ -72,7 +76,6 @@
     for (id<REDReadProtocol> read in [self.readDataAccessObject list]) [self.chart addValue:[read pagesValue] forDate:[read date]];
     [self.chart addValue:0.0 forDate:[NSDate date]];
     [self.scrollView setContentSize:CGSizeMake([self.chart sizeForChart].width + 120, [self.chart sizeForChart].height)];
-    self.chart.frame = CGRectMake(0, 52 , [self.chart sizeForChart].width, self.scrollView.frame.size.height);
     self.emptyLabel.hidden = [self.readDataAccessObject list].count > 0;
     self.scrollView.hidden = [self.readDataAccessObject list].count == 0;
 }
