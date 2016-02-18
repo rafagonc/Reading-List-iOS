@@ -14,11 +14,11 @@
 -(BOOL)validate:(id)obj error:(NSError *__autoreleasing *)error {
     NSDate *date = (NSDate *)obj;
     if (date == nil) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"You need to set the date!"}];
+        if (error) *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"You need to set the date!"}];
         return NO;
     }
     if ([date isInFuture]) {
-        *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Read and then log it!"}];
+        if (error) *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Read it then log it!"}];
         return NO;
     }
     return YES;

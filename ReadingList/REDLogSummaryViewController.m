@@ -55,17 +55,10 @@
     
     //summary
     [self setPagesRead:[[self.reads valueForKeyPath:@"@sum.pagesValue"] integerValue]];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
-}
-
-#pragma mark - orientation
--(void)orientationChanged:(NSNotification *)notification {
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - delegate

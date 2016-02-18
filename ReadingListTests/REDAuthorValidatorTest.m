@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "REDAuthorProtocol.h"
 #import <OCMock/OCMock.h>
-#import "REDAuthor.h"
+#import "REDRLMAuthor.h"
 #import "REDValidator.h"
 #import "REDAuthorValidator.h"
 
@@ -30,7 +30,7 @@
 
 #pragma mark - test
 -(void)testAuthorValidatorWithNoLengthName {
-    self.author = OCMClassMock([REDAuthor class]);
+    self.author = OCMClassMock([REDRLMAuthor class]);
     OCMStub([self.author name]).andReturn(@"");
     NSError *error;
     XCTAssertFalse([self.authorValidator validate:self.author error:&error]);
@@ -42,7 +42,7 @@
     XCTAssertNotNil(error);
 }
 -(void)testAuthorValidatorWithCorrectInfo {
-    self.author = OCMClassMock([REDAuthor class]);
+    self.author = OCMClassMock([REDRLMAuthor class]);
     OCMStub([self.author name]).andReturn(@"Robert C Martin");
     NSError *error;
     XCTAssertTrue([self.authorValidator validate:self.author error:&error]);

@@ -7,33 +7,35 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "REDPagesValidator.h"
 
 @interface REDPagesValidatorTest : XCTestCase
+
+@property (nonatomic,strong) id<REDValidator> pagesValidator;
 
 @end
 
 @implementation REDPagesValidatorTest
 
-- (void)setUp {
+#pragma mark - setup
+-(void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.pagesValidator = [[REDPagesValidator alloc] init];
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+#pragma mark - test
+-(void)testValid {
+    NSError *error;
+    NSString * testString = @"123";
+    XCTAssertTrue([self.pagesValidator validate:testString error:&error]);
+    XCTAssertNil(error);
+}
+-(void)testWithLetters {
+    NSError *error;
+    NSString * testString = @"12da3";
+    XCTAssertFalse([self.pagesValidator validate:testString error:&error]);
+    XCTAssertNotNil(error);
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 @end

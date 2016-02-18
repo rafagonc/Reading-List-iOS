@@ -10,7 +10,7 @@
 #import "REDCategoryProtocol.h"
 #import "REDCategoryValidator.h"
 #import "REDValidator.h"
-#import "REDCategory.h"
+#import "REDRLMCategory.h"
 #import <OCMock/OCMock.h>
 
 @interface REDCategoryValidatorTest : XCTestCase
@@ -30,7 +30,7 @@
 
 #pragma mark - test
 -(void)testCategoryWithCorrectInfo {
-    id<REDCategoryProtocol> category = OCMClassMock([REDCategory class]);
+    id<REDCategoryProtocol> category = OCMClassMock([REDRLMCategory class]);
     OCMStub([category name]).andReturn(@"Category");
 }
 

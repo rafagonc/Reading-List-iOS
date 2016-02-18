@@ -82,6 +82,9 @@
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
     [self.navigationItem setRightBarButtonItem:addButton];
+    
+    UIBarButtonItem *chartButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chart"] style:UIBarButtonItemStylePlain target:self action:@selector(chartAction:)];
+    [self.navigationItem setLeftBarButtonItem:chartButton];
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -110,8 +113,6 @@
             REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
             [self.navigationController pushViewController:chartViewController animated:NO];
             self.chartViewController = chartViewController;
-        } else {
-            [self.navigationController popToRootViewControllerAnimated:NO];
         }
     }
 }
@@ -144,6 +145,10 @@
 -(void)addAction:(UIBarButtonItem *)addButton {
     REDAddLogViewController *addLog = [[REDAddLogViewController alloc] init];
     [self.navigationController pushViewController:addLog animated:YES];
+}
+-(void)chartAction:(UIBarButtonItem *)chartButton {
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 }
 
 #pragma mark - dealloc

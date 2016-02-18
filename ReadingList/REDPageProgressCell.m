@@ -10,14 +10,19 @@
 #import <Crashlytics/Answers.h>
 #import "EDStarRating.h"
 #import "UIColor+ReadingList.h"
+#import "UITextField+DoneButton.h"
+#import "REDValidator.h"
 
-@interface REDPageProgressCell () <EDStarRatingProtocol>
+@interface REDPageProgressCell () <EDStarRatingProtocol, UITextFieldDelegate>
 
 #pragma mark - ui
-@property (weak, nonatomic) IBOutlet UILabel *percentageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPageLabel;
+@property (weak, nonatomic) IBOutlet UITextField *currentPageTextField;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet EDStarRating *ratingView;
+
+#pragma mark - injected
+@property (setter=injected_pages:,readonly) id<REDValidator> pagesValidator;
 
 #pragma mark - properties
 @property (nonatomic,assign) NSUInteger pagedReadInitialValue;
@@ -35,6 +40,8 @@
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self.slider addTarget:self action:@selector(sliderEditEnd:) forControlEvents:UIControlEventTouchUpInside];
         self.didChangeRate = NO;
+        self.currentPageTextField.delegate = self;
+        [self.currentPageTextField addToolbar];
         
         //rating setup
         UIImage *starImage = [UIImage imageNamed:@"star-template"];
@@ -84,6 +91,17 @@
     [self setPagesRead:slider.value];
 }
 
+#pragma mark - text field delegate
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    NSError *error;
+    if (![self.pagesValidator validate:textField.text error:&error]) {
+        return;
+    }
+    self.pagesRead = [textField.text integerValue];
+    [self.slider setValue:self.pagesRead animated:YES];
+    [self updateProgressLabel];
+}
+
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     [book setPagesReadValue:self.pagesRead];
@@ -113,7 +131,7 @@
 
 #pragma mark - helper methods
 -(void)updateProgressLabel {
-    self.percentageLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.slider.value];
+    self.currentPageTextField.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.slider.value];
 }
 
 

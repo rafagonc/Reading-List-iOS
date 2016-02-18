@@ -47,6 +47,9 @@
     [self.chart setDelegate:self];
     [self.scrollView addSubview:self.chart];
     [self updateData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -57,6 +60,14 @@
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.chart.frame = CGRectMake(0, 70 , [self.chart sizeForChart].width, self.scrollView.frame.size.height - 70);
+}
+
+#pragma mark - orientation
+-(void)orientationChanged:(NSNotification *)notification {
+    UIDeviceOrientation currentDeviceOrientation =  [[UIDevice currentDevice] orientation];
+    if (UIDeviceOrientationIsPortrait(currentDeviceOrientation)) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - chart delegate
