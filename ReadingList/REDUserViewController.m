@@ -115,7 +115,12 @@
             REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
             [self.navigationController pushViewController:chartViewController animated:NO];
             self.chartViewController = chartViewController;
+        } else {
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
+    }
+    if (self.tabBarController.selectedIndex != 2) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 

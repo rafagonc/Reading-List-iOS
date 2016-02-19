@@ -99,6 +99,7 @@
     }
     self.pagesRead = [textField.text integerValue];
     [self.slider setValue:self.pagesRead animated:YES];
+    self.diff = (NSUInteger)self.slider.value - (NSUInteger)self.pagedReadInitialValue;
     [self updateProgressLabel];
 }
 
