@@ -8,18 +8,18 @@
 
 #import "REDPageProgressCell.h"
 #import <Crashlytics/Answers.h>
-#import "EDStarRating.h"
+#import "HCSStarRatingView.h"
 #import "UIColor+ReadingList.h"
 #import "UITextField+DoneButton.h"
 #import "REDValidator.h"
 
-@interface REDPageProgressCell () <EDStarRatingProtocol, UITextFieldDelegate>
+@interface REDPageProgressCell () <UITextFieldDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UILabel *currentPageLabel;
 @property (weak, nonatomic) IBOutlet UITextField *currentPageTextField;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet EDStarRating *ratingView;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *ratingView;
 
 #pragma mark - injected
 @property (setter=injected_pages:,readonly) id<REDValidator> pagesValidator;
@@ -48,13 +48,10 @@
         starImage = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         UIImage *highlightedStarImage = [UIImage imageNamed:@"star-highlighted-template"];
         highlightedStarImage = [highlightedStarImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.ratingView.starImage = starImage;
-        self.ratingView.starHighlightedImage = highlightedStarImage;
-        self.ratingView.maxRating = 5.0;
-        self.ratingView.displayMode = EDStarRatingDisplayHalf;
-        self.ratingView.editable = YES;
+        self.ratingView.emptyStarImage = starImage;
+        self.ratingView.filledStarImage = highlightedStarImage;
         self.ratingView.tintColor = [UIColor red_redColor];
-        self.ratingView.delegate = self;
+        [self.ratingView addTarget:self action:@selector(ratingDidChangeValue:) forControlEvents:UIControlEventValueChanged];
         
     } return self;
 }
@@ -65,7 +62,7 @@
     self.pages = [book pagesValue];
     self.pagesRead = [book pagesReadValue];
     self.pagedReadInitialValue = [book pagesReadValue];
-    self.ratingView.rating = [book rate];
+    self.ratingView.value = [book rate];
     self.slider.minimumValue = 0.0f;
     self.slider.maximumValue = self.pages;
     self.slider.value = (CGFloat)[book pagesReadValue];
@@ -78,7 +75,7 @@
 
 #pragma mark - getters
 -(CGFloat)rating {
-    return self.ratingView.rating;
+    return self.ratingView.value;
 }
 
 #pragma mark - actions
@@ -106,7 +103,7 @@
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     [book setPagesReadValue:self.pagesRead];
-    [book setRate:self.ratingView.rating];
+    [book setRate:self.ratingView.value];
     if (self.pages == self.pagesRead) {
         [Answers logContentViewWithName:@"Book"
                             contentType:@"Completed"
@@ -126,8 +123,8 @@
 }
 
 #pragma mark - delegate
--(void)starsSelectionChanged:(EDStarRating *)control rating:(float)rating {
-    if (rating > 0) self.didChangeRate = YES;
+-(void)ratingDidChangeValue:(HCSStarRatingView *)ratingView {
+    if (ratingView.value > 0) self.didChangeRate = YES;
 }
 
 #pragma mark - helper methods

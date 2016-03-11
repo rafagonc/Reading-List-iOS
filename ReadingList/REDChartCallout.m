@@ -32,7 +32,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterShortStyle];
     self.dateLabel.text = [formatter stringFromDate:[item date]];
-    self.valueLabel.text = [NSString stringWithFormat:@"%lu pages",(NSInteger)item.value];
+    self.valueLabel.text = [NSString stringWithFormat:@"%lu pages",(unsigned long)item.value];
 }
 
 @end

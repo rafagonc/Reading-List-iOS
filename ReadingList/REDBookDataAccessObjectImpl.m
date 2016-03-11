@@ -27,6 +27,9 @@
     }
     return totalPages;
 }
+-(NSString *)booksCompletedAndTotalBooks {
+    return nil;
+}
 
 #pragma mark - overrides
 -(NSString *)entityName {

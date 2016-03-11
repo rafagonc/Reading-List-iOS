@@ -75,7 +75,7 @@
 
 #pragma mark - setters
 -(void)setPagesRead:(NSInteger)pagesRead {
-    [self.summaryLabel setText:[NSString stringWithFormat:@"You read a total of %lu pages", pagesRead]];
+    [self.summaryLabel setText:[NSString stringWithFormat:@"You read a total of %lu pages", (unsigned long)pagesRead]];
 }
 
 #pragma mark - dealloc

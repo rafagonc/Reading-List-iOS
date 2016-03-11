@@ -31,7 +31,7 @@
 -(CGFloat)highestY;
 
 #pragma mark - enumarate
--(void)enumerateWithPositionOfItems:(void(^)(REDDateChartItem * __nullable item, CGFloat x, CGFloat y, NSDate *currentDate))callback;
+-(void)enumerateWithPositionOfItems:(void(^)(REDDateChartItem * item, CGFloat x, CGFloat y, NSDate *currentDate))callback;
 
 #pragma mark - remove
 -(void)clean;
