@@ -129,6 +129,8 @@
     [self.userScrollView updateData];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
+    REDBookAddViewController *bookViewController = [[REDBookAddViewController alloc] initWithBook:book];
+    [self.navigationController pushViewController:bookViewController animated:YES];
 }
 -(BOOL)datasourceCanDeleteLogs:(id<REDDatasourceProtocol>)datasource {
     return YES;
