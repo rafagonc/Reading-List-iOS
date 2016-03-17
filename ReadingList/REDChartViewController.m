@@ -48,6 +48,8 @@
     [self.scrollView addSubview:self.chart];
     [self updateData];
     
+    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width - self.scrollView.frame.size.width, 0)];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 
 }

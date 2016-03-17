@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites tests='14' failures='0'>
+  <testsuite name='REDAuthorValidatorTest' tests='3' failures='0'>
+    <testcase classname='REDAuthorValidatorTest' name='testAuthorValidatorWithAuthorEqualsNil' time='0.001'/>
+    <testcase classname='REDAuthorValidatorTest' name='testAuthorValidatorWithCorrectInfo' time='0.017'/>
+    <testcase classname='REDAuthorValidatorTest' name='testAuthorValidatorWithNoLengthName' time='0.014'/>
+  </testsuite>
+  <testsuite name='REDBookNameValidatorTest' tests='3' failures='0'>
+    <testcase classname='REDBookNameValidatorTest' name='testBookNameLength' time='0.000'/>
+    <testcase classname='REDBookNameValidatorTest' name='testBookNameWithBookName' time='0.000'/>
+    <testcase classname='REDBookNameValidatorTest' name='testOkBookName' time='0.000'/>
+  </testsuite>
+  <testsuite name='REDBookValidatorTest' tests='2' failures='0'>
+    <testcase classname='REDBookValidatorTest' name='testNil' time='0.000'/>
+    <testcase classname='REDBookValidatorTest' name='testValid' time='0.021'/>
+  </testsuite>
+  <testsuite name='REDCategoryValidatorTest' tests='1' failures='0'>
+    <testcase classname='REDCategoryValidatorTest' name='testCategoryWithCorrectInfo' time='0.015'/>
+  </testsuite>
+  <testsuite name='REDDateValidatorTest' tests='3' failures='0'>
+    <testcase classname='REDDateValidatorTest' name='testInvalid' time='0.001'/>
+    <testcase classname='REDDateValidatorTest' name='testToday' time='0.000'/>
+    <testcase classname='REDDateValidatorTest' name='testValid' time='0.000'/>
+  </testsuite>
+  <testsuite name='REDPagesValidatorTest' tests='2' failures='0'>
+    <testcase classname='REDPagesValidatorTest' name='testValid' time='0.000'/>
+    <testcase classname='REDPagesValidatorTest' name='testWithLetters' time='0.000'/>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,10 @@
+Reading list is a simple app with a minimalistic approach to keep track of your books and remember for you the last page that you read!
+
+Features:
+
+- Keep track of your books.
+- Remember the last page that you read.
+- Collect all your completed books and brag about it
+
+Source code: https://github.com/rafagonc/Reading-List
+My twitter: https://twitter.com/rafagonc77

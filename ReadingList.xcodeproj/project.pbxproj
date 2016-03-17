@@ -146,6 +146,7 @@
 		2A77C0C01C2E2ED400E21551 /* REDTransientBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A77C0BF1C2E2ED400E21551 /* REDTransientBookCell.xib */; };
 		2A7DA3841C10132800B179D0 /* NSDictionary+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7DA3831C10132800B179D0 /* NSDictionary+Validation.m */; };
 		2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */; };
+		2A943FAE1C9A553A00C4796A /* REDDateChartAnimatedSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A943FAD1C9A553A00C4796A /* REDDateChartAnimatedSignal.m */; };
 		2A9979531C5A733200DBEABB /* REDChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9979521C5A733200DBEABB /* REDChartViewController.m */; };
 		2A9979551C5A733C00DBEABB /* REDChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A9979541C5A733C00DBEABB /* REDChartViewController.xib */; };
 		2A99B4721C5C168F0058EB7E /* REDBookNameValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A99795B1C5C133900DBEABB /* REDBookNameValidatorTest.m */; };
@@ -469,6 +470,8 @@
 		2A8D056C1BD042C3004364F5 /* global.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.pch; sourceTree = "<group>"; };
 		2A8D056D1BD05E0C004364F5 /* NSString+Digits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Digits.h"; sourceTree = "<group>"; };
 		2A8D056E1BD05E0C004364F5 /* NSString+Digits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Digits.m"; sourceTree = "<group>"; };
+		2A943FAC1C9A553A00C4796A /* REDDateChartAnimatedSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChartAnimatedSignal.h; sourceTree = "<group>"; };
+		2A943FAD1C9A553A00C4796A /* REDDateChartAnimatedSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDateChartAnimatedSignal.m; sourceTree = "<group>"; };
 		2A9979511C5A733200DBEABB /* REDChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDChartViewController.h; sourceTree = "<group>"; };
 		2A9979521C5A733200DBEABB /* REDChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDChartViewController.m; sourceTree = "<group>"; };
 		2A9979541C5A733C00DBEABB /* REDChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDChartViewController.xib; sourceTree = "<group>"; };
@@ -2112,6 +2115,8 @@
 				445786971C74AF900029355D /* REDDateChart+Interaction.h */,
 				445786981C74AF900029355D /* REDDateChart+Interaction.m */,
 				4457869A1C74F7300029355D /* REDDateChartDelegate.h */,
+				2A943FAC1C9A553A00C4796A /* REDDateChartAnimatedSignal.h */,
+				2A943FAD1C9A553A00C4796A /* REDDateChartAnimatedSignal.m */,
 			);
 			name = REDDateChart;
 			sourceTree = "<group>";
@@ -2458,6 +2463,7 @@
 				2A13EEA71C2E5550005DB34E /* REDCloudMigrationHandler.m in Sources */,
 				2A74EC461BCE0037005F5E74 /* REDCategoryViewController.m in Sources */,
 				2A1632D91C580E6C0015F06E /* _REDUser.m in Sources */,
+				2A943FAE1C9A553A00C4796A /* REDDateChartAnimatedSignal.m in Sources */,
 				2A77C09B1C2DDA1A00E21551 /* REDCategoryDataAccessObjectImpl.m in Sources */,
 				2A77C0811C2DCE8800E21551 /* REDRecommendedBooksViewController.m in Sources */,
 				2A19B8861BCDB3C2009C8F25 /* REDBookListViewController.m in Sources */,

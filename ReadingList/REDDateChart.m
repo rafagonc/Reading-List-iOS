@@ -10,6 +10,7 @@
 #import "REDDateChartItem.h"
 #import "NSDate+Escort.h"
 #import "UIColor+Components.h"
+#import "REDDateChartAnimatedSignal.h"
 
 @interface REDDateChart ()
 
@@ -17,6 +18,9 @@
 @property (nonatomic,strong) NSMutableArray <REDDateChartItem *> * items;
 @property (nonatomic,assign) CGFloat absoluteWidth;
 @property (nonatomic,assign) BOOL fitting;
+
+#pragma mark - ui
+@property (nonatomic,strong) REDDateChartAnimatedSignal *signalView;
 
 @end
 
@@ -49,6 +53,11 @@
     self.gradientStartColor = [UIColor colorWithRed:(239/255.0) green:(81/255.0) blue:(79/255.0) alpha:0.4];
     self.gradientEndColor = [UIColor whiteColor];
     self.fitting = YES;
+    
+    self.signalView = [[REDDateChartAnimatedSignal alloc] initWithFrame:CGRectZero];
+    self.signalView.tintColor = [UIColor colorWithRed:(239/255.0) green:(81/255.0) blue:(79/255.0) alpha:1];
+    [self.signalView startInflating];
+    [self addSubview:self.signalView];
 }
 
 #pragma mark - drawing
@@ -154,6 +163,7 @@
         REDDateChartItem *item = [[REDDateChartItem alloc] initWithDate:[date dateAtStartOfDay] forValue:value];
         [self.items addObject:item];
     }
+    [self setNeedsLayout];
 }
 
 #pragma mark - remove
@@ -168,6 +178,11 @@
 }
 -(CGFloat)highestValue {
     return [[self.items valueForKeyPath:@"@max.value"] floatValue];
+}
+-(CGFloat)lastDateValue {
+    NSDate *date = [self.items valueForKeyPath:@"@max.date"];
+    REDDateChartItem *item = [[self.items filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"date = %@",date]] firstObject];
+    return item.value;
 }
 -(CGFloat)highestY {
     return [self yForValue:[self highestValue]];
@@ -199,22 +214,20 @@
 -(NSDate *)dateForX:(CGFloat)x {
     return nil;
 }
-
--(void)logValues {
-    NSLog(@"%@", [self maxDate]);
-    NSLog(@"%@", [self minDate]);
-    NSLog(@"%f", [self highestValue]);
-    NSLog(@"%ld", (long)[self daysFromMinDateToMaxDate]);
+-(void)setLineColor:(UIColor *)lineColor {
+    _lineColor = lineColor;
+    self.signalView.tintColor = lineColor;
 }
 
 #pragma mark - layout
 -(void)layoutSubviews {
     [super layoutSubviews];
+    self.signalView.frame = CGRectMake([self xForDate:[self maxDate]] - 8, [self yForValue:[self lastDateValue]] - 8, 16, 16);
 }
 
 #pragma mark - dealloc
 -(void)dealloc {
-    
+    [self.signalView stopInflating];
 }
 
 @end
