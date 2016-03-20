@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '830B2AAD163866FF63AA216F'
+               BlueprintIdentifier = '813A7F30B74FFA8F4A3EAFAC'
                BlueprintName = 'LLARingSpinnerView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLLARingSpinnerView.a'>
