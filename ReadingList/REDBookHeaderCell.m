@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *shadowView;
 
 #pragma mark - injected
 @property (setter=injected_name:,readonly) id<REDValidator> bookNameValidator;
@@ -34,6 +35,12 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.nameTextField addToolbar];
+        
+        self.shadowView.layer.masksToBounds = NO;
+        self.shadowView.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.shadowView.layer.shadowRadius = 20.f;
+        self.shadowView.layer.shadowOpacity = 0.6;
+        self.shadowView.layer.shadowOffset = CGSizeMake(0, 30);
     } return self;
 }
 
