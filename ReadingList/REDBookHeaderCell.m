@@ -58,7 +58,7 @@
 }
 -(void)setCoverImage:(UIImage *)coverImage {
     _coverImage = coverImage;
-    [self.coverImageView setImage:coverImage ? [coverImage applyBlurToImageWithRadius:80.0f] : [UIImage imageNamed:@"default_blur"]];
+    [self.coverImageView setImage:coverImage ? [coverImage applyBlurToImageWithRadius:40.0f] : [UIImage imageNamed:@"default_blur"]];
     [self.coverButton setTitle:coverImage ? @"" : @"cover" forState:UIControlStateNormal];
     [self.coverButton setBackgroundImage:coverImage forState:UIControlStateNormal];
 }
