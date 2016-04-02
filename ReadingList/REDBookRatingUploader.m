@@ -14,7 +14,7 @@
 @interface REDBookRatingUploader ()
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 

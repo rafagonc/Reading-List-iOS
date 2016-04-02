@@ -135,7 +135,11 @@
     return self.fitting == NO ?  (self.absoluteWidth * [[self minDate] daysBeforeDate:date] + self.margin.left) : (([self usableChartFrame].size.width / [self daysFromMinDateToMaxDate]) * [[self minDate] daysBeforeDate:date] + self.margin.left);
 }
 -(CGFloat)yForValue:(CGFloat)value {
-    return [self usableChartFrame].size.height - ([self usableChartFrame].size.height * ((double)value/(double)[self highestValue])) + self.margin.top;
+    if ([self highestValue] == 0) {
+        return 0;
+    } else {
+        return [self usableChartFrame].size.height - ([self usableChartFrame].size.height * ((double)value/(double)[self highestValue])) + self.margin.top;        
+    }
 }
 -(void)enumerateWithPositionOfItems:(void(^)(REDDateChartItem * __nullable item, CGFloat x, CGFloat y, NSDate *currentDate))callback {
     NSInteger daysAvailableOnChart = [self daysFromMinDateToMaxDate];
@@ -222,7 +226,9 @@
 #pragma mark - layout
 -(void)layoutSubviews {
     [super layoutSubviews];
-    self.signalView.frame = CGRectMake([self xForDate:[self maxDate]] - 8, [self yForValue:[self lastDateValue]] - 8, 16, 16);
+    if (self.items.count) {
+        self.signalView.frame = CGRectMake([self xForDate:[self maxDate]] - 8, [self yForValue:[self lastDateValue]] - 8, 16, 16);        
+    }
 }
 
 #pragma mark - dealloc

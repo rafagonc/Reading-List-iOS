@@ -27,7 +27,7 @@
 
 #pragma mark - injected
 @property (setter=injected_book:, readonly) id<REDDatasourceProtocol> datasource;
-@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 

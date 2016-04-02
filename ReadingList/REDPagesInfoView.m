@@ -17,8 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *perDayLabel;
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end
 

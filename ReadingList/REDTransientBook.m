@@ -13,8 +13,8 @@
 @interface REDTransientBook ()
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
-@property (setter=injected:,readonly) id<REDAuthorDataAccessObject> authorDataAccessObject;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
 

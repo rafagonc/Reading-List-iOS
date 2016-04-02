@@ -4,7 +4,7 @@
 @interface REDRead ()
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 

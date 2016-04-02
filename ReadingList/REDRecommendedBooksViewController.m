@@ -32,9 +32,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *emptyLabel;
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> dispatcher;
-@property (setter=injected:,readonly) id<REDCategoryDataAccessObject> categoryDataAccessObject;
-@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:) id<REDServiceDispatcherProtocol> dispatcher;
+@property (setter=injected:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
+@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected_transientBook:,readonly) id<REDDatasourceProtocol> datasource;
 
 @end

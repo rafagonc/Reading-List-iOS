@@ -12,7 +12,7 @@
 
 @interface REDReadDataAccessObjectImpl ()
 
-@property (setter=injected:,readonly) id<REDUserProtocol> user;
+@property (setter=injected:) id<REDUserProtocol> user;
 
 @end
 

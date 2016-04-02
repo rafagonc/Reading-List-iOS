@@ -26,7 +26,7 @@
 
 @interface REDLocalToRealm ()
 
-@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
 
 @end
 

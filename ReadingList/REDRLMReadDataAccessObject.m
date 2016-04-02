@@ -15,9 +15,9 @@
 
 @interface REDRLMReadDataAccessObject ()
 
-@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
-@property (setter=injected:,readonly) id<REDUserProtocol> user;
-@property (setter=injected:,readonly) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected:) id<REDUserProtocol> user;
+@property (setter=injected:) id<REDRLMArrayHelper> rlm_arrayHelper;
 
 @end
 
@@ -54,10 +54,14 @@
     return totalPages;
 }
 -(CGFloat)perDay {
-    NSInteger daysTilNow = [[NSDate date] daysAfterDate:[[self list] valueForKeyPath:@"@min.date"]];
-    if (daysTilNow == 0) return [self totalPages];
-    CGFloat perDay = (CGFloat)[self totalPages]/(CGFloat)daysTilNow;
-    return perDay;
+    if ([self.list count] > 0) {
+        NSInteger daysTilNow = [[NSDate date] daysAfterDate:[[self list] valueForKeyPath:@"@min.date"]];
+        if (daysTilNow == 0) return [self totalPages];
+        CGFloat perDay = (CGFloat)[self totalPages]/(CGFloat)daysTilNow;
+        return perDay;
+    } else {
+        return 0.0;
+    }
 }
 
 

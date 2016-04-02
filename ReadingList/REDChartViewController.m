@@ -17,7 +17,7 @@
 @interface REDChartViewController () <REDDateChartDelegate>
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
 
 #pragma mark - ui
 @property (strong, nonatomic) REDDateChart *chart;
@@ -82,7 +82,9 @@
 #pragma mark - update
 -(void)updateData {
     [self.chart clean];
-    for (id<REDReadProtocol> read in [self.readDataAccessObject list]) [self.chart addValue:[read pagesValue] forDate:[read date]];
+    for (id<REDReadProtocol> read in [self.readDataAccessObject list]) {
+     [self.chart addValue:[read pagesValue] forDate:[read date]];   
+    }
     [self.chart addValue:0.0 forDate:[NSDate date]];
     [self.scrollView setContentSize:CGSizeMake([self.chart sizeForChart].width + 120, [self.chart sizeForChart].height)];
     self.emptyLabel.hidden = [self.readDataAccessObject list].count > 0;

@@ -54,11 +54,11 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 #pragma mark - injected
 @property (setter=injected_name:,readonly) id<REDValidator> bookNameValidator;
 @property (setter=injected_author:,readonly) id<REDValidator> authorValidator;
-@property (setter=injected:,readonly) id<REDBookUploaderProtocol> bookUploader;
-@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
-@property (setter=injected:,readonly) id<REDReadFactoryProtocol> readFactory;;
-@property (setter=injected:,readonly) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected:) id<REDBookUploaderProtocol> bookUploader;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected:) id<REDReadFactoryProtocol> readFactory;;
+@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 

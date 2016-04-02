@@ -14,8 +14,8 @@
 
 @interface REDReadFactory ()
 
-@property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
-@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
+@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
 
 @end
 

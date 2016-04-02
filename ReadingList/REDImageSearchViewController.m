@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDServiceDispatcherProtocol> dispatcher;
+@property (setter=injected:) id<REDServiceDispatcherProtocol> dispatcher;
 @property (setter=injected_googleImage:,readonly) id<REDCollectionViewDatasourceProtocol> datasource;
 
 #pragma mark - property

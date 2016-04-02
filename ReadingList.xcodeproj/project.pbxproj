@@ -2731,6 +2731,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = ReadingList/global.pch;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = ReadingList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2753,6 +2754,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = ReadingList/global.pch;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = ReadingList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

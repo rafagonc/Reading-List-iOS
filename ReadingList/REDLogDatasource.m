@@ -18,7 +18,7 @@
 <REDLogCellDelegate>
 
 #pragma mark - injected
-@property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
 
 #pragma mark - properties
 @property (nonatomic,strong) NSMutableArray * logs;

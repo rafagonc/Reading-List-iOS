@@ -34,11 +34,11 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 #pragma mark - injected
-@property (setter=injected_log:,readonly) id<REDDatasourceProtocol> datasource;
-@property (setter=injected:,readonly) id<REDReadDataAccessObject> readDataAccessObject;
-@property (setter=injected:,readonly) id<REDPhotoPickerPresenterProtocol> photoPicker;
-@property (setter=injected:,readonly) id<REDUserProtocol> user;
-@property (setter=injected:,readonly) id<REDTransactionManager> transactionManager;
+@property (setter=injected_log:) id<REDDatasourceProtocol> datasource;
+@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected:) id<REDPhotoPickerPresenterProtocol> photoPicker;
+@property (setter=injected:) id<REDUserProtocol> user;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
 
 @end
 

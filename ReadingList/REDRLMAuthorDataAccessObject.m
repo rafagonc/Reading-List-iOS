@@ -12,7 +12,7 @@
 
 @interface REDRLMAuthorDataAccessObject ()
 
-@property (setter=injected:,readonly) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected:) id<REDRLMArrayHelper> rlm_arrayHelper;
 
 @end
 
