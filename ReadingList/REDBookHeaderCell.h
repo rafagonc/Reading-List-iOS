@@ -9,19 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "REDBookProtocol.h"
 #import "REDBookCreationChainProtocol.h"
+#import "UIStaticTableView.h"
 
 @class REDBookHeaderCell;
 @protocol REDBookHeaderCellDelegate <NSObject>
 
 -(void)didSelectAuthorInBookHeaderCell:(REDBookHeaderCell *)headerCell;
 -(void)didSelectCoverInBookHeaderCell:(REDBookHeaderCell *)headerCell;
+-(void)didSelectSnippetTextViewInBookHeaderCell:(REDBookHeaderCell *)headerCell;
 
 @end
 
 
 @interface REDBookHeaderCell : UITableViewCell
 
-<REDBookCreationChainProtocol>
+<REDBookCreationChainProtocol, UIStaticTableViewCellCustomizationProtocol>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;

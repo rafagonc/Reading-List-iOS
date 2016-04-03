@@ -65,6 +65,9 @@
 		2A23ABDB1C47501500E48BF6 /* REDBookRatingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDA1C47501500E48BF6 /* REDBookRatingRequest.m */; };
 		2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDE1C47511100E48BF6 /* REDBookRatingCall.m */; };
 		2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */; };
+		2A27FC061CAF85190067F9A4 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27FC051CAF85190067F9A4 /* PopoverViewController.m */; };
+		2A27FC0A1CAF85380067F9A4 /* PleaseRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27FC091CAF85380067F9A4 /* PleaseRateViewController.m */; };
+		2A27FC0C1CAF85440067F9A4 /* PleaseRateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A27FC0B1CAF85440067F9A4 /* PleaseRateViewController.xib */; };
 		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; };
 		2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */; };
 		2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E531BD3042600677868 /* REDNoActionTextField.m */; };
@@ -309,6 +312,11 @@
 		2A23ABE01C4751D500E48BF6 /* REDBookRatingUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRatingUploader.h; sourceTree = "<group>"; };
 		2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRatingUploader.m; sourceTree = "<group>"; };
 		2A23ABE51C4752D400E48BF6 /* REDBookUploaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookUploaderProtocol.h; sourceTree = "<group>"; };
+		2A27FC041CAF85190067F9A4 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		2A27FC051CAF85190067F9A4 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		2A27FC081CAF85380067F9A4 /* PleaseRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PleaseRateViewController.h; sourceTree = "<group>"; };
+		2A27FC091CAF85380067F9A4 /* PleaseRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PleaseRateViewController.m; sourceTree = "<group>"; };
+		2A27FC0B1CAF85440067F9A4 /* PleaseRateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PleaseRateViewController.xib; sourceTree = "<group>"; };
 		2A2A1E4C1BD2F0E000677868 /* UISearchBar+Toolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+Toolbar.h"; sourceTree = "<group>"; };
 		2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Toolbar.m"; sourceTree = "<group>"; };
 		2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "romeo-and-juliet.jpg"; sourceTree = "<group>"; };
@@ -695,6 +703,7 @@
 		2A19B8891BCDB3E2009C8F25 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A27FC071CAF85200067F9A4 /* Popover View Controller */,
 				2A19B8881BCDB3C6009C8F25 /* Book List View Controller */,
 				2A19B8B41BCDBE9A009C8F25 /* Book Add View Controller */,
 				2A74EC481BCE0039005F5E74 /* Category View Controller */,
@@ -708,6 +717,7 @@
 				2A9979561C5A734000DBEABB /* Chart View Controller */,
 				44AF20971C7628EA00F6FC48 /* Log Summary View Controller */,
 				441701F31C7648FE0076F9C7 /* New View Controller */,
+				2A27FC0D1CAF85480067F9A4 /* Please Rate View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1026,6 +1036,25 @@
 				2A23ABE51C4752D400E48BF6 /* REDBookUploaderProtocol.h */,
 			);
 			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2A27FC071CAF85200067F9A4 /* Popover View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A27FC041CAF85190067F9A4 /* PopoverViewController.h */,
+				2A27FC051CAF85190067F9A4 /* PopoverViewController.m */,
+			);
+			name = "Popover View Controller";
+			sourceTree = "<group>";
+		};
+		2A27FC0D1CAF85480067F9A4 /* Please Rate View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A27FC081CAF85380067F9A4 /* PleaseRateViewController.h */,
+				2A27FC091CAF85380067F9A4 /* PleaseRateViewController.m */,
+				2A27FC0B1CAF85440067F9A4 /* PleaseRateViewController.xib */,
+			);
+			name = "Please Rate View Controller";
 			sourceTree = "<group>";
 		};
 		2A2A1E4F1BD2F0F000677868 /* UISearchBar */ = {
@@ -2300,6 +2329,7 @@
 				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
 				2A1FF5901C554E9000520949 /* REDUserViewController.xib in Resources */,
 				2ADCC0B51BD2EC90009F638A /* books.json in Resources */,
+				2A27FC0C1CAF85440067F9A4 /* PleaseRateViewController.xib in Resources */,
 				2A9979551C5A733C00DBEABB /* REDChartViewController.xib in Resources */,
 				2A19B8871BCDB3C2009C8F25 /* REDBookListViewController.xib in Resources */,
 				2A74EC6A1BD09041005F5E74 /* REDAuthorViewController.xib in Resources */,
@@ -2542,6 +2572,7 @@
 				2A74EC7E1BD0A558005F5E74 /* REDImageSearchViewController.m in Sources */,
 				2A77C0BA1C2E2DD400E21551 /* REDTransientBookDatasource.m in Sources */,
 				2ADCC0A71BD2D347009F638A /* UIViewController+NotificationShow.m in Sources */,
+				2A27FC0A1CAF85380067F9A4 /* PleaseRateViewController.m in Sources */,
 				2A74EC001BCD59B1005F5E74 /* _REDCategory.m in Sources */,
 				443AE2131C9342FE00D926F5 /* HCSStarRatingView.m in Sources */,
 				2A77C0B21C2E26A900E21551 /* REDTransientBook.m in Sources */,
@@ -2556,6 +2587,7 @@
 				2A19B8A61BCDBC2D009C8F25 /* UIFont+ReadingList.m in Sources */,
 				2A77C0BE1C2E2EC900E21551 /* REDTransientBookCell.m in Sources */,
 				2A13EEAB1C2E5C1C005DB34E /* REDCloudDataStack.m in Sources */,
+				2A27FC061CAF85190067F9A4 /* PopoverViewController.m in Sources */,
 				2AD174861C4D7B1200AFB560 /* REDReadFactory.m in Sources */,
 				2AD174821C4D79BD00AFB560 /* REDRead.m in Sources */,
 				2A4597711C6199EE0010D135 /* REDRLMDefaultDataAccessObject.m in Sources */,

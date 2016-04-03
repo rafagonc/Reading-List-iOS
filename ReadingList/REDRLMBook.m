@@ -39,6 +39,9 @@
     if (self.pagesValue == 0) return NO;
     return self.pagesReadValue == self.pagesValue;
 }
+-(BOOL)hasRate {
+    return self.rate > 0;
+}
 
 #pragma mark - override
 +(NSArray<NSString *> *)ignoredProperties {

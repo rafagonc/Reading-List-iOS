@@ -20,6 +20,7 @@
 -(void)setCategory:(id<REDCategoryProtocol>)category;
 -(id<REDCategoryProtocol>)category;
 -(id<REDAuthorProtocol>)author;
+-(BOOL)hasRate;
 
 #pragma mark - properties
 @property (nonatomic) UIImage * coverImage;

@@ -13,6 +13,7 @@
 @protocol REDPageProgressCellDelegate <NSObject>
 
 -(void)pageProgressCell:(REDPageProgressCell *)cell tryingToSetPagesWhileIsZeroForBook:(id<REDBookProtocol>)book;
+-(void)pageProgressCell:(REDPageProgressCell *)cell didCompleteBookReading:(id<REDBookProtocol>)book;
 
 @end
 

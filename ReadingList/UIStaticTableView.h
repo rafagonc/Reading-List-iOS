@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UIStaticTableViewCellCustomizationProtocol <NSObject>
+
+-(CGFloat)height;
+
+@end
+
 
 @interface UIStaticTableViewSection : NSObject
 

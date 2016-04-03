@@ -10,6 +10,7 @@
 #import "UITextField+DoneButton.h"
 #import "UIImage+Blur.h"
 #import "REDValidator.h"
+#import "UIFont+ReadingList.h"
 
 @interface REDBookHeaderCell ()
 
@@ -21,8 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 
 #pragma mark - injected
-@property (setter=injected_name:,readonly) id<REDValidator> bookNameValidator;
-@property (setter=injected_author:,readonly) id<REDValidator> authorValidator;
+@property (setter=injected_name:) id<REDValidator> bookNameValidator;
+@property (setter=injected_author:) id<REDValidator> authorValidator;
+
+#pragma mark - properties
+@property (nonatomic,assign) BOOL snippetOpen;
 
 
 @end
@@ -41,6 +45,9 @@
         self.shadowView.layer.shadowRadius = 20.f;
         self.shadowView.layer.shadowOpacity = 0.6;
         self.shadowView.layer.shadowOffset = CGSizeMake(0, 30);
+        
+        [self.descriptionTextView setText:@"Click to open description"];
+        [self.descriptionTextView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedSnippet:)]];
     } return self;
 }
 
@@ -64,7 +71,6 @@
 }
 -(void)setSnippet:(NSString *)snippet {
     _snippet = snippet;
-    [self.descriptionTextView setText:snippet];
 }
 -(void)setIsLoading:(BOOL)isLoading {
     _isLoading = isLoading;
@@ -73,6 +79,24 @@
     } else {
         [self.activityIndicator stopAnimating];
     }
+}
+-(void)setSnippetOpen:(BOOL)snippetOpen {
+    _snippetOpen = snippetOpen;
+    if (!snippetOpen) {
+        if (self.snippet) {
+            [self.descriptionTextView setText:@"Click to open description"];
+        } else {
+            [self.descriptionTextView setText:@"No description Avaliable"];
+        }
+    } else {
+        [self.descriptionTextView setText:self.snippet];
+    }
+}
+
+#pragma mark - actions
+-(void)tappedSnippet:(UITapGestureRecognizer *)tap {
+    self.snippetOpen = !self.snippetOpen;
+    [self.delegate didSelectSnippetTextViewInBookHeaderCell:self];
 }
 
 #pragma mark - chain of responsiblity
@@ -86,6 +110,15 @@
     return YES;
 }
 
+#pragma mark - height
+-(CGFloat)height {
+    if (self.snippetOpen) {
+        return MAX([self.snippet boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont AvenirNextRegularWithSize:15.0f]} context:nil].size.height + self.descriptionTextView.frame.origin.y, 235);
+    } else {
+        return 235;
+    }
+}
+
 #pragma mark - actions
 -(IBAction)authorAction:(id)sender {
     [self.delegate didSelectAuthorInBookHeaderCell:self];
@@ -93,4 +126,5 @@
 -(IBAction)coverAction:(id)sender {
     [self.delegate didSelectCoverInBookHeaderCell:self];
 }
+
 @end

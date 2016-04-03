@@ -62,6 +62,9 @@
 #pragma mark - Table View Delegate And Datasource
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[self.sections[indexPath.section] cells] objectAtIndex:indexPath.row];
+    if ([cell conformsToProtocol:@protocol(UIStaticTableViewCellCustomizationProtocol)]) {
+        return [(id<UIStaticTableViewCellCustomizationProtocol>)cell height];
+    }
     return cell.frame.size.height;
     
 }

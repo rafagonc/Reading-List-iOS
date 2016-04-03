@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *ratingView;
 
 #pragma mark - injected
-@property (setter=injected_pages:,readonly) id<REDValidator> pagesValidator;
+@property (setter=injected_pages:) id<REDValidator> pagesValidator;
 
 #pragma mark - properties
 @property (nonatomic,assign) NSUInteger pagedReadInitialValue;
@@ -86,6 +86,9 @@
     if ((NSUInteger)slider.value - (NSUInteger)self.pagedReadInitialValue > 0)
     self.diff = (NSUInteger)slider.value - (NSUInteger)self.pagedReadInitialValue;
     [self setPagesRead:slider.value];
+    if (self.pagesRead == self.pages && self.pages > 0) {
+        [self.delegate pageProgressCell:self didCompleteBookReading:self.book];
+    }
 }
 
 #pragma mark - text field delegate

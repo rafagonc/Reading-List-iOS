@@ -29,6 +29,7 @@
 #import "REDCloudDataStack.h"
 #import "REDBookUploaderProtocol.h"
 #import "REDReadFactoryProtocol.h"
+#import "PleaseRateViewController.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -52,8 +53,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (nonatomic,  weak) IBOutlet UILabel *quoteLabel;
 
 #pragma mark - injected
-@property (setter=injected_name:,readonly) id<REDValidator> bookNameValidator;
-@property (setter=injected_author:,readonly) id<REDValidator> authorValidator;
+@property (setter=injected_name:) id<REDValidator> bookNameValidator;
+@property (setter=injected_author:) id<REDValidator> authorValidator;
 @property (setter=injected:) id<REDBookUploaderProtocol> bookUploader;
 @property (setter=injected:) id<REDTransactionManager> transactionManager;
 @property (setter=injected:) id<REDReadFactoryProtocol> readFactory;;
@@ -213,11 +214,22 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     };
     [self.navigationController pushViewController:authorViewController animated:YES];
 }
+-(void)didSelectSnippetTextViewInBookHeaderCell:(REDBookHeaderCell *)headerCell {
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.tableView reloadData];
+    }];
+}
 -(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
     [self.progressCell setPages:pages];
 }
 -(void)pageProgressCell:(REDPageProgressCell *)cell tryingToSetPagesWhileIsZeroForBook:(id<REDBookProtocol>)book {
     [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the pages before reading it!"];
+}
+-(void)pageProgressCell:(REDPageProgressCell *)cell didCompleteBookReading:(id<REDBookProtocol>)book {
+    if ([self.book hasRate] == NO) {
+        PleaseRateViewController *rateViewController = [[PleaseRateViewController alloc] initWithBook:self.book];
+        [self presentViewController:rateViewController animated:YES completion:nil];
+    }
 }
 
 #pragma mark - query description
