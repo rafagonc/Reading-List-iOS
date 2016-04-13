@@ -14,6 +14,7 @@ pod 'UIAlertView+Blocks'
 pod 'UIActionSheet+Blocks'
 pod 'NSDate-Escort'
 pod 'Realm'
+pod "RFRateMe", "~> 1.0.0"
 
 end
 

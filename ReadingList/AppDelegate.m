@@ -19,6 +19,7 @@
 #import "REDLocalMigrationHandler.h"
 #import "REDUserViewController.h"
 #import "REDLocalToRealm.h"
+#import "RFRateMe.h"
 
 @interface AppDelegate ()
 
@@ -33,6 +34,7 @@
     [REDDepedencyInjection registerImplementations];
     [[[REDLocalToRealm alloc] init] migrateToRealm];
     [REDStaticData craateStaticData];
+    [RFRateMe showRateAlertAfterTimesOpened:15];
     
     REDBookListViewController *bookList = [[REDBookListViewController alloc] init];
     REDRecommendedBooksViewController *reccomendedBooks = [[REDRecommendedBooksViewController alloc] init];

@@ -2769,7 +2769,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "96c92318-496c-4c65-83c9-f938b3f656e9";
+				PROVISIONING_PROFILE = "c5b4d277-a40a-4d10-84ab-862263911133";
 			};
 			name = Debug;
 		};
