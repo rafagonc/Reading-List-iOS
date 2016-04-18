@@ -59,6 +59,11 @@
 #import "REDRealm.h"
 #import "REDTransactionManager.h"
 #import "REDAuthorNameValidator.h"
+#import "REDTopRatedDictionary2ModelFactory.h"
+#import "REDRequestFeature.h"
+#import "REDRequestFeatureImpl.h"
+#import "REDBookQueryService.h"
+#import "REDBookQueryServiceImpl.h"
 
 @implementation REDDepedencyInjection
 
@@ -82,6 +87,8 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookRatingUploader sharedUploader] forProtocol:@protocol(REDBookUploaderProtocol) context:nil];
     
     //factories
+    [[DPRegistry sharedRegistry] registerImplementation:[REDTopRatedDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"topRated"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleImageDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleImage"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleImageDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleImage"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleBooksFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleBooks"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDReadFactory class] forProtocol:@protocol(REDReadFactoryProtocol) context:nil];
@@ -103,6 +110,8 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorNameValidator class] forProtocol:@protocol(REDValidator) context:@"authorName"];
 
     //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDBookQueryServiceImpl class] forProtocol:@protocol(REDBookQueryService) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRequestFeatureImpl class] forProtocol:@protocol(REDRequestFeature) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDPhotoPickerPresenter class] forProtocol:@protocol(REDPhotoPickerPresenterProtocol) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRLMResultsToNSArray class] forProtocol:@protocol(REDRLMArrayHelper) context:nil];

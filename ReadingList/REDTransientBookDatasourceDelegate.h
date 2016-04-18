@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "REDDatasourceProtocol.h"
 #import "REDTransientBook.h"
+#import "REDTopRatedBook.h"
 
 @protocol REDTransientBookDatasourceDelegate <NSObject>
 
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToAddTransientBook:(REDTransientBook *)transientBook;
+-(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutTopRatedBook:(id<REDTopRatedBook>)book;
 
 @end

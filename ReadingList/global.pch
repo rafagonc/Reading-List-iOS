@@ -13,5 +13,7 @@
 
 static NSString *const REDErrorDomain = @"com.rafa.gonc.ReadingList";
 static NSString *const REDShowedNewFeaturesKey = @"com.rafa.gonc.ReadingList";
+static NSString * const REDRecommendedBooksViewControllerTopRatedKey = @"REDRecommendedBooksViewControllerTopRatedKey";
+static NSString * const REDRecommendedBooksViewControllerSearchKey = @"REDRecommendedBooksViewControllerSearchKey";
 
 #endif /* global_pch */

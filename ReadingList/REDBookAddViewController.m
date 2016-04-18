@@ -215,9 +215,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self.navigationController pushViewController:authorViewController animated:YES];
 }
 -(void)didSelectSnippetTextViewInBookHeaderCell:(REDBookHeaderCell *)headerCell {
-    [UIView animateWithDuration:0.5 animations:^{
-        [self.tableView reloadData];
-    }];
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
 }
 -(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
     [self.progressCell setPages:pages];

@@ -11,8 +11,7 @@
 @protocol REDDatasourceProtocol <UITableViewDelegate, UITableViewDataSource>
 
 #pragma mark - properties
-@property (nonatomic,copy) NSArray *data;
-
+@property (nonatomic,copy) id data;
 @property (nonatomic,weak) id delegate;
 
 @end
