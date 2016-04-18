@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
+#import "REDTopRatedBook.h"
 
 @interface REDTopRatedBookImpl : NSObject
+
+<REDTopRatedBook>
 
 @property (nonatomic,strong) NSString *bookName;
 @property (nonatomic,strong) NSString *authorName;

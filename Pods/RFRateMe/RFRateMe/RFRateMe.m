@@ -8,8 +8,10 @@
 
 #import "RFRateMe.h"
 #import "UIAlertView+NSCookbook.h"
-#import "Constants.h"
 
+#define kNumberOfDaysUntilShowAgain 7
+#define kAppName @"Reading List"
+#define kAppStoreAddress @"https://itunes.apple.com/us/app/reading-list-keep-track-your/id1050466668?ls=1&mt=8"
 
 @implementation RFRateMe
 

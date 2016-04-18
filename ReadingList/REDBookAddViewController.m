@@ -29,6 +29,7 @@
 #import "REDCloudDataStack.h"
 #import "REDBookUploaderProtocol.h"
 #import "REDReadFactoryProtocol.h"
+#import "REDTopRatedBook.h"
 #import "PleaseRateViewController.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
@@ -74,7 +75,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 }
 -(instancetype)initWithBook:(id<REDBookProtocol>)book {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
-        if ([book isKindOfClass:[REDTransientBook class]]) {
+        if ([book isKindOfClass:[REDTransientBook class]] || [book conformsToProtocol:@protocol(REDTopRatedBook)]) {
             self.book = [self.bookDataAccessObject create];
             self.actionType = REDBookAddViewControllerActionTypeTransientBook;
             self.transientBook = book;
