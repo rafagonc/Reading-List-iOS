@@ -102,6 +102,8 @@
 		2A6602051CC431A300B6D835 /* REDTopRatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6602041CC431A300B6D835 /* REDTopRatedCell.xib */; };
 		2A6602091CC443E300B6D835 /* REDRequestFeatureImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6602081CC443E300B6D835 /* REDRequestFeatureImpl.m */; };
 		2A6602101CC451B500B6D835 /* REDBookQueryServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A66020F1CC451B500B6D835 /* REDBookQueryServiceImpl.m */; };
+		2A6602481CCDF47900B6D835 /* REDSyncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6602471CCDF47900B6D835 /* REDSyncView.m */; };
+		2A66024A1CCDF48000B6D835 /* REDSyncView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6602491CCDF48000B6D835 /* REDSyncView.xib */; };
 		2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBAE1BCD50B7005F5E74 /* main.m */; };
 		2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */; };
 		2A74EBBD1BCD50B8005F5E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A74EBBC1BCD50B8005F5E74 /* Assets.xcassets */; };
@@ -389,6 +391,9 @@
 		2A66020E1CC451B500B6D835 /* REDBookQueryServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookQueryServiceImpl.h; sourceTree = "<group>"; };
 		2A66020F1CC451B500B6D835 /* REDBookQueryServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookQueryServiceImpl.m; sourceTree = "<group>"; };
 		2A6602111CC451CD00B6D835 /* REDBookQueryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookQueryService.h; sourceTree = "<group>"; };
+		2A6602461CCDF47900B6D835 /* REDSyncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDSyncView.h; sourceTree = "<group>"; };
+		2A6602471CCDF47900B6D835 /* REDSyncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDSyncView.m; sourceTree = "<group>"; };
+		2A6602491CCDF48000B6D835 /* REDSyncView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDSyncView.xib; sourceTree = "<group>"; };
 		2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74EBAE1BCD50B7005F5E74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A74EBB01BCD50B7005F5E74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -915,6 +920,7 @@
 				2ADCC09D1BD2D283009F638A /* Notification View */,
 				2A19B8B81BCDC0CF009C8F25 /* Static Table View */,
 				2A2A1E551BD3042A00677868 /* No Action Text Field */,
+				2A6602451CCDF42A00B6D835 /* Sync View */,
 				2A1FF5AE1C56831500520949 /* User View */,
 				2AFD3C4A1C5931F50003C423 /* Total Pages View */,
 				2AFD3C4F1C59321B0003C423 /* User Scroll View */,
@@ -1265,6 +1271,16 @@
 				2A6602131CC453CD00B6D835 /* Abstract */,
 			);
 			name = "Query Service";
+			sourceTree = "<group>";
+		};
+		2A6602451CCDF42A00B6D835 /* Sync View */ = {
+			isa = PBXGroup;
+			children = (
+				2A6602461CCDF47900B6D835 /* REDSyncView.h */,
+				2A6602471CCDF47900B6D835 /* REDSyncView.m */,
+				2A6602491CCDF48000B6D835 /* REDSyncView.xib */,
+			);
+			name = "Sync View";
 			sourceTree = "<group>";
 		};
 		2A74EBA11BCD50B7005F5E74 = {
@@ -2450,6 +2466,7 @@
 				2A74EBC01BCD50B8005F5E74 /* LaunchScreen.storyboard in Resources */,
 				2A19B8B31BCDBE94009C8F25 /* REDBookAddViewController.xib in Resources */,
 				2A74EBBD1BCD50B8005F5E74 /* Assets.xcassets in Resources */,
+				2A66024A1CCDF48000B6D835 /* REDSyncView.xib in Resources */,
 				2A74EC3C1BCDF489005F5E74 /* REDBookPagesCell.xib in Resources */,
 				2A77C0C01C2E2ED400E21551 /* REDTransientBookCell.xib in Resources */,
 				2ADA28691C5995310068CCAC /* REDChooseBookCell.xib in Resources */,
@@ -2744,6 +2761,7 @@
 				2A74EBF41BCD57BD005F5E74 /* REDDataStack.m in Sources */,
 				2A74EC721BD0957D005F5E74 /* REDAuthorCreateViewController.m in Sources */,
 				2ADA28751C59AD8B0068CCAC /* REDChooseDateCell.m in Sources */,
+				2A6602481CCDF47900B6D835 /* REDSyncView.m in Sources */,
 				2A74EC631BD08FAD005F5E74 /* _REDAuthor.m in Sources */,
 				2A4597621C6192500010D135 /* REDRLMBook.m in Sources */,
 				2A74EC4F1BCE3FAA005F5E74 /* REDStaticData.m in Sources */,

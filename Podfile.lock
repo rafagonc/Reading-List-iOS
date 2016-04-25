@@ -21,7 +21,10 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Depend (0.1.3)
+  - Digits (2.0.2):
+    - TwitterCore (= 2.0.2)
   - EDStarRating (1.1)
+  - Fabric (1.6.7)
   - LLARingSpinnerView (0.1.3)
   - NSDate-Escort (1.7.0)
   - OCMock (3.2.2)
@@ -32,12 +35,15 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - TwitterCore (2.0.2):
+    - Fabric
   - UIActionSheet+Blocks (0.9)
   - UIAlertView+Blocks (0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - Depend
+  - Digits
   - EDStarRating
   - LLARingSpinnerView
   - NSDate-Escort
@@ -52,13 +58,16 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Depend: 3626f36923415485bedcfad4ae21f07151727aad
+  Digits: a5c8ddfed18d5e0496e9b6f459f0bca44de588db
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   LLARingSpinnerView: d5f9057460e97989aff1c52a247c6acb62b8d883
   NSDate-Escort: 3469fefab423c094108c2e864416b61b6ac0edbc
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
   RFRateMe: 07fbc459799535254db3bd221e930817e8c8ffff
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
