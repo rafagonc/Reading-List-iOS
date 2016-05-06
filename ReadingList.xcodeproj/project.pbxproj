@@ -214,6 +214,13 @@
 		441701F51C764C560076F9C7 /* new.txt in Resources */ = {isa = PBXBuildFile; fileRef = 441701F41C764C560076F9C7 /* new.txt */; };
 		443AE2131C9342FE00D926F5 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443AE2121C9342FE00D926F5 /* HCSStarRatingView.m */; };
 		445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 445786981C74AF900029355D /* REDDateChart+Interaction.m */; };
+		44A7876B1CDBC4DC0038ED4A /* REDLocalBookRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7876A1CDBC4DC0038ED4A /* REDLocalBookRepository.m */; };
+		44A7876E1CDBC4E90038ED4A /* REDSyncBookRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7876D1CDBC4E90038ED4A /* REDSyncBookRepository.m */; };
+		44A787761CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A787751CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m */; };
+		44A7877B1CDBD7440038ED4A /* REDCreateBookRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7877A1CDBD7440038ED4A /* REDCreateBookRequest.m */; };
+		44A787821CDBD76B0038ED4A /* REDRemoveBookRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A787811CDBD76B0038ED4A /* REDRemoveBookRequest.m */; };
+		44A787861CDBD77A0038ED4A /* REDUpdateBookRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A787851CDBD77A0038ED4A /* REDUpdateBookRequest.m */; };
+		44A7878A1CDBD7900038ED4A /* REDListBooksRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A787891CDBD7900038ED4A /* REDListBooksRequest.m */; };
 		44AF20941C76255200F6FC48 /* REDLogSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */; };
 		44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */; };
 		CC3172322892F3A347775881 /* libPods-ReadingListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */; };
@@ -620,6 +627,22 @@
 		445786971C74AF900029355D /* REDDateChart+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REDDateChart+Interaction.h"; sourceTree = "<group>"; };
 		445786981C74AF900029355D /* REDDateChart+Interaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "REDDateChart+Interaction.m"; sourceTree = "<group>"; };
 		4457869A1C74F7300029355D /* REDDateChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChartDelegate.h; sourceTree = "<group>"; };
+		44A787681CDBC4AD0038ED4A /* REDBookRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRepository.h; sourceTree = "<group>"; };
+		44A787691CDBC4DC0038ED4A /* REDLocalBookRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalBookRepository.h; sourceTree = "<group>"; };
+		44A7876A1CDBC4DC0038ED4A /* REDLocalBookRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLocalBookRepository.m; sourceTree = "<group>"; };
+		44A7876C1CDBC4E90038ED4A /* REDSyncBookRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDSyncBookRepository.h; sourceTree = "<group>"; };
+		44A7876D1CDBC4E90038ED4A /* REDSyncBookRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDSyncBookRepository.m; sourceTree = "<group>"; };
+		44A787741CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRepositoryFactoryImpl.h; sourceTree = "<group>"; };
+		44A787751CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRepositoryFactoryImpl.m; sourceTree = "<group>"; };
+		44A787781CDBCCBD0038ED4A /* REDBookRepositoryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRepositoryFactory.h; sourceTree = "<group>"; };
+		44A787791CDBD7440038ED4A /* REDCreateBookRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCreateBookRequest.h; sourceTree = "<group>"; };
+		44A7877A1CDBD7440038ED4A /* REDCreateBookRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCreateBookRequest.m; sourceTree = "<group>"; };
+		44A787801CDBD76B0038ED4A /* REDRemoveBookRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRemoveBookRequest.h; sourceTree = "<group>"; };
+		44A787811CDBD76B0038ED4A /* REDRemoveBookRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRemoveBookRequest.m; sourceTree = "<group>"; };
+		44A787841CDBD77A0038ED4A /* REDUpdateBookRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUpdateBookRequest.h; sourceTree = "<group>"; };
+		44A787851CDBD77A0038ED4A /* REDUpdateBookRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUpdateBookRequest.m; sourceTree = "<group>"; };
+		44A787881CDBD7900038ED4A /* REDListBooksRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDListBooksRequest.h; sourceTree = "<group>"; };
+		44A787891CDBD7900038ED4A /* REDListBooksRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDListBooksRequest.m; sourceTree = "<group>"; };
 		44AF20921C76255200F6FC48 /* REDLogSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLogSummaryViewController.h; sourceTree = "<group>"; };
 		44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLogSummaryViewController.m; sourceTree = "<group>"; };
 		44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDLogSummaryViewController.xib; sourceTree = "<group>"; };
@@ -717,6 +740,7 @@
 				2ADCC0541BD1FB93009F638A /* HTTP Request Factory */,
 				2A74EC931BD0A8C8005F5E74 /* Service Call Factory */,
 				2AD174881C4D7B1C00AFB560 /* Read Factory */,
+				44A787771CDBCC780038ED4A /* Book Repository Factory */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -1600,11 +1624,8 @@
 		2A74EC811BD0A85D005F5E74 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2ADCC0581BD1FC5A009F638A /* HTTP Request */,
-				2ADCC0501BD1FB59009F638A /* Response */,
-				2A74EC831BD0A882005F5E74 /* Request */,
-				2A74EC8A1BD0A89C005F5E74 /* Service Call */,
-				2A74EC941BD0A904005F5E74 /* Service Dispatcher */,
+				44A787651CDBC45F0038ED4A /* Repository */,
+				44A787661CDBC4690038ED4A /* Service Layer */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -2170,6 +2191,7 @@
 		2ADCC0811BD1FEE6009F638A /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
+				44A7878C1CDBD7CE0038ED4A /* Book */,
 				2ADCC0801BD1FEE0009F638A /* Image Search */,
 				2A77C0A21C2E188300E21551 /* Google Books Search */,
 				2A23ABDC1C47501900E48BF6 /* Book Rating Request */,
@@ -2344,6 +2366,127 @@
 				441701F01C7648FB0076F9C7 /* REDNewViewController.xib */,
 			);
 			name = "New View Controller";
+			sourceTree = "<group>";
+		};
+		44A787651CDBC45F0038ED4A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				44A787731CDBC5040038ED4A /* Book */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
+		44A787661CDBC4690038ED4A /* Service Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2ADCC0581BD1FC5A009F638A /* HTTP Request */,
+				2ADCC0501BD1FB59009F638A /* Response */,
+				2A74EC831BD0A882005F5E74 /* Request */,
+				2A74EC8A1BD0A89C005F5E74 /* Service Call */,
+				2A74EC941BD0A904005F5E74 /* Service Dispatcher */,
+			);
+			name = "Service Layer";
+			sourceTree = "<group>";
+		};
+		44A787671CDBC4810038ED4A /* Create Book */ = {
+			isa = PBXGroup;
+			children = (
+				44A787791CDBD7440038ED4A /* REDCreateBookRequest.h */,
+				44A7877A1CDBD7440038ED4A /* REDCreateBookRequest.m */,
+			);
+			name = "Create Book";
+			sourceTree = "<group>";
+		};
+		44A7876F1CDBC4ED0038ED4A /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				44A787681CDBC4AD0038ED4A /* REDBookRepository.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		44A787701CDBC4F50038ED4A /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				44A787691CDBC4DC0038ED4A /* REDLocalBookRepository.h */,
+				44A7876A1CDBC4DC0038ED4A /* REDLocalBookRepository.m */,
+			);
+			name = Local;
+			sourceTree = "<group>";
+		};
+		44A787711CDBC4FC0038ED4A /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				44A7876C1CDBC4E90038ED4A /* REDSyncBookRepository.h */,
+				44A7876D1CDBC4E90038ED4A /* REDSyncBookRepository.m */,
+			);
+			name = Sync;
+			sourceTree = "<group>";
+		};
+		44A787721CDBC5000038ED4A /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				44A787701CDBC4F50038ED4A /* Local */,
+				44A787711CDBC4FC0038ED4A /* Sync */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		44A787731CDBC5040038ED4A /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				44A7876F1CDBC4ED0038ED4A /* Abstract */,
+				44A787721CDBC5000038ED4A /* Concrete */,
+			);
+			name = Book;
+			sourceTree = "<group>";
+		};
+		44A787771CDBCC780038ED4A /* Book Repository Factory */ = {
+			isa = PBXGroup;
+			children = (
+				44A787741CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.h */,
+				44A787751CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m */,
+				44A787781CDBCCBD0038ED4A /* REDBookRepositoryFactory.h */,
+			);
+			name = "Book Repository Factory";
+			sourceTree = "<group>";
+		};
+		44A787831CDBD76E0038ED4A /* Remove Request */ = {
+			isa = PBXGroup;
+			children = (
+				44A787801CDBD76B0038ED4A /* REDRemoveBookRequest.h */,
+				44A787811CDBD76B0038ED4A /* REDRemoveBookRequest.m */,
+			);
+			name = "Remove Request";
+			sourceTree = "<group>";
+		};
+		44A787871CDBD7810038ED4A /* Update Request */ = {
+			isa = PBXGroup;
+			children = (
+				44A787841CDBD77A0038ED4A /* REDUpdateBookRequest.h */,
+				44A787851CDBD77A0038ED4A /* REDUpdateBookRequest.m */,
+			);
+			name = "Update Request";
+			sourceTree = "<group>";
+		};
+		44A7878B1CDBD7930038ED4A /* List Req/uest */ = {
+			isa = PBXGroup;
+			children = (
+				44A787881CDBD7900038ED4A /* REDListBooksRequest.h */,
+				44A787891CDBD7900038ED4A /* REDListBooksRequest.m */,
+			);
+			name = "List Req/uest";
+			sourceTree = "<group>";
+		};
+		44A7878C1CDBD7CE0038ED4A /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				44A7878B1CDBD7930038ED4A /* List Req/uest */,
+				44A787871CDBD7810038ED4A /* Update Request */,
+				44A787831CDBD76E0038ED4A /* Remove Request */,
+				44A787671CDBC4810038ED4A /* Create Book */,
+			);
+			name = Book;
 			sourceTree = "<group>";
 		};
 		44AF20971C7628EA00F6FC48 /* Log Summary View Controller */ = {
@@ -2678,6 +2821,7 @@
 				2A1FF5C41C56DEE500520949 /* REDCategoryValidator.m in Sources */,
 				2A1632E71C59148C0015F06E /* ReadingList.xcdatamodeld in Sources */,
 				2A6601F11CC2FA2100B6D835 /* REDTopRatedBookImpl.m in Sources */,
+				44A787821CDBD76B0038ED4A /* REDRemoveBookRequest.m in Sources */,
 				2ADCC08C1BD2069C009F638A /* REDGoogleImageSearchCell.m in Sources */,
 				2A7DA3841C10132800B179D0 /* NSDictionary+Validation.m in Sources */,
 				2A4597651C6192560010D135 /* REDRLMCategory.m in Sources */,
@@ -2710,6 +2854,7 @@
 				2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */,
 				2A77C08F1C2DD74000E21551 /* REDDefaultDataAccessObject.m in Sources */,
 				2A1632EA1C592E320015F06E /* REDUserDataAccessObjectImpl.m in Sources */,
+				44A7877B1CDBD7440038ED4A /* REDCreateBookRequest.m in Sources */,
 				2A77C0861C2DD51A00E21551 /* REDTabBarCustomizer.m in Sources */,
 				2A218FBE1C57DA6D00D5D6FA /* REDAddLogViewController.m in Sources */,
 				2A74EC6D1BD09119005F5E74 /* REDAuthorDatasource.m in Sources */,
@@ -2725,6 +2870,7 @@
 				2ADCC0AA1BD2D36E009F638A /* SHLoadingView.m in Sources */,
 				2A4597831C62EDDA0010D135 /* REDRLMResultsToNSArray.m in Sources */,
 				2A6602031CC4319D00B6D835 /* REDTopRatedCell.m in Sources */,
+				44A7876E1CDBC4E90038ED4A /* REDSyncBookRepository.m in Sources */,
 				2A74EC231BCDE656005F5E74 /* UITextField+DoneButton.m in Sources */,
 				2A74EC091BCD59B8005F5E74 /* REDCategory.m in Sources */,
 				2A1FF5BE1C56DED100520949 /* REDBookNameValidator.m in Sources */,
@@ -2760,6 +2906,7 @@
 				2A23ABDB1C47501500E48BF6 /* REDBookRatingRequest.m in Sources */,
 				2A74EBF41BCD57BD005F5E74 /* REDDataStack.m in Sources */,
 				2A74EC721BD0957D005F5E74 /* REDAuthorCreateViewController.m in Sources */,
+				44A787761CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m in Sources */,
 				2ADA28751C59AD8B0068CCAC /* REDChooseDateCell.m in Sources */,
 				2A6602481CCDF47900B6D835 /* REDSyncView.m in Sources */,
 				2A74EC631BD08FAD005F5E74 /* _REDAuthor.m in Sources */,
@@ -2774,6 +2921,7 @@
 				2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */,
 				2ADCC0631BD1FC84009F638A /* REDPOSTHTTPRequest.m in Sources */,
 				2ADCC0851BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m in Sources */,
+				44A7878A1CDBD7900038ED4A /* REDListBooksRequest.m in Sources */,
 				2A45978D1C63998F0010D135 /* REDRealm.m in Sources */,
 				2A19B89D1BCDB707009C8F25 /* REDDepedencyInjection.m in Sources */,
 				2AECF4C71C447910007BA281 /* UIImage+Blur.m in Sources */,
@@ -2784,7 +2932,9 @@
 				2A1FF5B81C568C9600520949 /* REDLogCell.m in Sources */,
 				2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */,
 				2A74EC861BD0A891005F5E74 /* REDImageSearchRequest.m in Sources */,
+				44A787861CDBD77A0038ED4A /* REDUpdateBookRequest.m in Sources */,
 				2A9979531C5A733200DBEABB /* REDChartViewController.m in Sources */,
+				44A7876B1CDBC4DC0038ED4A /* REDLocalBookRepository.m in Sources */,
 				2ADA28681C5995310068CCAC /* REDChooseBookCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2929,6 +3079,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = ReadingList/global.pch;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = ReadingList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2952,6 +3104,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = ReadingList/global.pch;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				INFOPLIST_FILE = ReadingList/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

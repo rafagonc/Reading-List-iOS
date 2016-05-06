@@ -21,6 +21,7 @@
 #import "REDLocalToRealm.h"
 #import "RFRateMe.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -29,7 +30,7 @@
 
 #pragma mark - Application Delegate
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Fabric with:@[[Crashlytics class]]];
+//    [Fabric with:@[[Crashlytics class]]];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
     [[[REDLocalToRealm alloc] init] migrateToRealm];
