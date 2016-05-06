@@ -26,5 +26,8 @@
 -(REDSerializer)Serializer {
     return REDJSONSerializer;
 }
+-(BOOL)isSyncingRequest {
+    return NO;
+}
 
 @end

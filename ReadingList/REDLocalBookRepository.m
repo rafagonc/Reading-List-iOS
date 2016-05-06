@@ -30,7 +30,7 @@
 }
 -(void)listForUser:(id<REDUserProtocol>)user callback:(REDBookRepositoryListCallback)callback error:(REDErrorCallback)errorCallback {
     @try {
-        callback([self.bookDataAccessObject list]);
+        callback([self.bookDataAccessObject allBooksSorted]);
     } @catch (NSException *exception) {
         errorCallback([exception reason]);
     }

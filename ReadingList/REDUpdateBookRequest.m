@@ -26,13 +26,22 @@
     return @{};
 }
 -(NSDictionary *)HTTPEncode {
-    return @{};
+    return @{@"user_id" : self.userId,
+             @"book_name" : [self.book name],
+             @"author_name" : [[self.book author] name],
+             @"category_name" : [[self.book category] name],
+             @"pages" : @([self.book pagesValue]),
+             @"pages_read" : @([self.book pagesReadValue]),
+             @"snippet" : @"dasdasdas"};
 }
 -(REDSerializer)Serializer {
     return REDJSONSerializer;
 }
 -(NSString *)URL {
     return nil;
+}
+-(BOOL)isSyncingRequest {
+    return YES;
 }
 
 

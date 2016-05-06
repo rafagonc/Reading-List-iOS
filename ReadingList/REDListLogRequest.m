@@ -1,14 +1,14 @@
 //
-//  REDListBooksRequest.m
+//  REDListLogRequest.m
 //  ReadingList
 //
-//  Created by Banco Santander Brasil on 5/5/16.
+//  Created by Banco Santander Brasil on 5/6/16.
 //  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDListBooksRequest.h"
+#import "REDListLogRequest.h"
 
-@implementation REDListBooksRequest
+@implementation REDListLogRequest
 
 #pragma mark - constructor
 -(instancetype)initWithUserId:(NSString *)userId {
@@ -19,23 +19,19 @@
 
 #pragma mark - request
 -(REDHTTPMethod)HTTPMethod {
-    return REDHTTPMethodGET;
+    return REDHTTPMethodPOST;
 }
 -(NSDictionary *)HTTPEncode {
-    return @{@"user_id" : self.userId};
+    return @{};
+}
+-(BOOL)isSyncingRequest {
+    return YES;
 }
 -(NSDictionary *)HTTPHeader {
     return @{};
 }
--(REDSerializer)Serializer {
-    return REDJSONSerializer;
-}
 -(NSString *)URL {
-    return nil;
+    return @"";
 }
--(BOOL)isSyncingRequest {
-    return NO;
-}
-
 
 @end

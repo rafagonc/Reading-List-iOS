@@ -33,6 +33,9 @@
 -(NSString *)URL {
     return @"https://www.googleapis.com/books/v1/volumes";
 }
+-(BOOL)isSyncingRequest {
+    return NO;
+}
 
 
 @end

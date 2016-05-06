@@ -41,5 +41,8 @@
 -(NSString *)URL {
     return nil;
 }
+-(BOOL)isSyncingRequest {
+    return YES;
+}
 
 @end

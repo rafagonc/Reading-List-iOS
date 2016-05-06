@@ -23,6 +23,8 @@
 #import "UIImage+Blur.h"
 #import "REDChartViewController.h"
 #import "REDTransactionManager.h"
+#import "REDLogRepositoryFactory.h"
+#import "UIViewController+NotificationShow.h"
 
 @interface REDUserViewController () <REDLogDatasourceDelegate, REDUserViewDelegate>
 
@@ -39,6 +41,7 @@
 @property (setter=injected:) id<REDPhotoPickerPresenterProtocol> photoPicker;
 @property (setter=injected:) id<REDUserProtocol> user;
 @property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected:) id<REDLogRepositoryFactory> logRepositoryFactory;
 
 @end
 
@@ -68,7 +71,6 @@
     [self setBlurImageIfExists];
     
     //datasource
-    [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
     [self.datasource setDelegate:self];
     [self.tableView setDataSource:self.datasource];
     [self.tableView setDelegate:self.datasource];
@@ -100,7 +102,11 @@
 
 #pragma mark - methods
 -(void)updateData {
-    [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
+    [[self.logRepositoryFactory repository] listForUser:self.user callback:^(NSArray<id<REDReadProtocol>> *read) {
+        [self.datasource setData:read];
+    } error:^(NSError *error) {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error];
+    }];
     [self.tableView reloadData];
 }
 -(void)setBlurImageIfExists {
@@ -126,7 +132,11 @@
 
 #pragma mark - delegates
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id<REDReadProtocol>)read {
-    [self.userScrollView updateData];
+    [[self.logRepositoryFactory repository] removeForUser:self.user log:read callback:^(id<REDReadProtocol> read) {
+        [self.userScrollView updateData];
+    } error:^(NSError *error) {
+        
+    }];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
     REDBookAddViewController *bookViewController = [[REDBookAddViewController alloc] initWithBook:book];

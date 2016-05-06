@@ -66,6 +66,8 @@
 #import "REDBookQueryServiceImpl.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDBookRepositoryFactoryImpl.h"
+#import "REDLogRepositoryFactory.h"
+#import "REDLogRepositoryFactoryImpl.h"
 
 @implementation REDDepedencyInjection
 
@@ -112,6 +114,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorNameValidator class] forProtocol:@protocol(REDValidator) context:@"authorName"];
 
     //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDLogRepositoryFactoryImpl class] forProtocol:@protocol(REDLogRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookRepositoryFactoryImpl class] forProtocol:@protocol(REDBookRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookQueryServiceImpl class] forProtocol:@protocol(REDBookQueryService) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRequestFeatureImpl class] forProtocol:@protocol(REDRequestFeature) context:nil];

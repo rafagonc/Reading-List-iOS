@@ -20,9 +20,11 @@
 #import "REDUserViewController.h"
 #import "REDLocalToRealm.h"
 #import "RFRateMe.h"
-
+#import "REDServiceDispatcherProtocol.h"
 
 @interface AppDelegate ()
+
+@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 
@@ -52,6 +54,9 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+-(void)applicationDidBecomeActive:(UIApplication *)application {
+    [self.serviceDispatcher processUnprocessedRequestIfNeeded];
 }
 
 

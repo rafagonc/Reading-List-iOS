@@ -35,5 +35,8 @@
 -(NSString *)URL {
     return @"https://reading-list-prod.herokuapp.com/rating";
 }
+-(BOOL)isSyncingRequest {
+    return NO;
+}
 
 @end

@@ -11,5 +11,6 @@
 @protocol REDServiceDispatcherProtocol <NSObject>
 
 -(void)callWithRequest:(id<REDRequestProtocol>)request withTarget:(id)target andSelector:(SEL)selector;
+-(void)processUnprocessedRequestIfNeeded;
 
 @end
