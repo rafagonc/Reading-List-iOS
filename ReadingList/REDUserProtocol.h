@@ -15,10 +15,16 @@
 @property (nonatomic) UIImage * photo;
 @property (nonatomic) UIImage * cover;
 @property (nonatomic) NSDate * firstReadCreated;
+@property (nonatomic) NSString * authToken;
+@property (nonatomic) NSString * authTokenSecret;
+@property (nonatomic) NSString * userId;
 
 #pragma mark - helpers
 -(BOOL)hasName;
 -(BOOL)hasPhoto;
+
+#pragma mark - setters
+-(void)setAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)secret andUserId:(NSString *)userId;
 
 
 @end

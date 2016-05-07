@@ -17,5 +17,8 @@
 @property (nonatomic) NSDate   * firstReadCreated;
 @property (nonatomic) NSData   * coverData;
 @property (nonatomic) NSData   * photoData;
+@property (nonatomic) NSString * authTokenSecret;
+@property (nonatomic) NSString * userId; 
+@property (nonatomic) NSString * authToken;
 
 @end

@@ -150,6 +150,7 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
     }
     if (self.wait) dispatch_group_leave(services);
+    else [self stopFullLoading];
 }
 -(void)topRatedBooksResponse:(NSNotification *)notification {
     dispatch_group_leave(services);

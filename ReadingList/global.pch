@@ -11,6 +11,8 @@
 #ifndef global_pch
 #define global_pch
 
+#import "REDServerMetadata.h"
+
 static NSString *const REDErrorDomain = @"com.rafa.gonc.ReadingList";
 static NSString *const REDShowedNewFeaturesKey = @"com.rafa.gonc.ReadingList";
 static NSString * const REDRecommendedBooksViewControllerTopRatedKey = @"REDRecommendedBooksViewControllerTopRatedKey";

@@ -11,6 +11,8 @@
 @implementation REDTopRatedRequest
 
 -(NSString *)URL {
+    REDServiceFind(REDServerMetadata_V1, @"book/top");
+    NSLog(@"%@",REDServiceFind(REDServerMetadata_V1, @"book/top"));
     return @"https://reading-list-prod.herokuapp.com/book/top";
 }
 -(REDHTTPMethod)HTTPMethod {

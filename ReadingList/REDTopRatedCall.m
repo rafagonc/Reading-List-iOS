@@ -40,9 +40,7 @@
     NSDictionary *headers = @{ @"cache-control": @"no-cache",
                                @"postman-token": @"e26faa94-01e3-1078-e415-c38dd3554252" };
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://reading-list-prod.herokuapp.com/book/top"]
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:10.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",REDServiceFind(REDServerMetadata_V1, @"book/top")]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     [request setHTTPMethod:@"GET"];
     [request setAllHTTPHeaderFields:headers];
     

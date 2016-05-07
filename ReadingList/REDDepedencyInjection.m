@@ -64,13 +64,22 @@
 #import "REDRequestFeatureImpl.h"
 #import "REDBookQueryService.h"
 #import "REDBookQueryServiceImpl.h"
+#import "REDUserUpload.h"
+#import "REDUserUploadImpl.h"
+#import "REDRealmMigration.h"
+#import "REDRealmMigrationV2.h"
 
 @implementation REDDepedencyInjection
 
 +(void)registerImplementations {
     
+    //migration
+    [[DPRegistry sharedRegistry] registerImplementation:[[REDRealmMigrationV2 alloc] init] forProtocol:@protocol(REDRealmMigration) context:nil];
+
     //user
     [[DPRegistry sharedRegistry] registerImplementation:[[[REDRLMUserDataAccessObject alloc] init] user] forProtocol:@protocol(REDUserProtocol) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[[REDUserUploadImpl alloc] init] forProtocol:@protocol(REDUserUpload) context:nil];
+
     
     //datasources
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"book"];

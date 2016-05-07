@@ -10,12 +10,14 @@
 #import "REDUserScrollView.h"
 #import "REDUserView.h"
 #import "REDPagesInfoView.h"
+#import "REDSyncView.h"
 
 @interface REDUserScrollView () <UIScrollViewDelegate>
 
 #pragma mark - ui
 @property (nonatomic,weak) REDUserView *userView;
 @property (nonatomic,weak) REDPagesInfoView *pagesView;
+@property (nonatomic,weak) REDSyncView *syncView;
 
 #pragma mark - views
 @property (nonatomic,strong) NSMutableArray * scrollingSubviews;
@@ -37,6 +39,11 @@
     [self.scrollingSubviews addObject:userView];
     [self addSubview:userView];
     self.userView = userView;
+//    
+//    REDSyncView *syncView = [[REDSyncView alloc] init];
+//    [self.scrollingSubviews addObject:syncView];
+//    [self addSubview:syncView];
+//    [self setSyncView:syncView];
     
     REDPagesInfoView *pagesInfoView = [[REDPagesInfoView alloc] init];
     [self.scrollingSubviews addObject:pagesInfoView];
@@ -50,6 +57,9 @@
 }
 -(void)setUserViewDelegate:(id<REDUserViewDelegate>)userViewDelegate {
     self.userView.delegate = userViewDelegate;
+}
+-(void)setSyncViewDelegate:(id<REDSyncViewDelegate>)syncViewDelegate {
+    self.syncView.delegate = syncViewDelegate;
 }
 -(void)setPageControl:(UIPageControl *)pageControl {
     _pageControl = pageControl;

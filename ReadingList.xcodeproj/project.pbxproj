@@ -71,8 +71,6 @@
 		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; };
 		2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */; };
 		2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E531BD3042600677868 /* REDNoActionTextField.m */; };
-		2A2A1E591BD309BD00677868 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2A1E571BD309BD00677868 /* Fabric.framework */; };
-		2A2A1E5A1BD309BD00677868 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2A1E581BD309BD00677868 /* Crashlytics.framework */; };
 		2A44B8CC1C5C293300E09F5E /* REDCategoryValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */; };
 		2A44B8CE1C5C293A00E09F5E /* REDPagesValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */; };
 		2A44B8D01C5C294100E09F5E /* REDBookValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */; };
@@ -104,6 +102,12 @@
 		2A6602101CC451B500B6D835 /* REDBookQueryServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A66020F1CC451B500B6D835 /* REDBookQueryServiceImpl.m */; };
 		2A6602481CCDF47900B6D835 /* REDSyncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6602471CCDF47900B6D835 /* REDSyncView.m */; };
 		2A66024A1CCDF48000B6D835 /* REDSyncView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6602491CCDF48000B6D835 /* REDSyncView.xib */; };
+		2A66024E1CCDFB5F00B6D835 /* REDSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A66024C1CCDFB5F00B6D835 /* REDSignUpViewController.m */; };
+		2A66024F1CCDFB5F00B6D835 /* REDSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A66024D1CCDFB5F00B6D835 /* REDSignUpViewController.xib */; };
+		2A746DE51CD6ED5E0061F2B9 /* REDServerMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A746DE31CD6ED5E0061F2B9 /* REDServerMetadata.m */; };
+		2A746DE61CD6ED5E0061F2B9 /* REDServerMetadata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A746DE41CD6ED5E0061F2B9 /* REDServerMetadata.plist */; };
+		2A746DEA1CD6F0B50061F2B9 /* REDUserUploadImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A746DE91CD6F0B50061F2B9 /* REDUserUploadImpl.m */; };
+		2A746DF11CD707330061F2B9 /* REDRealmMigrationV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A746DF01CD707330061F2B9 /* REDRealmMigrationV2.m */; };
 		2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBAE1BCD50B7005F5E74 /* main.m */; };
 		2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A74EBB11BCD50B7005F5E74 /* AppDelegate.m */; };
 		2A74EBBD1BCD50B8005F5E74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A74EBBC1BCD50B8005F5E74 /* Assets.xcassets */; };
@@ -332,8 +336,6 @@
 		2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "romeo-and-juliet.jpg"; sourceTree = "<group>"; };
 		2A2A1E521BD3042600677868 /* REDNoActionTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNoActionTextField.h; sourceTree = "<group>"; };
 		2A2A1E531BD3042600677868 /* REDNoActionTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNoActionTextField.m; sourceTree = "<group>"; };
-		2A2A1E571BD309BD00677868 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		2A2A1E581BD309BD00677868 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCategoryValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPagesValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookValidatorTest.m; sourceTree = "<group>"; };
@@ -394,6 +396,18 @@
 		2A6602461CCDF47900B6D835 /* REDSyncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDSyncView.h; sourceTree = "<group>"; };
 		2A6602471CCDF47900B6D835 /* REDSyncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDSyncView.m; sourceTree = "<group>"; };
 		2A6602491CCDF48000B6D835 /* REDSyncView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDSyncView.xib; sourceTree = "<group>"; };
+		2A66024B1CCDFB5F00B6D835 /* REDSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDSignUpViewController.h; sourceTree = "<group>"; };
+		2A66024C1CCDFB5F00B6D835 /* REDSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDSignUpViewController.m; sourceTree = "<group>"; };
+		2A66024D1CCDFB5F00B6D835 /* REDSignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDSignUpViewController.xib; sourceTree = "<group>"; };
+		2A746DE21CD6ED5E0061F2B9 /* REDServerMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServerMetadata.h; sourceTree = "<group>"; };
+		2A746DE31CD6ED5E0061F2B9 /* REDServerMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDServerMetadata.m; sourceTree = "<group>"; };
+		2A746DE41CD6ED5E0061F2B9 /* REDServerMetadata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = REDServerMetadata.plist; sourceTree = "<group>"; };
+		2A746DE81CD6F0B50061F2B9 /* REDUserUploadImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserUploadImpl.h; sourceTree = "<group>"; };
+		2A746DE91CD6F0B50061F2B9 /* REDUserUploadImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUserUploadImpl.m; sourceTree = "<group>"; };
+		2A746DEB1CD6F0D50061F2B9 /* REDUserUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserUpload.h; sourceTree = "<group>"; };
+		2A746DEF1CD707330061F2B9 /* REDRealmMigrationV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRealmMigrationV2.h; sourceTree = "<group>"; };
+		2A746DF01CD707330061F2B9 /* REDRealmMigrationV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRealmMigrationV2.m; sourceTree = "<group>"; };
+		2A746DF21CD707420061F2B9 /* REDRealmMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRealmMigration.h; sourceTree = "<group>"; };
 		2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74EBAE1BCD50B7005F5E74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A74EBB01BCD50B7005F5E74 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -633,8 +647,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */,
-				2A2A1E5A1BD309BD00677868 /* Crashlytics.framework in Frameworks */,
-				2A2A1E591BD309BD00677868 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +681,7 @@
 				2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */,
 				2AFCE53D1C6EC14C00680A53 /* REDLocalToRealm.h */,
 				2AFCE53E1C6EC14C00680A53 /* REDLocalToRealm.m */,
+				2A746DF51CD707540061F2B9 /* Realm Migration */,
 			);
 			name = Migration;
 			sourceTree = "<group>";
@@ -749,6 +762,7 @@
 				44AF20971C7628EA00F6FC48 /* Log Summary View Controller */,
 				441701F31C7648FE0076F9C7 /* New View Controller */,
 				2A27FC0D1CAF85480067F9A4 /* Please Rate View Controller */,
+				2A6602501CCDFB6200B6D835 /* Sign In View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -846,6 +860,7 @@
 				2A6601F51CC2FC7E00B6D835 /* Top Rated Book */,
 				2A66020D1CC4440500B6D835 /* Request Feature */,
 				2A6602141CC453D100B6D835 /* Query Service */,
+				2A746DEE1CD6F0E50061F2B9 /* User Upload */,
 			);
 			name = "General Classes";
 			sourceTree = "<group>";
@@ -1283,6 +1298,78 @@
 			name = "Sync View";
 			sourceTree = "<group>";
 		};
+		2A6602501CCDFB6200B6D835 /* Sign In View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A66024B1CCDFB5F00B6D835 /* REDSignUpViewController.h */,
+				2A66024C1CCDFB5F00B6D835 /* REDSignUpViewController.m */,
+				2A66024D1CCDFB5F00B6D835 /* REDSignUpViewController.xib */,
+			);
+			name = "Sign In View Controller";
+			sourceTree = "<group>";
+		};
+		2A746DE71CD6ED630061F2B9 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				2A746DE21CD6ED5E0061F2B9 /* REDServerMetadata.h */,
+				2A746DE31CD6ED5E0061F2B9 /* REDServerMetadata.m */,
+				2A746DE41CD6ED5E0061F2B9 /* REDServerMetadata.plist */,
+			);
+			name = Endpoint;
+			sourceTree = "<group>";
+		};
+		2A746DEC1CD6F0D80061F2B9 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2A746DE81CD6F0B50061F2B9 /* REDUserUploadImpl.h */,
+				2A746DE91CD6F0B50061F2B9 /* REDUserUploadImpl.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2A746DED1CD6F0E00061F2B9 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2A746DEB1CD6F0D50061F2B9 /* REDUserUpload.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2A746DEE1CD6F0E50061F2B9 /* User Upload */ = {
+			isa = PBXGroup;
+			children = (
+				2A746DEC1CD6F0D80061F2B9 /* Concrete */,
+				2A746DED1CD6F0E00061F2B9 /* Abstract */,
+			);
+			name = "User Upload";
+			sourceTree = "<group>";
+		};
+		2A746DF31CD707450061F2B9 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2A746DF21CD707420061F2B9 /* REDRealmMigration.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2A746DF41CD7074F0061F2B9 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2A746DEF1CD707330061F2B9 /* REDRealmMigrationV2.h */,
+				2A746DF01CD707330061F2B9 /* REDRealmMigrationV2.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2A746DF51CD707540061F2B9 /* Realm Migration */ = {
+			isa = PBXGroup;
+			children = (
+				2A746DF41CD7074F0061F2B9 /* Concrete */,
+				2A746DF31CD707450061F2B9 /* Abstract */,
+			);
+			name = "Realm Migration";
+			sourceTree = "<group>";
+		};
 		2A74EBA11BCD50B7005F5E74 = {
 			isa = PBXGroup;
 			children = (
@@ -1307,6 +1394,7 @@
 		2A74EBAC1BCD50B7005F5E74 /* ReadingList */ = {
 			isa = PBXGroup;
 			children = (
+				2A746DE71CD6ED630061F2B9 /* Endpoint */,
 				2ADA28781C59ADA80068CCAC /* Protocols */,
 				2A1FF5BB1C56DEC100520949 /* Validations */,
 				2ADCC07E1BD1FE8E009F638A /* Exception */,
@@ -2328,8 +2416,6 @@
 		3C1B8AFD86E40D76DA605411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A2A1E571BD309BD00677868 /* Fabric.framework */,
-				2A2A1E581BD309BD00677868 /* Crashlytics.framework */,
 				1B7FEE50961509749458D464 /* libPods-ReadingList.a */,
 				278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */,
 			);
@@ -2477,6 +2563,7 @@
 				2A218FC11C57DA7D00D5D6FA /* REDAddLogViewController.xib in Resources */,
 				2A1FF5B91C568C9600520949 /* REDLogCell.xib in Resources */,
 				2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */,
+				2A746DE61CD6ED5E0061F2B9 /* REDServerMetadata.plist in Resources */,
 				44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */,
 				2A6602051CC431A300B6D835 /* REDTopRatedCell.xib in Resources */,
 				2A74EC2E1BCDE9A7005F5E74 /* REDBookCategoryCell.xib in Resources */,
@@ -2486,6 +2573,7 @@
 				2ADCC0AF1BD2E69A009F638A /* the-little-prince-summary.jpg in Resources */,
 				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
 				2A1FF5901C554E9000520949 /* REDUserViewController.xib in Resources */,
+				2A66024F1CCDFB5F00B6D835 /* REDSignUpViewController.xib in Resources */,
 				2ADCC0B51BD2EC90009F638A /* books.json in Resources */,
 				2A27FC0C1CAF85440067F9A4 /* PleaseRateViewController.xib in Resources */,
 				2A9979551C5A733C00DBEABB /* REDChartViewController.xib in Resources */,
@@ -2537,7 +2625,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 76e47874fee50525b5ac109ed1491685447840f4 fdec0e74c15919b5c2f3ac05894255eab5c497f19080efce3a7bd33751d54efa";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 76e47874fee50525b5ac109ed1491685447840f4 fdec0e74c15919b5c2f3ac05894255eab5c497f19080efce3a7bd33751d54efa";
 		};
 		2A74EBE81BCD5682005F5E74 /* Mogenerator */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2708,6 +2796,7 @@
 				2A6601F81CC2FC8E00B6D835 /* REDTopRatedRequest.m in Sources */,
 				2A19B8B21BCDBE94009C8F25 /* REDBookAddViewController.m in Sources */,
 				2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */,
+				2A746DE51CD6ED5E0061F2B9 /* REDServerMetadata.m in Sources */,
 				2A77C08F1C2DD74000E21551 /* REDDefaultDataAccessObject.m in Sources */,
 				2A1632EA1C592E320015F06E /* REDUserDataAccessObjectImpl.m in Sources */,
 				2A77C0861C2DD51A00E21551 /* REDTabBarCustomizer.m in Sources */,
@@ -2721,6 +2810,7 @@
 				2A45977D1C619A280010D135 /* REDRLMReadDataAccessObject.m in Sources */,
 				2ADCC0A41BD2D319009F638A /* UIViewController+Loading.m in Sources */,
 				2A74EC081BCD59B8005F5E74 /* REDBook.m in Sources */,
+				2A746DF11CD707330061F2B9 /* REDRealmMigrationV2.m in Sources */,
 				2A19B88F1BCDB45A009C8F25 /* REDBookDatasource.m in Sources */,
 				2ADCC0AA1BD2D36E009F638A /* SHLoadingView.m in Sources */,
 				2A4597831C62EDDA0010D135 /* REDRLMResultsToNSArray.m in Sources */,
@@ -2771,6 +2861,7 @@
 				2A52A01E1BE520A1005809CC /* SHNotificationView.m in Sources */,
 				2A1FF5AD1C56831200520949 /* REDUserView.m in Sources */,
 				2A74EC8F1BD0A8B8005F5E74 /* REDServiceDispatcher.m in Sources */,
+				2A66024E1CCDFB5F00B6D835 /* REDSignUpViewController.m in Sources */,
 				2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */,
 				2ADCC0631BD1FC84009F638A /* REDPOSTHTTPRequest.m in Sources */,
 				2ADCC0851BD2053B009F638A /* REDImageSearchCollectionViewDatasource.m in Sources */,
@@ -2778,6 +2869,7 @@
 				2A19B89D1BCDB707009C8F25 /* REDDepedencyInjection.m in Sources */,
 				2AECF4C71C447910007BA281 /* UIImage+Blur.m in Sources */,
 				2ADCC05B1BD1FC69009F638A /* REDDELETEHTTPRequest.m in Sources */,
+				2A746DEA1CD6F0B50061F2B9 /* REDUserUploadImpl.m in Sources */,
 				2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */,
 				2A74EC991BD0AA52005F5E74 /* REDImageSearchCall.m in Sources */,
 				2A6601FF1CC2FD7900B6D835 /* REDTopRatedDictionary2ModelFactory.m in Sources */,

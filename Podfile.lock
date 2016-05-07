@@ -20,6 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
   - Depend (0.1.3)
   - Digits (2.0.2):
     - TwitterCore (= 2.0.2)
@@ -42,9 +44,11 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - Crashlytics
   - Depend
   - Digits
   - EDStarRating
+  - Fabric
   - LLARingSpinnerView
   - NSDate-Escort
   - OCMock
@@ -52,11 +56,13 @@ DEPENDENCIES:
   - Realm/Headers
   - RFRateMe (~> 1.0.0)
   - SDWebImage
+  - TwitterCore
   - UIActionSheet+Blocks
   - UIAlertView+Blocks
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   Depend: 3626f36923415485bedcfad4ae21f07151727aad
   Digits: a5c8ddfed18d5e0496e9b6f459f0bca44de588db
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114

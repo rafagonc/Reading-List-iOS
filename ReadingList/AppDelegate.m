@@ -20,8 +20,12 @@
 #import "REDUserViewController.h"
 #import "REDLocalToRealm.h"
 #import "RFRateMe.h"
+#import <DigitsKit/DigitsKit.h>
+#import "REDRealmMigrationV2.h"
 
 @interface AppDelegate ()
+
+@property (setter=injected:) id<REDRealmMigration> migration;
 
 @end
 
@@ -29,10 +33,11 @@
 
 #pragma mark - Application Delegate
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Fabric with:@[[Crashlytics class]]];
+    [Fabric with:@[[Crashlytics class], [Digits class]]];
+    self.migration = [[REDRealmMigrationV2 alloc] init];
+    [self.migration migrate];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
-    [[[REDLocalToRealm alloc] init] migrateToRealm];
     [REDStaticData craateStaticData];
     [RFRateMe showRateAlertAfterTimesOpened:15];
     
