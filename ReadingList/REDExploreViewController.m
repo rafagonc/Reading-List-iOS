@@ -158,7 +158,7 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
 
     }
-    dispatch_group_leave(services);
+    if (self.wait) dispatch_group_leave(services);
 }
 
 #pragma mark - getters
