@@ -47,6 +47,9 @@
 -(NSString *)URL {
     return @"https://www.googleapis.com/customsearch/v1";
 }
+-(BOOL)isSyncingRequest {
+    return NO;
+}
 
 #pragma mark - methods
 -(void)nextPage {

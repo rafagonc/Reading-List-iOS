@@ -13,6 +13,8 @@
 #import "REDBookDatasourceDelegate.h"
 #import "REDBookDataAccessObject.h"
 #import "UITableViewCell+Clear.h"
+#import "REDBookRepositoryFactory.h"
+#import "REDUserProtocol.h"
 
 @interface REDBookDatasource () {
 }
@@ -22,9 +24,6 @@
 
 #pragma mark - properties
 @property (nonatomic,strong) NSArray *books;
-
-#pragma mark - injected
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 
@@ -78,7 +77,6 @@
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.bookDataAccessObject remove:self.books[indexPath.row]];
         [self.delegate datasource:self didDeleteBook:self.books[indexPath.row]];
     }
 }

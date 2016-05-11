@@ -13,7 +13,9 @@
 
 @interface REDServiceDispatcher ()
 
-@property (nonatomic,strong) NSMutableSet *hashesInLoading;
+#pragma mark - hashes in loading
+@property (nonatomic,strong) NSMutableSet * hashesInLoading;
+@property (nonatomic,strong) NSMutableSet * unprocessedRequests;
 
 @end
 
@@ -51,13 +53,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:target selector:selector name:requestHash object:nil];
     if ([self isHashLoading:request.hash]) return; //Block if the hash is loading, they will recieve the notif anyways
     [self.hashesInLoading addObject:requestHash];
-    [[REDServiceCallFactory serviceCallForRequestClass:[request class]] startWithRequest:request withCompletion:^{
+    [[REDServiceCallFactory serviceCallForRequestClass:[request class]] startWithRequest:request withCompletion:^(BOOL success){
+        (success == NO && [request isSyncingRequest]) ? [self.unprocessedRequests addObject:request] : [self.unprocessedRequests removeObject:request];
         [welf unsubscribeTarget:target fromRequest:request];
         [welf.hashesInLoading removeObject:requestHash];
     }];
 }
 -(void)unsubscribeTarget:(id)target fromRequest:(id<REDRequestProtocol>)request {
     [[NSNotificationCenter defaultCenter] removeObserver:target name:[NSString stringWithFormat:@"%lu",(unsigned long)request.hash] object:nil];
+}
+
+#pragma mark - process
+-(void)processUnprocessedRequestIfNeeded {
+    for (id<REDRequestProtocol> request in self.unprocessedRequests) {
+        [self callWithRequest:request withTarget:nil andSelector:nil];
+    }
 }
 
 @end

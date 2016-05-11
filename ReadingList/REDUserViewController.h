@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDBookProtocol.h"
 
 @interface REDUserViewController : UIViewController
 

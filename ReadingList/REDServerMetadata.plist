@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Active Environment</key>
+	<string>Production</string>
+	<key>Environments</key>
+	<dict>
+		<key>Production</key>
+		<dict>
+			<key>v1</key>
+			<string>https://reading-list-prod.herokuapp.com/</string>
+		</dict>
+		<key>Stage</key>
+		<dict>
+			<key>v1</key>
+			<string>https://reading-list-stage.herokuapp.com/</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

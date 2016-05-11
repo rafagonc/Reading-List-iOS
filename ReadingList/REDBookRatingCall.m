@@ -21,7 +21,7 @@
 
 @implementation REDBookRatingCall
 
--(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(void))completion {
+-(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(BOOL success))completion {
     self.request = request;
     [self call:^(id responseObject, NSError *error) {
         if (error) {
@@ -32,6 +32,7 @@
             [self.response setSuccess:YES];
             [self success:self.response];
         }
+        completion(error == nil);
     }];
 }
 -(BOOL)canCacheResult {

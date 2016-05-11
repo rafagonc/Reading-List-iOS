@@ -31,6 +31,8 @@
 #import "REDReadFactoryProtocol.h"
 #import "REDTopRatedBook.h"
 #import "PleaseRateViewController.h"
+#import "REDBookRepositoryFactory.h"
+#import "REDUserProtocol.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -38,7 +40,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeTransientBook,
 };
 
-@interface REDBookAddViewController () <REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate, REDPageProgressCellDelegate>
+@interface REDBookAddViewController ()
+
+<REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate, REDPageProgressCellDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookProtocol> book;
@@ -56,7 +60,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 #pragma mark - injected
 @property (setter=injected_name:) id<REDValidator> bookNameValidator;
 @property (setter=injected_author:) id<REDValidator> authorValidator;
+@property (setter=injected:) id<REDUserProtocol> user;
 @property (setter=injected:) id<REDBookUploaderProtocol> bookUploader;
+@property (setter=injected:) id<REDBookRepositoryFactory> bookRepositoryFactory;
 @property (setter=injected:) id<REDTransactionManager> transactionManager;
 @property (setter=injected:) id<REDReadFactoryProtocol> readFactory;;
 @property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
@@ -100,16 +106,6 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     self.navigationController.navigationBarHidden = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
 }
--(void)viewWillDisappear:(BOOL)animated {
-    if (self.isMovingFromParentViewController) {
-        NSError * error;
-        if ([self processBook:&error] == NO && (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding)) {
-            [self savePageChangedIfNeeded];
-            [self.bookDataAccessObject remove:self.book];
-        } else {
-        }
-    }
-}
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.actionType == REDBookAddViewControllerActionTypeAdding) {
@@ -121,6 +117,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 -(void)setUpBarButtonItems {
     UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
     [self.navigationItem setRightBarButtonItem:doneButton];
+    
+    UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)];
+    [self.navigationItem setLeftBarButtonItem:cancelButton];
 }
 
 #pragma mark - table view
@@ -153,29 +152,42 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 }
 
 #pragma mark - process book
--(BOOL)processBook:(NSError * _Nullable __autoreleasing *)error {
+-(void)processBookWithCallback:(void(^)(BOOL success, NSError * out_error))callback {
     [self.transactionManager begin];
     NSArray *chainOfResponsilbiity = @[self.categoryCell, self.headerCell, self.pagesCell, self.progressCell];
+    NSError *error;
     for (id<REDBookCreationChainProtocol> processor in chainOfResponsilbiity) {
-        [processor setNewValuesOnBook:self.book error:error];
-        if (*error) {
+        [processor setNewValuesOnBook:self.book error:&error];
+        if (error) {
             [self.transactionManager commit];
-            return NO;
+            callback(NO, error);
         }
     }
-    [self.transactionManager commit];
-    return YES;
-}
--(BOOL)finishBook {
-    NSError *error;
-    BOOL success = [self processBook:&error];
-    if (success) {
-        [self.navigationController popViewControllerAnimated:YES];
-        [self uploadRatingIfChanged];
+    if (self.actionType == REDBookAddViewControllerActionTypeAdding) {
+        [[self.bookRepositoryFactory repository] createForUser:self.user book:self.book callback:^(id<REDBookProtocol> createdBook) {
+            callback(YES,nil);
+        } error:^(NSError *error) {
+            callback(NO,error);
+        }];
     } else {
-        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+        [[self.bookRepositoryFactory repository] updateForUser:self.userActivity book:self.book callback:^(id<REDBookProtocol> createdBook) {
+            callback(YES,nil);
+        } error:^(NSError *error) {
+            callback(NO, error);
+        }];
     }
-    return success;
+}
+-(void)finishBookWithSuccessCallback:(void(^)())callback {
+    NSError *error;
+    [self processBookWithCallback:^(BOOL success, NSError *out_error) {
+        if (success) {
+            [self.navigationController popViewControllerAnimated:YES];
+            [self uploadRatingIfChanged];
+            callback();
+        } else {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+        }
+    }];
 }
 -(void)uploadRatingIfChanged {
     if (self.progressCell.didChangeRate) {
@@ -255,7 +267,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 
 #pragma mark - actions
 -(void)doneAction:(UIBarButtonItem *)createButton {
-    if ([self finishBook]) {
+    [self finishBookWithSuccessCallback:^{
         [self savePageChangedIfNeeded];
         [self.navigationController popViewControllerAnimated:YES];
         [[REDDataStack sharedManager] commit];
@@ -275,7 +287,14 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
                                   contentId:@""
                            customAttributes:@{}];
         }
+    }];
+}
+-(void)cancelAction:(UIBarButtonItem *)cancelButton {
+    if (self.actionType == REDBookAddViewControllerActionTypeTransientBook || self.actionType == REDBookAddViewControllerActionTypeAdding) {
+        [self savePageChangedIfNeeded];
+        [self.bookDataAccessObject remove:self.book];
     }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - dealloc

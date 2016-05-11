@@ -64,13 +64,26 @@
 #import "REDRequestFeatureImpl.h"
 #import "REDBookQueryService.h"
 #import "REDBookQueryServiceImpl.h"
+#import "REDUserUpload.h"
+#import "REDUserUploadImpl.h"
+#import "REDRealmMigration.h"
+#import "REDRealmMigrationV2.h"
+#import "REDBookRepositoryFactory.h"
+#import "REDBookRepositoryFactoryImpl.h"
+#import "REDLogRepositoryFactory.h"
+#import "REDLogRepositoryFactoryImpl.h"
 
 @implementation REDDepedencyInjection
 
 +(void)registerImplementations {
     
+    //migration
+    [[DPRegistry sharedRegistry] registerImplementation:[[REDRealmMigrationV2 alloc] init] forProtocol:@protocol(REDRealmMigration) context:nil];
+
     //user
     [[DPRegistry sharedRegistry] registerImplementation:[[[REDRLMUserDataAccessObject alloc] init] user] forProtocol:@protocol(REDUserProtocol) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[[REDUserUploadImpl alloc] init] forProtocol:@protocol(REDUserUpload) context:nil];
+
     
     //datasources
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"book"];
@@ -110,6 +123,8 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorNameValidator class] forProtocol:@protocol(REDValidator) context:@"authorName"];
 
     //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDLogRepositoryFactoryImpl class] forProtocol:@protocol(REDLogRepositoryFactory) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDBookRepositoryFactoryImpl class] forProtocol:@protocol(REDBookRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookQueryServiceImpl class] forProtocol:@protocol(REDBookQueryService) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRequestFeatureImpl class] forProtocol:@protocol(REDRequestFeature) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
