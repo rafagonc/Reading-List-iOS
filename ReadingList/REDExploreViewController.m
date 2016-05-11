@@ -6,7 +6,7 @@
 //  Copyright © 2015 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDRecommendedBooksViewController.h"
+#import "REDExploreViewController.h"
 #import "REDTabBarCustomizer.h"
 #import "REDNavigationBarCustomizer.h"
 #import "REDServiceDispatcher.h"
@@ -25,7 +25,8 @@
 #import "REDRequestFeature.h"
 #import "REDBookQueryService.h"
 
-@interface REDRecommendedBooksViewController ()
+
+@interface REDExploreViewController ()
 
 <REDTransientBookDatasourceDelegate, UISearchBarDelegate>
 
@@ -53,7 +54,7 @@
 
 @end
 
-@implementation REDRecommendedBooksViewController
+@implementation REDExploreViewController
 
 #pragma mark - constructor
 -(instancetype)init {
@@ -67,8 +68,6 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.mData = [[NSMutableDictionary alloc] init];
-    services = dispatch_group_create();
-    self.wait = YES;
     
     [self.searchBar addToolbar];
     [self.searchBar setDelegate:self];
@@ -78,23 +77,15 @@
     [self.tableView setRowHeight:UITableViewAutomaticDimension];
     [self.tableView reloadData];
     
-    [self startFullLoading];
-    [self callTopRatedBooks];
-    
     if ([self hasAddedAnyBook]) {
         self.emptyLabel.hidden = YES;
         self.requestFeatureButton.hidden = NO;
-        [self callGoogleBooksQueryService];
     } else {
         self.requestFeatureButton.hidden = YES;
         self.emptyLabel.hidden = NO;
     }
     
-    dispatch_group_notify(services, dispatch_get_main_queue(), ^{
-        self.wait = NO;
-        [self stopFullLoading];
-    });
-    
+    [self refresh];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -107,6 +98,9 @@
     } else {
         self.emptyLabel.hidden = NO;
     }
+    
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
+    [self.navigationItem setLeftBarButtonItem:refreshButton];
 }
 
 #pragma mark - delegate
@@ -182,6 +176,17 @@
 #pragma mark - actions
 -(IBAction)requestFeatureAction:(id)sender {
     [self.requestFeature request:self];
+}
+-(void)refresh{
+    services = dispatch_group_create();
+    self.wait = YES;
+    [self startFullLoading];
+    [self callTopRatedBooks];
+    if ([self hasAddedAnyBook]) [self callGoogleBooksQueryService];
+    dispatch_group_notify(services, dispatch_get_main_queue(), ^{
+        self.wait = NO;
+        [self stopFullLoading];
+    });
 }
 
 #pragma mark - dealloc

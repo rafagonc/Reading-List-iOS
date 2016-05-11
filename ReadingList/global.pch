@@ -18,4 +18,6 @@ static NSString *const REDShowedNewFeaturesKey = @"com.rafa.gonc.ReadingList";
 static NSString * const REDRecommendedBooksViewControllerTopRatedKey = @"REDRecommendedBooksViewControllerTopRatedKey";
 static NSString * const REDRecommendedBooksViewControllerSearchKey = @"REDRecommendedBooksViewControllerSearchKey";
 
+typedef void(^REDErrorCallback)(NSError *error);
+
 #endif /* global_pch */

@@ -11,11 +11,15 @@
 #import "REDReadProtocol.h"
 #import "REDCloudDataStack.h"
 #import "REDTransactionManager.h"
+#import "REDLogRepositoryFactory.h"
+#import "REDUserProtocol.h"
 
 @interface REDReadFactory ()
 
+@property (setter=injected:) id<REDUserProtocol> user;
 @property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
 @property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected:) id<REDLogRepositoryFactory> logRepositoryFactory;
 
 @end
 
@@ -27,7 +31,11 @@
     [newRead setDate:[NSDate date]];
     [newRead setBook:book];
     [newRead setPagesValue:page_diff];
-    [self.transactionManager commit];
+    [[self.logRepositoryFactory repository] createForUser:self.user log:newRead callback:^(id<REDReadProtocol> read) {
+        
+    } error:^(NSError *error) {
+        
+    }];
 }
 
 @end

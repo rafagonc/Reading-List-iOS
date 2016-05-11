@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface REDRecommendedBooksViewController : UIViewController
+@interface REDExploreViewController : UIViewController
 
 @end

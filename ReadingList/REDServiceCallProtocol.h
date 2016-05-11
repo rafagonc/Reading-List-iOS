@@ -11,7 +11,7 @@
 
 @protocol REDServiceCallProtocol <NSObject>
 
--(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void(^)(void))completion;
+-(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void(^)(BOOL success))completion;
 -(BOOL)canCacheResult;
 
 @end

@@ -67,10 +67,8 @@
     id<REDReadProtocol> read = self.logs[indexPath.row];
     [tableView beginUpdates];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-    [self.logs removeObject:read];
-    [self.readDataAccessObject remove:read];
-    [tableView endUpdates];
     [self.delegate datasource:self didDeleteRead:read];
+    [tableView endUpdates];
 }
 -(void)logCell:(REDLogCell *)logCell wantsToCheckOutBook:(id<REDBookProtocol>)book {
     [self.delegate datasource:self wantsToCheckOutBook:book];

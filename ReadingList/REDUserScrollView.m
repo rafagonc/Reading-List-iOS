@@ -39,7 +39,7 @@
     [self.scrollingSubviews addObject:userView];
     [self addSubview:userView];
     self.userView = userView;
-//    
+    
 //    REDSyncView *syncView = [[REDSyncView alloc] init];
 //    [self.scrollingSubviews addObject:syncView];
 //    [self addSubview:syncView];

@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PhotoTweaks.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ReadingList-Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,17 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0F262B7F64FEDB17F46441A687FD352C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>11994235BA84DFFDF91731AE068C9F44</key>
+		<key>10DD7240984ECE723D61115727EADA07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>19B7E936EAFA3B2AD017AB0A96352D46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A936C30649417F6EE2597E53A4F7B17</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B329C21F4E16E358D4CA7E2DA6BE6EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,22 +122,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>810591A55FD99A10000DC0AC7A693A36</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>81F8094023F99010F54271830052298E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9712A95FB5EEB18D48B8A0C3F75E5D82</key>
+		<key>57826BB4EBED92502A298C3412AE1FF6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9BEE5F063D739BF8536958FD76629434</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E4D4B76661B1E8118979805A87ACE1B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A870196FA3998B2F02C1AD00549F6118</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +152,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1253297B3C3586CBA6451C550039FCC</key>
+		<key>EF9640C2ED66C03F744CF8B7E8E3D3D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

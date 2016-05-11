@@ -12,12 +12,12 @@
 @protocol REDUserProtocol <REDNamable>
 
 #pragma mark - properties
+@property (nonatomic) NSString * userId;
 @property (nonatomic) UIImage * photo;
 @property (nonatomic) UIImage * cover;
 @property (nonatomic) NSDate * firstReadCreated;
 @property (nonatomic) NSString * authToken;
 @property (nonatomic) NSString * authTokenSecret;
-@property (nonatomic) NSString * userId;
 
 #pragma mark - helpers
 -(BOOL)hasName;

@@ -6,7 +6,7 @@
 //  Copyright © 2015 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDBookListViewController.h"
+#import "REDLibraryViewController.h"
 #import "REDDatasourceProtocol.h"
 #import "REDBookProtocol.h"
 #import "REDNavigationBarCustomizer.h"
@@ -16,8 +16,11 @@
 #import "REDBookDataAccessObject.h"
 #import "REDTabBarCustomizer.h"
 #import "REDNewViewController.h"
+#import "REDBookRepositoryFactory.h"
+#import "REDUserProtocol.h"
+#import "UIViewController+NotificationShow.h"
 
-@interface REDBookListViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
+@interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
     UIBarButtonItem *doneButton, *editButton;
 }
 
@@ -28,10 +31,12 @@
 #pragma mark - injected
 @property (setter=injected_book:, readonly) id<REDDatasourceProtocol> datasource;
 @property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected:) id<REDBookRepositoryFactory> bookRepositoryFactory;
+@property (setter=injected:) id<REDUserProtocol> user;
 
 @end
 
-@implementation REDBookListViewController
+@implementation REDLibraryViewController
 
 #pragma mark - constructor
 -(instancetype)init {
@@ -92,10 +97,15 @@
     [self.navigationController pushViewController:editViewController animated:YES];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book {
-    [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.datasource.data indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
-    [self updateData];
-    [self.tableView endUpdates];
+    [[self.bookRepositoryFactory repository] removeForUser:self.user book:book callback:^(id<REDBookProtocol> deletedBook) {
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.datasource.data indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
+        [self updateData];
+        [self.tableView endUpdates];
+    } error:^(NSError *error) {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error];
+    }];
+
 }
 -(BOOL)datasourceCanEditBooks:(id<REDDatasourceProtocol>)datasource {
     return YES;
@@ -133,8 +143,16 @@
 
 #pragma mark - methods
 -(void)updateData {
-    [self.datasource setData:[self isSearcingBooks] ? [self.bookDataAccessObject searchBooksWithString:self.saerchBar.text] : [self.bookDataAccessObject allBooksSorted]];
-
+    id<REDBookRepository> repository = [self.bookRepositoryFactory repository];
+    if ([self isSearcingBooks]) {
+        [self.datasource setData:[self.bookDataAccessObject searchBooksWithString:self.saerchBar.text]];
+    } else {
+        [repository listForUser:self.user callback:^(NSArray<id<REDBookProtocol>> *books) {
+            [self.datasource setData:books];
+        } error:^(NSError *error) {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error];
+        }];
+    }
 }
 
 @end

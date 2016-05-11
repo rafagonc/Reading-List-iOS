@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface REDBookListViewController : UIViewController
+@interface REDLibraryViewController : UIViewController
 
 @end
