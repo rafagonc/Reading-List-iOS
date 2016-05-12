@@ -33,4 +33,5 @@
     [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:REDShowedNewFeaturesKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
 @end
