@@ -38,7 +38,7 @@
 
 #pragma mark - specific queries
 -(NSArray<id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name {
-    NSArray * books = [self listWithPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", name]];
+    NSArray * books = [self listWithPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@ OR category.name BEGINSWITH[cd] %@ OR author.name BEGINSWITH[cd] %@", name, name, name]];
     return (NSArray *)[books sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]];
 }
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted {

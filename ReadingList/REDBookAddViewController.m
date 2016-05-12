@@ -161,6 +161,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         if (error) {
             [self.transactionManager commit];
             callback(NO, error);
+            break;
         }
     }
     if (self.actionType == REDBookAddViewControllerActionTypeAdding) {
@@ -178,14 +179,13 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     }
 }
 -(void)finishBookWithSuccessCallback:(void(^)())callback {
-    NSError *error;
     [self processBookWithCallback:^(BOOL success, NSError *out_error) {
         if (success) {
             [self.navigationController popViewControllerAnimated:YES];
             [self uploadRatingIfChanged];
             callback();
         } else {
-            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:out_error.localizedDescription];
         }
     }];
 }

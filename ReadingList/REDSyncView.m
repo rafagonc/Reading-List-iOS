@@ -8,6 +8,23 @@
 
 #import "REDSyncView.h"
 
+@interface REDSyncView ()
+
+@end
+
 @implementation REDSyncView
+
+#pragma mark - constructor
+-(instancetype)init {
+    self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+    if (self) {
+        
+    } return self;
+}
+
+#pragma mark - actions
+-(IBAction)syncAction:(id)sender {
+    [self.delegate syncViewWantsToAuthenticateWithView:self];
+}
 
 @end

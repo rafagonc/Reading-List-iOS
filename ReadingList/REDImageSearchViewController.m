@@ -16,8 +16,9 @@
 #import "REDImageSearchCollectionViewDatasourceDelegate.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+NotificationShow.h"
+#import "PhotoTweaksViewController.h"
 
-@interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate>
+@interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate, UIImagePickerControllerDelegate, PhotoTweaksViewControllerDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -64,6 +65,10 @@
 -(void)setUpBarButtonItems {
     UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
+    
+    UIBarButtonItem * libraryButton = [[UIBarButtonItem alloc] initWithTitle:@"Library" style:UIBarButtonItemStylePlain target:self action:@selector(libraryAction:)];
+    UIBarButtonItem * cameraButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(cameraAction:)];
+    [self.navigationItem setRightBarButtonItems:@[cameraButton,libraryButton]];
 }
 
 #pragma mark - service
@@ -84,15 +89,30 @@
     [self stopFullLoading];
 }
 
-#pragma mark - datasource delegate
+#pragma mark - delegates
 -(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image error:(NSError *)error {
     if (!error) {
-        if (self.callback) self.callback(image);
-        self.callback = nil;
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self finishWithImage:image];
     } else {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
     }
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage * image = info[UIImagePickerControllerOriginalImage];
+    PhotoTweaksViewController *photoTweaksViewController = [[PhotoTweaksViewController alloc] initWithImage:image];
+    photoTweaksViewController.delegate = self;
+    [picker pushViewController:photoTweaksViewController animated:YES];
+}
+-(void)photoTweaksControllerDidCancel:(PhotoTweaksViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)photoTweaksController:(PhotoTweaksViewController *)controller didFinishWithCroppedImage:(UIImage *)croppedImage {
+    [controller dismissViewControllerAnimated:YES completion:^{
+        [self finishWithImage:croppedImage];
+    }];
 }
 
 #pragma mark - getters
@@ -100,10 +120,40 @@
     return [NSString stringWithFormat:@"%@ - %@", self.bookName, self.authorName];
 }
 
+#pragma mark - methods
+-(void)finishWithImage:(UIImage *)image {
+    if (self.callback) self.callback(image);
+    self.callback = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - actions
 -(void)cancelAction:(UIBarButtonItem *)item {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+-(void)cameraAction:(UIBarButtonItem *)item {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        [imagePicker setDelegate:self];
+        [imagePicker setAllowsEditing:NO];
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    } else {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Camera not available"];
+    }
+}
+-(void)libraryAction:(UIBarButtonItem *)item {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        [imagePicker setDelegate:self];
+        [imagePicker setAllowsEditing:NO];
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    } else {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Library not available"];
+    }
+}
+
 
 #pragma mark - dealloc
 -(void)didReceiveMemoryWarning {

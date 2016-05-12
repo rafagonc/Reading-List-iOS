@@ -23,10 +23,11 @@
 #import "UIImage+Blur.h"
 #import "REDChartViewController.h"
 #import "REDTransactionManager.h"
+#import "REDSignUpViewController.h"
 #import "REDLogRepositoryFactory.h"
 #import "UIViewController+NotificationShow.h"
 
-@interface REDUserViewController () <REDLogDatasourceDelegate, REDUserViewDelegate>
+@interface REDUserViewController () <REDLogDatasourceDelegate, REDUserViewDelegate, REDSyncViewDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -64,6 +65,7 @@
     
     //scroll view
     self.userScrollView.userViewDelegate = self;
+    self.userScrollView.syncViewDelegate = self;
     self.userScrollView.user = self.user;
     self.userScrollView.pageControl = self.pageControl;
     
@@ -158,6 +160,10 @@
             [welf.transactionManager commit];
         }
     }];
+}
+-(void)syncViewWantsToAuthenticateWithView:(REDSyncView *)syncView {
+    REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
+    [self presentViewController:signIn animated:YES completion:nil];
 }
 
 #pragma mark - actions

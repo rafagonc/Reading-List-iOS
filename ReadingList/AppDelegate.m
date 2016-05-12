@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "REDBookListViewController.h"
+#import "REDLibraryViewController.h"
 #import "REDDepedencyInjection.h"
 #import "Depend/DPInjector.h"
 #import "REDStaticData.h"
@@ -15,15 +15,19 @@
 #import "REDDataStack.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-#import "REDRecommendedBooksViewController.h"
+#import "REDExploreViewController.h"
 #import "REDLocalMigrationHandler.h"
 #import "REDUserViewController.h"
 #import "REDLocalToRealm.h"
 #import "RFRateMe.h"
+#import <DigitsKit/DigitsKit.h>
+#import "REDRealmMigrationV2.h"
 #import "REDServiceDispatcherProtocol.h"
+
 
 @interface AppDelegate ()
 
+@property (setter=injected:) id<REDRealmMigration> migration;
 @property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
@@ -32,15 +36,17 @@
 
 #pragma mark - Application Delegate
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [Fabric with:@[[Crashlytics class]]];
+    [[Digits sharedInstance] startWithConsumerKey:@"cRLPjIa9kGBICfKpm4bqOUkmh" consumerSecret:@"83f4R5asuM46RubjExlLXLJLnKqoL5n30RNDl3PmoE6Yy8RK98"];
+    [Fabric with:@[[Crashlytics class], [Digits class]]];
+    self.migration = [[REDRealmMigrationV2 alloc] init];
+    [self.migration migrate];
     [DPInjector inject];
     [REDDepedencyInjection registerImplementations];
-    [[[REDLocalToRealm alloc] init] migrateToRealm];
     [REDStaticData craateStaticData];
     [RFRateMe showRateAlertAfterTimesOpened:15];
     
-    REDBookListViewController *bookList = [[REDBookListViewController alloc] init];
-    REDRecommendedBooksViewController *reccomendedBooks = [[REDRecommendedBooksViewController alloc] init];
+    REDLibraryViewController *bookList = [[REDLibraryViewController alloc] init];
+    REDExploreViewController *reccomendedBooks = [[REDExploreViewController alloc] init];
     REDUserViewController *log = [[REDUserViewController alloc] init];
     
     UITabBarController *tab = [[UITabBarController alloc] init];

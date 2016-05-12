@@ -11,6 +11,7 @@
 #import "UIImage+Blur.h"
 #import "REDValidator.h"
 #import "UIFont+ReadingList.h"
+#import "REDTransactionManager.h"
 
 @interface REDBookHeaderCell ()
 
@@ -24,6 +25,7 @@
 #pragma mark - injected
 @property (setter=injected_name:) id<REDValidator> bookNameValidator;
 @property (setter=injected_author:) id<REDValidator> authorValidator;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
 
 #pragma mark - properties
 @property (nonatomic,assign) BOOL snippetOpen;

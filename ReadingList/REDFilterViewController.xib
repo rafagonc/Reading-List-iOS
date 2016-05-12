@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDFilterViewController">
+            <connections>
+                <outlet property="tableView" destination="bfT-4X-T8i" id="hgC-gu-dL5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bfT-4X-T8i">
+                    <rect key="frame" x="0.0" y="43" width="320" height="481"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-VM-7lN">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <color key="backgroundColor" red="0.78823529410000004" green="0.2784313725" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="bof-Uy-tPm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                    <state key="normal" title="Apply">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQN-nt-3Zo">
+                    <rect key="frame" x="0.0" y="8" width="320" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="aS4-Nu-WUq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bfT-4X-T8i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="00f-Ab-XxA"/>
+                <constraint firstItem="8jA-VM-7lN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J6p-F6-FIb"/>
+                <constraint firstAttribute="bottom" secondItem="8jA-VM-7lN" secondAttribute="bottom" id="KTv-Ie-apt"/>
+                <constraint firstItem="eQN-nt-3Zo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KdC-3f-CTg"/>
+                <constraint firstItem="8jA-VM-7lN" firstAttribute="top" secondItem="bfT-4X-T8i" secondAttribute="bottom" id="U9F-rD-pYa"/>
+                <constraint firstAttribute="trailing" secondItem="8jA-VM-7lN" secondAttribute="trailing" id="VNo-mR-Djd"/>
+                <constraint firstItem="bfT-4X-T8i" firstAttribute="top" secondItem="eQN-nt-3Zo" secondAttribute="bottom" id="mgb-ou-l1d"/>
+                <constraint firstItem="eQN-nt-3Zo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="uLv-pc-mMp"/>
+                <constraint firstAttribute="trailing" secondItem="bfT-4X-T8i" secondAttribute="trailing" id="ukk-gN-JJl"/>
+                <constraint firstAttribute="trailing" secondItem="eQN-nt-3Zo" secondAttribute="trailing" id="yDT-r6-7Nd"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="646" y="470"/>
+        </view>
+    </objects>
+</document>

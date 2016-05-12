@@ -26,6 +26,7 @@
 
 #pragma mark - protocol
 -(void)setCoverImage:(UIImage *)coverImage {
+    
     self.cover = UIImagePNGRepresentation(coverImage);
 }
 -(UIImage *)coverImage {
