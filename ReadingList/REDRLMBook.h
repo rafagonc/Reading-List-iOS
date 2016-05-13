@@ -27,6 +27,7 @@
 @property (nonatomic) REDRLMCategory *  _category;
 @property (nonatomic) NSData *          cover;
 @property (nonatomic) BOOL completed;
+@property (nonatomic) BOOL loved;
 
 
 @end

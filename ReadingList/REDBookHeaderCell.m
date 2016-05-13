@@ -18,9 +18,13 @@
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIButton *coverButton;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
+@property (weak, nonatomic) IBOutlet UIButton *heartButton;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
+
+#pragma mark - properties
+@property (nonatomic,assign) BOOL heart;
 
 #pragma mark - injected
 @property (setter=injected_name:) id<REDValidator> bookNameValidator;
@@ -58,6 +62,7 @@
     _book = book;
     [self setCoverImage:[book coverImage]];
     [self setAuthor:[book author]];
+    [self.heartButton setImage:[book loved] ? [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[UIImage imageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     if ([book name].length) [self.nameTextField setText:[book name]];
 }
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
@@ -94,6 +99,10 @@
         [self.descriptionTextView setText:self.snippet];
     }
 }
+-(void)setHeart:(BOOL)heart {
+    _heart = heart;
+    [self.heartButton setImage:heart ? [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[UIImage imageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+}
 
 #pragma mark - actions
 -(void)tappedSnippet:(UITapGestureRecognizer *)tap {
@@ -105,6 +114,7 @@
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     if (![self.bookNameValidator validate:self.nameTextField.text error:error]) return NO;
     if (![self.authorValidator validate:self.author error:error]) return NO;
+    [book setLoved:self.heart];
     [book setName:self.nameTextField.text];
     [book setAuthor:self.author];
     [book setCoverImage:self.coverButton.currentBackgroundImage];
@@ -127,6 +137,9 @@
 }
 -(IBAction)coverAction:(id)sender {
     [self.delegate didSelectCoverInBookHeaderCell:self];
+}
+-(IBAction)heartAction:(id)sender {
+    self.heart = !self.heart;
 }
 
 @end

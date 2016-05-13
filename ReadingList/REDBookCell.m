@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *heartImageView;
 
 @end
 
@@ -28,6 +29,11 @@
 #pragma mark - setters
 -(void)setBook:(id<REDBookProtocol>)book {
     _book = book;
+    
+    //loved
+    if ([book loved]) self.heartImageView.image = [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    else self.heartImageView.image = nil;
+    
     self.nameLabel.text = book.name;
     self.coverImageView.image = [book coverImage] ? [book coverImage] : [UIImage imageNamed:@"404"];
     if ([book completed]) {

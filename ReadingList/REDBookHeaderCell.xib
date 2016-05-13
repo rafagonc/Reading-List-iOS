@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -32,6 +32,18 @@
                         </state>
                         <connections>
                             <action selector="coverAction:" destination="gTc-jG-T6s" eventType="touchUpInside" id="h0i-Dd-Xtt"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yy9-eM-ghQ">
+                        <rect key="frame" x="280" y="15" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="2tb-WU-X75"/>
+                            <constraint firstAttribute="height" constant="25" id="hpx-X8-ftZ"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal" image="heart"/>
+                        <connections>
+                            <action selector="heartAction:" destination="gTc-jG-T6s" eventType="touchUpInside" id="wUw-QX-5pj"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wS7-tS-Da0">
@@ -71,6 +83,7 @@
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Yy9-eM-ghQ" firstAttribute="top" secondItem="9Q5-zk-2v9" secondAttribute="top" id="3bM-WK-o9n"/>
                     <constraint firstItem="LIu-cl-B3Q" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" constant="8" id="6Q8-Wc-2Sl"/>
                     <constraint firstAttribute="bottom" secondItem="wS7-tS-Da0" secondAttribute="bottom" id="6hO-gN-qiH"/>
                     <constraint firstItem="wS7-tS-Da0" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" constant="8" id="7ST-1g-zzc"/>
@@ -88,6 +101,7 @@
                     <constraint firstAttribute="bottom" secondItem="6dQ-Ab-3zr" secondAttribute="bottom" id="Qrx-se-QcE"/>
                     <constraint firstItem="6dQ-Ab-3zr" firstAttribute="top" secondItem="PvH-34-62f" secondAttribute="top" id="ZN6-TQ-xPd"/>
                     <constraint firstItem="6dQ-Ab-3zr" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" id="cdx-wq-aDA"/>
+                    <constraint firstAttribute="trailing" secondItem="Yy9-eM-ghQ" secondAttribute="trailing" constant="15" id="dP6-2k-cOJ"/>
                     <constraint firstAttribute="bottom" secondItem="rV8-fE-MnP" secondAttribute="bottom" constant="8" id="dPW-fQ-kVx"/>
                     <constraint firstItem="9Q5-zk-2v9" firstAttribute="centerX" secondItem="PvH-34-62f" secondAttribute="centerX" id="diU-UU-Yve"/>
                     <constraint firstAttribute="trailing" secondItem="guC-eS-aoe" secondAttribute="trailing" constant="-16" id="dnG-G6-rgt"/>
@@ -110,10 +124,14 @@
                 <outlet property="coverButton" destination="9Q5-zk-2v9" id="iEK-vm-SKt"/>
                 <outlet property="coverImageView" destination="guC-eS-aoe" id="3IO-DV-BHr"/>
                 <outlet property="descriptionTextView" destination="rV8-fE-MnP" id="YNr-XB-WZe"/>
+                <outlet property="heartButton" destination="Yy9-eM-ghQ" id="tpp-2j-7lS"/>
                 <outlet property="nameTextField" destination="LIu-cl-B3Q" id="Ndb-1k-CFz"/>
                 <outlet property="shadowView" destination="SlI-kK-LE2" id="hiZ-kn-En1"/>
             </connections>
             <point key="canvasLocation" x="89" y="427.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="heart" width="50" height="50"/>
+    </resources>
 </document>

@@ -26,6 +26,7 @@
 @property (nonatomic) UIImage * coverImage;
 @property (nonatomic) NSString * snippet;
 @property (nonatomic) double rate;
+@property (nonatomic) BOOL loved;
 @property (nonatomic,readonly) BOOL completed;
 @property (nonatomic) NSInteger pagesValue;
 @property (nonatomic) NSInteger pagesReadValue;
