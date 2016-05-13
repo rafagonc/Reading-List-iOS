@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDLibraryViewController">
             <connections>
-                <outlet property="saerchBar" destination="sY3-ph-Hur" id="xZW-5g-lYu"/>
                 <outlet property="tableView" destination="Z8c-0s-bjh" id="xIA-uT-vzJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,14 +19,26 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" style="grouped" separatorStyle="default" rowHeight="80" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Z8c-0s-bjh">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search Library (Name, Author, ...)" id="sY3-ph-Hur">
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="VHZ-Ly-75l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <color key="tintColor" red="0.7843137255" green="0.27450980390000002" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                    </searchBar>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search Library (Name, Author, ...)" translatesAutoresizingMaskIntoConstraints="NO" id="Stn-kW-gwb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="tintColor" red="0.7843137255" green="0.27450980390000002" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Stn-kW-gwb" firstAttribute="leading" secondItem="VHZ-Ly-75l" secondAttribute="leading" id="1RH-TT-pcy"/>
+                            <constraint firstItem="Stn-kW-gwb" firstAttribute="top" secondItem="VHZ-Ly-75l" secondAttribute="top" id="D0I-yc-BMF"/>
+                            <constraint firstAttribute="trailing" secondItem="Stn-kW-gwb" secondAttribute="trailing" id="LUe-RA-D7d"/>
+                            <constraint firstAttribute="bottom" secondItem="Stn-kW-gwb" secondAttribute="bottom" id="hPZ-Z9-XZS"/>
+                        </constraints>
+                    </view>
                     <view key="tableFooterView" contentMode="scaleToFill" id="fBb-nF-oce">
-                        <rect key="frame" x="0.0" y="420" width="320" height="128"/>
+                        <rect key="frame" x="0.0" y="375" width="320" height="128"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App developed by Rafael Gonçalves." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-Tl-nIh">

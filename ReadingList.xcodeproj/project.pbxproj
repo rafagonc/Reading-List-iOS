@@ -218,6 +218,8 @@
 		441701F51C764C560076F9C7 /* new.txt in Resources */ = {isa = PBXBuildFile; fileRef = 441701F41C764C560076F9C7 /* new.txt */; };
 		443AE2131C9342FE00D926F5 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443AE2121C9342FE00D926F5 /* HCSStarRatingView.m */; };
 		445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 445786981C74AF900029355D /* REDDateChart+Interaction.m */; };
+		4495A0441CE4EF0D00CA6DE5 /* REDFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4495A0421CE4EF0D00CA6DE5 /* REDFilterViewController.m */; };
+		4495A0451CE4EF0D00CA6DE5 /* REDFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4495A0431CE4EF0D00CA6DE5 /* REDFilterViewController.xib */; };
 		44A7876B1CDBC4DC0038ED4A /* REDLocalBookRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7876A1CDBC4DC0038ED4A /* REDLocalBookRepository.m */; };
 		44A7876E1CDBC4E90038ED4A /* REDSyncBookRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7876D1CDBC4E90038ED4A /* REDSyncBookRepository.m */; };
 		44A787761CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A787751CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m */; };
@@ -647,6 +649,9 @@
 		445786971C74AF900029355D /* REDDateChart+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REDDateChart+Interaction.h"; sourceTree = "<group>"; };
 		445786981C74AF900029355D /* REDDateChart+Interaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "REDDateChart+Interaction.m"; sourceTree = "<group>"; };
 		4457869A1C74F7300029355D /* REDDateChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChartDelegate.h; sourceTree = "<group>"; };
+		4495A0411CE4EF0D00CA6DE5 /* REDFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDFilterViewController.h; sourceTree = "<group>"; };
+		4495A0421CE4EF0D00CA6DE5 /* REDFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDFilterViewController.m; sourceTree = "<group>"; };
+		4495A0431CE4EF0D00CA6DE5 /* REDFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDFilterViewController.xib; sourceTree = "<group>"; };
 		44A787681CDBC4AD0038ED4A /* REDBookRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRepository.h; sourceTree = "<group>"; };
 		44A787691CDBC4DC0038ED4A /* REDLocalBookRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalBookRepository.h; sourceTree = "<group>"; };
 		44A7876A1CDBC4DC0038ED4A /* REDLocalBookRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLocalBookRepository.m; sourceTree = "<group>"; };
@@ -808,6 +813,7 @@
 				441701F31C7648FE0076F9C7 /* New View Controller */,
 				2A27FC0D1CAF85480067F9A4 /* Please Rate View Controller */,
 				2A6602501CCDFB6200B6D835 /* Sign In View Controller */,
+				4495A0461CE4EF1100CA6DE5 /* Filter View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -2473,6 +2479,16 @@
 			name = "New View Controller";
 			sourceTree = "<group>";
 		};
+		4495A0461CE4EF1100CA6DE5 /* Filter View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4495A0411CE4EF0D00CA6DE5 /* REDFilterViewController.h */,
+				4495A0421CE4EF0D00CA6DE5 /* REDFilterViewController.m */,
+				4495A0431CE4EF0D00CA6DE5 /* REDFilterViewController.xib */,
+			);
+			name = "Filter View Controller";
+			sourceTree = "<group>";
+		};
 		44A787651CDBC45F0038ED4A /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -2811,6 +2827,7 @@
 				2ADA28761C59AD8B0068CCAC /* REDChooseDateCell.xib in Resources */,
 				2A1FF5B01C56832200520949 /* REDUserView.xib in Resources */,
 				441701F51C764C560076F9C7 /* new.txt in Resources */,
+				4495A0451CE4EF0D00CA6DE5 /* REDFilterViewController.xib in Resources */,
 				2ADCC0AF1BD2E69A009F638A /* the-little-prince-summary.jpg in Resources */,
 				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
 				2A1FF5901C554E9000520949 /* REDUserViewController.xib in Resources */,
@@ -3129,6 +3146,7 @@
 				2A19B8B71BCDC0CA009C8F25 /* UIStaticTableView.m in Sources */,
 				2A74EC861BD0A891005F5E74 /* REDImageSearchRequest.m in Sources */,
 				44A787861CDBD77A0038ED4A /* REDUpdateBookRequest.m in Sources */,
+				4495A0441CE4EF0D00CA6DE5 /* REDFilterViewController.m in Sources */,
 				2A9979531C5A733200DBEABB /* REDChartViewController.m in Sources */,
 				44A7876B1CDBC4DC0038ED4A /* REDLocalBookRepository.m in Sources */,
 				2ADA28681C5995310068CCAC /* REDChooseBookCell.m in Sources */,

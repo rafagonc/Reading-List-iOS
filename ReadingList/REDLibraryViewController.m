@@ -19,6 +19,7 @@
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
 #import "UIViewController+NotificationShow.h"
+#import "REDFilterViewController.h"
 
 @interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
     UIBarButtonItem *doneButton, *editButton;
@@ -88,7 +89,9 @@
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(editAction:)];
     
     UIBarButtonItem *addAction = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
-    [self.navigationItem setRightBarButtonItem:addAction];
+    
+    UIBarButtonItem *filterAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"] style:UIBarButtonItemStylePlain target:self action:@selector(filterAction:)];
+    [self.navigationItem setRightBarButtonItems:@[addAction,filterAction]];
 }
 
 #pragma mark - book datasource protocol
@@ -139,6 +142,10 @@
 -(void)editAction:(UIBarButtonItem *)editAction {
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
+}
+-(void)filterAction:(UIBarButtonItem *)filterAction {
+    REDFilterViewController * filter = [[REDFilterViewController alloc] init];
+    [self presentViewController:filter animated:YES completion:nil];
 }
 
 #pragma mark - methods

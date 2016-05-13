@@ -42,7 +42,7 @@
 #pragma mark - properties
 @property (nonatomic,strong) NSMutableDictionary * mData;
 @property (nonatomic,assign) BOOL wait; /* indicate the need to wait for both web services */
-@property (weak, nonatomic) IBOutlet UIButton *requestFeatureButton;
+@property (weak,  nonatomic) IBOutlet UIButton *requestFeatureButton;
 
 #pragma mark - injected
 @property (setter=injected:) id<REDBookQueryService> bookQueryService;
