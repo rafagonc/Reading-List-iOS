@@ -25,14 +25,14 @@
         [self.transactionManager commit];
         callback(book);
     } @catch (NSException *exception) {
-        errorCallback([exception reason]);
+        errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)listForUser:(id<REDUserProtocol>)user callback:(REDBookRepositoryListCallback)callback error:(REDErrorCallback)errorCallback {
     @try {
         callback([self.bookDataAccessObject allBooksSorted]);
     } @catch (NSException *exception) {
-        errorCallback([exception reason]);
+        errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)removeForUser:(id<REDUserProtocol>)user book:(id<REDBookProtocol>)book callback:(REDBookRepositoryDeleteCallback)callback error:(REDErrorCallback)error {
@@ -40,7 +40,7 @@
         [self.bookDataAccessObject remove:book];
         callback(book);
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)updateForUser:(id<REDUserProtocol>)user book:(id<REDBookProtocol>)book callback:(REDBookRepositoryCreateUpdateCallback)callback error:(REDErrorCallback)errorCallback {
@@ -48,7 +48,7 @@
         [self.transactionManager commit];
         callback(book);
     } @catch (NSException *exception) {
-        errorCallback([exception reason]);
+        errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 

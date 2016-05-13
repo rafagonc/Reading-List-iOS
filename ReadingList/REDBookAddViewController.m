@@ -161,7 +161,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         if (error) {
             [self.transactionManager commit];
             callback(NO, error);
-            break;
+            return;
         }
     }
     if (self.actionType == REDBookAddViewControllerActionTypeAdding) {

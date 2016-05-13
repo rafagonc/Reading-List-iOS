@@ -25,7 +25,7 @@
         [self.transactionManager commit];
         callback(log);
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)removeForUser:(id<REDUserProtocol>)user log:(id<REDReadProtocol>)read callback:(REDLogRepositoryRemoveCallback)callback error:(REDErrorCallback)error {
@@ -33,14 +33,14 @@
         [self.readDataAccessObject remove:read];
         callback(read);
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)listForUser:(id<REDUserProtocol>)user callback:(REDLogRepositoryListCallback)callback error:(REDErrorCallback)error {
     @try {
         callback([self.readDataAccessObject logsOrderedByDate]);
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 
