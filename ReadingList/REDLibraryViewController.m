@@ -29,10 +29,10 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *saerchBar;
 
 #pragma mark - injected
-@property (setter=injected_book:, readonly) id<REDDatasourceProtocol> datasource;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected:) id<REDBookRepositoryFactory> bookRepositoryFactory;
-@property (setter=injected:) id<REDUserProtocol> user;
+@property (setter=injected_book:) id<REDDatasourceProtocol> datasource;
+@property (setter=injected1:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected2:) id<REDBookRepositoryFactory> bookRepositoryFactory;
+@property (setter=injected3:) id<REDUserProtocol> user;
 
 @end
 
@@ -73,11 +73,6 @@
     [super viewDidAppear:animated];
     [self updateData];
     [self.tableView reloadData];
-    
-    if (![self didShowNew]) {
-        REDNewViewController *new = [[REDNewViewController alloc] init];
-        [self presentViewController:new animated:YES completion:nil];
-    }
 }
 
 #pragma mark - setups
@@ -88,6 +83,7 @@
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(editAction:)];
     
     UIBarButtonItem *addAction = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
+    [self.navigationItem setRightBarButtonItem:addAction];
 }
 
 #pragma mark - book datasource protocol
@@ -102,7 +98,7 @@
         [self updateData];
         [self.tableView endUpdates];
     } error:^(NSError *error) {
-        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error];
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }];
 
 }
@@ -125,11 +121,6 @@
     return self.saerchBar.text.length > 0;
 }
 
-#pragma mark - helpers
--(BOOL)didShowNew {
-    return [[[NSUserDefaults standardUserDefaults] objectForKey:REDShowedNewFeaturesKey] boolValue];
-}
-
 #pragma mark - actions
 -(void)addAction:(UIBarButtonItem *)addbutton {
     REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
@@ -149,7 +140,7 @@
         [repository listForUser:self.user callback:^(NSArray<id<REDBookProtocol>> *books) {
             [self.datasource setData:books];
         } error:^(NSError *error) {
-            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error];
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
         }];
     }
 }

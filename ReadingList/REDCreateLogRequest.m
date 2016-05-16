@@ -32,7 +32,10 @@
     return @{};
 }
 -(NSString *)URL {
-    return @"";
+    return REDServiceFind(REDServerMetadata_V1, @"/log");
+}
+-(REDSerializer)Serializer {
+    return REDJSONSerializer;
 }
 
 @end

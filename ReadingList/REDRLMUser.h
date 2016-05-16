@@ -20,5 +20,7 @@
 @property (nonatomic) NSString * authTokenSecret;
 @property (nonatomic) NSString * userId; 
 @property (nonatomic) NSString * authToken;
+@property (nonatomic) BOOL payed;
+@property (nonatomic) BOOL syncable;
 
 @end

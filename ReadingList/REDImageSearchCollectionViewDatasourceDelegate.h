@@ -10,6 +10,6 @@
 
 @protocol REDImageSearchCollectionViewDatasourceDelegate <NSObject>
 
--(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image error:(NSError *)error;
+-(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image andURL:(NSString *)url error:(NSError *)error;
 
 @end

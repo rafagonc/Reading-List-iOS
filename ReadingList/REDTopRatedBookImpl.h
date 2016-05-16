@@ -19,4 +19,5 @@
 @property (nonatomic,strong) NSString *categoryName;
 @property (nonatomic,assign) CGFloat rating;
 
+
 @end

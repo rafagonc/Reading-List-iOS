@@ -19,6 +19,11 @@
     self.photoData = UIImagePNGRepresentation(photo);
     self.cover = [photo applyBlurToImageWithRadius:100.f];
 }
+-(void)setAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)secret andUserId:(NSString *)userId {
+    self.authToken = authToken;
+    self.authTokenSecret = secret;
+    self.userId = userId;
+}
 
 #pragma mark - getters
 -(UIImage *)cover {

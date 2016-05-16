@@ -23,6 +23,8 @@
 -(BOOL)hasRate;
 
 #pragma mark - properties
+@property (nonatomic) BOOL unprocessed;
+@property (nonatomic) NSInteger identifier;
 @property (nonatomic) UIImage * coverImage;
 @property (nonatomic) NSString * snippet;
 @property (nonatomic) double rate;
@@ -32,5 +34,6 @@
 @property (nonatomic) NSInteger pagesReadValue;
 @property (nonatomic) NSString * language;
 @property (nonatomic,readonly) NSUInteger percentage;
+@property (nonatomic) NSString *coverURL;
 
 @end

@@ -22,7 +22,7 @@
 
 @implementation REDTopRatedCall
 
--(void)startWithRequest:(id<REDRequestProtocol>)request2 withCompletion:(void (^)(void))completion {
+-(void)startWithRequest:(id<REDRequestProtocol>)request2 withCompletion:(void (^)(BOOL success))completion {
     self.request = request2;
 //    [self call:^(id responseObject, NSError *error) {
 //        if (error) {

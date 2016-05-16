@@ -13,8 +13,8 @@
 @interface REDTransientBook ()
 
 #pragma mark - injected
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDAuthorDataAccessObject> authorDataAccessObject;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
 
@@ -55,6 +55,9 @@
     return nil;
 }
 -(BOOL)completed {
+    return NO;
+}
+-(BOOL)loved {
     return NO;
 }
 

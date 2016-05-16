@@ -24,8 +24,8 @@
 @property (strong, nonatomic) REDUITextFieldCell *authorNameCell;
 
 #pragma mark - injected
-@property (setter=injected:) id<REDAuthorDataAccessObject> authorDataAccessObject;
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected1:) id<REDAuthorDataAccessObject> authorDataAccessObject;
+@property (setter=injected2:) id<REDTransactionManager> transactionManager;
 @property (setter=injected_authorName:,readonly) id<REDValidator> authorNameValidator;
 
 @end

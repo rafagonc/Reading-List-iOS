@@ -11,8 +11,11 @@
 
 @protocol REDBookDataAccessObject <REDDataAccessObject>
 
+-(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict;
+-(id<REDBookProtocol>)updateBook:(id<REDBookProtocol>)book withDict:(NSDictionary *)dict;
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted;
 -(NSArray <id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name;
+-(NSArray <id<REDBookProtocol>> *)searchBooksWithIdentifier:(NSInteger)identifier;
 -(NSUInteger)totalPages;
 -(NSString *)booksCompletedAndTotalBooks;
 

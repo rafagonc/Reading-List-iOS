@@ -53,7 +53,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:target selector:selector name:requestHash object:nil];
     if ([self isHashLoading:request.hash]) return; //Block if the hash is loading, they will recieve the notif anyways
     [self.hashesInLoading addObject:requestHash];
-    [[REDServiceCallFactory serviceCallForRequestClass:[request class]] startWithRequest:request withCompletion:^(BOOL success){
+    id<REDServiceCallProtocol> serviceCall = (id<REDServiceCallProtocol>)[NSClassFromString([NSStringFromClass([request class]) stringByReplacingOccurrencesOfString:@"Request" withString:@"Call"]) new];
+    [serviceCall startWithRequest:request withCompletion:^(BOOL success){
         (success == NO && [request isSyncingRequest]) ? [self.unprocessedRequests addObject:request] : [self.unprocessedRequests removeObject:request];
         [welf unsubscribeTarget:target fromRequest:request];
         [welf.hashesInLoading removeObject:requestHash];

@@ -13,4 +13,6 @@
 
 <REDBookRepository>
 
++(REDSyncBookRepository *)sharedRepository;
+
 @end

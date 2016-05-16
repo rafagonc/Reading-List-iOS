@@ -18,6 +18,8 @@
 @property (nonatomic) NSDate * firstReadCreated;
 @property (nonatomic) NSString * authToken;
 @property (nonatomic) NSString * authTokenSecret;
+@property (nonatomic) BOOL payed;
+@property (nonatomic) BOOL syncable;
 
 #pragma mark - helpers
 -(BOOL)hasName;

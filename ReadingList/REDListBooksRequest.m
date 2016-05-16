@@ -31,7 +31,7 @@
     return REDJSONSerializer;
 }
 -(NSString *)URL {
-    return nil;
+   return REDServiceFind(REDServerMetadata_V1, @"book");
 }
 -(BOOL)isSyncingRequest {
     return NO;

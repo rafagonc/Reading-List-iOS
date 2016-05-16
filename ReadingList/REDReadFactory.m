@@ -16,10 +16,10 @@
 
 @interface REDReadFactory ()
 
-@property (setter=injected:) id<REDUserProtocol> user;
-@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDLogRepositoryFactory> logRepositoryFactory;
+@property (setter=injected1:) id<REDUserProtocol> user;
+@property (setter=injected2:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected3:) id<REDTransactionManager> transactionManager;
+@property (setter=injected4:) id<REDLogRepositoryFactory> logRepositoryFactory;
 
 @end
 

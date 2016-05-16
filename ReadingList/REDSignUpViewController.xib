@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDSignUpViewController">
             <connections>
+                <outlet property="cloudImageView" destination="mPa-WI-t23" id="Yh7-zD-cN0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,80 +16,126 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT9-AC-T8k">
-                    <rect key="frame" x="170" y="508" width="130" height="40"/>
-                    <color key="backgroundColor" red="0.78823529410000004" green="0.2784313725" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="748" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPh-Dh-Uc4">
+                    <rect key="frame" x="20" y="208" width="280" height="234"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="280" id="jFN-cC-ebt"/>
+                    </constraints>
+                    <string key="text">Authenticating will send your reading data to our server. You would have all info backed up and across all devices. Also, you can check out what tour friends are reading by searching them in the explore tab!</string>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
-                    <state key="normal" title="Sign Up">
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="jFN-cC-ebt"/>
+                        </mask>
+                    </variation>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud-1" translatesAutoresizingMaskIntoConstraints="NO" id="mPa-WI-t23">
+                    <rect key="frame" x="40" y="50" width="240" height="150"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="1RT-dv-C6i"/>
+                        <constraint firstAttribute="width" constant="240" id="g7g-BU-tD8"/>
+                    </constraints>
+                </imageView>
+                <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-dP-eb7">
+                    <rect key="frame" x="0.0" y="450" width="320" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVo-3V-SA2">
+                    <rect key="frame" x="0.0" y="509" width="320" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="atH-ze-uU1"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT9-AC-T8k">
+                    <rect key="frame" x="0.0" y="450" width="320" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="DuH-DJ-SCl"/>
+                        <constraint firstAttribute="height" constant="44" id="IQa-ud-MvQ"/>
+                        <constraint firstAttribute="height" constant="44" id="mhC-UD-bec"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                    <state key="normal" title="Subscribe (R$0.99/mth)">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="8"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DuH-DJ-SCl"/>
+                            <exclude reference="mhC-UD-bec"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="signUpAction:" destination="-1" eventType="touchUpInside" id="aUW-R1-9xf"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="wg2-DG-ujz">
-                    <rect key="frame" x="15" y="50" width="290" height="100"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFT-8q-kf3">
+                    <rect key="frame" x="0.0" y="509" width="320" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="sS6-re-0fv"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="748" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPh-Dh-Uc4">
-                    <rect key="frame" x="20" y="170" width="280" height="318"/>
-                    <string key="text">Authenticating will send your reading data to our server. You would have all info backed up and across all devices. Also, you can check out what tour friends are reading by searching them in the explore tab!</string>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57S-Ku-w6k">
-                    <rect key="frame" x="20" y="508" width="130" height="40"/>
-                    <color key="backgroundColor" white="0.86250949850000003" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="n43-1S-n0v"/>
+                        <constraint firstAttribute="height" constant="44" id="0EI-1j-76W"/>
+                        <constraint firstAttribute="height" constant="44" id="2Bj-e7-O0I"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="fNC-8X-Gpt"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                     <state key="normal" title="Cancel">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="8"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="2Bj-e7-O0I"/>
+                            <exclude reference="fNC-8X-Gpt"/>
+                        </mask>
+                    </variation>
                     <connections>
-                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="nt0-8B-Y61"/>
-                        <action selector="signUpAction:" destination="-1" eventType="touchUpInside" id="xIM-WQ-hFt"/>
+                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="Qry-bn-VA9"/>
+                        <action selector="signUpAction:" destination="-1" eventType="touchUpInside" id="5Wg-5z-wH5"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.78823529410000004" green="0.2784313725" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="DT9-AC-T8k" firstAttribute="height" secondItem="57S-Ku-w6k" secondAttribute="height" id="5qw-8j-mng"/>
+                <constraint firstItem="pVo-3V-SA2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0N6-3p-r0R"/>
+                <constraint firstItem="DT9-AC-T8k" firstAttribute="top" secondItem="tPh-Dh-Uc4" secondAttribute="bottom" constant="15" id="0VA-Kg-peA"/>
+                <constraint firstAttribute="trailing" secondItem="n9t-dP-eb7" secondAttribute="trailing" id="6VK-sQ-8OF"/>
                 <constraint firstItem="tPh-Dh-Uc4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="6g7-Qi-bk9"/>
                 <constraint firstAttribute="trailing" secondItem="DT9-AC-T8k" secondAttribute="trailing" constant="20" id="72P-SS-iIE"/>
-                <constraint firstItem="DT9-AC-T8k" firstAttribute="top" secondItem="tPh-Dh-Uc4" secondAttribute="bottom" constant="20" id="75I-52-BWT"/>
-                <constraint firstItem="wg2-DG-ujz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="L4n-f3-V7Z"/>
-                <constraint firstAttribute="trailing" secondItem="wg2-DG-ujz" secondAttribute="trailing" constant="15" id="LkI-sb-L0E"/>
-                <constraint firstItem="57S-Ku-w6k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Nki-XX-EfL"/>
-                <constraint firstItem="tPh-Dh-Uc4" firstAttribute="top" secondItem="wg2-DG-ujz" secondAttribute="bottom" constant="20" id="NtR-lD-E5y"/>
-                <constraint firstAttribute="bottom" secondItem="57S-Ku-w6k" secondAttribute="bottom" constant="20" id="T66-YH-gOM"/>
-                <constraint firstItem="wg2-DG-ujz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="bg0-ar-h9t"/>
-                <constraint firstItem="57S-Ku-w6k" firstAttribute="top" secondItem="tPh-Dh-Uc4" secondAttribute="bottom" constant="20" id="hL5-Gp-UC5"/>
-                <constraint firstItem="DT9-AC-T8k" firstAttribute="leading" secondItem="57S-Ku-w6k" secondAttribute="trailing" constant="20" id="iyw-TY-QWI"/>
-                <constraint firstItem="DT9-AC-T8k" firstAttribute="width" secondItem="57S-Ku-w6k" secondAttribute="width" id="mVs-DS-cYb"/>
-                <constraint firstAttribute="bottom" secondItem="DT9-AC-T8k" secondAttribute="bottom" constant="20" id="wuD-97-f1E"/>
+                <constraint firstAttribute="bottom" secondItem="pVo-3V-SA2" secondAttribute="bottom" constant="15" id="7fX-P8-QL2"/>
+                <constraint firstItem="pVo-3V-SA2" firstAttribute="top" secondItem="n9t-dP-eb7" secondAttribute="bottom" constant="15" id="As7-Zu-4hv"/>
+                <constraint firstItem="mPa-WI-t23" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="Di9-D6-CZB"/>
+                <constraint firstItem="tPh-Dh-Uc4" firstAttribute="top" secondItem="mPa-WI-t23" secondAttribute="bottom" constant="8" id="MZD-pP-5Ms"/>
+                <constraint firstAttribute="bottom" secondItem="iFT-8q-kf3" secondAttribute="bottom" constant="15" id="QnI-B5-GTH"/>
+                <constraint firstItem="mPa-WI-t23" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ROo-3l-uQV"/>
+                <constraint firstItem="iFT-8q-kf3" firstAttribute="top" secondItem="DT9-AC-T8k" secondAttribute="bottom" constant="15" id="S2l-Dj-O84"/>
+                <constraint firstAttribute="bottom" secondItem="pVo-3V-SA2" secondAttribute="bottom" constant="1" id="WJw-gY-SXy"/>
+                <constraint firstAttribute="trailing" secondItem="DT9-AC-T8k" secondAttribute="trailing" id="XdD-CX-uyT"/>
+                <constraint firstItem="iFT-8q-kf3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b3U-yo-VIs"/>
+                <constraint firstAttribute="trailing" secondItem="pVo-3V-SA2" secondAttribute="trailing" id="dHn-Bb-Xn8"/>
+                <constraint firstItem="DT9-AC-T8k" firstAttribute="top" secondItem="tPh-Dh-Uc4" secondAttribute="bottom" constant="8" id="hqe-QB-adB"/>
+                <constraint firstItem="pVo-3V-SA2" firstAttribute="height" secondItem="n9t-dP-eb7" secondAttribute="height" id="jMW-r9-iZH"/>
+                <constraint firstItem="tPh-Dh-Uc4" firstAttribute="top" secondItem="mPa-WI-t23" secondAttribute="bottom" constant="8" id="jb1-U7-Llf"/>
+                <constraint firstItem="DT9-AC-T8k" firstAttribute="top" secondItem="tPh-Dh-Uc4" secondAttribute="bottom" constant="8" id="jlT-yi-x6q"/>
+                <constraint firstItem="DT9-AC-T8k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jlc-EI-GIM"/>
+                <constraint firstItem="n9t-dP-eb7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="puP-n4-hF8"/>
+                <constraint firstAttribute="trailing" secondItem="iFT-8q-kf3" secondAttribute="trailing" id="q46-kk-tXd"/>
+                <constraint firstItem="DT9-AC-T8k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="sQF-hJ-FqM"/>
                 <constraint firstAttribute="trailing" secondItem="tPh-Dh-Uc4" secondAttribute="trailing" constant="20" id="zNB-4o-fbI"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="jb1-U7-Llf"/>
+                    <exclude reference="0VA-Kg-peA"/>
+                    <exclude reference="72P-SS-iIE"/>
+                    <exclude reference="hqe-QB-adB"/>
+                    <exclude reference="sQF-hJ-FqM"/>
+                    <exclude reference="WJw-gY-SXy"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
-        <image name="cloud" width="170" height="170"/>
+        <image name="cloud-1" width="512" height="512"/>
     </resources>
 </document>

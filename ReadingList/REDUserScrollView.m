@@ -40,10 +40,10 @@
     [self addSubview:userView];
     self.userView = userView;
     
-//    REDSyncView *syncView = [[REDSyncView alloc] init];
-//    [self.scrollingSubviews addObject:syncView];
-//    [self addSubview:syncView];
-//    [self setSyncView:syncView];
+    REDSyncView *syncView = [[REDSyncView alloc] init];
+    [self.scrollingSubviews addObject:syncView];
+    [self addSubview:syncView];
+    [self setSyncView:syncView];
     
     REDPagesInfoView *pagesInfoView = [[REDPagesInfoView alloc] init];
     [self.scrollingSubviews addObject:pagesInfoView];
@@ -63,7 +63,7 @@
 }
 -(void)setPageControl:(UIPageControl *)pageControl {
     _pageControl = pageControl;
-    [pageControl setNumberOfPages:2];
+    [pageControl setNumberOfPages:3];
 }
 
 #pragma mark - delegate

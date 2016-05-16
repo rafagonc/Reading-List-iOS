@@ -16,9 +16,9 @@
 @interface REDGoogleBooksQueryCall ()
 
 #pragma mark - injected
-@property (setter=injected_googleBooks:,readonly) id<REDDictionary2ModelFactoryProtocol> googleBooksFactory;
-@property (setter=injected:, readonly) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
-@property (setter=injected:, readonly) id<REDServiceResponseProtocol> response;
+@property (setter=injected_googleBooks:) id<REDDictionary2ModelFactoryProtocol> googleBooksFactory;
+@property (setter=injected1:) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
+@property (setter=injected1:) id<REDServiceResponseProtocol> response;
 
 @end
 

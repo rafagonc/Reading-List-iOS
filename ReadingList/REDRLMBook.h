@@ -17,6 +17,7 @@
 
 <REDBookProtocol>
 
+@property (nonatomic) NSInteger        identifier;
 @property (nonatomic) NSString *        name;
 @property (nonatomic) NSString *        language;
 @property (nonatomic) NSString *        snippet;
@@ -27,7 +28,9 @@
 @property (nonatomic) REDRLMCategory *  _category;
 @property (nonatomic) NSData *          cover;
 @property (nonatomic) BOOL completed;
+@property (nonatomic) BOOL unprocessed;
 @property (nonatomic) BOOL loved;
+@property (nonatomic) NSString *coverURL;
 
 
 @end

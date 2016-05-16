@@ -15,9 +15,9 @@
 
 @interface REDRLMReadDataAccessObject ()
 
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDUserProtocol> user;
-@property (setter=injected:) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDUserProtocol> user;
+@property (setter=injected3:) id<REDRLMArrayHelper> rlm_arrayHelper;
 
 @end
 

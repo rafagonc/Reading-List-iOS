@@ -17,5 +17,6 @@
 @property (nonatomic) NSDate *     date;
 @property (nonatomic) NSInteger    pagesValue;
 @property (nonatomic) REDRLMBook * _book;
+@property (nonatomic) BOOL unprocessed;
 
 @end

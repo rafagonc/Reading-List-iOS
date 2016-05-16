@@ -15,7 +15,7 @@
 
 #pragma mark - injected
 @property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDAuthorDataAccessObject> authorDataAccessObject;
+@property (setter=injected1:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
 
@@ -66,6 +66,9 @@
 }
 -(double)rate {
     return 0.0f;
+}
+-(BOOL)loved {
+    return NO;
 }
 
 @end

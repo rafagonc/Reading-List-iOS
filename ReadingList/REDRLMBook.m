@@ -7,6 +7,13 @@
 //
 
 #import "REDRLMBook.h"
+#import "REDBookDataAccessObject.h"
+#import "REDAuthorDataAccessObject.h"
+#import "REDCategoryDataAccessObject.h"
+
+@interface REDRLMBook ()
+
+@end
 
 @implementation REDRLMBook
 

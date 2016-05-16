@@ -12,5 +12,6 @@
 @protocol REDAuthorDataAccessObject <REDDataAccessObject>
 
 -(NSArray <id<REDAuthorProtocol>> *)authorsSortedByName;
+-(id<REDAuthorProtocol>)authorByName:(NSString *)name;
 
 @end

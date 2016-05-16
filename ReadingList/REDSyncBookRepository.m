@@ -23,13 +23,23 @@
 @property (nonatomic,copy) REDErrorCallback listErroCallback;
 
 #pragma mark - injceted
-@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected1:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected2:) id<REDTransactionManager> transactionManager;
+@property (setter=injected3:) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 
 @implementation REDSyncBookRepository
+
+#pragma mark - singleton
++(REDSyncBookRepository *)sharedRepository {
+    static REDSyncBookRepository *rep;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        rep = [[self alloc] init];
+    });
+    return rep;
+}
 
 #pragma mark - methods
 -(void)createForUser:(id<REDUserProtocol>)user book:(id<REDBookProtocol>)book callback:(REDBookRepositoryCreateUpdateCallback)callback error:(REDErrorCallback)errorCallback {
@@ -37,19 +47,20 @@
         [self.transactionManager commit];
         callback(book);
         REDCreateBookRequest * bookRequest = [[REDCreateBookRequest alloc] initWithUserId:[user userId] books:@[book]];
-        [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(response:)];
+        [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(createBookResponse:)];
     } @catch (NSException *exception) {
-        errorCallback([exception reason]);
+        errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)listForUser:(id<REDUserProtocol>)user callback:(REDBookRepositoryListCallback)callback error:(REDErrorCallback)errorCallback {
     @try {
+        callback([self.bookDataAccessObject allBooksSorted]);
         self.listCallback = callback;
         self.listErroCallback = errorCallback;
         REDListBooksRequest * listRequest = [[REDListBooksRequest alloc] initWithUserId:[user userId]];
         [self.serviceDispatcher callWithRequest:listRequest withTarget:self andSelector:@selector(listResponse:)];
     } @catch (NSException *exception) {
-        errorCallback([exception reason]);
+        errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)removeForUser:(id<REDUserProtocol>)user book:(id<REDBookProtocol>)book callback:(REDBookRepositoryDeleteCallback)callback error:(REDErrorCallback)error {
@@ -57,9 +68,9 @@
         [self.bookDataAccessObject remove:book];
         callback(book);
         REDRemoveBookRequest * bookRequest = [[REDRemoveBookRequest alloc] initWithUserId:[user userId] book:book];
-        [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(response:)];
+        [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(removeBookResponse:)];
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)updateForUser:(id<REDUserProtocol>)user book:(id<REDBookProtocol>)book callback:(REDBookRepositoryCreateUpdateCallback)callback error:(REDErrorCallback)errorCallback {
@@ -67,14 +78,30 @@
         [self.transactionManager commit];
         callback(book);
         REDUpdateBookRequest * bookRequest = [[REDUpdateBookRequest alloc] initWithUserId:[user userId] book:book];
-        [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(response:)];
+        [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(updateBookResponse:)];
     } @catch (NSException *exception) {
-        errorCallback([exception reason]);
+        errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 
 #pragma mark - resposne
--(void)response:(NSNotification *)notification {
+-(void)createBookResponse:(NSNotification *)notification {
+    id<REDServiceResponseProtocol> response = [notification object];
+    if (response) {
+        
+    } else {
+        
+    }
+}
+-(void)removeBookResponse:(NSNotification *)notification {
+    id<REDServiceResponseProtocol> response = [notification object];
+    if (response) {
+        
+    } else {
+        
+    }
+}
+-(void)updateBookResponse:(NSNotification *)notification {
     id<REDServiceResponseProtocol> response = [notification object];
     if (response) {
         
@@ -85,7 +112,7 @@
 -(void)listResponse:(NSNotification *)notification {
     id<REDServiceResponseProtocol> response = [notification object];
     if (response) {
-        self.listCallback([response data]);
+        self.listCallback([self.bookDataAccessObject allBooksSorted]);
     } else {
         self.listErroCallback([response error]);
     }

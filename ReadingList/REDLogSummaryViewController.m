@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
 
 #pragma mark - injected
-@property (setter=injected_log:, readonly) id<REDDatasourceProtocol> datasource;
+@property (setter=injected_log:) id<REDDatasourceProtocol> datasource;
 
 #pragma mark - properties
 @property (nonatomic,strong) NSArray <id<REDReadProtocol>> * reads;

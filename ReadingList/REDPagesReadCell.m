@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *pagesTextField;
 
 #pragma mark - injected
-@property (setter=injected_pages:,readonly) id<REDValidator> pagesValidator;
+@property (setter=injected_pages:) id<REDValidator> pagesValidator;
 
 @end
 

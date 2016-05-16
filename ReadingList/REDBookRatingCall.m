@@ -15,7 +15,7 @@
 
 @interface REDBookRatingCall ()
 
-@property (setter=injected:, readonly) id<REDServiceResponseProtocol> response;
+@property (setter=injected:) id<REDServiceResponseProtocol> response;
 
 @end
 

@@ -60,13 +60,13 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 #pragma mark - injected
 @property (setter=injected_name:) id<REDValidator> bookNameValidator;
 @property (setter=injected_author:) id<REDValidator> authorValidator;
-@property (setter=injected:) id<REDUserProtocol> user;
-@property (setter=injected:) id<REDBookUploaderProtocol> bookUploader;
-@property (setter=injected:) id<REDBookRepositoryFactory> bookRepositoryFactory;
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDReadFactoryProtocol> readFactory;;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected1:) id<REDUserProtocol> user;
+@property (setter=injected2:) id<REDBookUploaderProtocol> bookUploader;
+@property (setter=injected3:) id<REDBookRepositoryFactory> bookRepositoryFactory;
+@property (setter=injected4:) id<REDTransactionManager> transactionManager;
+@property (setter=injected5:) id<REDReadFactoryProtocol> readFactory;;
+@property (setter=injected6:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected7:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 
@@ -171,7 +171,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
             callback(NO,error);
         }];
     } else {
-        [[self.bookRepositoryFactory repository] updateForUser:self.userActivity book:self.book callback:^(id<REDBookProtocol> createdBook) {
+        [[self.bookRepositoryFactory repository] updateForUser:self.user book:self.book callback:^(id<REDBookProtocol> createdBook) {
             callback(YES,nil);
         } error:^(NSError *error) {
             callback(NO, error);
@@ -214,8 +214,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         return;
     }
     REDImageSearchViewController *imageSearchViewController = [[REDImageSearchViewController alloc] initWithBookName:headerCell.nameTextField.text andAuthor:headerCell.authorButton.currentTitle];
-    imageSearchViewController.callback = ^(UIImage *image) {
+    imageSearchViewController.callback = ^(UIImage *image, NSString *url) {
         [headerCell setCoverImage:image];
+        [headerCell setCoverURL:url];
     };
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:imageSearchViewController] animated:YES completion:nil];
     

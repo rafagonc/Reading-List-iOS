@@ -28,7 +28,7 @@
 @interface AppDelegate ()
 
 @property (setter=injected:) id<REDRealmMigration> migration;
-@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected1:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 

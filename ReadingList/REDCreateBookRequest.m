@@ -26,7 +26,7 @@
     NSMutableDictionary *dict =  [@{  @"user_id" : self.userId } mutableCopy];
     NSMutableArray * books = [@[] mutableCopy];
     for (id<REDBookProtocol> book in self.books) {
-        NSDictionary *book_dict = @{@"book_name" : [book name], @"author_name" : [[book author] name], @"category_name" : [[book category] name], @"pages" : @([book pagesValue]), @"pages_read" : @([book pagesReadValue]), @"snippet" : [book snippet]};
+        NSDictionary *book_dict = @{@"name" : [book name], @"author" : [[book author] name], @"category" : [[book category] name], @"pages" : @([book pagesValue]), @"pages_read" : @([book pagesReadValue]), @"snippet" : [book snippet], @"rate" : @([book rate])};
         [books addObject:book_dict];
     }
     [dict setObject:books forKey:@"books"];
@@ -39,7 +39,7 @@
     return REDJSONSerializer;
 }
 -(NSString *)URL {
-    return nil;
+    return REDServiceFind(REDServerMetadata_V1, @"book");
 }
 -(BOOL)isSyncingRequest {
     return YES;

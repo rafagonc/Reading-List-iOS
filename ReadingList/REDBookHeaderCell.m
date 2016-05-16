@@ -119,6 +119,7 @@
     [book setAuthor:self.author];
     [book setCoverImage:self.coverButton.currentBackgroundImage];
     [book setSnippet:self.snippet];
+    [book setCoverURL:self.coverURL];
     return YES;
 }
 

@@ -45,12 +45,12 @@
 @property (weak,  nonatomic) IBOutlet UIButton *requestFeatureButton;
 
 #pragma mark - injected
-@property (setter=injected:) id<REDBookQueryService> bookQueryService;
-@property (setter=injected:) id<REDRequestFeature> requestFeature;
-@property (setter=injected:) id<REDServiceDispatcherProtocol> dispatcher;
-@property (setter=injected:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected_transientBook:,readonly) id<REDDatasourceProtocol> datasource;
+@property (setter=injected1:) id<REDBookQueryService> bookQueryService;
+@property (setter=injected2:) id<REDRequestFeature> requestFeature;
+@property (setter=injected3:) id<REDServiceDispatcherProtocol> dispatcher;
+@property (setter=injected4:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
+@property (setter=injected5:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected_transientBook:) id<REDDatasourceProtocol> datasource;
 
 @end
 

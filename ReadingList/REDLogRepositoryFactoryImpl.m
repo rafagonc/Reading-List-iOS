@@ -8,6 +8,13 @@
 
 #import "REDLogRepositoryFactoryImpl.h"
 #import "REDLocalLogRepository.h"
+#import "REDUserProtocol.h"
+
+@interface REDLogRepositoryFactoryImpl ()
+
+@property (setter=injected:) id<REDUserProtocol> user;
+
+@end
 
 @implementation REDLogRepositoryFactoryImpl
 

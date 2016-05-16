@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 #pragma mark - injected
-@property (setter=injected_author:,readonly) id<REDDatasourceProtocol> datasource;
+@property (setter=injected_author:) id<REDDatasourceProtocol> datasource;
 @property (setter=injected:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end

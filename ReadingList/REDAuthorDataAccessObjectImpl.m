@@ -13,6 +13,9 @@
 -(NSArray<id<REDAuthorProtocol>> *)authorsSortedByName {
     return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
+-(id<REDAuthorProtocol>)authorByName:(NSString *)name {
+    return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", name]] firstObject];
+}
 
 #pragma mark - dao
 -(NSString *)entityName {

@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 
 #pragma mark - injected
-@property (setter=injected_category:,readonly) id<REDValidator> categoryValidator;
+@property (setter=injected_category:) id<REDValidator> categoryValidator;
 
 @end
 

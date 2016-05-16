@@ -33,7 +33,7 @@
     return @{};
 }
 -(NSString *)URL {
-    return @"https://reading-list-prod.herokuapp.com/rating";
+    return REDServiceFind(REDServerMetadata_V1, @"rating");
 }
 -(BOOL)isSyncingRequest {
     return NO;

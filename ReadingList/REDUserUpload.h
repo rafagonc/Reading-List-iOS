@@ -13,6 +13,6 @@
 
 @protocol REDUserUpload <NSObject>
 
--(void)createUser:(id<REDUserProtocol>)user withBooks:(NSArray <id<REDBookProtocol>> *)books andLogs:(NSArray <id<REDReadProtocol>> *)logs andUserId:(NSString *)userId andAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)authTokenSecret;
+-(void)createUser:(id<REDUserProtocol>)user withBooks:(NSArray<id<REDBookProtocol>> *)books andLogs:(NSArray<id<REDReadProtocol>> *)logs andUserId:(NSString *)userId andAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)authTokenSecret completion:(void(^)(BOOL success, NSError * error))completion;
 
 @end

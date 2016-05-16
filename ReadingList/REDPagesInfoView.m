@@ -18,7 +18,7 @@
 
 #pragma mark - injected
 @property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected1:) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end
 

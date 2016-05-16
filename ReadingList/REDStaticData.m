@@ -23,10 +23,10 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
 @property (nonatomic,readonly) NSUserDefaults *userDefaults;
 
 #pragma mark - injected
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected:) id<REDAuthorDataAccessObject> authorDataAccessObject;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
+@property (setter=injected3:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected4:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 
 @end
 

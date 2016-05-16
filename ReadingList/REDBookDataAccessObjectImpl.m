@@ -30,6 +30,15 @@
 -(NSString *)booksCompletedAndTotalBooks {
     return nil;
 }
+-(id<REDBookProtocol>)updateBook:(id<REDBookProtocol>)book withDict:(NSDictionary *)dict {
+    return book;
+}
+-(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict {
+    return [self create];
+}
+-(NSArray<id<REDBookProtocol>> *)searchBooksWithIdentifier:(NSInteger)identifier {
+    return nil;
+}
 
 #pragma mark - overrides
 -(NSString *)entityName {

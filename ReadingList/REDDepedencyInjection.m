@@ -72,6 +72,7 @@
 #import "REDBookRepositoryFactoryImpl.h"
 #import "REDLogRepositoryFactory.h"
 #import "REDLogRepositoryFactoryImpl.h"
+#import "REDListBooksFactory.h"
 
 @implementation REDDepedencyInjection
 
@@ -105,6 +106,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleImageDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleImage"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleBooksFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleBooks"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDReadFactory class] forProtocol:@protocol(REDReadFactoryProtocol) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDListBooksFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"book"];
     
     //DAOs
     [[DPRegistry sharedRegistry] registerImplementation:[REDRLMUserDataAccessObject class] forProtocol:@protocol(REDUserDataAccessObject) context:nil];

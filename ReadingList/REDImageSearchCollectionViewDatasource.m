@@ -56,10 +56,11 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     REDGoogleImageSearchCell *cell = (REDGoogleImageSearchCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    REDGoogleSearchImageResult *result = self.googleImages[indexPath.row];
     if (cell.searchedImageView.image) {
-        [self.delegate datasource:self didSelectImage:cell.searchedImageView.image error:nil];
+        [self.delegate datasource:self didSelectImage:cell.searchedImageView.image andURL:result.url error:nil];
     } else {
-        [self.delegate datasource:self didSelectImage:nil error:[NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Wait for the image to load!"}]];
+        [self.delegate datasource:self didSelectImage:nil andURL:nil error:[NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Wait for the image to load!"}]];
     }
 }
 

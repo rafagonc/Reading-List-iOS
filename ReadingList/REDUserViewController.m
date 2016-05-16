@@ -38,11 +38,11 @@
 
 #pragma mark - injected
 @property (setter=injected_log:) id<REDDatasourceProtocol> datasource;
-@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
-@property (setter=injected:) id<REDPhotoPickerPresenterProtocol> photoPicker;
-@property (setter=injected:) id<REDUserProtocol> user;
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDLogRepositoryFactory> logRepositoryFactory;
+@property (setter=injected1:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected2:) id<REDPhotoPickerPresenterProtocol> photoPicker;
+@property (setter=injected3:) id<REDUserProtocol> user;
+@property (setter=injected4:) id<REDTransactionManager> transactionManager;
+@property (setter=injected5:) id<REDLogRepositoryFactory> logRepositoryFactory;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^REDImageSearchViewControllerCallback)(UIImage *image);
+typedef void(^REDImageSearchViewControllerCallback)(UIImage *image, NSString * url);
 
 @interface REDImageSearchViewController : UIViewController
 

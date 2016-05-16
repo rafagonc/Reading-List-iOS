@@ -18,14 +18,14 @@
 #import "UIViewController+NotificationShow.h"
 #import "PhotoTweaksViewController.h"
 
-@interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate, UIImagePickerControllerDelegate, PhotoTweaksViewControllerDelegate>
+@interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate, UIImagePickerControllerDelegate, PhotoTweaksViewControllerDelegate, UINavigationControllerDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 #pragma mark - injected
 @property (setter=injected:) id<REDServiceDispatcherProtocol> dispatcher;
-@property (setter=injected_googleImage:,readonly) id<REDCollectionViewDatasourceProtocol> datasource;
+@property (setter=injected_googleImage:) id<REDCollectionViewDatasourceProtocol> datasource;
 
 #pragma mark - property
 @property (nonatomic,strong) NSString *bookName;
@@ -90,9 +90,9 @@
 }
 
 #pragma mark - delegates
--(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image error:(NSError *)error {
+-(void)datasource:(id<REDCollectionViewDatasourceProtocol>)datasource didSelectImage:(UIImage *)image andURL:(NSString *)url error:(NSError *)error {
     if (!error) {
-        [self finishWithImage:image];
+        [self finishWithImage:image andURL:url];
     } else {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
     }
@@ -111,7 +111,7 @@
 }
 -(void)photoTweaksController:(PhotoTweaksViewController *)controller didFinishWithCroppedImage:(UIImage *)croppedImage {
     [controller dismissViewControllerAnimated:YES completion:^{
-        [self finishWithImage:croppedImage];
+        [self finishWithImage:croppedImage andURL:nil];
     }];
 }
 
@@ -121,8 +121,8 @@
 }
 
 #pragma mark - methods
--(void)finishWithImage:(UIImage *)image {
-    if (self.callback) self.callback(image);
+-(void)finishWithImage:(UIImage *)image andURL:(NSString *)url {
+    if (self.callback) self.callback(image, url);
     self.callback = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -15,7 +15,7 @@ static NSString * const REDUserCoverDataKey = @"REDUserCoverDataKey";
 
 @implementation REDUser
 
-@synthesize cacheCoverImage,cachePhotoImage;
+@synthesize cacheCoverImage,cachePhotoImage, authToken, authTokenSecret,payed, syncable, userId;
 
 #pragma mark - getters and setters
 -(void)setPhoto:(UIImage *)photo {
@@ -42,6 +42,9 @@ static NSString * const REDUserCoverDataKey = @"REDUserCoverDataKey";
         self.cacheCoverImage = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:REDUserCoverDataKey]];
     }
     return self.cacheCoverImage;
+}
+-(void)setAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)secret andUserId:(NSString *)userId {
+    
 }
 
 #pragma mark - helpers

@@ -3,9 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>Active Environment</key>
-	<string>Production</string>
+	<string>Local</string>
 	<key>Environments</key>
 	<dict>
+		<key>Local</key>
+		<dict>
+			<key>v1</key>
+			<string>http://172.20.10.2:5000/</string>
+		</dict>
 		<key>Production</key>
 		<dict>
 			<key>v1</key>
