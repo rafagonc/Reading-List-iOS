@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Active Environment</key>
-	<string>Local</string>
+	<string>Production</string>
 	<key>Environments</key>
 	<dict>
 		<key>Local</key>
