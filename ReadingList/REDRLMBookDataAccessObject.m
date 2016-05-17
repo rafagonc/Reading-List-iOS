@@ -41,7 +41,7 @@
     [book setRate:[dict[@"rate"] doubleValue]];
     [book setSnippet:dict[@"snippet"]];
     [book setIdentifier:[dict[@"id"] integerValue]];
-    [book setLoved:[dict[@"loved"] boolValue]];
+    if ([[dict objectForKey:@"loved"] isEqual:[NSNull null]] == NO) [book setLoved:[dict[@"loved"] boolValue]];
     [book setPagesValue:[dict[@"pages"] integerValue]];
     [book setPagesReadValue:[dict[@"pages_read"] integerValue]];
     [book setUnprocessed:NO];

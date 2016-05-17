@@ -20,11 +20,11 @@
 @implementation REDBookRepositoryFactoryImpl
 
 -(id<REDBookRepository>)repository {
-//    if ([self.user syncable]) {
-//        return [REDSyncBookRepository sharedRepository];
-//    } else {
-//        return [[REDLocalBookRepository alloc] init];
-//    }
+    if ([self.user syncable]) {
+        return [REDSyncBookRepository sharedRepository];
+    } else {
+        return [[REDLocalBookRepository alloc] init];
+    }
     return [[REDLocalBookRepository alloc] init];
 }
 

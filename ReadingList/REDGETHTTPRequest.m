@@ -18,14 +18,18 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [request Serializer] == REDXMLSerializer ? [AFXMLParserResponseSerializer serializer] : [AFJSONResponseSerializer serializer];
     [manager GET:url parameters:[request HTTPEncode] success:^(NSURLSessionDataTask *task, id responseObject) {
-        if (responseObject[@"success"] == nil) {
-            callback(responseObject, nil);
-            return ;
-        }
-        if ([responseObject[@"success"] boolValue]) {
-            callback(responseObject, nil);
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            if (responseObject[@"success"] == nil) {
+                callback(responseObject, nil);
+                return ;
+            }
+            if ([responseObject[@"success"] boolValue]) {
+                callback(responseObject, nil);
+            } else {
+                callback(responseObject, [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : responseObject[@"message"]}]);
+            }
         } else {
-            callback(responseObject, [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : responseObject[@"message"]}]);
+            callback(responseObject, nil);
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         callback(nil, [NSError errorWithDomain:REDErrorDomain code:error.code userInfo :@{ NSLocalizedDescriptionKey : error.localizedDescription }]);

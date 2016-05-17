@@ -27,12 +27,12 @@
 }
 -(NSDictionary *)HTTPEncode {
     return @{@"user_id" : self.userId,
-             @"book_name" : [self.book name],
-             @"author_name" : [[self.book author] name],
-             @"category_name" : [[self.book category] name],
+             @"book_id" : @([self.book identifier]),
              @"pages" : @([self.book pagesValue]),
              @"pages_read" : @([self.book pagesReadValue]),
-             @"snippet" : @"dasdasdas"};
+             @"snippet" : [self.book snippet],
+             @"rate" : @([self.book rate]),
+             @"loved" : @([self.book loved])};
 }
 -(REDSerializer)Serializer {
     return REDJSONSerializer;

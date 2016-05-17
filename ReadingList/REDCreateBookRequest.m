@@ -26,7 +26,7 @@
     NSMutableDictionary *dict =  [@{  @"user_id" : self.userId } mutableCopy];
     NSMutableArray * books = [@[] mutableCopy];
     for (id<REDBookProtocol> book in self.books) {
-        NSDictionary *book_dict = @{@"name" : [book name], @"author" : [[book author] name], @"category" : [[book category] name], @"pages" : @([book pagesValue]), @"pages_read" : @([book pagesReadValue]), @"snippet" : [book snippet], @"rate" : @([book rate])};
+        NSDictionary *book_dict = @{@"name" : [book name], @"author" : [[book author] name], @"category" : [[book category] name], @"pages" : @([book pagesValue]), @"pages_read" : @([book pagesReadValue]), @"snippet" : [book snippet], @"rate" : @([book rate]), @"loved" : @([book loved])};
         [books addObject:book_dict];
     }
     [dict setObject:books forKey:@"books"];
