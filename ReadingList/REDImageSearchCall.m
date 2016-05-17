@@ -16,9 +16,9 @@
 @interface REDImageSearchCall ()
 
 #pragma mark - injected
-@property (setter=injected_googleImage:,readonly) id<REDDictionary2ModelFactoryProtocol> googleImageFactory;
-@property (setter=injected:, readonly) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
-@property (setter=injected:, readonly) id<REDServiceResponseProtocol> response;
+@property (setter=injected_googleImage:) id<REDDictionary2ModelFactoryProtocol> googleImageFactory;
+@property (setter=injected2:,) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
+@property (setter=injected1:,) id<REDServiceResponseProtocol> response;
 @end
 
 @implementation REDImageSearchCall

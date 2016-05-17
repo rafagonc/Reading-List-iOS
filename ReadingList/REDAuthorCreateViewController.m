@@ -26,7 +26,7 @@
 #pragma mark - injected
 @property (setter=injected1:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 @property (setter=injected2:) id<REDTransactionManager> transactionManager;
-@property (setter=injected_authorName:,readonly) id<REDValidator> authorNameValidator;
+@property (setter=injected_authorName:) id<REDValidator> authorNameValidator;
 
 @end
 

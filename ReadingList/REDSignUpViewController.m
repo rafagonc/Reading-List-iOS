@@ -19,10 +19,10 @@
 @interface REDSignUpViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
-@property (setter=injected:) id<REDUserProtocol> user;
-@property (setter=injected:) id<REDUserUpload> userUpload;
+@property (setter=injected1:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected2:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected3:) id<REDUserProtocol> user;
+@property (setter=injected4:) id<REDUserUpload> userUpload;
 @property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
 
 @end

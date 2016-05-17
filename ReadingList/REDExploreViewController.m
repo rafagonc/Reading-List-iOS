@@ -125,12 +125,12 @@
 
 #pragma mark - service
 -(void)callTopRatedBooks {
-    dispatch_group_enter(services);
+    //dispatch_group_enter(services);
     REDTopRatedRequest *request = [[REDTopRatedRequest alloc] init];
     [self.dispatcher callWithRequest:request withTarget:self andSelector:@selector(topRatedBooksResponse:)];
 }
 -(void)callGoogleBooksQueryService {
-    if (self.wait) dispatch_group_enter(services);
+    //if (self.wait) dispatch_group_enter(services);
     REDGoogleBooksQueryRequest *request = [[REDGoogleBooksQueryRequest alloc] initWithQuery:[self searchString]];
     [self.dispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
 }
@@ -143,11 +143,11 @@
     } else {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
     }
-    if (self.wait) dispatch_group_leave(services);
-    else [self stopFullLoading];
+    //if (self.wait) dispatch_group_leave(services);
+    [self stopFullLoading];
+
 }
 -(void)topRatedBooksResponse:(NSNotification *)notification {
-    dispatch_group_leave(services);
     id<REDServiceResponseProtocol> response = notification.object;
     if ([response success]) {
         self.mData[REDRecommendedBooksViewControllerTopRatedKey] = [[response data] subarrayWithRange:NSMakeRange(0, MIN([[response data] count], 5))];
@@ -158,7 +158,8 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
 
     }
-    if (self.wait) dispatch_group_leave(services);
+    [self stopFullLoading];
+    //if (self.wait) dispatch_group_leave(services);
 }
 
 #pragma mark - getters
@@ -178,15 +179,14 @@
     [self.requestFeature request:self];
 }
 -(void)refresh{
-    services = dispatch_group_create();
     self.wait = YES;
     [self startFullLoading];
     [self callTopRatedBooks];
     if ([self hasAddedAnyBook]) [self callGoogleBooksQueryService];
-    dispatch_group_notify(services, dispatch_get_main_queue(), ^{
-        self.wait = NO;
-        [self stopFullLoading];
-    });
+//    dispatch_group_notify(services, dispatch_get_main_queue(), ^{
+//        welf.wait = NO;
+//        [welf stopFullLoading];
+//    });
 }
 
 #pragma mark - dealloc

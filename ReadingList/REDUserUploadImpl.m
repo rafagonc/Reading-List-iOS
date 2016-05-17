@@ -20,9 +20,9 @@
     NSError *error;
 }
 
-@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
-@property (setter=injected:) id<REDUserProtocol> user;
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected1:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected2:) id<REDUserProtocol> user;
+@property (setter=injected3:) id<REDTransactionManager> transactionManager;
 
 @end
 

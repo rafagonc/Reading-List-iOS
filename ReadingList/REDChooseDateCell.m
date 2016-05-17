@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 #pragma mark - injected
-@property (setter=injected_date:,readonly) id<REDValidator> dateValidator;
+@property (setter=injected_date:) id<REDValidator> dateValidator;
 
 @end
 

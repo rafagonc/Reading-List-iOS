@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 
 #pragma mark - injected
-@property (setter=injected_book:,readonly) id<REDValidator> bookValidator;
+@property (setter=injected_book:) id<REDValidator> bookValidator;
 
 @end
 

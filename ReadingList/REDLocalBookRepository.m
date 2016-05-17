@@ -12,8 +12,8 @@
 
 @interface REDLocalBookRepository ()
 
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 

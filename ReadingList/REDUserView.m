@@ -16,8 +16,8 @@
 @interface REDUserView () <UITextFieldDelegate>
 
 #pragma mark - injected
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDBookDataAccessObject> bookDataAccessObject;
 
 
 #pragma mark - ui

@@ -18,7 +18,7 @@
 @property (nonatomic,strong) id<REDHTTPRequestProtocol> HTTPRequest;
 
 #pragma mark - injected
-@property (setter=injected:, readonly) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
+@property (setter=injected:) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
 
 @end
 
@@ -33,7 +33,7 @@
 }
 
 #pragma mark - service call protocol
--(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(void))completion {
+-(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(BOOL success))completion {
     @throw [REDAbstractClassMethodCallingException raise];
 }
 -(BOOL)canCacheResult {

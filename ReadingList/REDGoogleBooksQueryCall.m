@@ -18,7 +18,7 @@
 #pragma mark - injected
 @property (setter=injected_googleBooks:) id<REDDictionary2ModelFactoryProtocol> googleBooksFactory;
 @property (setter=injected1:) id<REDHTTPRequestFactoryProtocol> HTTPRequestFactory;
-@property (setter=injected1:) id<REDServiceResponseProtocol> response;
+@property (setter=injected2:) id<REDServiceResponseProtocol> response;
 
 @end
 

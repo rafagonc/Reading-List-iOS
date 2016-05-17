@@ -22,9 +22,9 @@
 @property (nonatomic,copy) REDErrorCallback listErrorCallback;
 
 #pragma mark - injected
-@property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
-@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected1:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected2:) id<REDTransactionManager> transactionManager;
+@property (setter=injected3:) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end
 
@@ -35,7 +35,7 @@
         [self.transactionManager commit];
         callback(log);
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)removeForUser:(id<REDUserProtocol>)user log:(id<REDReadProtocol>)read callback:(REDLogRepositoryRemoveCallback)callback error:(REDErrorCallback)error {
@@ -43,7 +43,7 @@
         [self.readDataAccessObject remove:read];
         callback(read);
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)listForUser:(id<REDUserProtocol>)user callback:(REDLogRepositoryListCallback)callback error:(REDErrorCallback)error {
@@ -53,7 +53,7 @@
         REDListLogRequest *list = [[REDListLogRequest alloc] initWithUserId:[user userId]];
         [self.serviceDispatcher callWithRequest:list withTarget:self andSelector:@selector(listResponse:)];
     } @catch (NSException *exception) {
-        error([exception reason]);
+        error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 
@@ -63,7 +63,7 @@
     if ([response success]) {
         self.listCallback([response data]);
     } else {
-        self.listErrorCallback([[response error] localizedDescription]);
+        self.listErrorCallback([response error]);
     }
 }
 -(void)response:(NSNotification *)notification {

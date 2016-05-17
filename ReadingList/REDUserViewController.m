@@ -107,7 +107,7 @@
     [[self.logRepositoryFactory repository] listForUser:self.user callback:^(NSArray<id<REDReadProtocol>> *read) {
         [self.datasource setData:read];
     } error:^(NSError *error) {
-        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error];
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }];
     [self.tableView reloadData];
 }
