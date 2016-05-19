@@ -15,15 +15,19 @@
 #import "REDReadDataAccessObject.h"
 #import "UIViewController+Loading.h"
 #import "UIViewController+NotificationShow.h"
+#import "REDNavigationBarCustomizer.h"
+#import "UIStaticTableView.h"
 
 @interface REDSignUpViewController ()
 
+#pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+#pragma mark - injected
 @property (setter=injected1:) id<REDReadDataAccessObject> readDataAccessObject;
 @property (setter=injected2:) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected3:) id<REDUserProtocol> user;
 @property (setter=injected4:) id<REDUserUpload> userUpload;
-@property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
 
 @end
 
@@ -39,12 +43,20 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
-    [self.cloudImageView setImage:[[UIImage imageNamed:@"cloud-1"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    [self.cloudImageView setTintColor:[UIColor whiteColor]];
+    [self setTitle:@"Sign Up"];
+    [self.imageView setImage:[[UIImage imageNamed:@"cloud_big"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    //239, 239, 244
+    [self.imageView setTintColor:[UIColor whiteColor]];
     
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    UIBarButtonItem * cancel = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)];
+    [self.navigationItem setLeftBarButtonItem:cancel];
 }
 
 #pragma mark - actions
@@ -71,7 +83,9 @@
         
     }];
 }
--(IBAction)cancelAction:(id)sender {
+
+#pragma mark - actions
+-(void)cancelAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

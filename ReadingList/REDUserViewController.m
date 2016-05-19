@@ -162,7 +162,7 @@
 }
 -(void)syncViewWantsToAuthenticateWithView:(REDSyncView *)syncView {
     REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
-    [self presentViewController:signIn animated:YES completion:nil];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:signIn] animated:YES completion:nil];
 }
 
 #pragma mark - actions
