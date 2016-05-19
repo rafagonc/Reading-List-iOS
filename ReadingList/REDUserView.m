@@ -12,12 +12,16 @@
 #import "REDDataStack.h"
 #import "REDTransactionManager.h"
 #import "REDBookDataAccessObject.h"
+#import "REDServiceDispatcherProtocol.h"
+#import "REDUpdateUserRequest.h"
+#import "REDUserProtocol.h"
 
 @interface REDUserView () <UITextFieldDelegate>
 
 #pragma mark - injected
 @property (setter=injected1:) id<REDTransactionManager> transactionManager;
 @property (setter=injected2:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected3:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 
 #pragma mark - ui
@@ -64,6 +68,13 @@
     [self.transactionManager begin];
     [self.user setName:textField.text];
     [self.transactionManager commit];
+    if ([self.user syncable]) {
+        REDUpdateUserRequest * updateUserRequest = [[REDUpdateUserRequest alloc] initWithUser:self.user];
+        [self.serviceDispatcher callWithRequest:updateUserRequest withTarget:self andSelector:@selector(response:)];
+    }
+}
+-(void)response:(NSNotification *)notif {
+    
 }
 
 #pragma mark - actions

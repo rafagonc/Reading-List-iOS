@@ -9,10 +9,15 @@
 #import "REDReadDataAccessObjectImpl.h"
 #import "REDUserProtocol.h"
 #import "NSDate+Escort.h"
+#import "REDTransactionManager.h"
+#import "REDBookDataAccessObject.h"
 
 @interface REDReadDataAccessObjectImpl ()
 
-@property (setter=injected:) id<REDUserProtocol> user;
+@property (setter=injected2:) id<REDUserProtocol> user;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected3:) id<REDBookDataAccessObject> bookDataAccessObject;
+
 
 @end
 
@@ -24,6 +29,24 @@
         [self.user setFirstReadCreated:[NSDate date]];
     }
     return [super create];
+}
+-(id<REDReadProtocol>)createWithDict:(NSDictionary *)dict {
+    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book"][@"id"] integerValue]] firstObject];
+    if (book) {
+        id<REDReadProtocol> log = [self create];
+        [self updateLog:log WithDict:dict];
+        return log;
+    }
+    return nil;
+}
+
+#pragma mark - update
+-(void)updateLog:(id<REDReadProtocol>)log WithDict:(NSDictionary *)dict {
+
+}
+
+-(id<REDReadProtocol>)logWithDate:(NSDate *)date {
+    return nil;
 }
 
 #pragma mark - fetching
@@ -37,6 +60,9 @@
         totalPages += [read pagesValue];
     }
     return totalPages;
+}
+-(id<REDReadProtocol>)logWithIdentifier:(NSUInteger)identifier {
+    return nil;
 }
 -(CGFloat)perDay {
     if ([self.user firstReadCreated] == nil) [self.user setFirstReadCreated:[NSDate date]];

@@ -164,7 +164,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
             return;
         }
     }
-    if (self.actionType == REDBookAddViewControllerActionTypeAdding) {
+    if (self.actionType == REDBookAddViewControllerActionTypeAdding || self.actionType == REDBookAddViewControllerActionTypeTransientBook) {
         [[self.bookRepositoryFactory repository] createForUser:self.user book:self.book callback:^(id<REDBookProtocol> createdBook) {
             callback(YES,nil);
         } error:^(NSError *error) {

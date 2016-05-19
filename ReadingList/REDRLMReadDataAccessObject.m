@@ -12,12 +12,15 @@
 #import "REDUserProtocol.h"
 #import "NSDate+Escort.h"
 #import "REDTransactionManager.h"
+#import "REDBookDataAccessObject.h"
+#import "NSDate+Additions.h"
 
 @interface REDRLMReadDataAccessObject ()
 
 @property (setter=injected1:) id<REDTransactionManager> transactionManager;
 @property (setter=injected2:) id<REDUserProtocol> user;
 @property (setter=injected3:) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected4:) id<REDBookDataAccessObject> bookDataAccessObject;
 
 @end
 
@@ -32,6 +35,25 @@
     [realm commitWriteTransaction];
     return read;
 }
+-(id<REDReadProtocol>)createWithDict:(NSDictionary *)dict {
+    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book"][@"id"] integerValue]] firstObject];
+    if (book) {
+        id<REDReadProtocol> log = [self create];
+        [self updateLog:log WithDict:dict];
+        return log;
+    }
+    return nil;
+}
+-(void)updateLog:(id<REDReadProtocol>)log WithDict:(NSDictionary *)dict {
+    NSDate * date = [NSDate sam_dateFromISO8601String:[dict objectForKey:@"date"]];
+    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book"][@"id"] integerValue]] firstObject];
+    [self.transactionManager begin];
+    [log setPagesValue:[dict[@"pages"] integerValue]];
+    [log setBook:book];
+    [log setDate:date];
+    [log setIdentifier:dict[@"id"]];
+    [self.transactionManager commit];
+}
 
 #pragma mark - queries
 -(id)list {
@@ -44,6 +66,17 @@
 #pragma mark - fetching
 -(NSArray<id<REDReadProtocol>> *)logsOrderedByDate {
     return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
+}
+-(id<REDReadProtocol>)logWithDate:(NSDate *)date {
+    for (id<REDReadProtocol> read in [self list]) {
+        if ([[read date] isEqualToDate:date]) {
+            return read;
+        }
+    }
+    return nil;
+}
+-(id<REDReadProtocol>)logWithIdentifier:(NSUInteger)identifier {
+    return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"identifier = %lu", identifier]] firstObject];
 }
 -(NSUInteger)totalPages {
     NSUInteger totalPages = 0;

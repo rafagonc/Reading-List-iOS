@@ -12,7 +12,7 @@
 
 typedef void(^REDBookRepositoryListCallback)(NSArray <id<REDBookProtocol>> * books);
 typedef void(^REDBookRepositoryCreateUpdateCallback)(id<REDBookProtocol> createdBook);
-typedef void(^REDBookRepositoryDeleteCallback)(id<REDBookProtocol> deletedBook);
+typedef void(^REDBookRepositoryDeleteCallback)();
 
 @protocol REDBookRepository <NSObject>
 

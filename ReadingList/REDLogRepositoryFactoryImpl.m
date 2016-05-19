@@ -8,6 +8,7 @@
 
 #import "REDLogRepositoryFactoryImpl.h"
 #import "REDLocalLogRepository.h"
+#import "REDSyncLogRepository.h"
 #import "REDUserProtocol.h"
 
 @interface REDLogRepositoryFactoryImpl ()
@@ -19,6 +20,9 @@
 @implementation REDLogRepositoryFactoryImpl
 
 -(id<REDLogRepository>)repository {
+    if ([self.user syncable]) {
+        return [REDSyncLogRepository sharedRepository];
+    }
     return [[REDLocalLogRepository alloc] init];
 }
 

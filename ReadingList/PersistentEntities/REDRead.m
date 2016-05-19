@@ -17,6 +17,13 @@
     self.date = [NSDate date];
 }
 
+-(NSString *)identifier {
+    return 0;
+}
+-(void)setIdentifier:(NSString *)identifier {
+    
+}
+
 #pragma mark - getters and setters
 -(void)setBook:(id<REDBookProtocol>)book {
     self.bookName = [book name];

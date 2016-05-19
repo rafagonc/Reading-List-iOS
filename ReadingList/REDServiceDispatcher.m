@@ -49,6 +49,7 @@
 #pragma mark - calling
 -(void)callWithRequest:(id<REDRequestProtocol>)request withTarget:(id)target andSelector:(SEL)selector {
     __weak typeof(self) welf = self;
+    [self startStatusBarLoading:request];
     NSString *requestHash = [NSString stringWithFormat:@"%lu",(unsigned long)request.hash];
     [[NSNotificationCenter defaultCenter] addObserver:target selector:selector name:requestHash object:nil];
     if ([self isHashLoading:request.hash]) return; //Block if the hash is loading, they will recieve the notif anyways
@@ -57,6 +58,7 @@
     [serviceCall startWithRequest:request withCompletion:^(BOOL success){
         (success == NO && [request isSyncingRequest]) ? [self.unprocessedRequests addObject:request] : [self.unprocessedRequests removeObject:request];
         [welf unsubscribeTarget:target fromRequest:request];
+        [welf stopStatusBarLoading];
         [welf.hashesInLoading removeObject:requestHash];
     }];
 }
@@ -69,6 +71,15 @@
     for (id<REDRequestProtocol> request in self.unprocessedRequests) {
         [self callWithRequest:request withTarget:nil andSelector:nil];
     }
+}
+
+#pragma mark - start syncing loading
+-(void)startStatusBarLoading:(id<REDRequestProtocol>)request {
+    if ([request isSyncingRequest])
+    [[NSNotificationCenter defaultCenter] postNotificationName:REDStartStatusBarSyncingLoadingViewNotificationKey object:nil];
+}
+-(void)stopStatusBarLoading {
+    [[NSNotificationCenter defaultCenter] postNotificationName:REDStopStatusBarSyncingLoadingViewNotificationKey object:nil];
 }
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDListLogRequest.h"
+#import "REDListLogsRequest.h"
 
-@implementation REDListLogRequest
+@implementation REDListLogsRequest
 
 #pragma mark - constructor
 -(instancetype)initWithUserId:(NSString *)userId {
@@ -19,10 +19,10 @@
 
 #pragma mark - request
 -(REDHTTPMethod)HTTPMethod {
-    return REDHTTPMethodPOST;
+    return REDHTTPMethodGET;
 }
 -(NSDictionary *)HTTPEncode {
-    return @{};
+    return @{@"user_id" : self.userId};
 }
 -(BOOL)isSyncingRequest {
     return YES;
@@ -31,7 +31,7 @@
     return @{};
 }
 -(NSString *)URL {
-    return REDServiceFind(REDServerMetadata_V1, @"/log");
+    return REDServiceFind(REDServerMetadata_V1, @"log");
 }
 -(REDSerializer)Serializer {
     return REDJSONSerializer;

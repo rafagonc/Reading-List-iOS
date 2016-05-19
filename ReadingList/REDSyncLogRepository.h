@@ -13,4 +13,7 @@
 
 <REDLogRepository>
 
+#pragma mark - singleton
++(REDSyncLogRepository *)sharedRepository;
+
 @end

@@ -40,6 +40,14 @@
 -(NSArray<id<REDCategoryProtocol>> *)categoriesSortedByName {
     return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
+-(id<REDCategoryProtocol>)categoryByName:(NSString *)name {
+    for (id<REDCategoryProtocol> category in [self list]) {
+        if ([[category name] isEqualToString:name]) {
+            return category;
+        }
+    }
+    return nil;
+}
 -(NSString *)mostUsedCategoryName {
     NSArray <id<REDCategoryProtocol>> * categories = [self list];
     id<REDCategoryProtocol> categoryWithMostBooks = nil;

@@ -27,12 +27,13 @@
 }
 -(NSDictionary *)HTTPEncode {
     return @{@"user_id" : self.userId,
-             @"book_id" : @([self.book identifier]),
-             @"pages" : @([self.book pagesValue]),
-             @"pages_read" : @([self.book pagesReadValue]),
-             @"snippet" : [self.book snippet],
-             @"rate" : @([self.book rate]),
-             @"loved" : @([self.book loved])};
+             @"book_id" : [self.book identifier] ? @([self.book identifier]) : @0,
+             @"pages" : [self.book pagesValue] ? @([self.book pagesValue]) : @0,
+             @"pages_read" : [self.book pagesReadValue] ? @([self.book pagesReadValue]) : @0,
+             @"snippet" : [self.book snippet] ? [self.book snippet] : @"",
+             @"rate" : [self.book rate] ? @([self.book rate]) : @(0.0),
+             @"loved" : [self.book loved] ? @([self.book loved]) : @NO,
+             @"cover_url" : [self.book coverURL] ? [self.book coverURL] : @""};
 }
 -(REDSerializer)Serializer {
     return REDJSONSerializer;

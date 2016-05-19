@@ -25,6 +25,9 @@
     }
     return [categoryWithMostBooks name];
 }
+-(id<REDCategoryProtocol>)categoryByName:(NSString *)name {
+    return nil;
+}
 
 #pragma mark - dao
 -(NSString *)entityName {

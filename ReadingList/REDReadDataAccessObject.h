@@ -12,7 +12,11 @@
 
 @protocol REDReadDataAccessObject <REDDataAccessObject>
 
+-(id<REDReadProtocol>)createWithDict:(NSDictionary *)dict;
+-(void)updateLog:(id<REDReadProtocol>)log WithDict:(NSDictionary *)dict;
 -(NSArray <id<REDReadProtocol>> *)logsOrderedByDate;
+-(id<REDReadProtocol>)logWithIdentifier:(NSUInteger)identifier;
+-(id<REDReadProtocol>)logWithDate:(NSDate *)date;
 -(CGFloat)perDay;
 
 @end

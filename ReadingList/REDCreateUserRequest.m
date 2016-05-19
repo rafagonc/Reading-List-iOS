@@ -25,7 +25,7 @@
     return @{@"user_id" : [self.user userId],
              @"auth_token" : [self.user authToken],
              @"auth_token_secret" : [self.user authTokenSecret],
-             @"name" : [self.user name]};
+             @"name" : [self.user name] ? [self.user name] : @"Book Reader"};
 }
 -(NSDictionary *)HTTPHeader {
     return @{};

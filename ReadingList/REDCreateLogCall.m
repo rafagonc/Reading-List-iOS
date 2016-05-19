@@ -15,6 +15,15 @@
 #import "REDServiceResponse.h"
 #import "REDBookDataAccessObject.h"
 #import "REDTransactionManager.h"
+#import "REDReadDataAccessObject.h"
+#import "NSDate+Additions.h"
+#import "REDReadProtocol.h"
+
+@interface REDCreateLogCall ()
+
+@property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
+
+@end
 
 @implementation REDCreateLogCall
 
@@ -29,6 +38,12 @@
             [self error:response];
         } else {
             response.success = YES;
+            NSArray * logs = [responseObject objectForKey:@"data"];
+            for (NSDictionary * log_dict in logs) {
+                id<REDReadProtocol> read = [self.readDataAccessObject logWithDate:[NSDate sam_dateFromISO8601String:[log_dict objectForKey:@"date"]]];
+                [read setIdentifier:log_dict[@"id"]];
+            }
+            [self success:response];
             completion(YES);
         }
         

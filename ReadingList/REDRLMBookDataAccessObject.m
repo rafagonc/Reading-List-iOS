@@ -9,10 +9,17 @@
 #import "REDRLMBookDataAccessObject.h"
 #import "REDRLMBook.h"
 #import "REDRLMArrayHelper.h"
+#import "REDAuthorDataAccessObject.h"
+#import "REDCategoryDataAccessObject.h"
+#import "REDTransactionManager.h"
 
 @interface REDRLMBookDataAccessObject ()
 
-@property (setter=injected:) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected1:) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected4:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDAuthorDataAccessObject> authorDataAccessObject;
+@property (setter=injected3:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
+
 
 @end
 
@@ -23,6 +30,11 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm beginWriteTransaction];
     REDRLMBook * book = [[REDRLMBook alloc] init];
+    [book setPagesValue:0];
+    [book setPagesReadValue:0];
+    [book setLoved:0];
+    [book setSnippet:@""];
+    [book setRate:0.0];
     [realm addObject:book];
     [realm commitWriteTransaction];
     return book;
@@ -36,8 +48,24 @@
 #pragma mark - update
 -(id<REDBookProtocol>)updateBook:(id<REDBookProtocol>)book withDict:(NSDictionary *)dict {
     RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
+    [self.transactionManager begin];
     [book setName:dict[@"book"][@"name"]];
+    [self.transactionManager commit];
+    NSString * authorName = dict[@"book"][@"author"][@"name"];
+    id<REDAuthorProtocol> author = [self.authorDataAccessObject authorByName:authorName];
+    if (!author) {
+        author = [self.authorDataAccessObject create];
+        [self.transactionManager begin];
+        [author setName:authorName];
+        [self.transactionManager commit];
+    }
+    [self.transactionManager begin];
+    [book setAuthor:author];
+    
+    NSString * categoryName = dict[@"book"][@"category"][@"name"];
+    id<REDCategoryProtocol> category = [self.categoryDataAccessObject categoryByName:categoryName];
+    [book setCategory:category];
+    
     [book setRate:[dict[@"rate"] doubleValue]];
     [book setSnippet:dict[@"snippet"]];
     [book setIdentifier:[dict[@"id"] integerValue]];

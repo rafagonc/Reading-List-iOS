@@ -89,7 +89,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
     [self.navigationItem setRightBarButtonItem:addButton];
     
-    UIBarButtonItem *chartButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chart"] style:UIBarButtonItemStylePlain target:self action:@selector(chartAction:)];
+    UIBarButtonItem *chartButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"chart_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(chartAction:)];
     [self.navigationItem setLeftBarButtonItem:chartButton];
 }
 -(void)viewDidAppear:(BOOL)animated {
@@ -99,7 +99,6 @@
     [super viewDidLayoutSubviews];
     self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 220);
     self.tableView.tableHeaderView = self.tableView.tableHeaderView; //update height
-    [self updateData];
 }
 
 #pragma mark - methods
@@ -137,7 +136,7 @@
     [[self.logRepositoryFactory repository] removeForUser:self.user log:read callback:^(id<REDReadProtocol> read) {
         [self.userScrollView updateData];
     } error:^(NSError *error) {
-        
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {

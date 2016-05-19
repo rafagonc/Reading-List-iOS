@@ -65,9 +65,9 @@
 }
 -(void)removeForUser:(id<REDUserProtocol>)user book:(id<REDBookProtocol>)book callback:(REDBookRepositoryDeleteCallback)callback error:(REDErrorCallback)error {
     @try {
+        REDRemoveBookRequest * bookRequest = [[REDRemoveBookRequest alloc] initWithUserId:[user userId] book:[book name]];
         [self.bookDataAccessObject remove:book];
-        callback(book);
-        REDRemoveBookRequest * bookRequest = [[REDRemoveBookRequest alloc] initWithUserId:[user userId] book:book];
+        callback();
         [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(removeBookResponse:)];
     } @catch (NSException *exception) {
         error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);

@@ -63,7 +63,7 @@
 }
 -(void)setPageControl:(UIPageControl *)pageControl {
     _pageControl = pageControl;
-    [pageControl setNumberOfPages:2];
+    [pageControl setNumberOfPages:3];
 }
 
 #pragma mark - delegate

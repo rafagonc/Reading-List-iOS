@@ -14,6 +14,7 @@
 #import "REDServiceResponseProtocol.h"
 #import "REDCreateUserRequest.h"
 #import "REDTransactionManager.h"
+#import "REDCreateLogRequest.h"
 
 @interface REDUserUploadImpl () {
     dispatch_group_t services;
@@ -45,6 +46,10 @@
     REDCreateBookRequest * createBooksRequest = [[REDCreateBookRequest alloc] initWithUserId:userId books:books];
     [self.serviceDispatcher callWithRequest:createBooksRequest withTarget:self andSelector:@selector(createBooksResponse:)];
     
+    dispatch_group_enter(services);
+    REDCreateLogRequest * createLogRequest = [[REDCreateLogRequest alloc] initWithUser:[self.user userId] logs:logs];
+    [self.serviceDispatcher callWithRequest:createLogRequest withTarget:self andSelector:@selector(createLogsResponse:)];
+    
     dispatch_group_notify(services, dispatch_get_main_queue(), ^{
         completion(error == nil, error);
     });
@@ -67,6 +72,14 @@
         [self.transactionManager begin];
         [self.user setSyncable:YES];
         [self.transactionManager commit];
+    } else {
+        error = [resposne error];
+    }
+    dispatch_group_leave(services);
+}
+-(void)createLogsResponse:(NSNotification *)notification {
+    id<REDServiceResponseProtocol> resposne = [notification object];
+    if ([resposne success]) {
     } else {
         error = [resposne error];
     }

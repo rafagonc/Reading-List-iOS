@@ -23,9 +23,13 @@
 #import <DigitsKit/DigitsKit.h>
 #import "REDRealmMigrationV2.h"
 #import "REDServiceDispatcherProtocol.h"
+#import "REDSyncingLoadingView.h"
 
 
 @interface AppDelegate ()
+
+#pragma mark - ui
+@property (nonatomic,weak) REDSyncingLoadingView * loadingView;
 
 @property (setter=injected:) id<REDRealmMigration> migration;
 @property (setter=injected1:) id<REDServiceDispatcherProtocol> serviceDispatcher;
@@ -45,6 +49,10 @@
     [REDStaticData craateStaticData];
     [RFRateMe showRateAlertAfterTimesOpened:15];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startStatusBarLoading) name:REDStartStatusBarSyncingLoadingViewNotificationKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopStatusBarLoading) name:REDStopStatusBarSyncingLoadingViewNotificationKey object:nil];
+
+    
     REDLibraryViewController *bookList = [[REDLibraryViewController alloc] init];
     REDExploreViewController *reccomendedBooks = [[REDExploreViewController alloc] init];
     REDUserViewController *log = [[REDUserViewController alloc] init];
@@ -53,6 +61,8 @@
     [tab setViewControllers:@[[[UINavigationController alloc] initWithRootViewController:bookList],
                               [[UINavigationController alloc] initWithRootViewController:reccomendedBooks],
                               [[UINavigationController alloc] initWithRootViewController:log]]];
+    
+
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = tab;
@@ -63,6 +73,22 @@
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application {
     [self.serviceDispatcher processUnprocessedRequestIfNeeded];
+}
+
+#pragma mark - loading
+-(void)startStatusBarLoading {
+    if (!self.loadingView) {
+        REDSyncingLoadingView * loadignView = [[REDSyncingLoadingView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 25)];
+        self.window.windowLevel = UIWindowLevelStatusBar + 1;
+        [self setLoadingView:loadignView];
+        [self.window addSubview:self.loadingView];
+        [self.window bringSubviewToFront:loadignView];
+    }
+}
+-(void)stopStatusBarLoading {
+    self.window.windowLevel = UIWindowLevelStatusBar - 1;
+    [self.loadingView removeFromSuperview];
+    self.loadingView = nil;
 }
 
 

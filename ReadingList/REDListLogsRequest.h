@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "REDRequestProtocol.h"
 
-@interface REDListLogRequest : NSObject
+@interface REDListLogsRequest : NSObject
 
 <REDRequestProtocol>
 
