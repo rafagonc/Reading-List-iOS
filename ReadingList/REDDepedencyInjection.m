@@ -74,6 +74,8 @@
 #import "REDLogRepositoryFactoryImpl.h"
 #import "REDListBooksFactory.h"
 #import "REDListLogsFactory.h"
+#import "REDAnimationFactory.h"
+#import "REDAnimationFactoryImpl.h"
 
 @implementation REDDepedencyInjection
 
@@ -102,6 +104,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookRatingUploader sharedUploader] forProtocol:@protocol(REDBookUploaderProtocol) context:nil];
     
     //factories
+    [[DPRegistry sharedRegistry] registerImplementation:[REDAnimationFactoryImpl class] forProtocol:@protocol(REDAnimationFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDTopRatedDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"topRated"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleImageDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleImage"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDGoogleImageDictionary2ModelFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"googleImage"];

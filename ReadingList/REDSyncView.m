@@ -8,6 +8,7 @@
 
 #import "REDSyncView.h"
 #import "REDUserProtocol.h"
+#import "REDAnimationFactory.h"
 
 @interface REDSyncView ()
 
@@ -15,8 +16,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
 
+#pragma mark - properties
+@property (nonatomic,strong) id<REDAnimation> animation;
+
 #pragma mark - injected
-@property (setter=injected:) id<REDUserProtocol> user;
+@property (setter=injected2:) id<REDUserProtocol> user;
+@property (setter=injected1:) id<REDAnimationFactory> animationFactory;
 
 @end
 
@@ -26,6 +31,10 @@
 -(instancetype)init {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
     if (self) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startLoading) name:REDStartStatusBarSyncingLoadingViewNotificationKey object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopLoading) name:REDStopStatusBarSyncingLoadingViewNotificationKey object:nil];
+        
         [self.cloudImageView setImage:[[UIImage imageNamed:@"cloud-1"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
         [self.cloudImageView setTintColor:[UIColor whiteColor]];
     } return self;
@@ -46,6 +55,25 @@
         [self.signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
         [self.signUpButton addTarget:self action:@selector(syncAction:) forControlEvents:UIControlEventTouchUpInside];
     }
+}
+
+#pragma mark - loading
+-(void)startLoading {
+    [self.signUpButton setTitle:@"Syncing..." forState:UIControlStateNormal];
+    if ([self.animation animating] == NO) {
+        [self.animation stopAnimating];
+        self.animation = [self.animationFactory minimumScaleAnimation];
+        [self.animation startAnimating:self.cloudImageView];
+    }
+}
+-(void)stopLoading {
+    [self.signUpButton setTitle:@"Synced" forState:UIControlStateNormal];
+    [self.animation stopAnimating];
+}
+
+#pragma mark - dealloc
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

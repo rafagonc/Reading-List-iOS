@@ -50,7 +50,6 @@
 
 -(void)createForUser:(id<REDUserProtocol>)user log:(id<REDReadProtocol>)log callback:(REDLogRepositoryCreateCallback)callback error:(REDErrorCallback)error {
     @try {
-        [self.transactionManager commit];
         REDCreateLogRequest * createLogRequest = [[REDCreateLogRequest alloc] initWithUser:[self.user userId] logs:@[log]];
         [self.serviceDispatcher callWithRequest:createLogRequest withTarget:self andSelector:@selector(createLogResponse:)];
         callback(log);

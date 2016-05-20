@@ -22,7 +22,6 @@
 
 -(void)createForUser:(id<REDUserProtocol>)user log:(id<REDReadProtocol>)log callback:(REDLogRepositoryCreateCallback)callback error:(REDErrorCallback)error {
     @try {
-        [self.transactionManager commit];
         callback(log);
     } @catch (NSException *exception) {
         error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);

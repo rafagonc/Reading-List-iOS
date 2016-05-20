@@ -36,7 +36,7 @@
     return read;
 }
 -(id<REDReadProtocol>)createWithDict:(NSDictionary *)dict {
-    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book"][@"id"] integerValue]] firstObject];
+    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithString:dict[@"book_ref"][@"name"]] firstObject];
     if (book) {
         id<REDReadProtocol> log = [self create];
         [self updateLog:log WithDict:dict];
@@ -46,12 +46,12 @@
 }
 -(void)updateLog:(id<REDReadProtocol>)log WithDict:(NSDictionary *)dict {
     NSDate * date = [NSDate sam_dateFromISO8601String:[dict objectForKey:@"date"]];
-    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book"][@"id"] integerValue]] firstObject];
+    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book_ref"][@"id"] integerValue]] firstObject];
     [self.transactionManager begin];
     [log setPagesValue:[dict[@"pages"] integerValue]];
     [log setBook:book];
     [log setDate:date];
-    [log setIdentifier:dict[@"id"]];
+    [log setIdentifier:[dict[@"id"] integerValue]];
     [self.transactionManager commit];
 }
 

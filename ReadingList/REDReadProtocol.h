@@ -11,7 +11,7 @@
 
 @protocol REDReadProtocol <NSObject>
 
-@property (nonatomic) NSString *   identifier;
+@property (nonatomic) NSInteger identifier;
 @property (nonatomic,strong) NSDate * date;
 @property (nonatomic,assign) NSInteger pagesValue;
 

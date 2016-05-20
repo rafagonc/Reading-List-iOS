@@ -135,6 +135,7 @@
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id<REDReadProtocol>)read {
     [[self.logRepositoryFactory repository] removeForUser:self.user log:read callback:^(id<REDReadProtocol> read) {
         [self.userScrollView updateData];
+        [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
     } error:^(NSError *error) {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }];

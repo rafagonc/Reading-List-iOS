@@ -17,10 +17,10 @@
     self.date = [NSDate date];
 }
 
--(NSString *)identifier {
+-(NSInteger)identifier {
     return 0;
 }
--(void)setIdentifier:(NSString *)identifier {
+-(void)setIdentifier:(NSInteger)identifier {
     
 }
 

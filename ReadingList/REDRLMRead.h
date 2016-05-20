@@ -14,7 +14,7 @@
 
 <REDReadProtocol>
 
-@property (nonatomic) NSString *   identifier;
+@property (nonatomic) NSInteger    identifier;
 @property (nonatomic) NSDate *     date;
 @property (nonatomic) NSInteger    pagesValue;
 @property (nonatomic) REDRLMBook * _book;

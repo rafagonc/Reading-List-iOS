@@ -41,7 +41,7 @@
             NSArray * logs = [responseObject objectForKey:@"data"];
             for (NSDictionary * log_dict in logs) {
                 id<REDReadProtocol> read = [self.readDataAccessObject logWithDate:[NSDate sam_dateFromISO8601String:[log_dict objectForKey:@"date"]]];
-                [read setIdentifier:log_dict[@"id"]];
+                [read setIdentifier:[log_dict[@"id"] integerValue]];
             }
             [self success:response];
             completion(YES);

@@ -188,6 +188,8 @@
 		2ABB970F1CEC097F001C1E29 /* REDSyncingLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABB970E1CEC097F001C1E29 /* REDSyncingLoadingView.xib */; };
 		2ABB97161CED66DF001C1E29 /* REDListLogsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97151CED66DF001C1E29 /* REDListLogsFactory.m */; };
 		2ABB971A1CED7275001C1E29 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97191CED7275001C1E29 /* NSDate+Additions.m */; };
+		2ABB97221CEE6880001C1E29 /* REDMinimumScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97211CEE6880001C1E29 /* REDMinimumScaleAnimation.m */; };
+		2ABB97251CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97241CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m */; };
 		2ACA3BFA1C5C264900ED34DC /* REDAuthorValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA3BF91C5C264900ED34DC /* REDAuthorValidatorTest.m */; };
 		2AD174811C4D79BD00AFB560 /* _REDRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1747E1C4D79BD00AFB560 /* _REDRead.m */; };
 		2AD174821C4D79BD00AFB560 /* REDRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD174801C4D79BD00AFB560 /* REDRead.m */; };
@@ -604,6 +606,12 @@
 		2ABB97151CED66DF001C1E29 /* REDListLogsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDListLogsFactory.m; sourceTree = "<group>"; };
 		2ABB97181CED7275001C1E29 /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additions.h"; sourceTree = "<group>"; };
 		2ABB97191CED7275001C1E29 /* NSDate+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Additions.m"; sourceTree = "<group>"; };
+		2ABB971D1CEE67CE001C1E29 /* REDAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAnimation.h; sourceTree = "<group>"; };
+		2ABB97201CEE6880001C1E29 /* REDMinimumScaleAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDMinimumScaleAnimation.h; sourceTree = "<group>"; };
+		2ABB97211CEE6880001C1E29 /* REDMinimumScaleAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDMinimumScaleAnimation.m; sourceTree = "<group>"; };
+		2ABB97231CEE6A8A001C1E29 /* REDAnimationFactoryImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAnimationFactoryImpl.h; sourceTree = "<group>"; };
+		2ABB97241CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAnimationFactoryImpl.m; sourceTree = "<group>"; };
+		2ABB97261CEE6A91001C1E29 /* REDAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAnimationFactory.h; sourceTree = "<group>"; };
 		2ACA3BF91C5C264900ED34DC /* REDAuthorValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAuthorValidatorTest.m; sourceTree = "<group>"; };
 		2AD1747D1C4D79BD00AFB560 /* _REDRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _REDRead.h; path = PersistentEntities/_REDRead.h; sourceTree = "<group>"; };
 		2AD1747E1C4D79BD00AFB560 /* _REDRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _REDRead.m; path = PersistentEntities/_REDRead.m; sourceTree = "<group>"; };
@@ -836,6 +844,7 @@
 				2AD174881C4D7B1C00AFB560 /* Read Factory */,
 				44A787771CDBCC780038ED4A /* Book Repository Factory */,
 				44A787AC1CDD2B140038ED4A /* Log Repository Factory */,
+				2ABB97291CEE6A9B001C1E29 /* Animation Factory */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -1038,8 +1047,8 @@
 		2A19B8B91BCDC0D9009C8F25 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				2AFCE5401C6FE04200680A53 /* REDDateChart */,
-				2ADCC0AB1BD2D370009F638A /* SHLoadingView */,
+				2AFCE5401C6FE04200680A53 /* Date Chart */,
+				2ADCC0AB1BD2D370009F638A /* Loading View */,
 				2ADCC09D1BD2D283009F638A /* Notification View */,
 				2A19B8B81BCDC0CF009C8F25 /* Static Table View */,
 				2A2A1E551BD3042A00677868 /* No Action Text Field */,
@@ -1503,6 +1512,7 @@
 		2A74EBAC1BCD50B7005F5E74 /* ReadingList */ = {
 			isa = PBXGroup;
 			children = (
+				2ABB971C1CEE67BC001C1E29 /* Animations */,
 				2A746DE71CD6ED630061F2B9 /* Endpoint */,
 				2ADA28781C59ADA80068CCAC /* Protocols */,
 				2A1FF5BB1C56DEC100520949 /* Validations */,
@@ -2198,6 +2208,58 @@
 			name = NSDate;
 			sourceTree = "<group>";
 		};
+		2ABB971C1CEE67BC001C1E29 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB971E1CEE684F001C1E29 /* Abstract */,
+				2ABB971F1CEE6854001C1E29 /* Concrete */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		2ABB971E1CEE684F001C1E29 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB971D1CEE67CE001C1E29 /* REDAnimation.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2ABB971F1CEE6854001C1E29 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB97201CEE6880001C1E29 /* REDMinimumScaleAnimation.h */,
+				2ABB97211CEE6880001C1E29 /* REDMinimumScaleAnimation.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ABB97271CEE6A94001C1E29 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB97261CEE6A91001C1E29 /* REDAnimationFactory.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2ABB97281CEE6A97001C1E29 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB97231CEE6A8A001C1E29 /* REDAnimationFactoryImpl.h */,
+				2ABB97241CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2ABB97291CEE6A9B001C1E29 /* Animation Factory */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB97281CEE6A97001C1E29 /* Concrete */,
+				2ABB97271CEE6A94001C1E29 /* Abstract */,
+			);
+			name = "Animation Factory";
+			sourceTree = "<group>";
+		};
 		2AD174871C4D7B1500AFB560 /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
@@ -2580,13 +2642,13 @@
 			name = UIViewController;
 			sourceTree = "<group>";
 		};
-		2ADCC0AB1BD2D370009F638A /* SHLoadingView */ = {
+		2ADCC0AB1BD2D370009F638A /* Loading View */ = {
 			isa = PBXGroup;
 			children = (
 				2ADCC0A81BD2D36E009F638A /* SHLoadingView.h */,
 				2ADCC0A91BD2D36E009F638A /* SHLoadingView.m */,
 			);
-			name = SHLoadingView;
+			name = "Loading View";
 			sourceTree = "<group>";
 		};
 		2ADCC0B31BD2E85C009F638A /* UITableViewCell */ = {
@@ -2626,7 +2688,7 @@
 			name = UIImage;
 			sourceTree = "<group>";
 		};
-		2AFCE5401C6FE04200680A53 /* REDDateChart */ = {
+		2AFCE5401C6FE04200680A53 /* Date Chart */ = {
 			isa = PBXGroup;
 			children = (
 				2AE8BAF11C74189E004C1BB0 /* REDDateChart.h */,
@@ -2639,7 +2701,7 @@
 				2A943FAC1C9A553A00C4796A /* REDDateChartAnimatedSignal.h */,
 				2A943FAD1C9A553A00C4796A /* REDDateChartAnimatedSignal.m */,
 			);
-			name = REDDateChart;
+			name = "Date Chart";
 			sourceTree = "<group>";
 		};
 		2AFD3C4A1C5931F50003C423 /* Total Pages View */ = {
@@ -3221,6 +3283,8 @@
 				2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */,
 				2A1FF5C41C56DEE500520949 /* REDCategoryValidator.m in Sources */,
 				2A1632E71C59148C0015F06E /* ReadingList.xcdatamodeld in Sources */,
+				2ABB97251CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m in Sources */,
+				2ABB97221CEE6880001C1E29 /* REDMinimumScaleAnimation.m in Sources */,
 				2A6601F11CC2FA2100B6D835 /* REDTopRatedBookImpl.m in Sources */,
 				44A787821CDBD76B0038ED4A /* REDRemoveBookRequest.m in Sources */,
 				2ADCC08C1BD2069C009F638A /* REDGoogleImageSearchCell.m in Sources */,

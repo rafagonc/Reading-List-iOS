@@ -18,6 +18,8 @@
 #import "REDReadDataAccessObject.h"
 #import "UIViewController+NotificationShow.h"
 #import "REDTransactionManager.h"
+#import "REDLogRepositoryFactory.h"
+#import "REDUserProtocol.h"
 
 @interface REDAddLogViewController () <REDChooseBookCellDelegate, REDChooseBookViewControllerDelegate, REDLogCreateChainProtocol>
 
@@ -30,8 +32,10 @@
 @property (nonatomic,strong) id<REDReadProtocol> read;
 
 #pragma mark - injected
-@property (setter=injected:) id<REDTransactionManager> transactionManager;
+@property (setter=injected4:) id<REDUserProtocol> user;
+@property (setter=injected3:) id<REDTransactionManager> transactionManager;
 @property (setter=injected1:) id<REDReadDataAccessObject> readDataAccessObject;
+@property (setter=injected2:) id<REDLogRepositoryFactory> logRepositoryFactory;
 
 @end
 
@@ -112,14 +116,17 @@
 
 #pragma mark - action
 -(void)doneAction:(UIBarButtonItem *)item {
-    NSError *error;
     self.read = [self.readDataAccessObject create];
+    NSError *error;
     if (![self process:self.read error:&error]) {
         [self.readDataAccessObject remove:self.read];
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
         return;
     }
     [self.navigationController popViewControllerAnimated:YES];
+    [[self.logRepositoryFactory repository] createForUser:self.user log:self.read callback:^(id<REDReadProtocol> read) {} error:^(NSError *error) {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+    }];
 }
 -(void)cancelAction:(UIBarButtonItem *)item {
     [self.navigationController popViewControllerAnimated:YES];
