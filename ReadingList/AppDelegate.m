@@ -78,8 +78,10 @@
 #pragma mark - loading
 -(void)startStatusBarLoading {
     if (!self.loadingView) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.window.windowLevel = UIWindowLevelStatusBar + 1;
+        }];
         REDSyncingLoadingView * loadignView = [[REDSyncingLoadingView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 25)];
-        self.window.windowLevel = UIWindowLevelStatusBar + 1;
         [self setLoadingView:loadignView];
         [self.window addSubview:self.loadingView];
         [self.window bringSubviewToFront:loadignView];

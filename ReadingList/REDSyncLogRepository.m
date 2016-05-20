@@ -72,8 +72,10 @@
         self.listCallback = callback;
         self.listErrorCallback = error;
         callback([self.readDataAccessObject logsOrderedByDate]);
+        
         REDListLogsRequest *list = [[REDListLogsRequest alloc] initWithUserId:[user userId]];
         [self.serviceDispatcher callWithRequest:list withTarget:self andSelector:@selector(listResponse:)];
+        
     } @catch (NSException *exception) {
         error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
