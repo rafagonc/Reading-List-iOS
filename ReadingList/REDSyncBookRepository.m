@@ -77,8 +77,10 @@
     @try {
         [self.transactionManager commit];
         callback(book);
+        
         REDUpdateBookRequest * bookRequest = [[REDUpdateBookRequest alloc] initWithUserId:[user userId] book:book];
         [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(updateBookResponse:)];
+        
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }

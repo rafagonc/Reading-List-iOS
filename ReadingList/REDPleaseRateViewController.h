@@ -9,7 +9,7 @@
 #import "PopoverViewController.h"
 #import "REDBookProtocol.h"
 
-@interface PleaseRateViewController : PopoverViewController
+@interface REDPleaseRateViewController : PopoverViewController
 
 #pragma mark - constructor
 -(instancetype)initWithBook:(id<REDBookProtocol>)book;

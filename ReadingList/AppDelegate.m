@@ -94,6 +94,7 @@
 
 #pragma mark - loading
 -(void)startStatusBarLoading {
+<<<<<<< HEAD
 //    if (!self.loadingView) {
 //        REDSyncingLoadingView * loadignView = [[REDSyncingLoadingView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 25)];
 //        self.window.windowLevel = UIWindowLevelStatusBar + 1;
@@ -101,6 +102,17 @@
 //        [self.window addSubview:self.loadingView];
 //        [self.window bringSubviewToFront:loadignView];
 //    }
+=======
+    if (!self.loadingView) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.window.windowLevel = UIWindowLevelStatusBar + 1;
+        }];
+        REDSyncingLoadingView * loadignView = [[REDSyncingLoadingView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 25)];
+        [self setLoadingView:loadignView];
+        [self.window addSubview:self.loadingView];
+        [self.window bringSubviewToFront:loadignView];
+    }
+>>>>>>> 5d21d629cbe32bce1eb6dfa44dd390a4b1ed97dd
 }
 -(void)stopStatusBarLoading {
 //    self.window.windowLevel = UIWindowLevelStatusBar - 1;

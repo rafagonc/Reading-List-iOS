@@ -30,7 +30,7 @@
 #import "REDBookUploaderProtocol.h"
 #import "REDReadFactoryProtocol.h"
 #import "REDTopRatedBook.h"
-#import "PleaseRateViewController.h"
+#import "REDPleaseRateViewController.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
 
@@ -239,10 +239,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the pages before reading it!"];
 }
 -(void)pageProgressCell:(REDPageProgressCell *)cell didCompleteBookReading:(id<REDBookProtocol>)book {
-    if ([self.book hasRate] == NO) {
-        PleaseRateViewController *rateViewController = [[PleaseRateViewController alloc] initWithBook:self.book];
-        [self presentViewController:rateViewController animated:YES completion:nil];
-    }
+    REDPleaseRateViewController *rateViewController = [[REDPleaseRateViewController alloc] initWithBook:self.book];
+    [self presentViewController:rateViewController animated:YES completion:nil];
 }
 
 #pragma mark - query description

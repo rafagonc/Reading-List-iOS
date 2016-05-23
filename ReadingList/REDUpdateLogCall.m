@@ -15,6 +15,13 @@
 #import "REDServiceResponse.h"
 #import "REDBookDataAccessObject.h"
 #import "REDTransactionManager.h"
+#import "REDDictionary2ModelFactoryProtocol.h"
+
+@interface REDUpdateLogCall ()
+
+@property (setter=injected_log:) id<REDDictionary2ModelFactoryProtocol> listLogFactory;
+
+@end
 
 @implementation REDUpdateLogCall
 
@@ -28,6 +35,8 @@
             response.error = error;
             [self error:response];
         } else {
+            [self.listLogFactory setInput:@[[responseObject objectForKey:@"data"]]];
+            [response setData:[self.listLogFactory outputForMany]];
             response.success = YES;
             completion(YES);
         }
