@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Active Environment</key>
-	<string>LocalIP</string>
+	<string>Stage</string>
 	<key>Environments</key>
 	<dict>
 		<key>Santander</key>

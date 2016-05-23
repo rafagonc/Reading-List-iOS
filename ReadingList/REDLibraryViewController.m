@@ -18,6 +18,7 @@
 #import "REDNewViewController.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
+
 #import "UIViewController+NotificationShow.h"
 
 @interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
@@ -27,6 +28,9 @@
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *saerchBar;
+
+#pragma mark - properties
+@property (nonatomic,strong) id<REDBookRepository> bookRepository;
 
 #pragma mark - injected
 @property (setter=injected_book:) id<REDDatasourceProtocol> datasource;
@@ -66,8 +70,6 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
     [REDTabBarCustomizer customizeTabBar:self.tabBarController.tabBar];
-    [self updateData];
-    [self.tableView reloadData];
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -92,7 +94,8 @@
     [self.navigationController pushViewController:editViewController animated:YES];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book {
-    [[self.bookRepositoryFactory repository] removeForUser:self.user book:book callback:^(id<REDBookProtocol> deletedBook) {
+    self.bookRepository = [self.bookRepositoryFactory repository];
+    [self.bookRepository removeForUser:self.user book:book callback:^() {
         [self.tableView beginUpdates];
         [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.datasource.data indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
         [self updateData];

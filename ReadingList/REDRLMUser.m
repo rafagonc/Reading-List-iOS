@@ -15,6 +15,7 @@
 -(void)setCover:(UIImage *)cover {
     self.coverData = UIImagePNGRepresentation(cover);
 }
+
 -(void)setPhoto:(UIImage *)photo {
     self.photoData = UIImagePNGRepresentation(photo);
     self.cover = [photo applyBlurToImageWithRadius:100.f];
@@ -34,6 +35,9 @@
 }
 
 #pragma mark - protocol
+-(BOOL)isSyncable {
+    return self.syncable && self.completeSyncing;
+}
 -(BOOL)hasName {
     return self.name.length > 0;
 }

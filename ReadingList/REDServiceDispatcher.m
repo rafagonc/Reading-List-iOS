@@ -10,12 +10,15 @@
 #import "REDServiceCallFactory.h"
 #import "REDHTTPEncodeProtocol.h"
 #import "REDRequestProtocol.h"
+#import "REDListLogsRequest.h"
+#import "REDListBooksRequest.h"
 
 @interface REDServiceDispatcher ()
 
 #pragma mark - hashes in loading
 @property (nonatomic,strong) NSMutableSet * hashesInLoading;
 @property (nonatomic,strong) NSMutableSet * unprocessedRequests;
+@property (nonatomic,strong) NSMutableSet * processingRequestClassesNames;
 
 @end
 
@@ -25,6 +28,7 @@
 -(instancetype)init {
     if (self = [super init]) {
         self.hashesInLoading = [[NSMutableSet alloc] init];
+        self.processingRequestClassesNames = [[NSMutableSet alloc] init];
     } return self;
 }
 +(REDServiceDispatcher *)sharedDispatcher {
@@ -50,6 +54,8 @@
 -(void)callWithRequest:(id<REDRequestProtocol>)request withTarget:(id)target andSelector:(SEL)selector {
     __weak typeof(self) welf = self;
     [self startStatusBarLoading:request];
+    if ([self isRequestHappeningNow:request] == YES) return;
+    if ([request isKindOfClass:[REDListLogsRequest class]] || [request isKindOfClass:[REDListBooksRequest class]]) [self registerClasseName:request];
     NSString *requestHash = [NSString stringWithFormat:@"%lu",(unsigned long)request.hash];
     [[NSNotificationCenter defaultCenter] addObserver:target selector:selector name:requestHash object:nil];
     if ([self isHashLoading:request.hash]) return; //Block if the hash is loading, they will recieve the notif anyways
@@ -57,6 +63,7 @@
     id<REDServiceCallProtocol> serviceCall = (id<REDServiceCallProtocol>)[NSClassFromString([NSStringFromClass([request class]) stringByReplacingOccurrencesOfString:@"Request" withString:@"Call"]) new];
     [serviceCall startWithRequest:request withCompletion:^(BOOL success){
         (success == NO && [request isSyncingRequest]) ? [self.unprocessedRequests addObject:request] : [self.unprocessedRequests removeObject:request];
+        [welf unregisterClasseName:request];
         [welf unsubscribeTarget:target fromRequest:request];
         [welf stopStatusBarLoading];
         [welf.hashesInLoading removeObject:requestHash];
@@ -71,6 +78,17 @@
     for (id<REDRequestProtocol> request in self.unprocessedRequests) {
         [self callWithRequest:request withTarget:nil andSelector:nil];
     }
+}
+
+#pragma mark - methods
+-(BOOL)isRequestHappeningNow:(id<REDRequestProtocol>)request {
+    return [self.processingRequestClassesNames containsObject:NSStringFromClass([request class])];
+}
+-(void)registerClasseName:(id<REDRequestProtocol>)reqiest {
+    [self.processingRequestClassesNames addObject:NSStringFromClass([reqiest class])];
+}
+-(void)unregisterClasseName:(id<REDRequestProtocol>)reqiest {
+    [self.processingRequestClassesNames removeObject:NSStringFromClass([reqiest class])];
 }
 
 #pragma mark - start syncing loading

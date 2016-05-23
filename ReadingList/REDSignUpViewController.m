@@ -17,6 +17,7 @@
 #import "UIViewController+NotificationShow.h"
 #import "REDNavigationBarCustomizer.h"
 #import "UIStaticTableView.h"
+#import "REDTransactionManager.h"
 
 @interface REDSignUpViewController ()
 
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 #pragma mark - injected
+@property (setter=injected5:) id<REDTransactionManager> transactionManager;
 @property (setter=injected1:) id<REDReadDataAccessObject> readDataAccessObject;
 @property (setter=injected2:) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected3:) id<REDUserProtocol> user;
@@ -67,12 +69,16 @@
     a.accentColor = [UIColor red_redColor];
     configuration.appearance = a;
     [digits authenticateWithCompletion:^(DGTSession *session, NSError *error) {
+        
         if (error) {
             [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
             return;
         }
         [self startFullLoading];
         [self.userUpload createUser:self.user withBooks:[self.bookDataAccessObject allBooksSorted] andLogs:[self.readDataAccessObject logsOrderedByDate] andUserId:session.userID andAuthToken:session.authToken andAuthTokenSecret:session.authTokenSecret completion:^(BOOL success, NSError *error){
+            [self.transactionManager begin];
+            [self.user setCompleteSyncing:YES];
+            [self.transactionManager commit];
             if (error) {
                 [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
             } else {

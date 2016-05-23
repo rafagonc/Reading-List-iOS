@@ -48,7 +48,7 @@
 #pragma mark - layout
 -(void)layoutSubviews {
     [super layoutSubviews];
-    if ([self.user syncable]) {
+    if ([self.user isSyncable]) {
         [self.signUpButton setTitle:@"Synced" forState:UIControlStateNormal];
         [self.signUpButton removeTarget:self action:@selector(syncAction:) forControlEvents:UIControlEventTouchUpInside];
     } else {

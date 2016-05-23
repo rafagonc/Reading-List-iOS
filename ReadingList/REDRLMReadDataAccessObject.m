@@ -65,7 +65,7 @@
 
 #pragma mark - fetching
 -(NSArray<id<REDReadProtocol>> *)logsOrderedByDate {
-    return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
+    return (NSArray *)[[self listWithPredicate:[NSPredicate predicateWithFormat:@"invalidated = %d", NO]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
 }
 -(id<REDReadProtocol>)logWithDate:(NSDate *)date {
     for (id<REDReadProtocol> read in [self list]) {

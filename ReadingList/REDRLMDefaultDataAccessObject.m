@@ -8,10 +8,12 @@
 
 #import "REDRLMDefaultDataAccessObject.h"
 #import <Realm/Realm.h>
+#import "REDTransactionManager.h"
 
 @interface REDRLMDefaultDataAccessObject ()
 
-@property (nonatomic,strong) RLMRealm *realm;
+@property (strong,nonatomic) RLMRealm * realm;
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -26,9 +28,9 @@
 
 #pragma mark - default
 -(void)remove:(id)object {
-    [self.realm beginWriteTransaction];
+    [self.transactionManager begin];
     [self.realm deleteObject:object];
-    [self.realm commitWriteTransaction];
+    [self.transactionManager commit];
 }
 
 #pragma mark - entity

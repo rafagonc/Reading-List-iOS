@@ -13,11 +13,11 @@
 
 #pragma mark - methods
 -(NSArray<id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name {
-    NSArray * books = [self listWithPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@", name]];
+    NSArray * books = [self listWithPredicate:[NSPredicate predicateWithFormat:@"name BEGINSWITH[cd] %@ AND unprocessed = NO", name]];
     return [books sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES]]];
 }
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted {
-    return [[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    return [[[self list] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"unprocessed = NO"]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
 -(NSUInteger)totalPages {
     NSUInteger totalPages = 0;

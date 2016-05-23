@@ -22,5 +22,6 @@
 @property (nonatomic) NSString * authToken;
 @property (nonatomic) BOOL payed;
 @property (nonatomic) BOOL syncable;
+@property (nonatomic) BOOL completeSyncing;
 
 @end

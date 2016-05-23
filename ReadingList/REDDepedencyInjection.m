@@ -76,6 +76,7 @@
 #import "REDListLogsFactory.h"
 #import "REDAnimationFactory.h"
 #import "REDAnimationFactoryImpl.h"
+#import "REDBookRatingValidator.h"
 
 @implementation REDDepedencyInjection
 
@@ -121,6 +122,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDRLMReadDataAccessObject class] forProtocol:@protocol(REDReadDataAccessObject) context:nil];
     
     //validators
+    [[DPRegistry sharedRegistry] registerImplementation:[REDBookRatingValidator class] forProtocol:@protocol(REDValidator) context:@"rating"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDPagesValidator class] forProtocol:@protocol(REDValidator) context:@"pages"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookValidator class] forProtocol:@protocol(REDValidator) context:@"book"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDDateValidator class] forProtocol:@protocol(REDValidator) context:@"date"];

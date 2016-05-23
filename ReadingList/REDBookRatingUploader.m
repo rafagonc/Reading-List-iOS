@@ -10,11 +10,13 @@
 #import "REDServiceResponseProtocol.h"
 #import "REDServiceDispatcherProtocol.h"
 #import "REDBookRatingRequest.h"
+#import "REDValidator.h"
 
 @interface REDBookRatingUploader ()
 
 #pragma mark - injected
 @property (setter=injected:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected_rating:) id<REDValidator> validator;
 
 @end
 
@@ -32,8 +34,13 @@
 
 #pragma mark - methods
 -(void)uploadBook:(id<REDBookProtocol>)book forRating:(CGFloat)rating {
-    REDBookRatingRequest * request = [[REDBookRatingRequest alloc] initWithBook:book andRating:rating];
-    [self.serviceDispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
+    NSError *error;
+    if ([self.validator validate:book error:&error]) {
+        REDBookRatingRequest * request = [[REDBookRatingRequest alloc] initWithBook:book andRating:rating];
+        [self.serviceDispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
+    } else {
+        // yeah, do nothing
+    }
 }
 -(void)response:(NSNotification *)notif {
     id<REDServiceResponseProtocol> response = notif.object;

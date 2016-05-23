@@ -25,7 +25,10 @@ static RLMRealm * realm;
     if (!realm) {
         realm = [RLMRealm defaultRealm];
     }
-    [realm beginWriteTransaction];
+    if (![realm inWriteTransaction]) {
+        [realm beginWriteTransaction];
+
+    }
 }
 
 @end

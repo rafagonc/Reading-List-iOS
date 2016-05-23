@@ -190,6 +190,7 @@
 		2ABB971A1CED7275001C1E29 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97191CED7275001C1E29 /* NSDate+Additions.m */; };
 		2ABB97221CEE6880001C1E29 /* REDMinimumScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97211CEE6880001C1E29 /* REDMinimumScaleAnimation.m */; };
 		2ABB97251CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97241CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m */; };
+		2ABB972C1CF0C738001C1E29 /* REDBookRatingValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB972B1CF0C738001C1E29 /* REDBookRatingValidator.m */; };
 		2ACA3BFA1C5C264900ED34DC /* REDAuthorValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACA3BF91C5C264900ED34DC /* REDAuthorValidatorTest.m */; };
 		2AD174811C4D79BD00AFB560 /* _REDRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1747E1C4D79BD00AFB560 /* _REDRead.m */; };
 		2AD174821C4D79BD00AFB560 /* REDRead.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD174801C4D79BD00AFB560 /* REDRead.m */; };
@@ -612,6 +613,8 @@
 		2ABB97231CEE6A8A001C1E29 /* REDAnimationFactoryImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAnimationFactoryImpl.h; sourceTree = "<group>"; };
 		2ABB97241CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAnimationFactoryImpl.m; sourceTree = "<group>"; };
 		2ABB97261CEE6A91001C1E29 /* REDAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAnimationFactory.h; sourceTree = "<group>"; };
+		2ABB972A1CF0C738001C1E29 /* REDBookRatingValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRatingValidator.h; sourceTree = "<group>"; };
+		2ABB972B1CF0C738001C1E29 /* REDBookRatingValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRatingValidator.m; sourceTree = "<group>"; };
 		2ACA3BF91C5C264900ED34DC /* REDAuthorValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAuthorValidatorTest.m; sourceTree = "<group>"; };
 		2AD1747D1C4D79BD00AFB560 /* _REDRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _REDRead.h; path = PersistentEntities/_REDRead.h; sourceTree = "<group>"; };
 		2AD1747E1C4D79BD00AFB560 /* _REDRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _REDRead.m; path = PersistentEntities/_REDRead.m; sourceTree = "<group>"; };
@@ -1150,6 +1153,7 @@
 				2ADA28841C59B2C60068CCAC /* Book Validator */,
 				2ADA28831C59B2BB0068CCAC /* Date Validator */,
 				2A4597911C6C21530010D135 /* Author Name Validator */,
+				2ABB972D1CF0C73C001C1E29 /* Book Rating Validator */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -2260,6 +2264,15 @@
 			name = "Animation Factory";
 			sourceTree = "<group>";
 		};
+		2ABB972D1CF0C73C001C1E29 /* Book Rating Validator */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB972A1CF0C738001C1E29 /* REDBookRatingValidator.h */,
+				2ABB972B1CF0C738001C1E29 /* REDBookRatingValidator.m */,
+			);
+			name = "Book Rating Validator";
+			sourceTree = "<group>";
+		};
 		2AD174871C4D7B1500AFB560 /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
@@ -2844,19 +2857,19 @@
 			name = "Update Request";
 			sourceTree = "<group>";
 		};
-		44A7878B1CDBD7930038ED4A /* List Req/uest */ = {
+		44A7878B1CDBD7930038ED4A /* List Request */ = {
 			isa = PBXGroup;
 			children = (
 				44A787881CDBD7900038ED4A /* REDListBooksRequest.h */,
 				44A787891CDBD7900038ED4A /* REDListBooksRequest.m */,
 			);
-			name = "List Req/uest";
+			name = "List Request";
 			sourceTree = "<group>";
 		};
 		44A7878C1CDBD7CE0038ED4A /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				44A7878B1CDBD7930038ED4A /* List Req/uest */,
+				44A7878B1CDBD7930038ED4A /* List Request */,
 				44A787871CDBD7810038ED4A /* Update Request */,
 				44A787831CDBD76E0038ED4A /* Remove Request */,
 				44A787671CDBC4810038ED4A /* Create Book */,
@@ -3293,6 +3306,7 @@
 				2A4597651C6192560010D135 /* REDRLMCategory.m in Sources */,
 				2A6601FB1CC2FC9D00B6D835 /* REDTopRatedCall.m in Sources */,
 				2ADCC0741BD1FD6A009F638A /* REDDictionary2ModelFactory.m in Sources */,
+				2ABB972C1CF0C738001C1E29 /* REDBookRatingValidator.m in Sources */,
 				2A1632DA1C580E6C0015F06E /* REDUser.m in Sources */,
 				2A6602091CC443E300B6D835 /* REDRequestFeatureImpl.m in Sources */,
 				2A4597801C619A330010D135 /* REDRLMUserDataAccessObject.m in Sources */,

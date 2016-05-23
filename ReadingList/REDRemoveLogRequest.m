@@ -22,16 +22,16 @@
 
 #pragma mark - request
 -(REDHTTPMethod)HTTPMethod {
-    return REDHTTPMethodPOST;
+    return REDHTTPMethodDELETE;
 }
 -(NSDictionary *)HTTPEncode {
-    return @{};
+    return @{@"log_id" : @([self.log identifier]), @"user_id" : self.userId};
 }
 -(BOOL)isSyncingRequest {
     return YES;
 }
 -(NSDictionary *)HTTPHeader {
-    return @{};
+    return @{}  ;
 }
 -(NSString *)URL {
     return REDServiceFind(REDServerMetadata_V1, @"log");

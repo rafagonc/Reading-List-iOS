@@ -68,7 +68,7 @@
     [self.transactionManager begin];
     [self.user setName:textField.text];
     [self.transactionManager commit];
-    if ([self.user syncable]) {
+    if ([self.user isSyncable]) {
         REDUpdateUserRequest * updateUserRequest = [[REDUpdateUserRequest alloc] initWithUser:self.user];
         [self.serviceDispatcher callWithRequest:updateUserRequest withTarget:self andSelector:@selector(response:)];
     }

@@ -20,7 +20,7 @@
 @implementation REDLogRepositoryFactoryImpl
 
 -(id<REDLogRepository>)repository {
-    if ([self.user syncable]) {
+    if ([self.user isSyncable]) {
         return [REDSyncLogRepository sharedRepository];
     }
     return [[REDLocalLogRepository alloc] init];

@@ -59,9 +59,9 @@
 }
 -(void)removeForUser:(id<REDUserProtocol>)user log:(id<REDReadProtocol>)read callback:(REDLogRepositoryRemoveCallback)callback error:(REDErrorCallback)error {
     @try {
-        [self.readDataAccessObject remove:read];
         REDRemoveLogRequest * removeRequest = [[REDRemoveLogRequest alloc] initWithUserId:[self.user userId] log:read];
         [self.serviceDispatcher callWithRequest:removeRequest withTarget:self andSelector:@selector(removeLogResponse:)];
+        [self.readDataAccessObject remove:read];
         callback(read);
     } @catch (NSException *exception) {
         error([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);

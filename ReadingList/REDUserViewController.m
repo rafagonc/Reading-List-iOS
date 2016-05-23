@@ -135,10 +135,11 @@
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id<REDReadProtocol>)read {
     [[self.logRepositoryFactory repository] removeForUser:self.user log:read callback:^(id<REDReadProtocol> read) {
         [self.userScrollView updateData];
-        [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
+        [self updateData];
     } error:^(NSError *error) {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }];
+    [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource wantsToCheckOutBook:(id<REDBookProtocol>)book {
     REDBookAddViewController *bookViewController = [[REDBookAddViewController alloc] initWithBook:book];
@@ -162,8 +163,10 @@
     }];
 }
 -(void)syncViewWantsToAuthenticateWithView:(REDSyncView *)syncView {
-    REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:signIn] animated:YES completion:nil];
+    if ([self.user isSyncable] == NO) {
+        REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:signIn] animated:YES completion:nil];
+    }
 }
 
 #pragma mark - actions

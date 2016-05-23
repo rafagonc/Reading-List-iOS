@@ -72,6 +72,7 @@
     if ([[dict objectForKey:@"loved"] isEqual:[NSNull null]] == NO) [book setLoved:[dict[@"loved"] boolValue]];
     [book setPagesValue:[dict[@"pages"] integerValue]];
     [book setPagesReadValue:[dict[@"pages_read"] integerValue]];
+    [book setCoverURL:[[dict objectForKey:@"cover_url"] isEqual:[NSNull null]] ? @"" : [dict objectForKey:@"cover_url"]];
     [book setUnprocessed:NO];
     [realm commitWriteTransaction];
     return book;

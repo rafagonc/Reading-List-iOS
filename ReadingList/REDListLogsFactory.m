@@ -21,6 +21,10 @@
 
 -(NSArray *)outputForMany {
     NSMutableArray *logs = [@[] mutableCopy];
+    
+    if (self.input.count == 0) return logs;
+    
+    //creatte and upatte
     for (NSDictionary * log_dict in self.input) {
         id<REDReadProtocol> log = [self.logDataAccessObject logWithIdentifier:[log_dict[@"id"] integerValue]];
         if (log) {
@@ -29,6 +33,15 @@
             [self.logDataAccessObject createWithDict:log_dict];
         }
     }
+    
+    for (id<REDReadProtocol> log in [self.logDataAccessObject logsOrderedByDate]) {
+        NSDictionary *log_dict = [[self.input filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"id = %lu", [log identifier]]] firstObject];
+        if (!log_dict) {
+            [self.logDataAccessObject remove:log];
+        }
+        
+    }
+    
     return logs;
 }
 

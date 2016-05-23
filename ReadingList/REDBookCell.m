@@ -8,6 +8,8 @@
 
 #import "REDBookCell.h"
 #import "UIColor+ReadingList.h"
+#import "UIImageView+WebCache.h"
+#import "REDTransactionManager.h"
 
 @interface REDBookCell ()
 
@@ -15,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *heartImageView;
+
+@property (setter=injected:) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -35,7 +39,16 @@
     else self.heartImageView.image = nil;
     
     self.nameLabel.text = book.name;
+    
     self.coverImageView.image = [book coverImage] ? [book coverImage] : [UIImage imageNamed:@"404"];
+    if ([book coverImage] == nil && [book coverURL].length > 0) {
+        [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:[book coverURL]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [self.transactionManager begin];
+            [book setCoverImage:image];
+            [self.transactionManager commit];
+        }];
+    }
+    
     if ([book completed]) {
         self.tintColor = [UIColor red_redColor];
         self.accessoryType = UITableViewCellAccessoryCheckmark;

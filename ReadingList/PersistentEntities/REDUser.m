@@ -15,7 +15,7 @@ static NSString * const REDUserCoverDataKey = @"REDUserCoverDataKey";
 
 @implementation REDUser
 
-@synthesize cacheCoverImage,cachePhotoImage, authToken, authTokenSecret,payed, syncable, userId;
+@synthesize cacheCoverImage,cachePhotoImage, authToken, authTokenSecret,payed, userId;
 
 #pragma mark - getters and setters
 -(void)setPhoto:(UIImage *)photo {
@@ -24,6 +24,9 @@ static NSString * const REDUserCoverDataKey = @"REDUserCoverDataKey";
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self setCover:photo];
     [self setCachePhotoImage:nil];
+}
+-(BOOL)isSyncable {
+    return NO;
 }
 -(UIImage *)photo {
     if (!self.cachePhotoImage) {
@@ -45,6 +48,15 @@ static NSString * const REDUserCoverDataKey = @"REDUserCoverDataKey";
 }
 -(void)setAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)secret andUserId:(NSString *)userId {
     
+}
+-(void)setCompleteSyncing:(BOOL)completeSyncing {
+    
+}
+-(void)setSyncable:(BOOL)syncable {
+    
+}
+-(BOOL)completeSyncing {
+    return NO;
 }
 
 #pragma mark - helpers

@@ -42,8 +42,6 @@
                     if ([[book name] isEqualToString:[[book_dict objectForKey:@"book"] objectForKey:@"name"]]) {
                         [book setIdentifier:[[book_dict objectForKey:@"id"] unsignedIntegerValue]];
                         [book setUnprocessed:NO];
-                    } else {
-                        [book setUnprocessed:YES];
                     }
                 }
             }
