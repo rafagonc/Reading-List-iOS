@@ -64,11 +64,13 @@
     return [self.delegate datasourceCanDeleteLogs:self];
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    id<REDReadProtocol> read = self.logs[indexPath.row];
-    [tableView beginUpdates];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-    [self.delegate datasource:self didDeleteRead:read];
-    [tableView endUpdates];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        id<REDReadProtocol> read = self.logs[indexPath.row];
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.delegate datasource:self didDeleteRead:read];
+        [tableView endUpdates];
+    }
 }
 -(void)logCell:(REDLogCell *)logCell wantsToCheckOutBook:(id<REDBookProtocol>)book {
     [self.delegate datasource:self wantsToCheckOutBook:book];

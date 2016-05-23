@@ -24,7 +24,9 @@
 -(NSString *)description {
     return [NSString stringWithFormat:@"Title : %@", self.title];
 }
-
+-(NSString *)coverURL {
+    return self.imageURL;
+}
 #pragma mark - book protcol
 -(NSString *)name {
     return self.title;

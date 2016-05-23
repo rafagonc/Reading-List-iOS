@@ -97,7 +97,7 @@
     self.bookRepository = [self.bookRepositoryFactory repository];
     [self.bookRepository removeForUser:self.user book:book callback:^() {
         [self.tableView beginUpdates];
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.datasource.data indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationMiddle];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.datasource.data indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
         [self updateData];
         [self.tableView endUpdates];
     } error:^(NSError *error) {

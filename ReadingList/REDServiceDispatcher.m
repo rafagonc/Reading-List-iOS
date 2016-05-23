@@ -54,8 +54,8 @@
 -(void)callWithRequest:(id<REDRequestProtocol>)request withTarget:(id)target andSelector:(SEL)selector {
     __weak typeof(self) welf = self;
     [self startStatusBarLoading:request];
-    if ([self isRequestHappeningNow:request] == YES) return;
-    if ([request isKindOfClass:[REDListLogsRequest class]] || [request isKindOfClass:[REDListBooksRequest class]]) [self registerClasseName:request];
+    if ([self isRequestHappeningNow:request] == YES && ([request isKindOfClass:[REDListLogsRequest class]] || [request isKindOfClass:[REDListBooksRequest class]])) return;
+    [self registerClasseName:request];
     NSString *requestHash = [NSString stringWithFormat:@"%lu",(unsigned long)request.hash];
     [[NSNotificationCenter defaultCenter] addObserver:target selector:selector name:requestHash object:nil];
     if ([self isHashLoading:request.hash]) return; //Block if the hash is loading, they will recieve the notif anyways
@@ -82,19 +82,19 @@
 
 #pragma mark - methods
 -(BOOL)isRequestHappeningNow:(id<REDRequestProtocol>)request {
-    return [self.processingRequestClassesNames containsObject:NSStringFromClass([request class])];
+    return [[self.processingRequestClassesNames filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"isTransactionRequest = YES"]] count] > 0;
 }
 -(void)registerClasseName:(id<REDRequestProtocol>)reqiest {
-    [self.processingRequestClassesNames addObject:NSStringFromClass([reqiest class])];
+    [self.processingRequestClassesNames addObject:reqiest];
 }
 -(void)unregisterClasseName:(id<REDRequestProtocol>)reqiest {
-    [self.processingRequestClassesNames removeObject:NSStringFromClass([reqiest class])];
+    [self.processingRequestClassesNames removeObject:reqiest];
 }
 
 #pragma mark - start syncing loading
 -(void)startStatusBarLoading:(id<REDRequestProtocol>)request {
     if ([request isSyncingRequest])
-    [[NSNotificationCenter defaultCenter] postNotificationName:REDStartStatusBarSyncingLoadingViewNotificationKey object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:REDStartStatusBarSyncingLoadingViewNotificationKey object:request];
 }
 -(void)stopStatusBarLoading {
     [[NSNotificationCenter defaultCenter] postNotificationName:REDStopStatusBarSyncingLoadingViewNotificationKey object:nil];

@@ -22,7 +22,6 @@
 
 @interface REDCreateLogCall ()
 
-@property (setter=injected_log:) id<REDDictionary2ModelFactoryProtocol> listLogFactory;
 @property (setter=injected2:) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end
@@ -40,8 +39,13 @@
             [self error:response];
         } else {
             response.success = YES;
-            [self.listLogFactory setInput:[responseObject objectForKey:@"data"]];
-            [response setData:[self.listLogFactory outputForMany]];
+            for (NSDictionary * log_idct in [responseObject objectForKey:@"data"]) {
+                id<REDReadProtocol> log = [self.readDataAccessObject logWithIdentifier:[log_idct                                                                                   [@"id"] integerValue]];
+                if (log) {
+                    [log setIdentifier:[[log_idct objectForKey:@"id"] integerValue]];
+                }
+
+            }
             [self success:response];
             completion(YES);
         }

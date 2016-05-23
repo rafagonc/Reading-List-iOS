@@ -36,5 +36,8 @@
 -(BOOL)isSyncingRequest {
     return YES;
 }
+-(BOOL)isTransactionRequest {
+    return NO;
+}
 
 @end

@@ -135,7 +135,7 @@
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id<REDReadProtocol>)read {
     [[self.logRepositoryFactory repository] removeForUser:self.user log:read callback:^(id<REDReadProtocol> read) {
         [self.userScrollView updateData];
-        [self updateData];
+        [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
     } error:^(NSError *error) {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }];
@@ -163,10 +163,10 @@
     }];
 }
 -(void)syncViewWantsToAuthenticateWithView:(REDSyncView *)syncView {
-    if ([self.user isSyncable] == NO) {
+   // if ([self.user isSyncable] == NO) {
         REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
-        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:signIn] animated:YES completion:nil];
-    }
+        [self presentViewController:signIn animated:YES completion:nil];
+   // }
 }
 
 #pragma mark - actions

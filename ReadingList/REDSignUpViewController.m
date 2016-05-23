@@ -38,7 +38,8 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
-        
+        self.size = CGSizeMake([UIScreen mainScreen].bounds.size.width * .8f, 300);
+        self.cornerRadius = 12;
     } return self;
 }
 
@@ -47,8 +48,7 @@
     [super viewDidLoad];
     [self setTitle:@"Sign Up"];
     [self.imageView setImage:[[UIImage imageNamed:@"cloud_big"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    //239, 239, 244
-    [self.imageView setTintColor:[UIColor whiteColor]];
+    [self.imageView setTintColor:[UIColor blackColor]];
     
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -63,6 +63,7 @@
 
 #pragma mark - actions
 -(IBAction)signUpAction:(id)sender {
+    self.shouldDismissOnBackgroundTap = NO;
     Digits *digits = [Digits sharedInstance];
     DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsDefaultOptionMask];
     DGTAppearance *a = [[DGTAppearance alloc] init];;
@@ -71,6 +72,7 @@
     [digits authenticateWithCompletion:^(DGTSession *session, NSError *error) {
         
         if (error) {
+            self.shouldDismissOnBackgroundTap = YES;
             [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
             return;
         }
@@ -84,6 +86,7 @@
             } else {
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+            self.shouldDismissOnBackgroundTap = YES;
             [self stopFullLoading];
         }];
         

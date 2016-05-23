@@ -61,6 +61,9 @@
 -(UIImage *)coverImage {
     return nil;
 }
+-(NSString *)coverURL {
+    return nil;
+}
 -(NSString *)snippet {
     return nil;
 }

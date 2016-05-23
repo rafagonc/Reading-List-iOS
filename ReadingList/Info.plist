@@ -12,6 +12,8 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>Reading</string>
+	<key>CFBundleDisplayName</key>
+	<string>Reading</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -19,11 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
-	<string>1463976427</string>
-=======
-	<string>1463764025</string>
->>>>>>> 5d21d629cbe32bce1eb6dfa44dd390a4b1ed97dd
+	<string>1464034785</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>

@@ -30,16 +30,22 @@
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     NSMutableArray * log_dicts = [@[] mutableCopy];
     for (id<REDReadProtocol> read in self.reads) {
-        [log_dicts addObject:@{
+        if ([read date] != nil && [[read book] name]) {
+                [log_dicts addObject:@{
                                @"date" : [dateFormatter stringFromDate:[read date]],
-                               @"pages" : @([read pagesValue]),
-                               @"book_name" : [[read book] name]
+                               @"pages" : [read pagesValue] ? @([read pagesValue]) : @0,
+                               @"book_name" : [[read book] name],
+                               @"id" : @([read identifier])
                                }];
+        }
     }
     dict[@"logs"] = log_dicts;
     return [dict copy];
 }
 -(BOOL)isSyncingRequest {
+    return YES;
+}
+-(BOOL)isTransactionRequest {
     return YES;
 }
 -(NSDictionary *)HTTPHeader {

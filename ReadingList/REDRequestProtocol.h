@@ -26,5 +26,6 @@ typedef NS_ENUM(NSUInteger, REDSerializer) {
 -(REDSerializer)Serializer;
 -(NSString *)URL;
 -(BOOL)isSyncingRequest;
+-(BOOL)isTransactionRequest;
 
 @end

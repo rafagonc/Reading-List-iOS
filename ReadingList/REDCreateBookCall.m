@@ -47,7 +47,7 @@
             }
             [self.transactionManager commit];
             [self success:response];
-            completion(YES);            
+            completion(YES);
         }
         
     }];

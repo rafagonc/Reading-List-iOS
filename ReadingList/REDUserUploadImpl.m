@@ -20,7 +20,7 @@
 @interface REDUserUploadImpl () {
     dispatch_group_t services;
     NSError *error;
-    BOOL finishUploadingBooks, finishUploadingUser, finishUploadingLogs, finishGettingBooks;
+    BOOL finishUploadingBooks, finishUploadingUser, finishUploadingLogs, finishGettingBooks; /* I am not happy, dispatch_group_t is leading to bugs. */
     void(^_callback)(BOOL success, NSError *error);
 }
 
@@ -36,6 +36,11 @@
 -(void)createUser:(id<REDUserProtocol>)user withBooks:(NSArray<id<REDBookProtocol>> *)books andLogs:(NSArray<id<REDReadProtocol>> *)logs andUserId:(NSString *)userId andAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)authTokenSecret completion:(void(^)(BOOL success, NSError * error))completion {
     _callback = completion;
     
+    finishGettingBooks = NO;
+    finishUploadingLogs = NO;
+    finishUploadingUser = NO;
+    finishUploadingBooks = NO;
+    
     [self.transactionManager begin];
     [self.user setAuthToken:authToken andAuthTokenSecret:authTokenSecret andUserId:userId];
     [self.transactionManager commit];
@@ -49,9 +54,6 @@
     REDCreateLogRequest * createLogRequest = [[REDCreateLogRequest alloc] initWithUser:[self.user userId] logs:logs];
     [self.serviceDispatcher callWithRequest:createLogRequest withTarget:self andSelector:@selector(createLogsResponse:)];
     
-    REDListBooksRequest * listBooksRequest = [[REDListBooksRequest alloc] initWithUserId:[self.user userId]];
-    [self.serviceDispatcher callWithRequest:listBooksRequest withTarget:self andSelector:@selector(listBooksResponse:)];
-    
 }
 
 #pragma mark - response
@@ -59,7 +61,9 @@
     finishUploadingBooks = YES;
     id<REDServiceResponseProtocol> resposne = [notification object];
     if ([resposne success]) {
-        if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks) _callback(YES, nil);
+        if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks) {
+            _callback(error == nil, error);
+        }
     } else {
         error = [resposne error];
     }
@@ -71,7 +75,9 @@
         [self.transactionManager begin];
         [self.user setSyncable:YES];
         [self.transactionManager commit];
-        if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks && finishGettingBooks) _callback(YES, nil);
+        if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks) {
+            _callback(error == nil, error);
+        }
     } else {
         error = [resposne error];
     }
@@ -81,21 +87,15 @@
     finishUploadingLogs = YES;
     id<REDServiceResponseProtocol> resposne = [notification object];
     if ([resposne success]) {
-        if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks && finishGettingBooks) _callback(YES, nil);
-    } else {
-        error = [resposne error];
-    }
-}
--(void)listBooksResponse:(NSNotification *)notification {
-    finishGettingBooks = YES;
-    id<REDServiceResponseProtocol> resposne = [notification object];
-    if ([resposne success]) {
-        if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks && finishGettingBooks) _callback(YES, nil);
+        if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks) {
+            _callback(error == nil, error);
+        }
     } else {
         error = [resposne error];
     }
 }
 
+#pragma mark - dealloc
 -(void)dealloc {
     
 }

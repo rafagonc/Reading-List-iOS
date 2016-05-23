@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PopoverViewController.h"
 
-@interface REDSignUpViewController : UIViewController
+@interface REDSignUpViewController : PopoverViewController
 
 @end

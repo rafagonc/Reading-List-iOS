@@ -1,18 +1,18 @@
 //
-//  ReadingListUITests.m
-//  ReadingListUITests
+//  ReadingUITests.m
+//  ReadingUITests
 //
-//  Created by Rafael Gonzalves on 10/13/15.
-//  Copyright © 2015 Rafael Gonzalves. All rights reserved.
+//  Created by Banco Santander Brasil on 5/23/16.
+//  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface ReadingListUITests : XCTestCase
+@interface ReadingUITests : XCTestCase
 
 @end
 
-@implementation ReadingListUITests
+@implementation ReadingUITests
 
 - (void)setUp {
     [super setUp];
@@ -24,7 +24,6 @@
     // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
     [[[XCUIApplication alloc] init] launch];
     
-    
     // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
 }
 
@@ -33,10 +32,9 @@
     [super tearDown];
 }
 
--(void)testAddBook {
-    
-    
-    
+- (void)testExample {
+    // Use recording to get started writing UI tests.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
 }
 
 @end

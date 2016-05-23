@@ -50,6 +50,9 @@
 -(BOOL)isSyncingRequest {
     return NO;
 }
+-(BOOL)isTransactionRequest {
+    return NO;
+}
 
 #pragma mark - methods
 -(void)nextPage {

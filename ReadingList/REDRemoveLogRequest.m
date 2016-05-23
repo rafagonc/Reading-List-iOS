@@ -39,5 +39,8 @@
 -(REDSerializer)Serializer {
     return REDJSONSerializer;
 }
+-(BOOL)isTransactionRequest {
+    return YES;
+}
 
 @end

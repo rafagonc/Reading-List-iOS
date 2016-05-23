@@ -129,6 +129,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     self.headerCell = [[REDBookHeaderCell alloc] init];
     [self.headerCell setBook:self.actionType == REDBookAddViewControllerActionTypeTransientBook ? self.transientBook : self.book];
     [self.headerCell setSnippet:self.actionType == REDBookAddViewControllerActionTypeTransientBook ? [self.transientBook snippet] :[self.book snippet]];
+    [self.headerCell setCoverURL:self.actionType == REDBookAddViewControllerActionTypeTransientBook ? [self.transientBook coverURL] : [self.transientBook coverURL]];
     self.headerCell.delegate = self;
     [self.tableView addCell:self.headerCell onSection:section];
     

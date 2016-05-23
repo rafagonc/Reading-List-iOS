@@ -95,7 +95,9 @@
     return [self listWithPredicate:[NSPredicate predicateWithFormat:@"identifier = %d",identifier]];
 }
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted {
-    return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+    return (NSArray *)[[self listWithPredicate:[NSPredicate predicateWithBlock:^BOOL(id<REDBookProtocol>  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [[evaluatedObject name] length] > 0;
+    }]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
 -(NSUInteger)totalPages {
     NSUInteger totalPages = 0;
