@@ -28,16 +28,20 @@
 #import "REDListBooksRequest.h"
 #import "REDUserProtocol.h"
 #import "REDListLogsRequest.h"
+#import "REDBookDataAccessObject.h"
 
 @interface AppDelegate ()
 
 #pragma mark - ui
 @property (nonatomic,weak) REDSyncingLoadingView * loadingView;
 
-@property (setter=injected:) id<REDRealmMigration> migration;
+@property (setter=injected7:) id<REDRealmMigration> migration;
 @property (setter=injected3:) id<REDUserProtocol> user;
 @property (setter=injected1:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 @property (setter=injected2:) id<REDReadDataAccessObject> r;
+@property (setter=injected4:) id<REDTransactionManager> transactionManager;
+@property (setter=injected5:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected6:) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end
 
@@ -73,11 +77,21 @@
     self.window.backgroundColor = [UIColor colorWithWhite:.98 alpha:1];
     [self.window makeKeyAndVisible];
     
+    [self changes];
+    
     return YES;
 }
 
 -(void)applicationDidBecomeActive:(UIApplication *)application {
     [self.serviceDispatcher processUnprocessedRequestIfNeeded];
+}
+
+-(void)changes {
+    [self.transactionManager begin];
+    for (id<REDReadProtocol> read in [self.readDataAccessObject logsOrderedByDate]) {
+        if ([read uuid] == nil) [read setUuid:[[NSUUID UUID] UUIDString]];
+    }
+    [self.transactionManager commit];
 }
 
 #pragma mark - loading

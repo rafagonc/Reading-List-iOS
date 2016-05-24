@@ -23,6 +23,12 @@
 -(void)setIdentifier:(NSInteger)identifier {
     
 }
+-(NSString *)uuid {
+    return @"";
+}
+-(void)setUuid:(NSString *)uuid {
+    
+}
 
 #pragma mark - getters and setters
 -(void)setBook:(id<REDBookProtocol>)book {

@@ -90,7 +90,7 @@
 -(void)setSnippetOpen:(BOOL)snippetOpen {
     _snippetOpen = snippetOpen;
     if (!snippetOpen) {
-        if (self.snippet) {
+        if (self.snippet.length > 0) {
             [self.descriptionTextView setText:@"Click to open description"];
         } else {
             [self.descriptionTextView setText:@"No description Avaliable"];

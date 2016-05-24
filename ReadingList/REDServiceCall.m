@@ -42,9 +42,11 @@
 
 #pragma mark - results
 -(void)success:(id<REDServiceResponseProtocol>)response {
+    NSLog(@"[SUCCESS] %lu %@", (unsigned long)[self.request HTTPMethod] ,[self.request URL]);
     [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%lu", (unsigned long)self.request.hash] object:response];
 }
 -(void)error:(id<REDServiceResponseProtocol>)response {
+    NSLog(@"[ERROR] %lu %@", (unsigned long)[self.request HTTPMethod] , [self.request URL]);
     [[NSNotificationCenter defaultCenter] postNotificationName:[NSString stringWithFormat:@"%lu", (unsigned long)self.request.hash] object:response];
 }
 

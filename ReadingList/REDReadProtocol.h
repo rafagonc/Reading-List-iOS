@@ -14,6 +14,7 @@
 @property (nonatomic) NSInteger identifier;
 @property (nonatomic,strong) NSDate * date;
 @property (nonatomic,assign) NSInteger pagesValue;
+@property (nonatomic) NSString *   uuid;
 
 #pragma mark - relationships
 -(void)setBook:(id<REDBookProtocol>)book;

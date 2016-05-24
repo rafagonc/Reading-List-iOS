@@ -65,7 +65,6 @@
 		2A23ABDB1C47501500E48BF6 /* REDBookRatingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDA1C47501500E48BF6 /* REDBookRatingRequest.m */; };
 		2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDE1C47511100E48BF6 /* REDBookRatingCall.m */; };
 		2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */; };
-		2A27FC061CAF85190067F9A4 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27FC051CAF85190067F9A4 /* PopoverViewController.m */; };
 		2A27FC0A1CAF85380067F9A4 /* REDPleaseRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27FC091CAF85380067F9A4 /* REDPleaseRateViewController.m */; };
 		2A27FC0C1CAF85440067F9A4 /* REDPleaseRateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A27FC0B1CAF85440067F9A4 /* REDPleaseRateViewController.xib */; };
 		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; };
@@ -181,7 +180,6 @@
 		2ABB96F91CE78B29001C1E29 /* REDGetUserCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB96F81CE78B29001C1E29 /* REDGetUserCall.m */; };
 		2ABB96FC1CE78B3B001C1E29 /* REDRemoveUserCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB96FB1CE78B3B001C1E29 /* REDRemoveUserCall.m */; };
 		2ABB96FF1CE78B48001C1E29 /* REDCreateLogCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB96FE1CE78B48001C1E29 /* REDCreateLogCall.m */; };
-		2ABB97021CE78B57001C1E29 /* REDUpdateLogCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97011CE78B57001C1E29 /* REDUpdateLogCall.m */; };
 		2ABB97051CE78B61001C1E29 /* REDRemoveLogCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97041CE78B61001C1E29 /* REDRemoveLogCall.m */; };
 		2ABB97081CE78B6D001C1E29 /* REDListLogsCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB97071CE78B6D001C1E29 /* REDListLogsCall.m */; };
 		2ABB970D1CEC0977001C1E29 /* REDSyncingLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB970C1CEC0977001C1E29 /* REDSyncingLoadingView.m */; };
@@ -257,6 +255,7 @@
 		44A787AB1CDD2B0B0038ED4A /* REDLogRepositoryFactoryImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A787AA1CDD2B0B0038ED4A /* REDLogRepositoryFactoryImpl.m */; };
 		44AF20941C76255200F6FC48 /* REDLogSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */; };
 		44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */; };
+		44F31CF11CF49CEA0067DA55 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31CF01CF49CEA0067DA55 /* PopoverViewController.m */; };
 		CC3172322892F3A347775881 /* libPods-ReadingListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */; };
 		F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7FEE50961509749458D464 /* libPods-ReadingList.a */; };
 /* End PBXBuildFile section */
@@ -282,6 +281,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2A74EBE41BCD567E005F5E74;
 			remoteInfo = mogenerator;
+		};
+		443108881CF36B2B00EC1963 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A74EBA21BCD50B7005F5E74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A74EBA91BCD50B7005F5E74;
+			remoteInfo = ReadingList;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -363,8 +369,6 @@
 		2A23ABE01C4751D500E48BF6 /* REDBookRatingUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRatingUploader.h; sourceTree = "<group>"; };
 		2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRatingUploader.m; sourceTree = "<group>"; };
 		2A23ABE51C4752D400E48BF6 /* REDBookUploaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookUploaderProtocol.h; sourceTree = "<group>"; };
-		2A27FC041CAF85190067F9A4 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
-		2A27FC051CAF85190067F9A4 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 		2A27FC081CAF85380067F9A4 /* REDPleaseRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDPleaseRateViewController.h; sourceTree = "<group>"; };
 		2A27FC091CAF85380067F9A4 /* REDPleaseRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPleaseRateViewController.m; sourceTree = "<group>"; };
 		2A27FC0B1CAF85440067F9A4 /* REDPleaseRateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDPleaseRateViewController.xib; sourceTree = "<group>"; };
@@ -454,8 +458,6 @@
 		2A74EBC11BCD50B8005F5E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A74EBC61BCD50B8005F5E74 /* ReadingListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74EBCC1BCD50B8005F5E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A74EBD51BCD50B8005F5E74 /* ReadingListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadingListUITests.m; sourceTree = "<group>"; };
-		2A74EBD71BCD50B8005F5E74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A74EBF21BCD57BD005F5E74 /* REDDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDataStack.h; sourceTree = "<group>"; };
 		2A74EBF31BCD57BD005F5E74 /* REDDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDataStack.m; sourceTree = "<group>"; };
 		2A74EBFA1BCD59B1005F5E74 /* _REDBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _REDBook.h; path = PersistentEntities/_REDBook.h; sourceTree = "<group>"; };
@@ -594,8 +596,6 @@
 		2ABB96FB1CE78B3B001C1E29 /* REDRemoveUserCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRemoveUserCall.m; sourceTree = "<group>"; };
 		2ABB96FD1CE78B48001C1E29 /* REDCreateLogCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCreateLogCall.h; sourceTree = "<group>"; };
 		2ABB96FE1CE78B48001C1E29 /* REDCreateLogCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCreateLogCall.m; sourceTree = "<group>"; };
-		2ABB97001CE78B57001C1E29 /* REDUpdateLogCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUpdateLogCall.h; sourceTree = "<group>"; };
-		2ABB97011CE78B57001C1E29 /* REDUpdateLogCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUpdateLogCall.m; sourceTree = "<group>"; };
 		2ABB97031CE78B61001C1E29 /* REDRemoveLogCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRemoveLogCall.h; sourceTree = "<group>"; };
 		2ABB97041CE78B61001C1E29 /* REDRemoveLogCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRemoveLogCall.m; sourceTree = "<group>"; };
 		2ABB97061CE78B6D001C1E29 /* REDListLogsCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDListLogsCall.h; sourceTree = "<group>"; };
@@ -715,6 +715,8 @@
 		441701EF1C7648FB0076F9C7 /* REDNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNewViewController.m; sourceTree = "<group>"; };
 		441701F01C7648FB0076F9C7 /* REDNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDNewViewController.xib; sourceTree = "<group>"; };
 		441701F41C764C560076F9C7 /* new.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new.txt; sourceTree = "<group>"; };
+		443108831CF36B2A00EC1963 /* ReadingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		443108871CF36B2B00EC1963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		443AE2111C9342FE00D926F5 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSStarRatingView.h; sourceTree = "<group>"; };
 		443AE2121C9342FE00D926F5 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
 		445786971C74AF900029355D /* REDDateChart+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REDDateChart+Interaction.h"; sourceTree = "<group>"; };
@@ -753,6 +755,8 @@
 		44AF20921C76255200F6FC48 /* REDLogSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLogSummaryViewController.h; sourceTree = "<group>"; };
 		44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLogSummaryViewController.m; sourceTree = "<group>"; };
 		44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDLogSummaryViewController.xib; sourceTree = "<group>"; };
+		44F31CEF1CF49CEA0067DA55 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		44F31CF01CF49CEA0067DA55 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
 		CE877B61704399AE560739E1 /* Pods-ReadingListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -771,6 +775,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC3172322892F3A347775881 /* libPods-ReadingListTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		443108801CF36B2A00EC1963 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1215,8 +1226,8 @@
 		2A27FC071CAF85200067F9A4 /* Popover View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2A27FC041CAF85190067F9A4 /* PopoverViewController.h */,
-				2A27FC051CAF85190067F9A4 /* PopoverViewController.m */,
+				44F31CEF1CF49CEA0067DA55 /* PopoverViewController.h */,
+				44F31CF01CF49CEA0067DA55 /* PopoverViewController.m */,
 			);
 			name = "Popover View Controller";
 			sourceTree = "<group>";
@@ -1498,7 +1509,7 @@
 			children = (
 				2A74EBAC1BCD50B7005F5E74 /* ReadingList */,
 				2A74EBC91BCD50B8005F5E74 /* ReadingListTests */,
-				2A74EBD41BCD50B8005F5E74 /* ReadingListUITests */,
+				443108841CF36B2B00EC1963 /* ReadingUITests */,
 				2A74EBAB1BCD50B7005F5E74 /* Products */,
 				26F96062BE7908879D781302 /* Pods */,
 				3C1B8AFD86E40D76DA605411 /* Frameworks */,
@@ -1510,6 +1521,7 @@
 			children = (
 				2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */,
 				2A74EBC61BCD50B8005F5E74 /* ReadingListTests.xctest */,
+				443108831CF36B2A00EC1963 /* ReadingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1564,15 +1576,6 @@
 				2A99795D1C5C133E00DBEABB /* Validators Test */,
 			);
 			path = ReadingListTests;
-			sourceTree = "<group>";
-		};
-		2A74EBD41BCD50B8005F5E74 /* ReadingListUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2A74EBD51BCD50B8005F5E74 /* ReadingListUITests.m */,
-				2A74EBD71BCD50B8005F5E74 /* Info.plist */,
-			);
-			path = ReadingListUITests;
 			sourceTree = "<group>";
 		};
 		2A74EBE31BCD545B005F5E74 /* Persistent */ = {
@@ -2173,8 +2176,6 @@
 			children = (
 				2ABB96FD1CE78B48001C1E29 /* REDCreateLogCall.h */,
 				2ABB96FE1CE78B48001C1E29 /* REDCreateLogCall.m */,
-				2ABB97001CE78B57001C1E29 /* REDUpdateLogCall.h */,
-				2ABB97011CE78B57001C1E29 /* REDUpdateLogCall.m */,
 				2ABB97031CE78B61001C1E29 /* REDRemoveLogCall.h */,
 				2ABB97041CE78B61001C1E29 /* REDRemoveLogCall.m */,
 				2ABB97061CE78B6D001C1E29 /* REDListLogsCall.h */,
@@ -2754,6 +2755,14 @@
 			name = "New View Controller";
 			sourceTree = "<group>";
 		};
+		443108841CF36B2B00EC1963 /* ReadingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				443108871CF36B2B00EC1963 /* Info.plist */,
+			);
+			path = ReadingUITests;
+			sourceTree = "<group>";
+		};
 		4462B78C1CEF3464009C27D9 /* Start Rating View */ = {
 			isa = PBXGroup;
 			children = (
@@ -3020,6 +3029,24 @@
 			productReference = 2A74EBC61BCD50B8005F5E74 /* ReadingListTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		443108821CF36B2A00EC1963 /* ReadingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4431088A1CF36B2B00EC1963 /* Build configuration list for PBXNativeTarget "ReadingUITests" */;
+			buildPhases = (
+				4431087F1CF36B2A00EC1963 /* Sources */,
+				443108801CF36B2A00EC1963 /* Frameworks */,
+				443108811CF36B2A00EC1963 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				443108891CF36B2B00EC1963 /* PBXTargetDependency */,
+			);
+			name = ReadingUITests;
+			productName = ReadingUITests;
+			productReference = 443108831CF36B2A00EC1963 /* ReadingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3048,6 +3075,10 @@
 					2A74EBE91BCD56F6005F5E74 = {
 						CreatedOnToolsVersion = 7.0;
 					};
+					443108821CF36B2A00EC1963 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 2A74EBA91BCD50B7005F5E74;
+					};
 				};
 			};
 			buildConfigurationList = 2A74EBA51BCD50B7005F5E74 /* Build configuration list for PBXProject "ReadingList" */;
@@ -3065,6 +3096,7 @@
 			targets = (
 				2A74EBA91BCD50B7005F5E74 /* ReadingList */,
 				2A74EBC51BCD50B8005F5E74 /* ReadingListTests */,
+				443108821CF36B2A00EC1963 /* ReadingUITests */,
 				2A74EBE41BCD567E005F5E74 /* mogenerator */,
 				2A74EBE91BCD56F6005F5E74 /* versioner */,
 			);
@@ -3127,6 +3159,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		443108811CF36B2A00EC1963 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -3157,7 +3196,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 76e47874fee50525b5ac109ed1491685447840f4 fdec0e74c15919b5c2f3ac05894255eab5c497f19080efce3a7bd33751d54efa";
+			shellScript = "//\"${PODS_ROOT}/Fabric/run\" 76e47874fee50525b5ac109ed1491685447840f4 fdec0e74c15919b5c2f3ac05894255eab5c497f19080efce3a7bd33751d54efa";
 		};
 		2A74EBE81BCD5682005F5E74 /* Mogenerator */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3317,9 +3356,9 @@
 				2ABB972C1CF0C738001C1E29 /* REDBookRatingValidator.m in Sources */,
 				2A1632DA1C580E6C0015F06E /* REDUser.m in Sources */,
 				2A6602091CC443E300B6D835 /* REDRequestFeatureImpl.m in Sources */,
+				44F31CF11CF49CEA0067DA55 /* PopoverViewController.m in Sources */,
 				2A4597801C619A330010D135 /* REDRLMUserDataAccessObject.m in Sources */,
 				2A4597741C619A0C0010D135 /* REDRLMBookDataAccessObject.m in Sources */,
-				2ABB97021CE78B57001C1E29 /* REDUpdateLogCall.m in Sources */,
 				2A74EC671BD09029005F5E74 /* REDAuthorViewController.m in Sources */,
 				2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */,
 				2A74EC781BD09746005F5E74 /* REDUITextFieldCell.m in Sources */,
@@ -3396,7 +3435,6 @@
 				2A19B8A61BCDBC2D009C8F25 /* UIFont+ReadingList.m in Sources */,
 				2A77C0BE1C2E2EC900E21551 /* REDTransientBookCell.m in Sources */,
 				2A13EEAB1C2E5C1C005DB34E /* REDCloudDataStack.m in Sources */,
-				2A27FC061CAF85190067F9A4 /* PopoverViewController.m in Sources */,
 				2AD174861C4D7B1200AFB560 /* REDReadFactory.m in Sources */,
 				2ABB96FF1CE78B48001C1E29 /* REDCreateLogCall.m in Sources */,
 				2AD174821C4D79BD00AFB560 /* REDRead.m in Sources */,
@@ -3462,6 +3500,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4431087F1CF36B2A00EC1963 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -3479,6 +3524,11 @@
 			isa = PBXTargetDependency;
 			target = 2A74EBE41BCD567E005F5E74 /* mogenerator */;
 			targetProxy = 2A74EBF01BCD571F005F5E74 /* PBXContainerItemProxy */;
+		};
+		443108891CF36B2B00EC1963 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A74EBA91BCD50B7005F5E74 /* ReadingList */;
+			targetProxy = 443108881CF36B2B00EC1963 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3680,6 +3730,34 @@
 			};
 			name = Release;
 		};
+		4431088B1CF36B2B00EC1963 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = ReadingUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "eb607116-c772-4d32-9cef-576392052fea";
+				TEST_TARGET_NAME = ReadingList;
+			};
+			name = Debug;
+		};
+		4431088C1CF36B2B00EC1963 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = ReadingUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "eb607116-c772-4d32-9cef-576392052fea";
+				TEST_TARGET_NAME = ReadingList;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3724,6 +3802,15 @@
 			buildConfigurations = (
 				2A74EBEB1BCD56F6005F5E74 /* Debug */,
 				2A74EBEC1BCD56F6005F5E74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4431088A1CF36B2B00EC1963 /* Build configuration list for PBXNativeTarget "ReadingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4431088B1CF36B2B00EC1963 /* Debug */,
+				4431088C1CF36B2B00EC1963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -35,7 +35,8 @@
                                @"date" : [dateFormatter stringFromDate:[read date]],
                                @"pages" : [read pagesValue] ? @([read pagesValue]) : @0,
                                @"book_name" : [[read book] name],
-                               @"id" : @([read identifier])
+                               @"id" : @([read identifier]),
+                               @"uuid" : [read uuid]
                                }];
         }
     }

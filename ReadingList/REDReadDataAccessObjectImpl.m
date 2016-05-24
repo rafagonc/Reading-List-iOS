@@ -39,6 +39,9 @@
     }
     return nil;
 }
+-(id<REDReadProtocol>)logWithUUID:(NSString *)UUID {
+    return nil;
+}
 
 #pragma mark - update
 -(void)updateLog:(id<REDReadProtocol>)log WithDict:(NSDictionary *)dict {

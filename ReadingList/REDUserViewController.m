@@ -26,6 +26,8 @@
 #import "REDSignUpViewController.h"
 #import "REDLogRepositoryFactory.h"
 #import "UIViewController+NotificationShow.h"
+#import "REDServiceDispatcherProtocol.h"
+#import "REDGetUserRequest.h"
 
 @interface REDUserViewController () <REDLogDatasourceDelegate, REDUserViewDelegate, REDSyncViewDelegate>
 
@@ -43,6 +45,7 @@
 @property (setter=injected3:) id<REDUserProtocol> user;
 @property (setter=injected4:) id<REDTransactionManager> transactionManager;
 @property (setter=injected5:) id<REDLogRepositoryFactory> logRepositoryFactory;
+@property (setter=injected6:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 
@@ -71,6 +74,9 @@
     
     //blur image
     [self setBlurImageIfExists];
+    
+    //service
+    [self callGetUser];
     
     //datasource
     [self.datasource setDelegate:self];
@@ -163,10 +169,10 @@
     }];
 }
 -(void)syncViewWantsToAuthenticateWithView:(REDSyncView *)syncView {
-   // if ([self.user isSyncable] == NO) {
+    if ([self.user isSyncable] == NO) {
         REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
         [self presentViewController:signIn animated:YES completion:nil];
-   // }
+    }
 }
 
 #pragma mark - actions
@@ -177,6 +183,17 @@
 -(void)chartAction:(UIBarButtonItem *)chartButton {
     NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
     [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+}
+
+#pragma mark - service
+-(void)callGetUser {
+    if ([self.user isSyncable]) {
+        REDGetUserRequest *request = [[REDGetUserRequest alloc] initWithUserId:[self.user userId]];
+        [self.serviceDispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
+    }
+}
+-(void)response:(NSNotification *)notif {
+    
 }
 
 #pragma mark - dealloc

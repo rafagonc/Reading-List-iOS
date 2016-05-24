@@ -17,9 +17,17 @@ typedef enum : NSUInteger {
      */
     PopoverViewControllerAnimationTypeCoverVertical = 0,
     /*!
+     *  The popover appears from the top of the screen and go straight to the center of the screen.
+     */
+    PopoverViewControllerAnimationTypeCoverVerticalFromTop = 3,
+    /*!
      *  The popover fade in/fade out the center of the screen.
      */
     PopoverViewControllerAnimationTypeCrossDissolve = 1,
+    /*!
+     *  Extension for ticket app drawer
+     */
+    PopoverViewControllerAnimationTypeFromLeft = 2,
     
 }PopoverViewControllerAnimationType;
 
@@ -45,12 +53,13 @@ typedef enum : NSUInteger {
 /*!
  *  Size of the view, centered in the screen.
  */
-
 @property (nonatomic) CGSize size;
+@property (nonatomic) UIEdgeInsets insets;
 /*!
  *  Specifies if the popover view should have drop shadow.
  */
 @property (nonatomic) BOOL shadow;
+
 /*!
  *  The popover animation type.
  *  If you create another animation, I will be happy to recieve a pull request.
@@ -78,9 +87,9 @@ typedef enum : NSUInteger {
  *  View rounded corner radius
  */
 @property (nonatomic) CGFloat cornerRadius;
+-(void)didDismissPopover;
 
 
 @end
-
 
 

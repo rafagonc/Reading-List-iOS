@@ -29,10 +29,11 @@
 #pragma mark - creating
 -(id)create {
     RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
+    [self.transactionManager begin];
     REDRLMRead *read = [[REDRLMRead alloc] init];
+    [read setUuid:[[NSUUID UUID] UUIDString]];
     [realm addObject:read];
-    [realm commitWriteTransaction];
+    [self.transactionManager commit];
     return read;
 }
 -(id<REDReadProtocol>)createWithDict:(NSDictionary *)dict {
@@ -49,6 +50,7 @@
     id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book_ref"][@"id"] integerValue]] firstObject];
     [self.transactionManager begin];
     [log setPagesValue:[dict[@"pages"] integerValue]];
+    [log setUuid:[dict objectForKey:@"uuid"]];
     [log setBook:book];
     [log setDate:date];
     [log setIdentifier:[dict[@"id"] integerValue]];
@@ -74,6 +76,9 @@
         }
     }
     return nil;
+}
+-(id<REDReadProtocol>)logWithUUID:(NSString *)UUID {
+    return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"uuid LIKE[cd] %@", UUID]] firstObject];
 }
 -(id<REDReadProtocol>)logWithIdentifier:(NSUInteger)identifier {
     return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"identifier = %lu", identifier]] firstObject];

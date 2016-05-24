@@ -17,6 +17,7 @@
 -(NSArray <id<REDReadProtocol>> *)logsOrderedByDate;
 -(id<REDReadProtocol>)logWithIdentifier:(NSUInteger)identifier;
 -(id<REDReadProtocol>)logWithDate:(NSDate *)date;
+-(id<REDReadProtocol>)logWithUUID:(NSString *)UUID;
 -(CGFloat)perDay;
 
 @end

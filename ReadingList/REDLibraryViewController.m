@@ -73,8 +73,8 @@
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self updateData];
     [self.tableView reloadData];
+    [self updateData]; /*deixar no did*/
 }
 
 #pragma mark - setups

@@ -15,6 +15,15 @@
 #import "REDServiceResponse.h"
 #import "REDBookDataAccessObject.h"
 #import "REDTransactionManager.h"
+#import "REDUserProtocol.h"
+#import "REDTransactionManager.h"
+
+@interface REDGetUserCall ()
+
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDUserProtocol> user;
+
+@end
 
 @implementation REDGetUserCall
 
@@ -28,7 +37,11 @@
             response.error = error;
             [self error:response];
         } else {
+            [self.transactionManager begin];
+            [self.user setName:[[responseObject objectForKey:@"data"] objectForKey:@"name"]];
+            [self.transactionManager commit];
             response.success = YES;
+            [self success:response];
             completion(YES);
         }
         

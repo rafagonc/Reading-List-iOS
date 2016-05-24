@@ -30,9 +30,10 @@
 @property (nonatomic) CGSize size;
 @property (nonatomic) BOOL shouldLayoutSubviews;
 @property (nonatomic,readonly) CGRect frame;
+@property (nonatomic) UIEdgeInsets insets;
 
 #pragma mark - User Interface
-@property (nonatomic,strong) UIView *obfuscationView;
+@property (nonatomic,strong) UIButton *obfuscationView;
 
 @end
 @implementation PopoverViewControllerTransitionAnimator
@@ -67,11 +68,17 @@
         case PopoverViewControllerAnimationTypeCrossDissolve:
             [self crossDissolveAnimationWithTransitionContext:transitionContext];
             break;
+        case PopoverViewControllerAnimationTypeFromLeft:
+            [self fromLeftAnimationWithTransitionContext:transitionContext];
+            break;
+        case PopoverViewControllerAnimationTypeCoverVerticalFromTop:
+            [self coverVerticalFromTopAnimationWithTransitionContext:transitionContext];
+            break;
         default:
             [self coverVerticalAnimationWithTransitionContext:transitionContext];
             break;
     }
-
+    
 }
 
 #pragma mark - Animation Types
@@ -82,7 +89,7 @@
     UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     CGRect screenBounds = [UIScreen mainScreen].bounds;
     self.shouldLayoutSubviews = NO;
-
+    
     
     if (self.presenting) {
         [container addSubview:destinationViewController.view];
@@ -101,21 +108,56 @@
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             sourceViewController.view.frame = CGRectMake(screenBounds.size.width/2 - self.frame.size.width/2, screenBounds.size.height + 70, self.frame.size.width, self.frame.size.height);
             [self unobfuscateViewController:container];
-
+            
         } completion:^(BOOL finished) {
             self.shouldLayoutSubviews = YES;
             [transitionContext completeTransition:finished];
         }];
     }
     
-
+    
+}
+-(void)coverVerticalFromTopAnimationWithTransitionContext:(id <UIViewControllerContextTransitioning>)transitionContext {
+    context = transitionContext;
+    UIView *container = [transitionContext containerView];
+    UIViewController *destinationViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    self.shouldLayoutSubviews = NO;
+    
+    
+    if (self.presenting) {
+        [container addSubview:destinationViewController.view];
+        destinationViewController.view.frame = CGRectMake(screenBounds.size.width/2 - self.frame.size.width/2, -screenBounds.size.height, self.frame.size.width, self.frame.size.height);
+        
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            destinationViewController.view.frame = self.frame;
+            [self obfuscateViewController:container];
+            [container bringSubviewToFront:destinationViewController.view];
+        } completion:^(BOOL finished) {
+            self.shouldLayoutSubviews = YES;
+            [transitionContext completeTransition:finished];
+        }];
+    } else {
+        [container addSubview:sourceViewController.view];
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            sourceViewController.view.frame = CGRectMake(screenBounds.size.width/2 - self.frame.size.width/2, -screenBounds.size.height, self.frame.size.width, self.frame.size.height);
+            [self unobfuscateViewController:container];
+            
+        } completion:^(BOOL finished) {
+            self.shouldLayoutSubviews = YES;
+            [transitionContext completeTransition:finished];
+        }];
+    }
+    
+    
 }
 -(void)crossDissolveAnimationWithTransitionContext:(id <UIViewControllerContextTransitioning>)transitionContext {
     context = transitionContext;
     UIView *container = [transitionContext containerView];
     UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *destinationViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-
+    
     if (self.presenting) {
         [container addSubview:destinationViewController.view];
         destinationViewController.view.frame = self.frame;
@@ -127,8 +169,8 @@
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:finished];
         }];
-
-
+        
+        
     } else {
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             sourceViewController.view.alpha = 0;
@@ -140,10 +182,41 @@
         }];
     }
 }
+-(void)fromLeftAnimationWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
+    context = transitionContext;
+    UIView *container = [transitionContext containerView];
+    UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *destinationViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    
+    if (self.presenting) {
+        [container addSubview:destinationViewController.view];
+        destinationViewController.view.frame = CGRectMake(-destinationViewController.view.frame.size.width, 0, self.size.width, self.size.height);
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            destinationViewController.view.frame = self.frame;
+            [self obfuscateViewController:container];
+            [container bringSubviewToFront:destinationViewController.view];
+        } completion:^(BOOL finished) {
+            [transitionContext completeTransition:finished];
+        }];
+    } else {
+        self.shouldLayoutSubviews = NO;
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:.8 initialSpringVelocity:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            sourceViewController.view.frame = CGRectMake(-sourceViewController.view.frame.size.width, 0, sourceViewController.view.frame.size.width, sourceViewController.view.frame.size.height);
+            [self unobfuscateViewController:container];
+            [container bringSubviewToFront:sourceViewController.view];
+        } completion:^(BOOL finished) {
+            [transitionContext completeTransition:finished];
+        }];
+    }
+}
 
 #pragma mark - Getters And Setters
 -(CGRect)frame {
-    return CGRectMake([UIScreen mainScreen].bounds.size.width/2 - self.size.width/2, [UIScreen mainScreen].bounds.size.height/2 - self.size.height/2 , self.size.width, self.size.height);
+    if (self.animationType == PopoverViewControllerAnimationTypeFromLeft) {
+        return CGRectMake(0, 0, self.size.width, self.size.height);
+    } else {
+        return CGRectMake([UIScreen mainScreen].bounds.size.width/2 - self.size.width/2 + (self.insets.left - self.insets.right), [UIScreen mainScreen].bounds.size.height/2 - self.size.height/2 + (self.insets.top - self.insets.bottom) , self.size.width , self.size.height);
+    }
 }
 -(void)setShouldLayoutSubviews:(BOOL)shouldLayoutSubviews {
     _shouldLayoutSubviews = shouldLayoutSubviews;
@@ -152,19 +225,15 @@
 
 #pragma mark - Methods
 -(void)obfuscateViewController:(UIView *)view {
-    self.obfuscationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 1000)];
+    self.obfuscationView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 1000, 1000)];
     self.obfuscationView.backgroundColor = self.shouldObfuscateSourceViewController ? [UIColor blackColor] : [UIColor clearColor];
     self.obfuscationView.alpha = 0.0;
+    [self.obfuscationView addTarget:self action:@selector(dismissByTappingBackground) forControlEvents:UIControlEventTouchDown];
     [view addSubview:self.obfuscationView];
     [UIView animateWithDuration:self.duration animations:^{
         self.obfuscationView.alpha = self.obfuscationAlpha;
     }];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissByTappingBackground)];
-    tap.numberOfTapsRequired = 1;
-    tap.numberOfTouchesRequired = 1;
-    
-    [self.obfuscationView addGestureRecognizer:tap];
 }
 -(void)unobfuscateViewController:(UIView *)view {
     [view addSubview:self.obfuscationView];
@@ -185,6 +254,7 @@
 }
 
 @end
+
 @implementation PopoverViewController
 
 #pragma mark - Constructor
@@ -215,21 +285,25 @@
     self.shouldObfuscateSourceViewController = YES;
     self.shouldLayoutSubviews = YES;
     
+    
     self.modalPresentationStyle = UIModalPresentationCustom;
     [self setTransitioningDelegate:self.animator];
-
+    
 }
 
 #pragma mark - Layout
 -(void)viewDidLoad {
     [super viewDidLoad];
-//    self.shadow = YES;
-//    self.cornerRadius = 0;
+    //    self.shadow = YES;
+    //    self.cornerRadius = 0;
 }
 -(void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    if (self.shouldLayoutSubviews) self.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2 - self.size.width/2, [UIScreen mainScreen].bounds.size.height/2 - self.size.height/2 , self.size.width, self.size.height);
-
+    if (self.shouldLayoutSubviews) self.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2 - self.size.width/2 + (self.insets.left - self.insets.right), [UIScreen mainScreen].bounds.size.height/2 - self.size.height/2 + (self.insets.top - self.insets.bottom) , self.size.width, self.size.height);
+    if (self.animationType == PopoverViewControllerAnimationTypeFromLeft && self.shouldLayoutSubviews) {
+        self.view.frame = CGRectMake(0, 0, self.size.width, self.size.height);
+    }
+    
 }
 
 #pragma mark - Overrides
@@ -242,6 +316,8 @@
     [super dismissViewControllerAnimated:flag completion:^{
         if (completion) completion();
         [self setTransitioningDelegate:nil];
+        self.animator = nil;
+        [self didDismissPopover];
     }];
 }
 
@@ -298,6 +374,16 @@
     self.view.layer.masksToBounds = YES;
     self.view.layer.cornerRadius = cornerRadius;
 }
+-(void)setInsets:(UIEdgeInsets)insets {
+    _insets = insets;
+    self.animator.insets = insets;
+    [self.view setNeedsLayout];
+}
+
+#pragma mark - template
+-(void)didDismissPopover {
+    
+}
 
 #pragma mark - Dealloc
 -(void)didReceiveMemoryWarning {
@@ -308,5 +394,4 @@
 }
 
 @end
-
 
