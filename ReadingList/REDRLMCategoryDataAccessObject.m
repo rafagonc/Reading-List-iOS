@@ -9,10 +9,12 @@
 #import "REDRLMCategoryDataAccessObject.h"
 #import "REDRLMCategory.h"
 #import "REDRLMArrayHelper.h"
+#import "REDTransactionManager.h"
 
 @interface REDRLMCategoryDataAccessObject ()
 
-@property (setter=injected:) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDRLMArrayHelper> rlm_arrayHelper;
 
 @end
 
@@ -21,10 +23,10 @@
 #pragma mark - creating
 -(id)create {
     RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
+    [self.transactionManager begin];
     REDRLMCategory *category = [[REDRLMCategory alloc] init];
     [realm addObject:category];
-    [realm commitWriteTransaction];
+    [self.transactionManager commit];
     return category;
 }
 

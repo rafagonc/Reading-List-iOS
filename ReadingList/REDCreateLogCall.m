@@ -20,6 +20,7 @@
 #import "REDReadProtocol.h"
 #import "REDTransactionManager.h"
 #import "REDDictionary2ModelFactoryProtocol.h"
+#import "REDTransactionManager.h"
 
 @interface REDCreateLogCall ()
 
@@ -47,6 +48,7 @@
                 if (log) {
                     [log setIdentifier:[[log_idct objectForKey:@"id"] integerValue]];
                 }
+
             }
             [self.transactionManager commit];
             [self success:response];

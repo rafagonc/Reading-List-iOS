@@ -9,10 +9,12 @@
 #import "REDRLMAuthorDataAccessObject.h"
 #import "REDRLMAuthor.h"
 #import "REDRLMArrayHelper.h"
+#import "REDTransactionManager.h"
 
 @interface REDRLMAuthorDataAccessObject ()
 
-@property (setter=injected:) id<REDRLMArrayHelper> rlm_arrayHelper;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
+@property (setter=injected2:) id<REDRLMArrayHelper> rlm_arrayHelper;
 
 @end
 
@@ -21,10 +23,10 @@
 #pragma mark - creating
 -(id)create {
     RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
+    [self.transactionManager begin];
     REDRLMAuthor *author = [[REDRLMAuthor alloc] init];
     [realm addObject:author];
-    [realm commitWriteTransaction];
+    [self.transactionManager commit];
     return author;
 }
 

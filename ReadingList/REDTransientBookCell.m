@@ -8,7 +8,7 @@
 
 #import "REDTransientBookCell.h"
 #import "UIImageView+WebCache.h"
-
+#import "UIColor+ReadingList.h"
 
 @interface REDTransientBookCell ()
 
@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverimageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -30,6 +31,12 @@
     [self.coverimageView sd_setImageWithURL:[NSURL URLWithString:[book imageURL]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [book setCoverImage:image];
     }];
+}
+
+#pragma mark - layout
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    [self.toolbar setTintColor:[UIColor red_redColor]];
 }
 
 #pragma mark - action

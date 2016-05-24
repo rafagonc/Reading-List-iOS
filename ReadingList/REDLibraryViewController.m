@@ -70,6 +70,9 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
     [REDTabBarCustomizer customizeTabBar:self.tabBarController.tabBar];
+    [self.datasource setData:[self.bookDataAccessObject allBooksSorted]];
+    [self.tableView reloadData];
+    [self.saerchBar setText:@""];
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
