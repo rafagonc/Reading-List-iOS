@@ -28,7 +28,7 @@
 #pragma mark - creating
 -(id)create {
     RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
+    [self.transactionManager begin];
     REDRLMBook * book = [[REDRLMBook alloc] init];
     [book setPagesValue:0];
     [book setPagesReadValue:0];
@@ -36,7 +36,7 @@
     [book setSnippet:@""];
     [book setRate:0.0];
     [realm addObject:book];
-    [realm commitWriteTransaction];
+    [self.transactionManager commit];
     return book;
 }
 -(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict {
@@ -108,7 +108,7 @@
     return totalPages;
 }
 -(NSString *)booksCompletedAndTotalBooks {
-    NSArray <id<REDBookProtocol>> * books = [self list];
+    NSArray <id<REDBookProtocol>> * books = [self allBooksSorted];
     NSUInteger booksCompleted = [books filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"completed = 1"]].count;
     return [NSString stringWithFormat:@"%lu/%lu books completed", (unsigned long)booksCompleted, (unsigned long)books.count];
 }

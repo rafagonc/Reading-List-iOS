@@ -163,10 +163,10 @@
     }];
 }
 -(void)syncViewWantsToAuthenticateWithView:(REDSyncView *)syncView {
-   // if ([self.user isSyncable] == NO) {
+    if ([self.user isSyncable] == NO) {
         REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
         [self presentViewController:signIn animated:YES completion:nil];
-   // }
+    }
 }
 
 #pragma mark - actions

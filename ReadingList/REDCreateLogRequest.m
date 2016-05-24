@@ -31,12 +31,14 @@
     NSMutableArray * log_dicts = [@[] mutableCopy];
     for (id<REDReadProtocol> read in self.reads) {
         if ([read date] != nil && [[read book] name]) {
-                [log_dicts addObject:@{
-                               @"date" : [dateFormatter stringFromDate:[read date]],
-                               @"pages" : [read pagesValue] ? @([read pagesValue]) : @0,
-                               @"book_name" : [[read book] name],
-                               @"id" : @([read identifier])
-                               }];
+            NSMutableDictionary *log_dict = [@{} mutableCopy];
+            [log_dict setValuesForKeysWithDictionary:@{
+                                                       @"date" : [dateFormatter stringFromDate:[read date]],
+                                                       @"pages" : [read pagesValue] ? @([read pagesValue]) : @0,
+                                                       @"book_name" : [[read book] name],
+                                                       }];
+            if ([read identifier]) [log_dict setObject:@([read identifier]) forKey:@"id"];
+            [log_dicts addObject:log_dict];
         }
     }
     dict[@"logs"] = log_dicts;

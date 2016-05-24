@@ -28,11 +28,10 @@
 
 #pragma mark - creating
 -(id)create {
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
+    [self.transactionManager begin];
     REDRLMRead *read = [[REDRLMRead alloc] init];
-    [realm addObject:read];
-    [realm commitWriteTransaction];
+    [[RLMRealm defaultRealm] addObject:read];
+    [self.transactionManager commit];
     return read;
 }
 -(id<REDReadProtocol>)createWithDict:(NSDictionary *)dict {

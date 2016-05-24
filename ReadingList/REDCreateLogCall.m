@@ -19,9 +19,11 @@
 #import "NSDate+Additions.h"
 #import "REDReadProtocol.h"
 #import "REDDictionary2ModelFactoryProtocol.h"
+#import "REDTransactionManager.h"
 
 @interface REDCreateLogCall ()
 
+@property (setter=injected3:) id<REDTransactionManager> transactionManager;
 @property (setter=injected2:) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end
@@ -39,12 +41,14 @@
             [self error:response];
         } else {
             response.success = YES;
+            [self.transactionManager begin];
             for (NSDictionary * log_idct in [responseObject objectForKey:@"data"]) {
-                id<REDReadProtocol> log = [self.readDataAccessObject logWithIdentifier:[log_idct                                                                                   [@"id"] integerValue]];
+                NSDate *date = [NSDate sam_dateFromISO8601String:log_idct[@"date"]];
+                id<REDReadProtocol> log = [self.readDataAccessObject logWithDate:date];
                 if (log) {
                     [log setIdentifier:[[log_idct objectForKey:@"id"] integerValue]];
                 }
-
+                [self.transactionManager commit];
             }
             [self success:response];
             completion(YES);

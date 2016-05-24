@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ReadingList/REDBookRatingRequest.m"
-            timestampString = "485643339.528493"
+            filePath = "ReadingList/REDListLogsFactory.m"
+            timestampString = "485755342.40882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-URL"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-outputForMany"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReadingList/REDCreateLogCall.m"
+            timestampString = "485755698.396473"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-startWithRequest:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
