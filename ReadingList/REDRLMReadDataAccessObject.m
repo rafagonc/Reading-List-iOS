@@ -37,7 +37,7 @@
     return read;
 }
 -(id<REDReadProtocol>)createWithDict:(NSDictionary *)dict {
-    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithString:dict[@"book_ref"][@"name"]] firstObject];
+    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithString:dict[@"book_ref"][@"book"][@"name"]] firstObject];
     if (book) {
         id<REDReadProtocol> log = [self create];
         [self updateLog:log WithDict:dict];
@@ -47,14 +47,17 @@
 }
 -(void)updateLog:(id<REDReadProtocol>)log WithDict:(NSDictionary *)dict {
     NSDate * date = [NSDate sam_dateFromISO8601String:[dict objectForKey:@"date"]];
-    id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book_ref"][@"id"] integerValue]] firstObject];
     [self.transactionManager begin];
+    if ([dict[@"book_ref"] isEqual:[NSNull null]] == NO) {
+        id<REDBookProtocol> book = [[self.bookDataAccessObject searchBooksWithIdentifier:[dict[@"book_ref"][@"id"] integerValue]] firstObject];
+        [log setBook:book];
+    }
     [log setPagesValue:[dict[@"pages"] integerValue]];
     [log setUuid:[dict objectForKey:@"uuid"]];
-    [log setBook:book];
     [log setDate:date];
     [log setIdentifier:[dict[@"id"] integerValue]];
     [self.transactionManager commit];
+    
 }
 
 #pragma mark - queries
@@ -67,7 +70,7 @@
 
 #pragma mark - fetching
 -(NSArray<id<REDReadProtocol>> *)logsOrderedByDate {
-    return (NSArray *)[[self listWithPredicate:[NSPredicate predicateWithFormat:@"invalidated = %d", NO]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
+    return (NSArray *)[[self listWithPredicate:[NSPredicate predicateWithFormat:@"invalidated = %d AND book != nil", NO]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
 }
 -(id<REDReadProtocol>)logWithDate:(NSDate *)date {
     for (id<REDReadProtocol> read in [self list]) {

@@ -26,11 +26,13 @@
     
     //creatte and upatte
     for (NSDictionary * log_dict in self.input) {
-        id<REDReadProtocol> log = [self.logDataAccessObject logWithIdentifier:[log_dict[@"id"] integerValue]];
+        id<REDReadProtocol> log = [self.logDataAccessObject logWithUUID:log_dict[@"uuid"]];
         if (log) {
             [self.logDataAccessObject updateLog:log WithDict:log_dict];
         } else {
-            [self.logDataAccessObject createWithDict:log_dict];
+            if ([[log_dict objectForKey:@"book_ref"] isEqual:[NSNull null]] == NO) {
+                [self.logDataAccessObject createWithDict:log_dict];
+            }
         }
     }
     

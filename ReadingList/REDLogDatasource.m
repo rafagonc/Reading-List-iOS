@@ -35,7 +35,7 @@
     _logs = [data mutableCopy];
 }
 -(NSArray *)data {
-    return [_logs copy];
+    return _logs;
 }
 
 #pragma mark - table view datasource and delegate
@@ -46,7 +46,7 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.data count];
+    return [self.logs count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"REDLogCell";
@@ -54,9 +54,10 @@
     if (!cell) {
         cell = [[REDLogCell alloc] init];
     }
-    
-    cell.read = self.logs[indexPath.row];
-    cell.delegate = self;
+    if (indexPath.row < self.logs.count) {
+        cell.read = self.logs[indexPath.row];
+        cell.delegate = self;
+    }
     
     return cell;
 }

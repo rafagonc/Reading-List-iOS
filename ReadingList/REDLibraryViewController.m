@@ -145,6 +145,7 @@
     } else {
         [repository listForUser:self.user callback:^(NSArray<id<REDBookProtocol>> *books) {
             [self.datasource setData:books];
+            [self.tableView reloadData];
         } error:^(NSError *error) {
             [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
         }];

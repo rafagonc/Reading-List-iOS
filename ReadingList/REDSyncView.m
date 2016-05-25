@@ -50,7 +50,7 @@
     [super layoutSubviews];
     if ([self.user isSyncable]) {
         [self.signUpButton setTitle:@"Synced" forState:UIControlStateNormal];
-        //[self.signUpButton removeTarget:self action:@selector(syncAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.signUpButton removeTarget:self action:@selector(syncAction:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         [self.signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
         [self.signUpButton addTarget:self action:@selector(syncAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -67,7 +67,7 @@
     }
 }
 -(void)stopLoading {
-    [self.signUpButton setTitle:@"Synced" forState:UIControlStateNormal];
+    [self setNeedsLayout];
     [self.animation stopAnimating];
 }
 

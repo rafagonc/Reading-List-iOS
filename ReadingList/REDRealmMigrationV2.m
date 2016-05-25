@@ -11,6 +11,7 @@
 #import "REDBookDataAccessObject.h"
 #import "REDReadDataAccessObject.h"
 #import "REDTransactionManager.h"
+#import "REDRLMCategoryDataAccessObject.h"
 
 @interface REDRealmMigrationV2 ()
 @end
@@ -19,9 +20,10 @@
 
 -(void)migrate {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-    config.schemaVersion = 13;
+    config.schemaVersion = 14;
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
-        if (oldSchemaVersion < 13) {
+        if (oldSchemaVersion < 14) {
+
         }
     };
     [RLMRealmConfiguration setDefaultConfiguration:config];

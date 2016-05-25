@@ -11,6 +11,7 @@
 #import "REDDepedencyInjection.h"
 #import "Depend/DPInjector.h"
 #import "REDStaticData.h"
+#import "Localytics.h"
 #import "UIColor+ReadingList.h"
 #import "REDDataStack.h"
 #import <Fabric/Fabric.h>
@@ -29,6 +30,7 @@
 #import "REDUserProtocol.h"
 #import "REDListLogsRequest.h"
 #import "REDBookDataAccessObject.h"
+#import "REDCategoryDataAccessObject.h"
 
 @interface AppDelegate ()
 
@@ -39,6 +41,7 @@
 @property (setter=injected3:) id<REDUserProtocol> user;
 @property (setter=injected1:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 @property (setter=injected2:) id<REDReadDataAccessObject> r;
+@property (setter=injected5:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
 @property (setter=injected4:) id<REDTransactionManager> transactionManager;
 @property (setter=injected5:) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected6:) id<REDReadDataAccessObject> readDataAccessObject;
@@ -50,6 +53,7 @@
 #pragma mark - Application Delegate
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[Digits sharedInstance] startWithConsumerKey:@"cRLPjIa9kGBICfKpm4bqOUkmh" consumerSecret:@"83f4R5asuM46RubjExlLXLJLnKqoL5n30RNDl3PmoE6Yy8RK98"];
+    [Localytics autoIntegrate:@"708fb30fcf2237a1f284de4-edf2f1be-2208-11e6-5a4f-0042876ec363" launchOptions:launchOptions];
     [Fabric with:@[[Crashlytics class], [Digits class]]];
     self.migration = [[REDRealmMigrationV2 alloc] init];
     [self.migration migrate];
@@ -81,16 +85,22 @@
     
     return YES;
 }
-
 -(void)applicationDidBecomeActive:(UIApplication *)application {
     [self.serviceDispatcher processUnprocessedRequestIfNeeded];
 }
 
+#pragma mark - persist
 -(void)changes {
     [self.transactionManager begin];
     for (id<REDReadProtocol> read in [self.readDataAccessObject logsOrderedByDate]) {
         if ([read uuid] == nil) [read setUuid:[[NSUUID UUID] UUIDString]];
     }
+    
+    id<REDCategoryProtocol> category = [self.categoryDataAccessObject categoryByName:@"Literatute & Fiction"];
+    if (category) {
+        [category setName:@"Literature & Fiction"];
+    }
+    
     [self.transactionManager commit];
 }
 

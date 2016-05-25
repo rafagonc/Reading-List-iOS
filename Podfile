@@ -20,6 +20,7 @@ pod "Crashlytics"
 pod "TwitterCore"
 pod "Fabric"
 pod 'PhotoTweaks', '~> 1.0.2'
+pod "Localytics"
 
 end
 

@@ -240,8 +240,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the pages before reading it!"];
 }
 -(void)pageProgressCell:(REDPageProgressCell *)cell didCompleteBookReading:(id<REDBookProtocol>)book {
-    REDPleaseRateViewController *rateViewController = [[REDPleaseRateViewController alloc] initWithBook:self.book];
-    [self presentViewController:rateViewController animated:YES completion:nil];
+//    REDPleaseRateViewController *rateViewController = [[REDPleaseRateViewController alloc] initWithBook:self.book];
+//    [self presentViewController:rateViewController animated:YES completion:nil];
 }
 
 #pragma mark - query description

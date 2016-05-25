@@ -69,7 +69,7 @@ static NSString * const REDStaticDataCreatedFlag = @"REDStaticDataCreatedFlag";
                                 @"History",
                                 @"Humor & Entertainment",
                                 @"Law",
-                                @"Literatute & Fiction",
+                                @"Literature & Fiction",
                                 @"Medical Books",
                                 @"Mystery, Thriller & Suspense",
                                 @"Parenting & Relationships",

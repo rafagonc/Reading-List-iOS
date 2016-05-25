@@ -35,8 +35,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet REDUserScrollView *userScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
-@property (weak, nonatomic) REDChartViewController *chartViewController;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+
+#pragma mark - properties
+@property (weak, nonatomic) REDChartViewController *chartViewController;
 
 #pragma mark - injected
 @property (setter=injected_log:) id<REDDatasourceProtocol> datasource;
@@ -103,14 +105,14 @@
 }
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 220);
+    self.tableView.tableHeaderView.frame = CGRectMake(0, 0, self.view.frame.size.width, 246);
     self.tableView.tableHeaderView = self.tableView.tableHeaderView; //update height
 }
 
 #pragma mark - methods
 -(void)updateData {
     [[self.logRepositoryFactory repository] listForUser:self.user callback:^(NSArray<id<REDReadProtocol>> *read) {
-        [self.datasource setData:read];
+        [self.datasource setData:[self.readDataAccessObject logsOrderedByDate]];
     } error:^(NSError *error) {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
     }];

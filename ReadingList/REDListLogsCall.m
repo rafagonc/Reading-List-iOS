@@ -29,14 +29,15 @@
     [self call:^(id responseObject, NSError *error) {
         REDServiceResponse * response = [[REDServiceResponse alloc] init];
         if (error) {
-            completion(NO);
             response.success = NO;
             response.error = error;
             [self error:response];
+            completion(NO);
         } else {
             [self.logFactory setInput:responseObject[@"data"]];
             [response setData:[self.logFactory outputForMany]];
             response.success = YES;
+            [self success:response];
             completion(YES);
         }
         

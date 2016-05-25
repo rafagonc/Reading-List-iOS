@@ -98,6 +98,9 @@
     id<REDServiceResponseProtocol> resposne = [notification object];
     if ([resposne success]) {
         if (finishUploadingLogs && finishUploadingUser && finishUploadingBooks) {
+            [self.transactionManager begin];
+            [self.user setCompleteSyncing:YES];
+            [self.transactionManager commit];
             _callback(error == nil, error);
         }
     } else {

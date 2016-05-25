@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *booksLabel;
 @property (weak, nonatomic) IBOutlet UIButton *photoButton;
+@property (weak, nonatomic) IBOutlet UILabel *swipeLabel;
 
 @end
 
@@ -52,6 +53,10 @@
 #pragma mark - layout
 -(void)layoutSubviews {
     [super layoutSubviews];
+    if ([self.user isSyncable]) {
+        [self.swipeLabel setText:@""];
+    }
+    
 }
 
 #pragma mark - setters

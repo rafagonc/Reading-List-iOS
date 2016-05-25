@@ -43,7 +43,8 @@
     return (NSArray *)[[self list] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
 -(id<REDCategoryProtocol>)categoryByName:(NSString *)name {
-    for (id<REDCategoryProtocol> category in [self list]) {
+    NSArray * categories = [self categoriesSortedByName];
+    for (id<REDCategoryProtocol> category in categories) {
         if ([[category name] isEqualToString:name]) {
             return category;
         }
