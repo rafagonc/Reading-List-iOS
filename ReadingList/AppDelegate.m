@@ -31,6 +31,7 @@
 #import "REDListLogsRequest.h"
 #import "REDBookDataAccessObject.h"
 #import "REDCategoryDataAccessObject.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate ()
 
@@ -61,6 +62,7 @@
     [REDDepedencyInjection registerImplementations];
     [REDStaticData craateStaticData];
     [RFRateMe showRateAlertAfterTimesOpened:15];
+    [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startStatusBarLoading:) name:REDStartStatusBarSyncingLoadingViewNotificationKey object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopStatusBarLoading) name:REDStopStatusBarSyncingLoadingViewNotificationKey object:nil];
@@ -87,6 +89,10 @@
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application {
     [self.serviceDispatcher processUnprocessedRequestIfNeeded];
+    [FBSDKAppEvents activateApp];
+}
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 #pragma mark - persist
