@@ -44,9 +44,9 @@
         [self.currentPageTextField addToolbar];
         
         //rating setup
-        UIImage *starImage = [UIImage imageNamed:@"star-template"];
+        UIImage *starImage = [UIImage imageNamed:@"stare"];
         starImage = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        UIImage *highlightedStarImage = [UIImage imageNamed:@"star-highlighted-template"];
+        UIImage *highlightedStarImage = [UIImage imageNamed:@"starf"];
         highlightedStarImage = [highlightedStarImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         self.ratingView.emptyStarImage = starImage;
         self.ratingView.filledStarImage = highlightedStarImage;

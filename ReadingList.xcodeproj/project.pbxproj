@@ -70,6 +70,10 @@
 		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; };
 		2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */; };
 		2A2A1E541BD3042600677868 /* REDNoActionTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E531BD3042600677868 /* REDNoActionTextField.m */; };
+		2A438B351CF8CEE700BF1ACD /* REDShareFactoryImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A438B2D1CF8CEE700BF1ACD /* REDShareFactoryImpl.m */; };
+		2A438B361CF8CEE700BF1ACD /* REDFacebookShareImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A438B2F1CF8CEE700BF1ACD /* REDFacebookShareImpl.m */; };
+		2A438B371CF8CEE700BF1ACD /* REDMailShareImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A438B311CF8CEE700BF1ACD /* REDMailShareImpl.m */; };
+		2A438B381CF8CEE700BF1ACD /* REDTwitterShareImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A438B331CF8CEE700BF1ACD /* REDTwitterShareImpl.m */; };
 		2A44B8CC1C5C293300E09F5E /* REDCategoryValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */; };
 		2A44B8CE1C5C293A00E09F5E /* REDPagesValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */; };
 		2A44B8D01C5C294100E09F5E /* REDBookValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */; };
@@ -377,6 +381,16 @@
 		2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "romeo-and-juliet.jpg"; sourceTree = "<group>"; };
 		2A2A1E521BD3042600677868 /* REDNoActionTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNoActionTextField.h; sourceTree = "<group>"; };
 		2A2A1E531BD3042600677868 /* REDNoActionTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNoActionTextField.m; sourceTree = "<group>"; };
+		2A438B2B1CF8CEE700BF1ACD /* REDShareFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDShareFactory.h; sourceTree = "<group>"; };
+		2A438B2C1CF8CEE700BF1ACD /* REDShareFactoryImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDShareFactoryImpl.h; sourceTree = "<group>"; };
+		2A438B2D1CF8CEE700BF1ACD /* REDShareFactoryImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDShareFactoryImpl.m; sourceTree = "<group>"; };
+		2A438B2E1CF8CEE700BF1ACD /* REDFacebookShareImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDFacebookShareImpl.h; sourceTree = "<group>"; };
+		2A438B2F1CF8CEE700BF1ACD /* REDFacebookShareImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDFacebookShareImpl.m; sourceTree = "<group>"; };
+		2A438B301CF8CEE700BF1ACD /* REDMailShareImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDMailShareImpl.h; sourceTree = "<group>"; };
+		2A438B311CF8CEE700BF1ACD /* REDMailShareImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDMailShareImpl.m; sourceTree = "<group>"; };
+		2A438B321CF8CEE700BF1ACD /* REDTwitterShareImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTwitterShareImpl.h; sourceTree = "<group>"; };
+		2A438B331CF8CEE700BF1ACD /* REDTwitterShareImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTwitterShareImpl.m; sourceTree = "<group>"; };
+		2A438B341CF8CEE700BF1ACD /* REDShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDShare.h; sourceTree = "<group>"; };
 		2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCategoryValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPagesValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookValidatorTest.m; sourceTree = "<group>"; };
@@ -852,6 +866,7 @@
 		2A19B87E1BCDA1D4009C8F25 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				2A438B3B1CF8CEFC00BF1ACD /* Share Factory */,
 				2ADCC0791BD1FD91009F638A /* Dictionary 2 Model Factory */,
 				2ADCC0541BD1FB93009F638A /* HTTP Request Factory */,
 				2A74EC931BD0A8C8005F5E74 /* Service Call Factory */,
@@ -977,6 +992,7 @@
 		2A19B8A11BCDBBEA009C8F25 /* General Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2A438B411CF8CF2000BF1ACD /* Share */,
 				2A1632D41C580E180015F06E /* Photo Picker */,
 				2ADCC0711BD1FD43009F638A /* Google Image Result */,
 				2A19B8A21BCDBBF3009C8F25 /* Customizer */,
@@ -1258,6 +1274,86 @@
 				2A2A1E531BD3042600677868 /* REDNoActionTextField.m */,
 			);
 			name = "No Action Text Field";
+			sourceTree = "<group>";
+		};
+		2A438B391CF8CEF200BF1ACD /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B2B1CF8CEE700BF1ACD /* REDShareFactory.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2A438B3A1CF8CEF800BF1ACD /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B2C1CF8CEE700BF1ACD /* REDShareFactoryImpl.h */,
+				2A438B2D1CF8CEE700BF1ACD /* REDShareFactoryImpl.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2A438B3B1CF8CEFC00BF1ACD /* Share Factory */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B391CF8CEF200BF1ACD /* Abstract */,
+				2A438B3A1CF8CEF800BF1ACD /* Concrete */,
+			);
+			name = "Share Factory";
+			sourceTree = "<group>";
+		};
+		2A438B3C1CF8CF0100BF1ACD /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B321CF8CEE700BF1ACD /* REDTwitterShareImpl.h */,
+				2A438B331CF8CEE700BF1ACD /* REDTwitterShareImpl.m */,
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
+		2A438B3D1CF8CF0600BF1ACD /* Mail */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B301CF8CEE700BF1ACD /* REDMailShareImpl.h */,
+				2A438B311CF8CEE700BF1ACD /* REDMailShareImpl.m */,
+			);
+			name = Mail;
+			sourceTree = "<group>";
+		};
+		2A438B3E1CF8CF0C00BF1ACD /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B2E1CF8CEE700BF1ACD /* REDFacebookShareImpl.h */,
+				2A438B2F1CF8CEE700BF1ACD /* REDFacebookShareImpl.m */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
+		2A438B3F1CF8CF1100BF1ACD /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B3E1CF8CF0C00BF1ACD /* Facebook */,
+				2A438B3D1CF8CF0600BF1ACD /* Mail */,
+				2A438B3C1CF8CF0100BF1ACD /* Twitter */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		2A438B401CF8CF1B00BF1ACD /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B341CF8CEE700BF1ACD /* REDShare.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2A438B411CF8CF2000BF1ACD /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				2A438B3F1CF8CF1100BF1ACD /* Concrete */,
+				2A438B401CF8CF1B00BF1ACD /* Abstract */,
+			);
+			name = Share;
 			sourceTree = "<group>";
 		};
 		2A4597841C62EDDD0010D135 /* Concrete */ = {
@@ -3321,10 +3417,12 @@
 				445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */,
 				2AE8BAF71C74189E004C1BB0 /* REDDateChart.m in Sources */,
 				441701F11C7648FB0076F9C7 /* REDNewViewController.m in Sources */,
+				2A438B371CF8CEE700BF1ACD /* REDMailShareImpl.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2ABB97081CE78B6D001C1E29 /* REDListLogsCall.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
+				2A438B351CF8CEE700BF1ACD /* REDShareFactoryImpl.m in Sources */,
 				2A74EC281BCDE768005F5E74 /* UIColor+ReadingList.m in Sources */,
 				2A74EBB21BCD50B7005F5E74 /* AppDelegate.m in Sources */,
 				44A787A51CDD13EA0038ED4A /* REDRemoveLogRequest.m in Sources */,
@@ -3394,6 +3492,7 @@
 				2AE8BAFC1C7561DE004C1BB0 /* REDChartCallout.m in Sources */,
 				2ADA28631C5995280068CCAC /* REDPagesReadCell.m in Sources */,
 				2A74EC2B1BCDE8F3005F5E74 /* REDBookCategoryCell.m in Sources */,
+				2A438B361CF8CEE700BF1ACD /* REDFacebookShareImpl.m in Sources */,
 				2A4597771C619A130010D135 /* REDRLMAuthorDataAccessObject.m in Sources */,
 				2A74EBFF1BCD59B1005F5E74 /* _REDBook.m in Sources */,
 				2A45977D1C619A280010D135 /* REDRLMReadDataAccessObject.m in Sources */,
@@ -3455,6 +3554,7 @@
 				2A74EC1D1BCDE2D0005F5E74 /* REDBookHeaderCell.m in Sources */,
 				2ABB96FC1CE78B3B001C1E29 /* REDRemoveUserCall.m in Sources */,
 				2AFCE53F1C6EC14C00680A53 /* REDLocalToRealm.m in Sources */,
+				2A438B381CF8CEE700BF1ACD /* REDTwitterShareImpl.m in Sources */,
 				2A52A01E1BE520A1005809CC /* SHNotificationView.m in Sources */,
 				2A1FF5AD1C56831200520949 /* REDUserView.m in Sources */,
 				2A74EC8F1BD0A8B8005F5E74 /* REDServiceDispatcher.m in Sources */,
