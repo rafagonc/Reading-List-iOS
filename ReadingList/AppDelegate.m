@@ -43,7 +43,7 @@
 @property (setter=injected2:) id<REDReadDataAccessObject> r;
 @property (setter=injected5:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
 @property (setter=injected4:) id<REDTransactionManager> transactionManager;
-@property (setter=injected5:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected7:) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected6:) id<REDReadDataAccessObject> readDataAccessObject;
 
 @end

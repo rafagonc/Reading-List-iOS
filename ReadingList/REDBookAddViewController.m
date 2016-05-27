@@ -97,7 +97,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [super viewDidLoad];
     self.title = self.actionType == REDBookAddViewControllerActionTypeAdding || self.actionType == REDBookAddViewControllerActionTypeTransientBook ? @"New Book" : @"Edit Book";
     [self createTableView];
-    if (![self.book snippet] && self.actionType == REDBookAddViewControllerActionTypeEditing) [self callServiceForBookDescription];
+    if ([self.book snippet].length == 0 && self.actionType == REDBookAddViewControllerActionTypeEditing) [self callServiceForBookDescription];
     [self setUpBarButtonItems];
     [self.quoteLabel setText:[REDRandomQuoteGenerator quote]];
 }
