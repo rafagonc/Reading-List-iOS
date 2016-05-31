@@ -260,6 +260,16 @@
 		44AF20941C76255200F6FC48 /* REDLogSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */; };
 		44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */; };
 		44F31CF11CF49CEA0067DA55 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31CF01CF49CEA0067DA55 /* PopoverViewController.m */; };
+		44F31CF51CFC76B20067DA55 /* REDWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31CF31CFC76B20067DA55 /* REDWelcomeViewController.m */; };
+		44F31CF61CFC76B20067DA55 /* REDWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F31CF41CFC76B20067DA55 /* REDWelcomeViewController.xib */; };
+		44F31CFA1CFC777D0067DA55 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F31CF71CFC777D0067DA55 /* FBSDKCoreKit.framework */; };
+		44F31CFB1CFC777D0067DA55 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F31CF81CFC777D0067DA55 /* FBSDKLoginKit.framework */; };
+		44F31CFC1CFC777D0067DA55 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F31CF91CFC777D0067DA55 /* FBSDKShareKit.framework */; };
+		44F31D011CFC79980067DA55 /* REDNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31CFF1CFC79980067DA55 /* REDNameViewController.m */; };
+		44F31D021CFC79980067DA55 /* REDNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F31D001CFC79980067DA55 /* REDNameViewController.xib */; };
+		44F31D071CFC7C030067DA55 /* REDCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31D051CFC7C030067DA55 /* REDCloudViewController.m */; };
+		44F31D081CFC7C030067DA55 /* REDCloudViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F31D061CFC7C030067DA55 /* REDCloudViewController.xib */; };
+		44F31D0D1CFC7F390067DA55 /* REDTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31D0B1CFC7F390067DA55 /* REDTutorialViewController.m */; };
 		CC3172322892F3A347775881 /* libPods-ReadingListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */; };
 		F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B7FEE50961509749458D464 /* libPods-ReadingList.a */; };
 /* End PBXBuildFile section */
@@ -771,6 +781,20 @@
 		44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDLogSummaryViewController.xib; sourceTree = "<group>"; };
 		44F31CEF1CF49CEA0067DA55 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		44F31CF01CF49CEA0067DA55 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		44F31CF21CFC76B20067DA55 /* REDWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDWelcomeViewController.h; sourceTree = "<group>"; };
+		44F31CF31CFC76B20067DA55 /* REDWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDWelcomeViewController.m; sourceTree = "<group>"; };
+		44F31CF41CFC76B20067DA55 /* REDWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDWelcomeViewController.xib; sourceTree = "<group>"; };
+		44F31CF71CFC777D0067DA55 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		44F31CF81CFC777D0067DA55 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		44F31CF91CFC777D0067DA55 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		44F31CFE1CFC79980067DA55 /* REDNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNameViewController.h; sourceTree = "<group>"; };
+		44F31CFF1CFC79980067DA55 /* REDNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNameViewController.m; sourceTree = "<group>"; };
+		44F31D001CFC79980067DA55 /* REDNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDNameViewController.xib; sourceTree = "<group>"; };
+		44F31D041CFC7C030067DA55 /* REDCloudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCloudViewController.h; sourceTree = "<group>"; };
+		44F31D051CFC7C030067DA55 /* REDCloudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCloudViewController.m; sourceTree = "<group>"; };
+		44F31D061CFC7C030067DA55 /* REDCloudViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDCloudViewController.xib; sourceTree = "<group>"; };
+		44F31D0A1CFC7F390067DA55 /* REDTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTutorialViewController.h; sourceTree = "<group>"; };
+		44F31D0B1CFC7F390067DA55 /* REDTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTutorialViewController.m; sourceTree = "<group>"; };
 		A0A9D83157DE316499E521BB /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
 		CE877B61704399AE560739E1 /* Pods-ReadingListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -780,6 +804,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F31CFA1CFC777D0067DA55 /* FBSDKCoreKit.framework in Frameworks */,
+				44F31CFB1CFC777D0067DA55 /* FBSDKLoginKit.framework in Frameworks */,
+				44F31CFC1CFC777D0067DA55 /* FBSDKShareKit.framework in Frameworks */,
 				F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,6 +934,10 @@
 				441701F31C7648FE0076F9C7 /* New View Controller */,
 				2A27FC0D1CAF85480067F9A4 /* Please Rate View Controller */,
 				2A6602501CCDFB6200B6D835 /* Sign In View Controller */,
+				44F31CFD1CFC77940067DA55 /* Welcome View Controller */,
+				44F31D031CFC799D0067DA55 /* Name View Controller */,
+				44F31D091CFC7C2C0067DA55 /* Cloud View Controller */,
+				44F31D0F1CFC7F3C0067DA55 /* Tutorial View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -2835,6 +2866,9 @@
 		3C1B8AFD86E40D76DA605411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44F31CF71CFC777D0067DA55 /* FBSDKCoreKit.framework */,
+				44F31CF81CFC777D0067DA55 /* FBSDKLoginKit.framework */,
+				44F31CF91CFC777D0067DA55 /* FBSDKShareKit.framework */,
 				1B7FEE50961509749458D464 /* libPods-ReadingList.a */,
 				278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */,
 			);
@@ -3078,6 +3112,45 @@
 			name = "Log Summary View Controller";
 			sourceTree = "<group>";
 		};
+		44F31CFD1CFC77940067DA55 /* Welcome View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44F31CF21CFC76B20067DA55 /* REDWelcomeViewController.h */,
+				44F31CF31CFC76B20067DA55 /* REDWelcomeViewController.m */,
+				44F31CF41CFC76B20067DA55 /* REDWelcomeViewController.xib */,
+			);
+			name = "Welcome View Controller";
+			sourceTree = "<group>";
+		};
+		44F31D031CFC799D0067DA55 /* Name View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44F31CFE1CFC79980067DA55 /* REDNameViewController.h */,
+				44F31CFF1CFC79980067DA55 /* REDNameViewController.m */,
+				44F31D001CFC79980067DA55 /* REDNameViewController.xib */,
+			);
+			name = "Name View Controller";
+			sourceTree = "<group>";
+		};
+		44F31D091CFC7C2C0067DA55 /* Cloud View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44F31D041CFC7C030067DA55 /* REDCloudViewController.h */,
+				44F31D051CFC7C030067DA55 /* REDCloudViewController.m */,
+				44F31D061CFC7C030067DA55 /* REDCloudViewController.xib */,
+			);
+			name = "Cloud View Controller";
+			sourceTree = "<group>";
+		};
+		44F31D0F1CFC7F3C0067DA55 /* Tutorial View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44F31D0A1CFC7F390067DA55 /* REDTutorialViewController.h */,
+				44F31D0B1CFC7F390067DA55 /* REDTutorialViewController.m */,
+			);
+			name = "Tutorial View Controller";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3218,17 +3291,20 @@
 				2ADA28691C5995310068CCAC /* REDChooseBookCell.xib in Resources */,
 				2A74EC731BD0957D005F5E74 /* REDAuthorCreateViewController.xib in Resources */,
 				2A74EC791BD09746005F5E74 /* REDUITextFieldCell.xib in Resources */,
+				44F31D021CFC79980067DA55 /* REDNameViewController.xib in Resources */,
 				2A19B89A1BCDB6EE009C8F25 /* REDBookCell.xib in Resources */,
 				2A77C0821C2DCE8800E21551 /* REDExploreViewController.xib in Resources */,
 				2A218FC11C57DA7D00D5D6FA /* REDAddLogViewController.xib in Resources */,
 				2A1FF5B91C568C9600520949 /* REDLogCell.xib in Resources */,
 				2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */,
+				44F31D081CFC7C030067DA55 /* REDCloudViewController.xib in Resources */,
 				2A746DE61CD6ED5E0061F2B9 /* REDServerMetadata.plist in Resources */,
 				44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */,
 				2A6602051CC431A300B6D835 /* REDTopRatedCell.xib in Resources */,
 				2A74EC2E1BCDE9A7005F5E74 /* REDBookCategoryCell.xib in Resources */,
 				2ADA28761C59AD8B0068CCAC /* REDChooseDateCell.xib in Resources */,
 				2A1FF5B01C56832200520949 /* REDUserView.xib in Resources */,
+				44F31CF61CFC76B20067DA55 /* REDWelcomeViewController.xib in Resources */,
 				441701F51C764C560076F9C7 /* new.txt in Resources */,
 				2ADCC0AF1BD2E69A009F638A /* the-little-prince-summary.jpg in Resources */,
 				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
@@ -3429,6 +3505,7 @@
 				44AF20941C76255200F6FC48 /* REDLogSummaryViewController.m in Sources */,
 				2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */,
 				44A7879F1CDD13DB0038ED4A /* REDCreateLogRequest.m in Sources */,
+				44F31D0D1CFC7F390067DA55 /* REDTutorialViewController.m in Sources */,
 				2ADA28821C59B2B90068CCAC /* REDDateValidator.m in Sources */,
 				2ABB971A1CED7275001C1E29 /* NSDate+Additions.m in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
@@ -3451,6 +3528,7 @@
 				2A4597651C6192560010D135 /* REDRLMCategory.m in Sources */,
 				2A6601FB1CC2FC9D00B6D835 /* REDTopRatedCall.m in Sources */,
 				2ADCC0741BD1FD6A009F638A /* REDDictionary2ModelFactory.m in Sources */,
+				44F31D011CFC79980067DA55 /* REDNameViewController.m in Sources */,
 				2ABB972C1CF0C738001C1E29 /* REDBookRatingValidator.m in Sources */,
 				2A1632DA1C580E6C0015F06E /* REDUser.m in Sources */,
 				2A6602091CC443E300B6D835 /* REDRequestFeatureImpl.m in Sources */,
@@ -3502,6 +3580,7 @@
 				2A19B88F1BCDB45A009C8F25 /* REDBookDatasource.m in Sources */,
 				2ADCC0AA1BD2D36E009F638A /* SHLoadingView.m in Sources */,
 				2A4597831C62EDDA0010D135 /* REDRLMResultsToNSArray.m in Sources */,
+				44F31CF51CFC76B20067DA55 /* REDWelcomeViewController.m in Sources */,
 				2A6602031CC4319D00B6D835 /* REDTopRatedCell.m in Sources */,
 				44A7876E1CDBC4E90038ED4A /* REDSyncBookRepository.m in Sources */,
 				2A74EC231BCDE656005F5E74 /* UITextField+DoneButton.m in Sources */,
@@ -3517,6 +3596,7 @@
 				2ADCC0A71BD2D347009F638A /* UIViewController+NotificationShow.m in Sources */,
 				2A27FC0A1CAF85380067F9A4 /* REDPleaseRateViewController.m in Sources */,
 				2ABB970D1CEC0977001C1E29 /* REDSyncingLoadingView.m in Sources */,
+				44F31D071CFC7C030067DA55 /* REDCloudViewController.m in Sources */,
 				2A74EC001BCD59B1005F5E74 /* _REDCategory.m in Sources */,
 				443AE2131C9342FE00D926F5 /* HCSStarRatingView.m in Sources */,
 				2ABB96F61CE78B1B001C1E29 /* REDUpdateUserCall.m in Sources */,

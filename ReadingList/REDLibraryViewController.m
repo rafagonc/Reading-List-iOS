@@ -18,7 +18,7 @@
 #import "REDNewViewController.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
-
+#import "REDTutorialViewController.h"
 #import "UIViewController+NotificationShow.h"
 
 @interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
@@ -78,6 +78,8 @@
     [super viewDidAppear:animated];
     [self.tableView reloadData];
     [self updateData]; /*deixar no did*/
+    REDTutorialViewController * tutorial = [[REDTutorialViewController alloc] init];
+    [self presentViewController:tutorial animated:YES completion:nil];
 }
 
 #pragma mark - setups
