@@ -18,7 +18,7 @@
 #import "REDNewViewController.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
-
+#import "REDImportViewController.h"
 #import "UIViewController+NotificationShow.h"
 
 @interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
@@ -88,7 +88,8 @@
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(editAction:)];
     
     UIBarButtonItem *addAction = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
-    [self.navigationItem setRightBarButtonItem:addAction];
+    UIBarButtonItem *importAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"import"] style:UIBarButtonItemStylePlain target:self action:@selector(importAction:)];
+    [self.navigationItem setRightBarButtonItems:@[addAction, importAction]];
 }
 
 #pragma mark - book datasource protocol
@@ -115,7 +116,7 @@
     return YES;
 }
 
-#pragma mark - search bar protocl
+#pragma mark - search bar protocol
 -(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
 }
@@ -135,6 +136,10 @@
 -(void)editAction:(UIBarButtonItem *)editAction {
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
+}
+-(void)importAction:(UIBarButtonItem *)importAction {
+    REDImportViewController * import = [[REDImportViewController alloc] init];
+    [self.navigationController pushViewController:import animated:YES];
 }
 
 #pragma mark - methods

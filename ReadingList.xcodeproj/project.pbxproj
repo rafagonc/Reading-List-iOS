@@ -65,6 +65,11 @@
 		2A23ABDB1C47501500E48BF6 /* REDBookRatingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDA1C47501500E48BF6 /* REDBookRatingRequest.m */; };
 		2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABDE1C47511100E48BF6 /* REDBookRatingCall.m */; };
 		2A23ABE21C4751D500E48BF6 /* REDBookRatingUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */; };
+		2A24718B1CFA3A3C00E9E2FD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2471881CFA3A3C00E9E2FD /* FBSDKCoreKit.framework */; };
+		2A24718C1CFA3A3C00E9E2FD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2471891CFA3A3C00E9E2FD /* FBSDKLoginKit.framework */; };
+		2A24718D1CFA3A3C00E9E2FD /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A24718A1CFA3A3C00E9E2FD /* FBSDKShareKit.framework */; };
+		2A2471901CFA3CD900E9E2FD /* REDImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A24718F1CFA3CD900E9E2FD /* REDImportViewController.m */; };
+		2A2471921CFA3CE100E9E2FD /* REDImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A2471911CFA3CE100E9E2FD /* REDImportViewController.xib */; };
 		2A27FC0A1CAF85380067F9A4 /* REDPleaseRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27FC091CAF85380067F9A4 /* REDPleaseRateViewController.m */; };
 		2A27FC0C1CAF85440067F9A4 /* REDPleaseRateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A27FC0B1CAF85440067F9A4 /* REDPleaseRateViewController.xib */; };
 		2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A1E4D1BD2F0E000677868 /* UISearchBar+Toolbar.m */; };
@@ -373,6 +378,12 @@
 		2A23ABE01C4751D500E48BF6 /* REDBookRatingUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookRatingUploader.h; sourceTree = "<group>"; };
 		2A23ABE11C4751D500E48BF6 /* REDBookRatingUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookRatingUploader.m; sourceTree = "<group>"; };
 		2A23ABE51C4752D400E48BF6 /* REDBookUploaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookUploaderProtocol.h; sourceTree = "<group>"; };
+		2A2471881CFA3A3C00E9E2FD /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2A2471891CFA3A3C00E9E2FD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2A24718A1CFA3A3C00E9E2FD /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		2A24718E1CFA3CD900E9E2FD /* REDImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDImportViewController.h; sourceTree = "<group>"; };
+		2A24718F1CFA3CD900E9E2FD /* REDImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDImportViewController.m; sourceTree = "<group>"; };
+		2A2471911CFA3CE100E9E2FD /* REDImportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDImportViewController.xib; sourceTree = "<group>"; };
 		2A27FC081CAF85380067F9A4 /* REDPleaseRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDPleaseRateViewController.h; sourceTree = "<group>"; };
 		2A27FC091CAF85380067F9A4 /* REDPleaseRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPleaseRateViewController.m; sourceTree = "<group>"; };
 		2A27FC0B1CAF85440067F9A4 /* REDPleaseRateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDPleaseRateViewController.xib; sourceTree = "<group>"; };
@@ -780,6 +791,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A24718B1CFA3A3C00E9E2FD /* FBSDKCoreKit.framework in Frameworks */,
+				2A24718C1CFA3A3C00E9E2FD /* FBSDKLoginKit.framework in Frameworks */,
+				2A24718D1CFA3A3C00E9E2FD /* FBSDKShareKit.framework in Frameworks */,
 				F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,6 +921,7 @@
 				441701F31C7648FE0076F9C7 /* New View Controller */,
 				2A27FC0D1CAF85480067F9A4 /* Please Rate View Controller */,
 				2A6602501CCDFB6200B6D835 /* Sign In View Controller */,
+				2A2471931CFA3CE600E9E2FD /* Import View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1237,6 +1252,16 @@
 				2A23ABE51C4752D400E48BF6 /* REDBookUploaderProtocol.h */,
 			);
 			name = Abstract;
+			sourceTree = "<group>";
+		};
+		2A2471931CFA3CE600E9E2FD /* Import View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A24718E1CFA3CD900E9E2FD /* REDImportViewController.h */,
+				2A24718F1CFA3CD900E9E2FD /* REDImportViewController.m */,
+				2A2471911CFA3CE100E9E2FD /* REDImportViewController.xib */,
+			);
+			name = "Import View Controller";
 			sourceTree = "<group>";
 		};
 		2A27FC071CAF85200067F9A4 /* Popover View Controller */ = {
@@ -2835,6 +2860,9 @@
 		3C1B8AFD86E40D76DA605411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A2471881CFA3A3C00E9E2FD /* FBSDKCoreKit.framework */,
+				2A2471891CFA3A3C00E9E2FD /* FBSDKLoginKit.framework */,
+				2A24718A1CFA3A3C00E9E2FD /* FBSDKShareKit.framework */,
 				1B7FEE50961509749458D464 /* libPods-ReadingList.a */,
 				278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */,
 			);
@@ -3241,6 +3269,7 @@
 				2A74EC6A1BD09041005F5E74 /* REDAuthorViewController.xib in Resources */,
 				2A74EC201BCDE2E2005F5E74 /* REDBookHeaderCell.xib in Resources */,
 				2ADA28641C5995280068CCAC /* REDPagesReadCell.xib in Resources */,
+				2A2471921CFA3CE100E9E2FD /* REDImportViewController.xib in Resources */,
 				2ADA28701C59A91F0068CCAC /* REDChooseBookViewController.xib in Resources */,
 				2A74EC7F1BD0A558005F5E74 /* REDImageSearchViewController.xib in Resources */,
 				2A74EC411BCDF5D8005F5E74 /* REDPageProgressCell.xib in Resources */,
@@ -3440,6 +3469,7 @@
 				2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */,
 				2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */,
 				2A1FF5C41C56DEE500520949 /* REDCategoryValidator.m in Sources */,
+				2A2471901CFA3CD900E9E2FD /* REDImportViewController.m in Sources */,
 				2A1632E71C59148C0015F06E /* ReadingList.xcdatamodeld in Sources */,
 				2ABB97251CEE6A8A001C1E29 /* REDAnimationFactoryImpl.m in Sources */,
 				2ABB97221CEE6880001C1E29 /* REDMinimumScaleAnimation.m in Sources */,
