@@ -101,7 +101,6 @@
     [super didReceiveMemoryWarning];
 }
 -(void)dealloc {
-    [self removeObserver:self forKeyPath:@"page"];
 }
 
 
