@@ -81,6 +81,8 @@
 		2A43936D1D013B55008AB65E /* REDTransientBookCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A43936C1D013B55008AB65E /* REDTransientBookCollectionViewCell.m */; };
 		2A43936F1D013B63008AB65E /* REDTransientBookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A43936E1D013B63008AB65E /* REDTransientBookCollectionViewCell.xib */; };
 		2A4393731D013FDE008AB65E /* REDTransientBookCompletedAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4393721D013FDE008AB65E /* REDTransientBookCompletedAdapter.m */; };
+		2A4393771D01472E008AB65E /* REDAllSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4393761D01472E008AB65E /* REDAllSetViewController.m */; };
+		2A4393791D014738008AB65E /* REDAllSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4393781D014738008AB65E /* REDAllSetViewController.xib */; };
 		2A44B8CC1C5C293300E09F5E /* REDCategoryValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */; };
 		2A44B8CE1C5C293A00E09F5E /* REDPagesValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */; };
 		2A44B8D01C5C294100E09F5E /* REDBookValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */; };
@@ -422,6 +424,10 @@
 		2A4393711D013FDE008AB65E /* REDTransientBookCompletedAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTransientBookCompletedAdapter.h; sourceTree = "<group>"; };
 		2A4393721D013FDE008AB65E /* REDTransientBookCompletedAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTransientBookCompletedAdapter.m; sourceTree = "<group>"; };
 		2A4393741D0145E5008AB65E /* REDTransientBookCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTransientBookCollectionViewDelegate.h; sourceTree = "<group>"; };
+		2A4393751D01472E008AB65E /* REDAllSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAllSetViewController.h; sourceTree = "<group>"; };
+		2A4393761D01472E008AB65E /* REDAllSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAllSetViewController.m; sourceTree = "<group>"; };
+		2A4393781D014738008AB65E /* REDAllSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDAllSetViewController.xib; sourceTree = "<group>"; };
+		2A43937B1D014854008AB65E /* REDAllSetViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAllSetViewControllerDelegate.h; sourceTree = "<group>"; };
 		2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCategoryValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPagesValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookValidatorTest.m; sourceTree = "<group>"; };
@@ -960,6 +966,7 @@
 				44F31D091CFC7C2C0067DA55 /* Cloud View Controller */,
 				44F31D0F1CFC7F3C0067DA55 /* Tutorial View Controller */,
 				2A4393661D01353A008AB65E /* Book Find Tutorial View Controller */,
+				2A43937A1D01473C008AB65E /* All Set View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1467,6 +1474,17 @@
 				2A43936E1D013B63008AB65E /* REDTransientBookCollectionViewCell.xib */,
 			);
 			name = "Transient Book Collection Cell";
+			sourceTree = "<group>";
+		};
+		2A43937A1D01473C008AB65E /* All Set View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A4393751D01472E008AB65E /* REDAllSetViewController.h */,
+				2A4393761D01472E008AB65E /* REDAllSetViewController.m */,
+				2A4393781D014738008AB65E /* REDAllSetViewController.xib */,
+				2A43937B1D014854008AB65E /* REDAllSetViewControllerDelegate.h */,
+			);
+			name = "All Set View Controller";
 			sourceTree = "<group>";
 		};
 		2A4597841C62EDDD0010D135 /* Concrete */ = {
@@ -3378,6 +3396,7 @@
 				44F31D021CFC79980067DA55 /* REDNameViewController.xib in Resources */,
 				2A19B89A1BCDB6EE009C8F25 /* REDBookCell.xib in Resources */,
 				2A77C0821C2DCE8800E21551 /* REDExploreViewController.xib in Resources */,
+				2A4393791D014738008AB65E /* REDAllSetViewController.xib in Resources */,
 				2A218FC11C57DA7D00D5D6FA /* REDAddLogViewController.xib in Resources */,
 				2A1FF5B91C568C9600520949 /* REDLogCell.xib in Resources */,
 				2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */,
@@ -3594,6 +3613,7 @@
 				44A7879F1CDD13DB0038ED4A /* REDCreateLogRequest.m in Sources */,
 				44F31D0D1CFC7F390067DA55 /* REDTutorialViewController.m in Sources */,
 				2ADA28821C59B2B90068CCAC /* REDDateValidator.m in Sources */,
+				2A4393771D01472E008AB65E /* REDAllSetViewController.m in Sources */,
 				2ABB971A1CED7275001C1E29 /* NSDate+Additions.m in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
 				2A4597901C6C21500010D135 /* REDAuthorNameValidator.m in Sources */,
