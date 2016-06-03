@@ -69,6 +69,8 @@
     [super viewDidLoad];
     self.mData = [[NSMutableDictionary alloc] init];
     
+    [Localytics tagEvent:@"Explore Screen"];
+    
     [self.searchBar addToolbar];
     [self.searchBar setDelegate:self];
     [self.datasource setDelegate:self];

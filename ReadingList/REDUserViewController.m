@@ -65,6 +65,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    [Localytics tagEvent:@"User Screen"];
+    
     //orientation change
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     

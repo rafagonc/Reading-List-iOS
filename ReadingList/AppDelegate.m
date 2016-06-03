@@ -11,7 +11,7 @@
 #import "REDDepedencyInjection.h"
 #import "Depend/DPInjector.h"
 #import "REDStaticData.h"
-#import "Localytics.h"
+#import <Localytics/Localytics.h>
 #import "UIColor+ReadingList.h"
 #import "REDDataStack.h"
 #import <Fabric/Fabric.h>

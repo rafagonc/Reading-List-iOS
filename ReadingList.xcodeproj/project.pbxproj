@@ -74,6 +74,9 @@
 		2A438B361CF8CEE700BF1ACD /* REDFacebookShareImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A438B2F1CF8CEE700BF1ACD /* REDFacebookShareImpl.m */; };
 		2A438B371CF8CEE700BF1ACD /* REDMailShareImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A438B311CF8CEE700BF1ACD /* REDMailShareImpl.m */; };
 		2A438B381CF8CEE700BF1ACD /* REDTwitterShareImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A438B331CF8CEE700BF1ACD /* REDTwitterShareImpl.m */; };
+		2A4393571D012C7F008AB65E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4393541D012C7F008AB65E /* FBSDKCoreKit.framework */; };
+		2A4393581D012C7F008AB65E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4393551D012C7F008AB65E /* FBSDKLoginKit.framework */; };
+		2A4393591D012C7F008AB65E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A4393561D012C7F008AB65E /* FBSDKShareKit.framework */; };
 		2A44B8CC1C5C293300E09F5E /* REDCategoryValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */; };
 		2A44B8CE1C5C293A00E09F5E /* REDPagesValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */; };
 		2A44B8D01C5C294100E09F5E /* REDBookValidatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */; };
@@ -391,6 +394,9 @@
 		2A438B321CF8CEE700BF1ACD /* REDTwitterShareImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTwitterShareImpl.h; sourceTree = "<group>"; };
 		2A438B331CF8CEE700BF1ACD /* REDTwitterShareImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTwitterShareImpl.m; sourceTree = "<group>"; };
 		2A438B341CF8CEE700BF1ACD /* REDShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDShare.h; sourceTree = "<group>"; };
+		2A4393541D012C7F008AB65E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2A4393551D012C7F008AB65E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2A4393561D012C7F008AB65E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		2A44B8CB1C5C293300E09F5E /* REDCategoryValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCategoryValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CD1C5C293A00E09F5E /* REDPagesValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDPagesValidatorTest.m; sourceTree = "<group>"; };
 		2A44B8CF1C5C294100E09F5E /* REDBookValidatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookValidatorTest.m; sourceTree = "<group>"; };
@@ -780,6 +786,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A4393571D012C7F008AB65E /* FBSDKCoreKit.framework in Frameworks */,
+				2A4393581D012C7F008AB65E /* FBSDKLoginKit.framework in Frameworks */,
+				2A4393591D012C7F008AB65E /* FBSDKShareKit.framework in Frameworks */,
 				F0D73D8F6947F45F4F686A75 /* libPods-ReadingList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2835,6 +2844,9 @@
 		3C1B8AFD86E40D76DA605411 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A4393541D012C7F008AB65E /* FBSDKCoreKit.framework */,
+				2A4393551D012C7F008AB65E /* FBSDKLoginKit.framework */,
+				2A4393561D012C7F008AB65E /* FBSDKShareKit.framework */,
 				1B7FEE50961509749458D464 /* libPods-ReadingList.a */,
 				278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */,
 			);

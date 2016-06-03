@@ -24,6 +24,7 @@ static NSString * const REDRecommendedBooksViewControllerSearchKey = @"REDRecomm
 
 typedef void(^REDErrorCallback)(NSError *error);
 
+#import <Localytics/Localytics.h>
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
