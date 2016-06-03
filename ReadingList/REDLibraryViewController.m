@@ -64,6 +64,9 @@
     [self updateData];
     [self.tableView reloadData];
     [self setUpBarButtonItems];
+    
+    REDTutorialViewController * tutorial = [[REDTutorialViewController alloc] init];
+    [self presentViewController:tutorial animated:YES completion:nil];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -78,8 +81,6 @@
     [super viewDidAppear:animated];
     [self.tableView reloadData];
     [self updateData]; /*deixar no did*/
-    REDTutorialViewController * tutorial = [[REDTutorialViewController alloc] init];
-    [self presentViewController:tutorial animated:YES completion:nil];
 }
 
 #pragma mark - setups
