@@ -18,7 +18,7 @@
 #pragma mark - constructor
 -(instancetype)initWithDelegate:(id<REDAllSetViewControllerDelegate>)delegate {
     if (self = [super init]) {
-        self.delegate = self;
+        self.delegate = delegate;
     } return self;
 }
 
