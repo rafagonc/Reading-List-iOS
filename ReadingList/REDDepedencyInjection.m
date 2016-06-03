@@ -78,6 +78,7 @@
 #import "REDAnimationFactoryImpl.h"
 #import "REDBookRatingValidator.h"
 #import "REDShareFactory.h"
+#import "REDTransientBookCollectionViewDatasource.h"
 #import "REDshareFactoryImpl.h"
 
 @implementation REDDepedencyInjection
@@ -98,6 +99,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"category"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"author"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDImageSearchCollectionViewDatasource class] forProtocol:@protocol(REDCollectionViewDatasourceProtocol) context:@"googleImage"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDTransientBookCollectionViewDatasource class] forProtocol:@protocol(REDCollectionViewDatasourceProtocol) context:@"transientBook"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDTransientBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"transientBook"];
     
     //service

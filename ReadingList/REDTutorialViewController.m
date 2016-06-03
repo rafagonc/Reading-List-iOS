@@ -12,8 +12,10 @@
 #import "REDWelcomeViewController.h"
 #import "REDUserProtocol.h"
 #import "UIColor+ReadingList.h"
+#import "REDBookFindTutorialViewController.h"
+#import "REDAllSetViewController.h"
 
-@interface REDTutorialViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface REDTutorialViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, REDAllSetViewControllerDelegate>
 
 #pragma mark - ui
 @property (nonatomic,strong) UIPageControl *pageControl;
@@ -31,9 +33,13 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionSpineLocationKey : @(UIPageViewControllerSpineLocationMin)}]) {
+        REDBookFindTutorialViewController * bookFind = [[REDBookFindTutorialViewController alloc] init];
+        
         self.tutorialViewControllers = @[[[REDWelcomeViewController alloc] init],
                                          [[REDNameViewController alloc] init],
-                                         [[REDCloudViewController alloc] init]];
+                                         [[REDCloudViewController alloc] init],
+                                         bookFind,
+                                         [[REDAllSetViewController alloc] initWithDelegate:self]];
         [self setViewControllers:@[[self.tutorialViewControllers firstObject]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         self.delegate = self;
         self.dataSource = self;
@@ -83,6 +89,11 @@
     NSUInteger page = [self.tutorialViewControllers indexOfObject:[self.viewControllers objectAtIndex:0]];
     [self.pageControl setCurrentPage:page]
     ;
+}
+
+#pragma mark - delegate
+-(void)controllerDidFinishTutorial:(REDAllSetViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - dealloc

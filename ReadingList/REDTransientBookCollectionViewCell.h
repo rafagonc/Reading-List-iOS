@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDTransientBook.h"
 
 @interface REDTransientBookCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic,weak) REDTransientBook * book;
+@property (nonatomic,assign) BOOL added;
 
 @end

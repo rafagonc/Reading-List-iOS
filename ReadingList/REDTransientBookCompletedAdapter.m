@@ -10,4 +10,12 @@
 
 @implementation REDTransientBookCompletedAdapter
 
+#pragma mark - constructor
+-(instancetype)initWithTransientBook:(REDTransientBook *)book {
+    if (self = [super init]) {
+        _book = book;
+    } return self;
+}
+
+
 @end

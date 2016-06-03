@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDAllSetViewControllerDelegate.h"
 
 @interface REDAllSetViewController : UIViewController
+
+#pragma mark - constructor
+-(instancetype)initWithDelegate:(id<REDAllSetViewControllerDelegate>)delegate;
+
+#pragma mark  - properties
+@property (nonatomic,weak) id<REDAllSetViewControllerDelegate> delegate;
 
 @end

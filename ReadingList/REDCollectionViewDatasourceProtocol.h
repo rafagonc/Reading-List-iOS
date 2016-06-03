@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol REDCollectionViewDatasourceProtocol <UICollectionViewDelegate, UICollectionViewDataSource>
+@protocol REDCollectionViewDatasourceProtocol <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) NSArray *data;
 

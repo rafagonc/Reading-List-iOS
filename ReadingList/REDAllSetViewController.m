@@ -8,6 +8,24 @@
 
 #import "REDAllSetViewController.h"
 
+@interface REDAllSetViewController ()
+
+@end
+
 @implementation REDAllSetViewController
+
+
+#pragma mark - constructor
+-(instancetype)initWithDelegate:(id<REDAllSetViewControllerDelegate>)delegate {
+    if (self = [super init]) {
+        self.delegate = self;
+    } return self;
+}
+
+#pragma mark - actions
+-(IBAction)continueButton:(id)sender {
+    [self.delegate controllerDidFinishTutorial:self];
+}
+
 
 @end

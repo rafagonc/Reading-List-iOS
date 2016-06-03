@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "REDCollectionViewDatasourceProtocol.h"
+#import "REDTransientBook.h"
 
 @protocol REDTransientBookCollectionViewDelegate <NSObject>
+
+-(void)transientBookDatasource:(id<REDCollectionViewDatasourceProtocol>)datasource justAddedBook:(REDTransientBook *)book;
+-(void)transientBookDatasource:(id<REDCollectionViewDatasourceProtocol>)datasource justRemovedBook:(REDTransientBook *)book;
+
 
 @end

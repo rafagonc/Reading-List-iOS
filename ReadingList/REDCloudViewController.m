@@ -7,8 +7,13 @@
 //
 
 #import "REDCloudViewController.h"
+#import "REDSignUpViewController.h"
+#import "REDUserProtocol.h"
+#import "UIViewController+NotificationShow.h"
 
 @interface REDCloudViewController ()
+
+@property (setter=injected:) id<REDUserProtocol> user;
 
 @end
 
@@ -31,6 +36,12 @@
 
 #pragma mark - actions
 -(IBAction)activateAction:(id)sender {
+    if ([self.user isSyncable]) {
+        [self showNotificationWithType:SHNotificationViewTypeSuccess withMessage:@"You are alredy authenticaded!"];
+    } else {
+        REDSignUpViewController * su = [[REDSignUpViewController alloc] init];
+        [self presentViewController:su animated:YES completion:nil];
+    }
 }
 
 #pragma mark - dealloc

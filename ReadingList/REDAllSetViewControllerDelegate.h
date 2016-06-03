@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+@class REDAllSetViewController;
 
 @protocol REDAllSetViewControllerDelegate <NSObject>
+
+-(void)controllerDidFinishTutorial:(REDAllSetViewController *)controller;
 
 @end

@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "REDTransientBook.h"
 
 @interface REDTransientBookCompletedAdapter : NSObject
+
+-(instancetype)initWithTransientBook:(REDTransientBook *)book;
+
+@property (nonatomic,strong) REDTransientBook * book;
+@property (nonatomic,assign) BOOL added;
 
 @end
