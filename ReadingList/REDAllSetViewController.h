@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "REDAllSetViewControllerDelegate.h"
+#import "REDTutorialChainOfResponsibilityProtocol.h"
 
 @interface REDAllSetViewController : UIViewController
+
+<REDTutorialChainOfResponsibilityProtocol>
 
 #pragma mark - constructor
 -(instancetype)initWithDelegate:(id<REDAllSetViewControllerDelegate>)delegate;

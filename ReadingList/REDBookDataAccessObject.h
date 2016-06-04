@@ -8,9 +8,11 @@
 
 #import "REDDataAccessObject.h"
 #import "REDBookProtocol.h"
+#import "REDTransientBook.h"
 
 @protocol REDBookDataAccessObject <REDDataAccessObject>
 
+-(id<REDBookProtocol>)createFromTransientBook:(REDTransientBook *)transientBook;
 -(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict;
 -(id<REDBookProtocol>)updateBook:(id<REDBookProtocol>)book withDict:(NSDictionary *)dict;
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted;

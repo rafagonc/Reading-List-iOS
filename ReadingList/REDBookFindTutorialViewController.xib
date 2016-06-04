@@ -10,6 +10,7 @@
                 <outlet property="activityIndicator" destination="mHi-xo-SVp" id="4A8-J9-ADc"/>
                 <outlet property="bookNameTextField" destination="c8H-uF-QV0" id="0DL-Lo-Xyw"/>
                 <outlet property="collectionView" destination="a0p-ie-Lua" id="bke-rK-gSQ"/>
+                <outlet property="coverInlineView" destination="FW3-pF-XD6" id="MeC-R4-V1M"/>
                 <outlet property="view" destination="iN0-l3-epB" id="dGr-2Z-vy4"/>
             </connections>
         </placeholder>
@@ -18,16 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Book By Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8H-uF-QV0">
-                    <rect key="frame" x="20" y="110" width="280" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="PxV-Tt-Chj"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yT-At-R7c">
-                    <rect key="frame" x="20" y="160" width="280" height="1"/>
+                    <rect key="frame" x="20" y="196" width="280" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5MO-1D-9I4"/>
@@ -43,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="a0p-ie-Lua">
-                    <rect key="frame" x="0.0" y="181" width="320" height="387"/>
+                    <rect key="frame" x="0.0" y="217" width="320" height="351"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="x3P-jp-nDu">
                         <size key="itemSize" width="50" height="50"/>
@@ -59,19 +52,37 @@
                         <constraint firstAttribute="width" constant="20" id="hm9-mb-ZHM"/>
                     </constraints>
                 </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW3-pF-XD6" customClass="REDBookCoverInlineView">
+                    <rect key="frame" x="20" y="108" width="280" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="UsD-Ea-ghD"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Book By Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8H-uF-QV0">
+                    <rect key="frame" x="20" y="146" width="280" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="PxV-Tt-Chj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="c8H-uF-QV0" firstAttribute="top" secondItem="FW3-pF-XD6" secondAttribute="bottom" constant="8" id="2KT-wU-JEU"/>
                 <constraint firstItem="g1O-tu-Krx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="A9b-pS-BRs"/>
                 <constraint firstItem="mHi-xo-SVp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="90" id="C4B-Pf-j5P"/>
                 <constraint firstItem="6yT-At-R7c" firstAttribute="top" secondItem="c8H-uF-QV0" secondAttribute="bottom" id="DFk-GD-4BD"/>
-                <constraint firstItem="c8H-uF-QV0" firstAttribute="top" secondItem="g1O-tu-Krx" secondAttribute="bottom" constant="10" id="EfH-BB-2kK"/>
                 <constraint firstAttribute="bottom" secondItem="a0p-ie-Lua" secondAttribute="bottom" id="I9A-Ei-A3c"/>
                 <constraint firstAttribute="trailing" secondItem="a0p-ie-Lua" secondAttribute="trailing" id="O1J-NC-3Xv"/>
                 <constraint firstItem="mHi-xo-SVp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PRT-cR-a0c"/>
                 <constraint firstAttribute="trailing" secondItem="c8H-uF-QV0" secondAttribute="trailing" constant="20" id="S1f-9c-llO"/>
                 <constraint firstItem="a0p-ie-Lua" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UX3-Fd-exo"/>
+                <constraint firstItem="FW3-pF-XD6" firstAttribute="top" secondItem="g1O-tu-Krx" secondAttribute="bottom" constant="8" id="apG-Cg-aj8"/>
+                <constraint firstItem="FW3-pF-XD6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="bM3-GC-abj"/>
                 <constraint firstItem="c8H-uF-QV0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="dGi-b0-299"/>
+                <constraint firstAttribute="trailing" secondItem="FW3-pF-XD6" secondAttribute="trailing" constant="20" id="fQY-kT-atu"/>
                 <constraint firstAttribute="trailing" secondItem="g1O-tu-Krx" secondAttribute="trailing" constant="20" id="fRD-ty-Lt1"/>
                 <constraint firstItem="6yT-At-R7c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="htl-nU-U8h"/>
                 <constraint firstItem="a0p-ie-Lua" firstAttribute="top" secondItem="6yT-At-R7c" secondAttribute="bottom" constant="20" id="rqO-jr-GeC"/>

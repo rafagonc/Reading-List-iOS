@@ -19,6 +19,7 @@
 #import "REDTransientBookCompletedAdapter.h"
 #import "UIViewController+NotificationShow.h"
 #import "REDTransientBookCollectionViewDelegate.h"
+#import "REDBookCoverInlineView.h"
 
 @interface REDBookFindTutorialViewController () <REDTransientBookCollectionViewDelegate, UITextFieldDelegate>
 
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *bookNameTextField;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet REDBookCoverInlineView *coverInlineView;
 
 #pragma mark - properties
 @property (nonatomic,strong) NSMutableArray <REDTransientBook *> * books;
@@ -73,12 +75,22 @@
     return YES;
 }
 
+#pragma mark - process
+-(BOOL)process:(REDTutorialViewController *)tutorial error:(NSError *__autoreleasing *)error {
+    for (REDTransientBook * transient_book in self.books) {
+        [self.bookDataAccessObject createFromTransientBook:transient_book];
+    }
+    return YES;
+}
+
 #pragma mark - delegate
 -(void)transientBookDatasource:(id<REDCollectionViewDatasourceProtocol>)datasource justRemovedBook:(REDTransientBook *)book {
     [self.books removeObject:book];
+    [self.coverInlineView setUrls:[self.books valueForKeyPath:@"@unionOfObjects.imageURL"]];
 }
 -(void)transientBookDatasource:(id<REDCollectionViewDatasourceProtocol>)datasource justAddedBook:(REDTransientBook *)book {
     [self.books addObject:book];
+    [self.coverInlineView setUrls:[self.books valueForKeyPath:@"@unionOfObjects.imageURL"]];
 }
 
 

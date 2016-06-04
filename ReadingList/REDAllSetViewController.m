@@ -27,5 +27,8 @@
     [self.delegate controllerDidFinishTutorial:self];
 }
 
+-(BOOL)process:(REDTutorialViewController *)tutorial error:(NSError *__autoreleasing *)error {
+    return YES;
+}
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDTutorialChainOfResponsibilityProtocol.h"
+
 
 @interface REDNameViewController : UIViewController
+
+<REDTutorialChainOfResponsibilityProtocol>
+
 
 @end

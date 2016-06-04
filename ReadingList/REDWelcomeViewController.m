@@ -29,6 +29,11 @@
     [super viewWillAppear:animated];
 }
 
+#pragma mark - chain 
+-(BOOL)process:(REDTutorialViewController *)tutorial error:(NSError *__autoreleasing *)error {
+    return YES;
+}
+
 #pragma mark - dealloc
 -(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

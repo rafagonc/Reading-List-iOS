@@ -16,6 +16,7 @@
 static NSString * const REDStartStatusBarSyncingLoadingViewNotificationKey = @"REDStartStatusBarSyncingLoadingViewNotificationKey";
 static NSString * const REDStopStatusBarSyncingLoadingViewNotificationKey = @"REDStopStatusBarSyncingLoadingViewNotificationKey";
 
+static NSString * const REDTutorialAlreadyShowedKey = @"REDTutorialAlreadyShowedKey";
 
 static NSString *const REDErrorDomain = @"com.rafa.gonc.ReadingList";
 static NSString *const REDShowedNewFeaturesKey = @"com.rafa.gonc.ReadingList";

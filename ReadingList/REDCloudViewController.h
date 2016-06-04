@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDTutorialChainOfResponsibilityProtocol.h"
 
 @interface REDCloudViewController : UIViewController
+
+<REDTutorialChainOfResponsibilityProtocol>
 
 @end

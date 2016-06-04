@@ -8,6 +8,8 @@
 
 #import "REDNameViewController.h"
 #import "UITextField+DoneButton.h"
+#import "REDTransactionManager.h"
+#import "REDUserProtocol.h"
 
 @interface REDNameViewController () {
     CGPoint initialPoint;
@@ -17,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerVerticalContainerViewConstraint;
+
+#pragma mark - injected
+@property (setter=injected:) id<REDUserProtocol> user;
+@property (setter=injected1:) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -36,6 +42,7 @@
     initialPoint = self.containerView.frame.origin;
     
     [self.nameTextField addToolbar];
+    [self.nameTextField setText:[self.user name]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillOpen:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillClose:) name:UIKeyboardWillHideNotification object:nil];
@@ -58,6 +65,14 @@
     [UIView animateWithDuration:0.3 animations:^{
         [self.view layoutIfNeeded];
     }];
+}
+
+#pragma markk - procces
+-(BOOL)process:(REDTutorialViewController *)tutorial error:(NSError *__autoreleasing *)error {
+    [self.transactionManager begin];
+    if (self.nameTextField.text.length > 0) [self.user setName:self.nameTextField.text];
+    [self.transactionManager commit];
+    return YES;
 }
 
 #pragma mark - dealloc

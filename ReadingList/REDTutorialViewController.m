@@ -14,6 +14,8 @@
 #import "UIColor+ReadingList.h"
 #import "REDBookFindTutorialViewController.h"
 #import "REDAllSetViewController.h"
+#import "REDTutorialChainOfResponsibilityProtocol.h"
+#import "UIViewController+NotificationShow.h"
 
 @interface REDTutorialViewController () <UIPageViewControllerDataSource, UIPageViewControllerDelegate, REDAllSetViewControllerDelegate>
 
@@ -24,7 +26,7 @@
 @property (setter=injected:) id<REDUserProtocol> user;
 
 #pragma mark - properties
-@property (nonatomic,strong) NSArray <UIViewController *> * tutorialViewControllers;
+@property (nonatomic,strong) NSArray <UIViewController<REDTutorialChainOfResponsibilityProtocol> *> * tutorialViewControllers;
 
 @end
 
@@ -33,12 +35,10 @@
 #pragma mark - constructor
 -(instancetype)init {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:@{UIPageViewControllerOptionSpineLocationKey : @(UIPageViewControllerSpineLocationMin)}]) {
-        REDBookFindTutorialViewController * bookFind = [[REDBookFindTutorialViewController alloc] init];
-        
         self.tutorialViewControllers = @[[[REDWelcomeViewController alloc] init],
                                          [[REDNameViewController alloc] init],
                                          [[REDCloudViewController alloc] init],
-                                         bookFind,
+                                         [[REDBookFindTutorialViewController alloc] init],
                                          [[REDAllSetViewController alloc] initWithDelegate:self]];
         [self setViewControllers:@[[self.tutorialViewControllers firstObject]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         self.delegate = self;
@@ -70,18 +70,18 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    if ([self.tutorialViewControllers indexOfObject:viewController] + 1 >= self.tutorialViewControllers.count) {
+    if ([self.tutorialViewControllers indexOfObject:(UIViewController<REDTutorialChainOfResponsibilityProtocol> *)viewController] + 1 >= self.tutorialViewControllers.count) {
         return nil;
     } else {
-        NSUInteger page = [self.tutorialViewControllers indexOfObject:viewController] + 1;
+        NSUInteger page = [self.tutorialViewControllers indexOfObject:(UIViewController<REDTutorialChainOfResponsibilityProtocol> *)viewController] + 1;
         return [self.tutorialViewControllers objectAtIndex:page];
     }
 }
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    if ((NSInteger)([self.tutorialViewControllers indexOfObject:viewController] - 1) < 0) {
+    if ((NSInteger)([self.tutorialViewControllers indexOfObject:(UIViewController<REDTutorialChainOfResponsibilityProtocol> *)viewController] - 1) < 0) {
         return nil;
     } else {
-        NSUInteger page = [self.tutorialViewControllers indexOfObject:viewController] - 1;
+        NSUInteger page = [self.tutorialViewControllers indexOfObject:(UIViewController<REDTutorialChainOfResponsibilityProtocol> *)viewController] - 1;
         return [self.tutorialViewControllers objectAtIndex:page];
     }
 }
@@ -93,6 +93,13 @@
 
 #pragma mark - delegate
 -(void)controllerDidFinishTutorial:(REDAllSetViewController *)controller {
+    for (UIViewController<REDTutorialChainOfResponsibilityProtocol> * vc in self.tutorialViewControllers) {
+        NSError * error;
+        if ([vc process:self error:&error] == NO) {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+            return;
+        }
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

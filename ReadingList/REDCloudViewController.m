@@ -34,6 +34,11 @@
     [super viewWillAppear:animated];
 }
 
+#pragma mark - chain
+-(BOOL)process:(REDTutorialViewController *)tutorial error:(NSError *__autoreleasing *)error {
+    return YES;
+}
+
 #pragma mark - actions
 -(IBAction)activateAction:(id)sender {
     if ([self.user isSyncable]) {

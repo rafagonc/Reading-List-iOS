@@ -103,6 +103,8 @@
 		2A4597901C6C21500010D135 /* REDAuthorNameValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45978F1C6C21500010D135 /* REDAuthorNameValidator.m */; };
 		2A52A01E1BE520A1005809CC /* SHNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A52A01C1BE520A1005809CC /* SHNotificationView.m */; };
 		2A52A01F1BE520A1005809CC /* SHNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A52A01D1BE520A1005809CC /* SHNotificationView.xib */; };
+		2A5C69541D0265DC00D10A2F /* REDBookCoverInlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69531D0265DC00D10A2F /* REDBookCoverInlineView.m */; };
+		2A5C695A1D028BC800D10A2F /* REDTutorialCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69591D028BC800D10A2F /* REDTutorialCreator.m */; };
 		2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */; };
 		2A6601F11CC2FA2100B6D835 /* REDTopRatedBookImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6601F01CC2FA2100B6D835 /* REDTopRatedBookImpl.m */; };
 		2A6601F81CC2FC8E00B6D835 /* REDTopRatedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6601F71CC2FC8E00B6D835 /* REDTopRatedRequest.m */; };
@@ -465,6 +467,11 @@
 		2A52A01B1BE520A1005809CC /* SHNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNotificationView.h; sourceTree = "<group>"; };
 		2A52A01C1BE520A1005809CC /* SHNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNotificationView.m; sourceTree = "<group>"; };
 		2A52A01D1BE520A1005809CC /* SHNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHNotificationView.xib; sourceTree = "<group>"; };
+		2A5C69521D0265DC00D10A2F /* REDBookCoverInlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookCoverInlineView.h; sourceTree = "<group>"; };
+		2A5C69531D0265DC00D10A2F /* REDBookCoverInlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookCoverInlineView.m; sourceTree = "<group>"; };
+		2A5C69561D0271DA00D10A2F /* REDTutorialChainOfResponsibilityProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTutorialChainOfResponsibilityProtocol.h; sourceTree = "<group>"; };
+		2A5C69581D028BC800D10A2F /* REDTutorialCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTutorialCreator.h; sourceTree = "<group>"; };
+		2A5C69591D028BC800D10A2F /* REDTutorialCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTutorialCreator.m; sourceTree = "<group>"; };
 		2A61F7CF1C4DC4F40083B768 /* REDLocalMigrationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalMigrationHandler.h; sourceTree = "<group>"; };
 		2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLocalMigrationHandler.m; sourceTree = "<group>"; };
 		2A6601EF1CC2FA2100B6D835 /* REDTopRatedBookImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTopRatedBookImpl.h; sourceTree = "<group>"; };
@@ -1069,8 +1076,8 @@
 				2A6602141CC453D100B6D835 /* Query Service */,
 				2A746DEE1CD6F0E50061F2B9 /* User Upload */,
 				2A43935E1D0131BB008AB65E /* Autenticator */,
-				2A4393711D013FDE008AB65E /* REDTransientBookCompletedAdapter.h */,
-				2A4393721D013FDE008AB65E /* REDTransientBookCompletedAdapter.m */,
+				2A5C69511D0263CC00D10A2F /* Complete Adapter */,
+				2A5C695B1D028C3600D10A2F /* Tutorial Creator */,
 			);
 			name = "General Classes";
 			sourceTree = "<group>";
@@ -1153,6 +1160,7 @@
 				2AFD3C4F1C59321B0003C423 /* User Scroll View */,
 				2AE8BAFF1C7561E7004C1BB0 /* Chart Callout */,
 				2ABB97101CEC0982001C1E29 /* Syncing Loading View */,
+				2A5C69551D0265E000D10A2F /* Inline Book Cover */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -1541,6 +1549,33 @@
 				2A45978F1C6C21500010D135 /* REDAuthorNameValidator.m */,
 			);
 			name = "Author Name Validator";
+			sourceTree = "<group>";
+		};
+		2A5C69511D0263CC00D10A2F /* Complete Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				2A4393711D013FDE008AB65E /* REDTransientBookCompletedAdapter.h */,
+				2A4393721D013FDE008AB65E /* REDTransientBookCompletedAdapter.m */,
+			);
+			name = "Complete Adapter";
+			sourceTree = "<group>";
+		};
+		2A5C69551D0265E000D10A2F /* Inline Book Cover */ = {
+			isa = PBXGroup;
+			children = (
+				2A5C69521D0265DC00D10A2F /* REDBookCoverInlineView.h */,
+				2A5C69531D0265DC00D10A2F /* REDBookCoverInlineView.m */,
+			);
+			name = "Inline Book Cover";
+			sourceTree = "<group>";
+		};
+		2A5C695B1D028C3600D10A2F /* Tutorial Creator */ = {
+			isa = PBXGroup;
+			children = (
+				2A5C69581D028BC800D10A2F /* REDTutorialCreator.h */,
+				2A5C69591D028BC800D10A2F /* REDTutorialCreator.m */,
+			);
+			name = "Tutorial Creator";
 			sourceTree = "<group>";
 		};
 		2A6601F31CC2FC7300B6D835 /* Abstract */ = {
@@ -2582,6 +2617,7 @@
 			children = (
 				2A74EC581BCEB54A005F5E74 /* REDBookCreationChainProtocol.h */,
 				2ADA28791C59ADC60068CCAC /* REDLogCreateChainProtocol.h */,
+				2A5C69561D0271DA00D10A2F /* REDTutorialChainOfResponsibilityProtocol.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -3601,6 +3637,7 @@
 				441701F11C7648FB0076F9C7 /* REDNewViewController.m in Sources */,
 				2A438B371CF8CEE700BF1ACD /* REDMailShareImpl.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
+				2A5C69541D0265DC00D10A2F /* REDBookCoverInlineView.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2ABB97081CE78B6D001C1E29 /* REDListLogsCall.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
@@ -3657,6 +3694,7 @@
 				2A1632D11C580DE10015F06E /* REDPhotoPickerPresenter.m in Sources */,
 				2A1FF5C11C56DEDF00520949 /* REDAuthorValidator.m in Sources */,
 				2ADA287C1C59B2AB0068CCAC /* REDPagesValidator.m in Sources */,
+				2A5C695A1D028BC800D10A2F /* REDTutorialCreator.m in Sources */,
 				2A77C0A11C2E187F00E21551 /* REDGoogleBooksQueryRequest.m in Sources */,
 				2A74EC401BCDF5D8005F5E74 /* REDPageProgressCell.m in Sources */,
 				2A77C0A51C2E1FE200E21551 /* REDGoogleBooksQueryCall.m in Sources */,

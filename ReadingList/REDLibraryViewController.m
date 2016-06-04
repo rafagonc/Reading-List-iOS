@@ -20,6 +20,7 @@
 #import "REDUserProtocol.h"
 #import "REDTutorialViewController.h"
 #import "UIViewController+NotificationShow.h"
+#import "REDTutorialCreator.h"
 
 @interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
     UIBarButtonItem *doneButton, *editButton;
@@ -65,8 +66,7 @@
     [self.tableView reloadData];
     [self setUpBarButtonItems];
     
-    REDTutorialViewController * tutorial = [[REDTutorialViewController alloc] init];
-    [self presentViewController:tutorial animated:YES completion:nil];
+    [REDTutorialCreator showTutorialOn:self];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

@@ -11,10 +11,15 @@
 #import "REDRLMArrayHelper.h"
 #import "REDAuthorDataAccessObject.h"
 #import "REDCategoryDataAccessObject.h"
+#import "REDTransientBook.h"
 #import "REDTransactionManager.h"
+#import "REDBookRepositoryFactory.h"
+#import "REDUserProtocol.h"
 
 @interface REDRLMBookDataAccessObject ()
 
+@property (setter=injected6:) id<REDUserProtocol> user;
+@property (setter=injected5:) id<REDBookRepositoryFactory> bookRepositoryFactory;
 @property (setter=injected1:) id<REDRLMArrayHelper> rlm_arrayHelper;
 @property (setter=injected4:) id<REDTransactionManager> transactionManager;
 @property (setter=injected2:) id<REDAuthorDataAccessObject> authorDataAccessObject;
@@ -42,6 +47,32 @@
 -(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict {
     id<REDBookProtocol> book = [self create];
     [self updateBook:book withDict:dict];
+    return book;
+}
+-(id<REDBookProtocol>)createFromTransientBook:(REDTransientBook *)transientBook {
+    id<REDBookProtocol> book = [self create];
+    [self.transactionManager begin];
+    [book setName:[transientBook name]];
+    [book setCoverURL:[transientBook imageURL]];
+    [self.transactionManager commit];
+
+    id<REDAuthorProtocol> author = [self.authorDataAccessObject authorByName:[transientBook authorsName]];
+    if (!author) {
+        author = [self.authorDataAccessObject create];
+        [self.transactionManager begin];
+        [author setName:[transientBook authorsName]];
+        [self.transactionManager commit];
+    }
+    [self.transactionManager begin];
+    [book setAuthor:author];
+    [book setSnippet:[transientBook snippet]];
+    
+    [[self.bookRepositoryFactory repository] createForUser:self.user book:book callback:^(id<REDBookProtocol> createdBook) {
+        
+    } error:^(NSError *error) {
+        
+    }];
+    
     return book;
 }
 

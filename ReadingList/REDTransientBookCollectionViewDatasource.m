@@ -56,9 +56,9 @@
     [cell setAdded:[[self.transientBook objectAtIndex:indexPath.row] added]];
     [collectionView reloadData];
     if ([[self.transientBook objectAtIndex:indexPath.row] added]) {
-        [self.delegate transientBookDatasource:self justRemovedBook:[[self.transientBook objectAtIndex:indexPath.row] book]];
-    } else {
         [self.delegate transientBookDatasource:self justAddedBook:[[self.transientBook objectAtIndex:indexPath.row] book]];
+    } else {
+        [self.delegate transientBookDatasource:self justRemovedBook:[[self.transientBook objectAtIndex:indexPath.row] book]];
     }
 }
 
