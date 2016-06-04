@@ -19,6 +19,9 @@
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted {
     return [[[self list] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"unprocessed = NO"]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"completed" ascending:YES],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
 }
+-(id<REDBookProtocol>)createFromTransientBook:(REDTransientBook *)transientBook {
+    return [self create];
+}
 -(NSUInteger)totalPages {
     NSUInteger totalPages = 0;
     NSArray <id<REDBookProtocol>> * books = [self list];

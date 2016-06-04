@@ -8,6 +8,7 @@
 
 @import Social;
 #import "REDFacebookShareImpl.h"
+#import <Localytics/Localytics.h>
 
 @implementation REDFacebookShareImpl
 
@@ -16,6 +17,9 @@
     [compose addImage:image];
     [compose setTitle:text];
     [vc presentViewController:compose animated:YES completion:nil];
+    
+    [Localytics tagEvent:@"Facebook"];
+    
 }
 
 @end

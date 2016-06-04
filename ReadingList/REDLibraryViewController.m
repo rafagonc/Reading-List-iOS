@@ -55,6 +55,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    [Localytics tagScreen:@"Library Screen"];
+    
     [self.saerchBar addToolbar];
     self.saerchBar.delegate = self;
     

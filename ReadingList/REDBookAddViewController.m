@@ -234,12 +234,14 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self.tableView endUpdates];
 }
 -(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
+    [Localytics tagEvent:@"Page Progress" attributes:@{@"pages" : [NSString stringWithFormat:@"%lu", (unsigned long)pages]}];
     [self.progressCell setPages:pages];
 }
 -(void)pageProgressCell:(REDPageProgressCell *)cell tryingToSetPagesWhileIsZeroForBook:(id<REDBookProtocol>)book {
     [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the pages before reading it!"];
 }
 -(void)pageProgressCell:(REDPageProgressCell *)cell didCompleteBookReading:(id<REDBookProtocol>)book {
+    [Localytics tagEvent:@"Completed Book" attributes:@{@"pages" : [NSString stringWithFormat:@"%lu", (long)[book pagesValue] ? (long)[book pagesValue] : 0], @"book" : [book name] ? [book name] : [self.transientBook name]}];
     REDPleaseRateViewController *rateViewController = [[REDPleaseRateViewController alloc] initWithBook:self.book];
     [self presentViewController:rateViewController animated:YES completion:nil];
 }
@@ -272,16 +274,19 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         [self.navigationController popViewControllerAnimated:YES];
         [[REDDataStack sharedManager] commit];
         if (self.actionType == REDBookAddViewControllerActionTypeEditing) {
+            [Localytics tagEvent:@"Edit Book"];
             [Answers logContentViewWithName:@"Book"
                                 contentType:@"Viewing"
                                   contentId:@""
                            customAttributes:@{}];
         } else if (self.actionType == REDBookAddViewControllerActionTypeAdding) {
+            [Localytics tagEvent:@"Add Book"];
             [Answers logContentViewWithName:@"Book"
                                 contentType:@"Adding"
                                   contentId:@""
                            customAttributes:@{}];
         } else {
+            [Localytics tagEvent:@"Added Transient Book"];
             [Answers logContentViewWithName:@"Book"
                                 contentType:@"Added Transient"
                                   contentId:@""

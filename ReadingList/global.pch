@@ -16,7 +16,7 @@
 static NSString * const REDStartStatusBarSyncingLoadingViewNotificationKey = @"REDStartStatusBarSyncingLoadingViewNotificationKey";
 static NSString * const REDStopStatusBarSyncingLoadingViewNotificationKey = @"REDStopStatusBarSyncingLoadingViewNotificationKey";
 
-static NSString * const REDTutorialAlreadyShowedKey = @"REDTutorialAlreadyShowedKey";
+static NSString * const REDTutorialAlreadyShowedKey = @"REDTutorialAlreadyShowedKey3";
 
 static NSString *const REDErrorDomain = @"com.rafa.gonc.ReadingList";
 static NSString *const REDShowedNewFeaturesKey = @"com.rafa.gonc.ReadingList";
@@ -25,6 +25,7 @@ static NSString * const REDRecommendedBooksViewControllerSearchKey = @"REDRecomm
 
 typedef void(^REDErrorCallback)(NSError *error);
 
+#import <Localytics/Localytics.h>
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)

@@ -47,6 +47,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"Sign Up"];
+    [Localytics tagEvent:@"Sign Up Screen"];
     [self.imageView setImage:[[UIImage imageNamed:@"cloud_big"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     [self.imageView setTintColor:[UIColor blackColor]];
     
@@ -70,7 +71,6 @@
     a.accentColor = [UIColor red_redColor];
     configuration.appearance = a;
     [digits authenticateWithCompletion:^(DGTSession *session, NSError *error) {
-        
         if (error) {
             self.shouldDismissOnBackgroundTap = YES;
             [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
@@ -82,8 +82,10 @@
             [self.user setCompleteSyncing:YES];
             [self.transactionManager commit];
             if (error) {
+                [Localytics tagEvent:@"Login Error" attributes:@{@"Error" : error.localizedDescription}];
                 [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
             } else {
+                [Localytics tagEvent:@"Login Succeded"];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
             self.shouldDismissOnBackgroundTap = YES;

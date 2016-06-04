@@ -412,6 +412,9 @@
 		2A438B321CF8CEE700BF1ACD /* REDTwitterShareImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTwitterShareImpl.h; sourceTree = "<group>"; };
 		2A438B331CF8CEE700BF1ACD /* REDTwitterShareImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTwitterShareImpl.m; sourceTree = "<group>"; };
 		2A438B341CF8CEE700BF1ACD /* REDShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDShare.h; sourceTree = "<group>"; };
+		2A4393541D012C7F008AB65E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2A4393551D012C7F008AB65E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2A4393561D012C7F008AB65E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		2A43935A1D0131AA008AB65E /* REDAutenticatorImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAutenticatorImpl.h; sourceTree = "<group>"; };
 		2A43935B1D0131AA008AB65E /* REDAutenticatorImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAutenticatorImpl.m; sourceTree = "<group>"; };
 		2A43935D1D0131B2008AB65E /* RAKAutenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAKAutenticator.h; sourceTree = "<group>"; };
@@ -3006,6 +3009,9 @@
 				44F31CF71CFC777D0067DA55 /* FBSDKCoreKit.framework */,
 				44F31CF81CFC777D0067DA55 /* FBSDKLoginKit.framework */,
 				44F31CF91CFC777D0067DA55 /* FBSDKShareKit.framework */,
+				2A4393541D012C7F008AB65E /* FBSDKCoreKit.framework */,
+				2A4393551D012C7F008AB65E /* FBSDKLoginKit.framework */,
+				2A4393561D012C7F008AB65E /* FBSDKShareKit.framework */,
 				1B7FEE50961509749458D464 /* libPods-ReadingList.a */,
 				278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */,
 			);
@@ -3359,7 +3365,7 @@
 		2A74EBA21BCD50B7005F5E74 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Rafael Gonzalves";
 				TargetAttributes = {
 					2A74EBA91BCD50B7005F5E74 = {

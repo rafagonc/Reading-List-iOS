@@ -7,6 +7,7 @@
 //
 
 #import "REDTwitterShareImpl.h"
+#import <Localytics/Localytics.h>
 
 @import Social;
 
@@ -17,6 +18,8 @@
     [compose addImage:image];
     [compose setInitialText:text];
     [vc presentViewController:compose animated:YES completion:nil];
+    
+    [Localytics tagEvent:@"Twiiter"];
 }
 
 @end

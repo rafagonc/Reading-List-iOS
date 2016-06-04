@@ -39,6 +39,9 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+    [Localytics tagEvent:@"Chart View"];
+    
     self.chart = [[REDDateChart alloc] init];
     [self.chart sizeToFitWithPerDayWidth:30];
     [self.chart setGradientStartColor:[[UIColor red_redColor] colorWithAlphaComponent:0.4]];
