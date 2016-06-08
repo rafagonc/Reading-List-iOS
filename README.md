@@ -5,6 +5,7 @@ An simple app for keep tracking of books
 
 - EPUB, PDF, MOBI import and reading
 - Better Explore Page
+- Manage Authors - Bob, Neil
 
 ## Done
 - Facebook Share
