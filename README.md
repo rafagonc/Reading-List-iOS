@@ -1,13 +1,15 @@
 # Reading-List-iOS
 An simple app for keep tracking of books
 
-## TODO
+## Todo
 
-- EPUB, PDF, MOBI import and reading
-- Better Explore Page
-- Manage Authors - Bob, Neil
+- epub, pdf support, branch = import.
+- good explore page.
+
+## Doing
+- manage authors - bob, neil, branch = authors;
 
 ## Done
-- Facebook Share
-- List by author and other properties. - Clint
-- Choose cover photo from library or camera. - Alison
+- facebook share, branch = share.
+- list by author and other properties. - clint
+- choose cover photo from library or camera. - alison
