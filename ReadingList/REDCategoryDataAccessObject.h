@@ -11,6 +11,7 @@
 
 @protocol REDCategoryDataAccessObject <REDDataAccessObject>
 
+-(NSArray <id<REDCategoryProtocol>> *)categoriesByName:(NSString *)name;
 -(id<REDCategoryProtocol>)categoryByName:(NSString *)name;
 -(NSArray <id<REDCategoryProtocol>> * )categoriesSortedByName;
 -(NSString *)mostUsedCategoryName;

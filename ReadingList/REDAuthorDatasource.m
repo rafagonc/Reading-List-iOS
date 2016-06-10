@@ -11,6 +11,7 @@
 #import "UIFont+ReadingList.h"
 #import "UITableViewCell+Clear.h"
 
+
 @interface REDAuthorDatasource ()
 
 #pragma mark - properties
@@ -35,6 +36,9 @@
 }
 
 #pragma mark - table view datasource
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -57,6 +61,7 @@
     } else {
         cell.textLabel.text = @"New Author";
     }
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }

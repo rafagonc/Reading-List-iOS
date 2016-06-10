@@ -40,6 +40,9 @@
 -(id<REDAuthorProtocol>)authorByName:(NSString *)name {
     return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", name]] firstObject];
 }
+-(NSArray<id<REDAuthorProtocol>> *)authorsByName:(NSString *)name {
+    return [self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", name]];
+}
 
 #pragma mark - specific queries
 -(NSArray<id<REDAuthorProtocol>> *)authorsSortedByName {

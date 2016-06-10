@@ -21,23 +21,29 @@
 #import "REDTutorialViewController.h"
 #import "UIViewController+NotificationShow.h"
 #import "REDTutorialCreator.h"
+#import "REDLibraryDatasourceFactory.h"
+#import "REDLibraryDataProvider.h"
+#import "REDAuthorDatasourceDelegate.h"
+#import "REDAuthorDatasource.h"
 
-@interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate> {
+@interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate, REDAuthorDatasourceDelegate > {
     UIBarButtonItem *doneButton, *editButton;
 }
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *saerchBar;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookRepository> bookRepository;
+@property (nonatomic,strong) id<REDDatasourceProtocol> datasource;
 
 #pragma mark - injected
-@property (setter=injected_book:) id<REDDatasourceProtocol> datasource;
 @property (setter=injected1:) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected2:) id<REDBookRepositoryFactory> bookRepositoryFactory;
 @property (setter=injected3:) id<REDUserProtocol> user;
+@property (setter=injected4:) id<REDLibraryDatasourceFactory> libraryDatasourceFactory;
 
 @end
 
@@ -60,9 +66,12 @@
     [self.saerchBar addToolbar];
     self.saerchBar.delegate = self;
     
+    self.datasource = [self.libraryDatasourceFactory datasourceForType:REDLibraryTypeBooks];
     self.tableView.delegate = self.datasource;
     self.tableView.dataSource = self.datasource;
     [self.datasource setDelegate:self];
+    [self updateData];
+    [self.tableView reloadData];
     
     [self updateData];
     [self.tableView reloadData];
@@ -82,7 +91,7 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.tableView reloadData];
-    [self updateData]; /*deixar no did*/
+    [self updateData]; /*deixar no did */
 }
 
 #pragma mark - setups
@@ -141,20 +150,39 @@
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
 }
+-(void)segmentedControlChanged:(UISegmentedControl *)sender {
+    self.datasource = [self.libraryDatasourceFactory datasourceForType:sender.selectedSegmentIndex];
+    self.tableView.delegate = self.datasource;
+    self.tableView.dataSource = self.datasource;
+    [self.datasource setDelegate:self];
+    [self updateData];
+    [self.tableView reloadData];
+}
 
 #pragma mark - methods
 -(void)updateData {
-    id<REDBookRepository> repository = [self.bookRepositoryFactory repository];
+//    id<REDBookRepository> repository = [self.bookRepositoryFactory repository];
+//    if ([self isSearcingBooks]) {
+//        [self.datasource setData:[self.bookDataAccessObject searchBooksWithString:self.saerchBar.text]];
+//    } else {
+//        [repository listForUser:self.user callback:^(NSArray<id<REDBookProtocol>> *books) {
+//            [self.datasource setData:books];
+//            [self.tableView reloadData];
+//        } error:^(NSError *error) {
+//            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+//        }];
+//    }
+    NSError * error;
     if ([self isSearcingBooks]) {
-        [self.datasource setData:[self.bookDataAccessObject searchBooksWithString:self.saerchBar.text]];
+        [[REDLibraryDataProvider new] dataForType:self.segmentedControl.selectedSegmentIndex withNameFilter:self.saerchBar.text callback:^(id data) {
+            [self.datasource setData:data];
+        } error:&error];
     } else {
-        [repository listForUser:self.user callback:^(NSArray<id<REDBookProtocol>> *books) {
-            [self.datasource setData:books];
-            [self.tableView reloadData];
-        } error:^(NSError *error) {
-            [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
-        }];
+        [[REDLibraryDataProvider new] dataForType:self.segmentedControl.selectedSegmentIndex callback:^(id data) {
+            [self.datasource setData:data];
+        } error:&error];
     }
+    if (error) [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
 }
 
 @end

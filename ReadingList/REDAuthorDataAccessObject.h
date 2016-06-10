@@ -13,5 +13,6 @@
 
 -(NSArray <id<REDAuthorProtocol>> *)authorsSortedByName;
 -(id<REDAuthorProtocol>)authorByName:(NSString *)name;
+-(NSArray <id<REDAuthorProtocol>> *)authorsByName:(NSString *)name;
 
 @end

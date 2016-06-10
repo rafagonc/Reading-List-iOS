@@ -17,6 +17,7 @@
     return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", name]] firstObject];
 }
 
+
 #pragma mark - dao
 -(NSString *)entityName {
     return @"REDAuthor";

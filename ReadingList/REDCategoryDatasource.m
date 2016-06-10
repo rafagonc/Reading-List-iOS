@@ -35,6 +35,9 @@
 }
 
 #pragma mark - table view datasource
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -53,6 +56,7 @@
     
     id<REDCategoryProtocol> category = self.categories[indexPath.row];
     cell.textLabel.text = [category name];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
 

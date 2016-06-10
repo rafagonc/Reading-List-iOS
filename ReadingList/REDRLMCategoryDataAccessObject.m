@@ -51,6 +51,9 @@
     }
     return nil;
 }
+-(NSArray<id<REDCategoryProtocol>> *)categoriesByName:(NSString *)name {
+    return [self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE '%@'", name]];
+}
 -(NSString *)mostUsedCategoryName {
     NSArray <id<REDCategoryProtocol>> * categories = [self list];
     id<REDCategoryProtocol> categoryWithMostBooks = nil;
