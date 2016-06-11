@@ -11,6 +11,7 @@
 #import "UIImage+Blur.h"
 #import "REDValidator.h"
 #import "UIFont+ReadingList.h"
+#import "UIImageView+WebCache.h"
 #import "REDTransactionManager.h"
 
 @interface REDBookHeaderCell ()
@@ -72,9 +73,15 @@
 }
 -(void)setCoverImage:(UIImage *)coverImage {
     _coverImage = coverImage;
-    [self.coverImageView setImage:coverImage ? [coverImage applyBlurToImageWithRadius:40.0f] : [UIImage imageNamed:@"default_blur"]];
-    [self.coverButton setTitle:coverImage ? @"" : @"cover" forState:UIControlStateNormal];
-    [self.coverButton setBackgroundImage:coverImage forState:UIControlStateNormal];
+    if (coverImage) {
+        [self.coverImageView setImage:coverImage ? [coverImage applyBlurToImageWithRadius:40.0f] : [UIImage imageNamed:@"default_blur"]];
+        [self.coverButton setTitle:coverImage ? @"" : @"cover" forState:UIControlStateNormal];
+        [self.coverButton setBackgroundImage:coverImage forState:UIControlStateNormal];
+    } else if ([self.book coverURL]) {
+        [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:[self.book coverURL]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [self setCoverImage:image];
+        }];
+    }
 }
 -(void)setSnippet:(NSString *)snippet {
     _snippet = snippet;

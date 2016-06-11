@@ -27,8 +27,22 @@
 #import "REDAuthorDatasource.h"
 #import "REDCategoryDatasourceDelegate.h"
 #import "REDBookPredicateViewController.h"
+#import "ZBarSDK.h"
+#import "UIColor+ReadingList.h"
+#import "REDGoogleBooksQueryRequest.h"
+#import "REDServiceDispatcherProtocol.h"
+#import "REDServiceResponseProtocol.h"
+#import "UIViewController+Loading.h"
 
-@interface REDLibraryViewController () <REDBookDatasourceDelegate, UISearchBarDelegate, REDAuthorDatasourceDelegate, REDCategoryDatasourceDelegate> {
+@interface REDLibraryViewController ()
+
+< REDBookDatasourceDelegate
+, UISearchBarDelegate
+, REDAuthorDatasourceDelegate
+, REDCategoryDatasourceDelegate
+, ZBarReaderDelegate>
+
+{
     UIBarButtonItem *doneButton, *editButton;
 }
 
@@ -46,6 +60,7 @@
 @property (setter=injected2:) id<REDBookRepositoryFactory> bookRepositoryFactory;
 @property (setter=injected3:) id<REDUserProtocol> user;
 @property (setter=injected4:) id<REDLibraryDatasourceFactory> libraryDatasourceFactory;
+@property (setter=injected5:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 
 @end
 
@@ -102,6 +117,9 @@
     
     UIBarButtonItem *addAction = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
     [self.navigationItem setRightBarButtonItem:addAction];
+    
+    UIBarButtonItem *barAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barcode"] style:UIBarButtonItemStylePlain target:self action:@selector(barAction:)];
+    [self.navigationItem setRightBarButtonItems:@[addAction, barAction]];
 }
 
 #pragma mark - datasource protocols
@@ -150,6 +168,38 @@
     return self.saerchBar.text.length > 0;
 }
 
+#pragma mark - zbar
+-(void)readerControllerDidFailToRead:(ZBarReaderController *)reader withRetry:(BOOL)retry {
+    [reader dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
+    ZBarSymbol *symbol = nil;
+    for(symbol in results) break;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        if (symbol.data) {
+            [self startFullLoading];
+            REDGoogleBooksQueryRequest * googleRequest = [[REDGoogleBooksQueryRequest alloc] initWithQuery:symbol.data];
+            [self.serviceDispatcher callWithRequest:googleRequest withTarget:self andSelector:@selector(response:)];
+        }
+    }];
+}
+-(void)response:(NSNotification *)notification {
+    [self stopFullLoading];
+    id<REDServiceResponseProtocol> response = [notification object];
+    if ([response success]) {
+        if ([(NSArray *)[response data] count] == 0) {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Book not found."];
+        } else {
+            id<REDBookProtocol> book = [[response data] firstObject];
+            REDBookAddViewController *editViewController = [[REDBookAddViewController alloc] initWithBook:book];
+            [self.navigationController pushViewController:editViewController animated:YES];
+        }
+    } else {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
+    }
+}
+
 #pragma mark - actions
 -(void)addAction:(UIBarButtonItem *)addbutton {
     REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
@@ -159,6 +209,13 @@
     if (self.segmentedControl.selectedSegmentIndex != REDLibraryTypeBooks) return;
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
+}
+-(void)barAction:(UIBarButtonItem *)item {
+    ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
+    codeReader.readerDelegate = self;
+    codeReader.view.tintColor = [UIColor red_redColor];
+    codeReader.supportedOrientationsMask = ZBarOrientationMaskAll;
+    [self presentViewController:codeReader animated:YES completion:nil];
 }
 -(void)segmentedControlChanged:(UISegmentedControl *)sender {
     [self changeType:sender.selectedSegmentIndex];
