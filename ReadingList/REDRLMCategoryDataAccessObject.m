@@ -52,7 +52,7 @@
     return nil;
 }
 -(NSArray<id<REDCategoryProtocol>> *)categoriesByName:(NSString *)name {
-    return [self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE '%@'", name]];
+    return [self listWithPredicate:[NSPredicate predicateWithFormat:@"name CONTAINS[cd] '%@'", name]];
 }
 -(NSString *)mostUsedCategoryName {
     NSArray <id<REDCategoryProtocol>> * categories = [self list];

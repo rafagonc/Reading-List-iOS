@@ -10,6 +10,7 @@
 #import "REDBookDatasource.h"
 #import "REDAuthorDatasource.h"
 #import "REDCategoryDatasource.h"
+#import "REDLibraryAuthorDatasource.h"
 
 @implementation REDLibraryDatasourceFactoryImpl
 
@@ -19,7 +20,7 @@
             return [[REDBookDatasource alloc] init];
             break;
         case REDLibraryTypeAuthor:
-            return [[REDAuthorDatasource alloc] init];
+            return [[REDLibraryAuthorDatasource alloc] init];
             break;
         case REDLibraryTypeCategories:
             return [[REDCategoryDatasource alloc] init];

@@ -38,10 +38,10 @@
     return [[self list] filteredArrayUsingPredicate:predicate];
 }
 -(id<REDAuthorProtocol>)authorByName:(NSString *)name {
-    return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", name]] firstObject];
+    return [[self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE[cd] %@", name]] firstObject];
 }
 -(NSArray<id<REDAuthorProtocol>> *)authorsByName:(NSString *)name {
-    return [self listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", name]];
+    return [self listWithPredicate:[NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", name]];
 }
 
 #pragma mark - specific queries

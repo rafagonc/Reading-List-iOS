@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "REDLibraryViewController_Constants.h"
 
 @interface REDLibraryViewController : UIViewController
 
+-(void)changeType:(REDLibraryType)type;
 
 @end

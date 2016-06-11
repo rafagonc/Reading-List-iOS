@@ -105,6 +105,9 @@
 		2A52A01F1BE520A1005809CC /* SHNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A52A01D1BE520A1005809CC /* SHNotificationView.xib */; };
 		2A5C69541D0265DC00D10A2F /* REDBookCoverInlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69531D0265DC00D10A2F /* REDBookCoverInlineView.m */; };
 		2A5C695A1D028BC800D10A2F /* REDTutorialCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69591D028BC800D10A2F /* REDTutorialCreator.m */; };
+		2A5C69631D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69621D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m */; };
+		2A5C69671D0BAD5700D10A2F /* REDBookPredicateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69661D0BAD5700D10A2F /* REDBookPredicateViewController.m */; };
+		2A5C69691D0BAF5D00D10A2F /* REDBookPredicateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5C69681D0BAF5D00D10A2F /* REDBookPredicateViewController.xib */; };
 		2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */; };
 		2A6601F11CC2FA2100B6D835 /* REDTopRatedBookImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6601F01CC2FA2100B6D835 /* REDTopRatedBookImpl.m */; };
 		2A6601F81CC2FC8E00B6D835 /* REDTopRatedRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6601F71CC2FC8E00B6D835 /* REDTopRatedRequest.m */; };
@@ -477,6 +480,12 @@
 		2A5C69561D0271DA00D10A2F /* REDTutorialChainOfResponsibilityProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTutorialChainOfResponsibilityProtocol.h; sourceTree = "<group>"; };
 		2A5C69581D028BC800D10A2F /* REDTutorialCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTutorialCreator.h; sourceTree = "<group>"; };
 		2A5C69591D028BC800D10A2F /* REDTutorialCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTutorialCreator.m; sourceTree = "<group>"; };
+		2A5C69611D0BA59D00D10A2F /* REDLibraryAuthorDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = REDLibraryAuthorDatasource.h; path = PersistentEntities/REDLibraryAuthorDatasource.h; sourceTree = "<group>"; };
+		2A5C69621D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = REDLibraryAuthorDatasource.m; path = PersistentEntities/REDLibraryAuthorDatasource.m; sourceTree = "<group>"; };
+		2A5C69641D0BA94F00D10A2F /* REDCategoryDatasourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCategoryDatasourceDelegate.h; sourceTree = "<group>"; };
+		2A5C69651D0BAD5700D10A2F /* REDBookPredicateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDBookPredicateViewController.h; sourceTree = "<group>"; };
+		2A5C69661D0BAD5700D10A2F /* REDBookPredicateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookPredicateViewController.m; sourceTree = "<group>"; };
+		2A5C69681D0BAF5D00D10A2F /* REDBookPredicateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDBookPredicateViewController.xib; sourceTree = "<group>"; };
 		2A61F7CF1C4DC4F40083B768 /* REDLocalMigrationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLocalMigrationHandler.h; sourceTree = "<group>"; };
 		2A61F7D01C4DC4F40083B768 /* REDLocalMigrationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLocalMigrationHandler.m; sourceTree = "<group>"; };
 		2A6601EF1CC2FA2100B6D835 /* REDTopRatedBookImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTopRatedBookImpl.h; sourceTree = "<group>"; };
@@ -988,6 +997,7 @@
 				44F31D0F1CFC7F3C0067DA55 /* Tutorial View Controller */,
 				2A4393661D01353A008AB65E /* Book Find Tutorial View Controller */,
 				2A43937A1D01473C008AB65E /* All Set View Controller */,
+				2A5C696A1D0BAF6000D10A2F /* Book Predicate View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1593,6 +1603,16 @@
 			name = "Tutorial Creator";
 			sourceTree = "<group>";
 		};
+		2A5C696A1D0BAF6000D10A2F /* Book Predicate View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A5C69651D0BAD5700D10A2F /* REDBookPredicateViewController.h */,
+				2A5C69661D0BAD5700D10A2F /* REDBookPredicateViewController.m */,
+				2A5C69681D0BAF5D00D10A2F /* REDBookPredicateViewController.xib */,
+			);
+			name = "Book Predicate View Controller";
+			sourceTree = "<group>";
+		};
 		2A6601F31CC2FC7300B6D835 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
@@ -2025,6 +2045,7 @@
 			children = (
 				2A74EC491BCE3E9A005F5E74 /* REDCategoryDatasource.h */,
 				2A74EC4A1BCE3E9A005F5E74 /* REDCategoryDatasource.m */,
+				2A5C69641D0BA94F00D10A2F /* REDCategoryDatasourceDelegate.h */,
 			);
 			name = "Category Datasource";
 			sourceTree = "<group>";
@@ -2054,6 +2075,8 @@
 				2A74EC6B1BD09119005F5E74 /* REDAuthorDatasource.h */,
 				2A74EC6C1BD09119005F5E74 /* REDAuthorDatasource.m */,
 				449F01DE1D0B497E004E76F4 /* REDAuthorDatasourceDelegate.h */,
+				2A5C69611D0BA59D00D10A2F /* REDLibraryAuthorDatasource.h */,
+				2A5C69621D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m */,
 			);
 			name = "Author Datasource";
 			sourceTree = "<group>";
@@ -3481,6 +3504,7 @@
 				2A74EC3C1BCDF489005F5E74 /* REDBookPagesCell.xib in Resources */,
 				2A77C0C01C2E2ED400E21551 /* REDTransientBookCell.xib in Resources */,
 				2ADA28691C5995310068CCAC /* REDChooseBookCell.xib in Resources */,
+				2A5C69691D0BAF5D00D10A2F /* REDBookPredicateViewController.xib in Resources */,
 				2A74EC731BD0957D005F5E74 /* REDAuthorCreateViewController.xib in Resources */,
 				2A74EC791BD09746005F5E74 /* REDUITextFieldCell.xib in Resources */,
 				44F31D021CFC79980067DA55 /* REDNameViewController.xib in Resources */,
@@ -3713,6 +3737,7 @@
 				2A77C0971C2DDA0A00E21551 /* REDAuthorDataAccessObjectImpl.m in Sources */,
 				2A74EC4B1BCE3E9A005F5E74 /* REDCategoryDatasource.m in Sources */,
 				2A23ABDF1C47511100E48BF6 /* REDBookRatingCall.m in Sources */,
+				2A5C69671D0BAD5700D10A2F /* REDBookPredicateViewController.m in Sources */,
 				2A74EBAF1BCD50B7005F5E74 /* main.m in Sources */,
 				2A1FF5C41C56DEE500520949 /* REDCategoryValidator.m in Sources */,
 				2A1632E71C59148C0015F06E /* ReadingList.xcdatamodeld in Sources */,
@@ -3826,6 +3851,7 @@
 				2ABB96E81CE78621001C1E29 /* REDRemoveUserRequest.m in Sources */,
 				2A74EC721BD0957D005F5E74 /* REDAuthorCreateViewController.m in Sources */,
 				2A4393631D013440008AB65E /* REDBookFindTutorialViewController.m in Sources */,
+				2A5C69631D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m in Sources */,
 				44A787761CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m in Sources */,
 				2ADA28751C59AD8B0068CCAC /* REDChooseDateCell.m in Sources */,
 				2A6602481CCDF47900B6D835 /* REDSyncView.m in Sources */,

@@ -1,38 +1,39 @@
 //
-//  REDCategoryDatasource.m
+//  REDLibraryAuthorDatasource.m
 //  ReadingList
 //
-//  Created by Rafael Gonzalves on 10/14/15.
-//  Copyright © 2015 Rafael Gonzalves. All rights reserved.
+//  Created by Rafael Gonzalves on 6/10/16.
+//  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDCategoryDatasource.h"
-#import "REDCategoryProtocol.h"
+#import "REDLibraryAuthorDatasource.h"
+#import "REDAuthorProtocol.h"
 #import "UIFont+ReadingList.h"
 #import "UITableViewCell+Clear.h"
-#import "REDCategoryDatasourceDelegate.h"
+#import "REDAuthorDatasourceDelegate.h"
 
-@interface REDCategoryDatasource ()
+@interface REDLibraryAuthorDatasource ()
 
 #pragma mark - properties
-@property (nonatomic,strong) NSArray *categories;
+@property (nonatomic,strong) NSArray *authors;
 
 #pragma mark - ui
 @property (nonatomic,weak) UITableView *tableView;
 
+
 @end
 
-@implementation REDCategoryDatasource
+@implementation REDLibraryAuthorDatasource
 
 @synthesize delegate;
 
 #pragma mark - getters and setters
 -(void)setData:(NSArray *)data {
-    _categories = data;
+    _authors = data;
     [self.tableView reloadData];
 }
 -(NSArray *)data {
-    return _categories;
+    return _authors;
 }
 
 #pragma mark - table view datasource
@@ -44,10 +45,10 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     self.tableView = tableView;
-    return self.categories.count;
+    return self.authors.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellID = @"REDCategoryCell";
+    NSString *cellID = @"REDAuthorCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
@@ -55,13 +56,16 @@
         [cell clearBackgroundSelection];
     }
     
-    id<REDCategoryProtocol> category = self.categories[indexPath.row];
-    cell.textLabel.text = [category name];
+    
+    id<REDAuthorProtocol> author = self.authors[indexPath.row];
+    cell.textLabel.text = [author name];
+    
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate categoryDatasource:self didSelectCategory:self.categories[indexPath.row]];
+    [self.delegate authorDatasource:self didSelectAuthor:self.authors[indexPath.row]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

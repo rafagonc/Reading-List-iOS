@@ -28,6 +28,9 @@
 -(id<REDCategoryProtocol>)categoryByName:(NSString *)name {
     return nil;
 }
+-(NSArray<id<REDCategoryProtocol>> *)categoriesByName:(NSString *)name {
+    return nil;
+}
 
 #pragma mark - dao
 -(NSString *)entityName {

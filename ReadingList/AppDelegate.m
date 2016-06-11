@@ -32,8 +32,9 @@
 #import "REDBookDataAccessObject.h"
 #import "REDCategoryDataAccessObject.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "REDLibraryViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
 
 #pragma mark - ui
 @property (nonatomic,weak) REDSyncingLoadingView * loadingView;
@@ -75,7 +76,7 @@
     [tab setViewControllers:@[[[UINavigationController alloc] initWithRootViewController:bookList],
                               [[UINavigationController alloc] initWithRootViewController:reccomendedBooks],
                               [[UINavigationController alloc] initWithRootViewController:log]]];
-    
+    tab.delegate = self;
 
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -108,6 +109,16 @@
     }
     
     [self.transactionManager commit];
+}
+
+#pragma mark - tab delegate
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    if (tabBarController.selectedIndex == 0 && [[(UINavigationController *)viewController topViewController] isKindOfClass:[REDLibraryViewController class]]) {
+        REDLibraryViewController * l = (REDLibraryViewController *)[(UINavigationController *)viewController topViewController];
+        [l changeType:REDLibraryTypeBooks];
+        
+    }
+    return YES;
 }
 
 #pragma mark - loading

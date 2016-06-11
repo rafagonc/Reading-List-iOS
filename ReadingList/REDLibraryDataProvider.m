@@ -56,7 +56,7 @@
             callback([self.bookDataAccessObject searchBooksWithString:name]);
             break;
         case REDLibraryTypeAuthor:
-            callback([self.authorDataAccessObject authorByName:name]);
+            callback([self.authorDataAccessObject authorsByName:name]);
             break;
         case REDLibraryTypeCategories:
             callback([self.categoriesDataAccessObject categoriesByName:name]);

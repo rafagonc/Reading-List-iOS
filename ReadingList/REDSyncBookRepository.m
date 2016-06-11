@@ -114,7 +114,7 @@
 -(void)listResponse:(NSNotification *)notification {
     id<REDServiceResponseProtocol> response = [notification object];
     if (response) {
-        self.listCallback([self.bookDataAccessObject allBooksSorted]);
+//        self.listCallback([self.bookDataAccessObject allBooksSorted]);
     } else {
         self.listErroCallback([response error]);
     }
