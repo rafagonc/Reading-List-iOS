@@ -65,7 +65,7 @@
     } else if ([self.books count] == 1) {
         [self.countLabel setText:[NSString stringWithFormat:@"1 Book"]];
     } else {
-        [self.countLabel setText:[NSString stringWithFormat:@"%lu books", [self.books count]]];
+        [self.countLabel setText:[NSString stringWithFormat:@"%lu books", (unsigned long)[self.books count]]];
     }
 }
 -(void)viewWillAppear:(BOOL)animated {

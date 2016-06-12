@@ -241,7 +241,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Set the pages before reading it!"];
 }
 -(void)pageProgressCell:(REDPageProgressCell *)cell didCompleteBookReading:(id<REDBookProtocol>)book {
-    [Localytics tagEvent:@"Completed Book" attributes:@{@"pages" : [NSString stringWithFormat:@"%lu", (long)[book pagesValue] ? (long)[book pagesValue] : 0], @"book" : [book name] ? [book name] : [self.transientBook name]}];
+    [Localytics tagEvent:@"Completed Book" attributes:@{}];
     REDPleaseRateViewController *rateViewController = [[REDPleaseRateViewController alloc] initWithBook:self.book];
     [self presentViewController:rateViewController animated:YES completion:nil];
 }
