@@ -8,6 +8,13 @@
 
 #import "REDRLMUserDataAccessObject.h"
 #import "REDRLMUser.h"
+#import "REDTransactionManager.h"
+
+@interface REDRLMUserDataAccessObject ()
+
+@property (setter=injected4:) id<REDTransactionManager> transactionManager;
+
+@end
 
 @implementation REDRLMUserDataAccessObject
 
@@ -15,9 +22,9 @@
 -(id)create {
     RLMRealm *realm = [RLMRealm defaultRealm];
     REDRLMUser * user = [[REDRLMUser alloc] init];
-    [realm beginWriteTransaction];
+    [self.transactionManager begin];
     [realm addObject:user];
-    [realm commitWriteTransaction];
+    [self.transactionManager commit];
     return user;
 }
 

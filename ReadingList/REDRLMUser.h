@@ -13,13 +13,13 @@
 
 <REDUserProtocol>
 
-@property (nonatomic) NSString * name;
-@property (nonatomic) NSDate   * firstReadCreated;
-@property (nonatomic) NSData   * coverData;
-@property (nonatomic) NSData   * photoData;
-@property (nonatomic) NSString * authTokenSecret;
-@property (nonatomic) NSString * userId; 
-@property (nonatomic) NSString * authToken;
+@property (nonatomic, nullable) NSString * name;
+@property (nonatomic, nullable) NSDate   * firstReadCreated;
+@property (nonatomic, nullable) NSData   * coverData;
+@property (nonatomic, nullable) NSData   * photoData;
+@property (nonatomic, nullable) NSString * authTokenSecret;
+@property (nonatomic, nullable) NSString * userId;
+@property (nonatomic, nullable) NSString * authToken;
 @property (nonatomic) BOOL payed;
 @property (nonatomic) BOOL syncable;
 @property (nonatomic) BOOL completeSyncing;

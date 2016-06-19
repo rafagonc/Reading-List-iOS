@@ -12,12 +12,12 @@
 @protocol REDUserProtocol <REDNamable>
 
 #pragma mark - properties
-@property (nonatomic) NSString * userId;
-@property (nonatomic) UIImage * photo;
-@property (nonatomic) UIImage * cover;
-@property (nonatomic) NSDate * firstReadCreated;
-@property (nonatomic) NSString * authToken;
-@property (nonatomic) NSString * authTokenSecret;
+@property (nonatomic, nullable) NSString * userId;
+@property (nonatomic, nullable) UIImage * photo;
+@property (nonatomic, nullable) UIImage * cover;
+@property (nonatomic, nullable) NSDate * firstReadCreated;
+@property (nonatomic, nullable) NSString * authToken;
+@property (nonatomic, nullable) NSString * authTokenSecret;
 @property (nonatomic) BOOL payed;
 @property (nonatomic) BOOL completeSyncing;
 
@@ -30,7 +30,7 @@
 -(void)setSyncable:(BOOL)syncable;
 
 #pragma mark - setters
--(void)setAuthToken:(NSString *)authToken andAuthTokenSecret:(NSString *)secret andUserId:(NSString *)userId;
+-(void)setAuthToken:(NSString * _Nonnull)authToken andAuthTokenSecret:(NSString * _Nonnull)secret andUserId:(NSString * _Nonnull)userId;
 
 
 @end

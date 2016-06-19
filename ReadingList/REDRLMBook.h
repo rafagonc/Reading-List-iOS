@@ -18,19 +18,19 @@
 <REDBookProtocol>
 
 @property (nonatomic) NSInteger        identifier;
-@property (nonatomic) NSString *        name;
-@property (nonatomic) NSString *        language;
-@property (nonatomic) NSString *        snippet;
+@property (nonatomic, nonnull) NSString *        name;
+@property (nonatomic, nullable) NSString *        language;
+@property (nonatomic, nonnull) NSString *        snippet;
 @property (nonatomic) NSInteger         pagesValue;
 @property (nonatomic) NSInteger         pagesReadValue;
 @property (nonatomic) double            rate;
-@property (nonatomic) REDRLMAuthor *    _author;
-@property (nonatomic) REDRLMCategory *  _category;
-@property (nonatomic) NSData *          cover;
+@property (nonatomic, nullable) REDRLMAuthor *    _author;
+@property (nonatomic, nullable) REDRLMCategory *  _category;
+@property (nonatomic, nonnull) NSData *          cover;
 @property (nonatomic) BOOL completed;
 @property (nonatomic) BOOL unprocessed;
 @property (nonatomic) BOOL loved;
-@property (nonatomic) NSString *coverURL;
+@property (nonatomic, nullable) NSString *coverURL;
 
 
 @end

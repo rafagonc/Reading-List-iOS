@@ -13,6 +13,6 @@
 
 <REDCategoryProtocol>
 
-@property (nonatomic) NSString *name;
+@property (nonatomic, nonnull) NSString *name;
 
 @end

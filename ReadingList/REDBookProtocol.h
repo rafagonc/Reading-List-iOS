@@ -16,24 +16,24 @@
 @optional;
 
 #pragma mark - relationships setters
--(void)setAuthor:(id<REDAuthorProtocol>)author;
--(void)setCategory:(id<REDCategoryProtocol>)category;
--(id<REDCategoryProtocol>)category;
--(id<REDAuthorProtocol>)author;
+-(void)setAuthor:(_Nonnull id<REDAuthorProtocol>)author;
+-(void)setCategory:(_Nonnull id<REDCategoryProtocol>)category;
+-(_Nullable id<REDCategoryProtocol>)category;
+-(_Nullable id<REDAuthorProtocol>)author;
 -(BOOL)hasRate;
 
 #pragma mark - properties
 @property (nonatomic) BOOL unprocessed;
 @property (nonatomic) NSInteger identifier;
-@property (nonatomic) UIImage * coverImage;
-@property (nonatomic) NSString * snippet;
+@property (nonatomic, nullable) UIImage * coverImage;
+@property (nonatomic, nullable) NSString * snippet;
 @property (nonatomic) double rate;
 @property (nonatomic) BOOL loved;
 @property (nonatomic,readonly) BOOL completed;
 @property (nonatomic) NSInteger pagesValue;
 @property (nonatomic) NSInteger pagesReadValue;
-@property (nonatomic) NSString * language;
+@property (nonatomic, nullable) NSString * language;
 @property (nonatomic,readonly) NSUInteger percentage;
-@property (nonatomic) NSString *coverURL;
+@property (nonatomic, nullable) NSString *coverURL;
 
 @end

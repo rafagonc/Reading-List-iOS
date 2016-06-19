@@ -12,12 +12,12 @@
 @protocol REDReadProtocol <NSObject>
 
 @property (nonatomic) NSInteger identifier;
-@property (nonatomic,strong) NSDate * date;
+@property (nonatomic,strong, nonnull) NSDate * date;
 @property (nonatomic,assign) NSInteger pagesValue;
-@property (nonatomic) NSString *   uuid;
+@property (nonatomic,nonnull) NSString *   uuid;
 
 #pragma mark - relationships
--(void)setBook:(id<REDBookProtocol>)book;
--(id<REDBookProtocol>)book;
+-(void)setBook:(_Nonnull id<REDBookProtocol>)book;
+-(_Nullable id<REDBookProtocol>)book;
 
 @end

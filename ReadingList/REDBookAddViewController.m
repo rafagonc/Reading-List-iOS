@@ -234,7 +234,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self.tableView endUpdates];
 }
 -(void)pagesCell:(REDBookPagesCell *)pagesCell didChangeBookPages:(NSUInteger)pages {
-    [Localytics tagEvent:@"Page Progress" attributes:@{@"pages" : [NSString stringWithFormat:@"%lu", (unsigned long)pages]}];
+    [Localytics tagEvent:@"Page Progress" attributes:@{}];
     [self.progressCell setPages:pages];
 }
 -(void)pageProgressCell:(REDPageProgressCell *)cell tryingToSetPagesWhileIsZeroForBook:(id<REDBookProtocol>)book {

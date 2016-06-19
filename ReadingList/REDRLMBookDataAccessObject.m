@@ -111,7 +111,14 @@
 
 #pragma mark - queries
 -(id)list {
-    return [self.rlm_arrayHelper arrayFromResults:[REDRLMBook allObjects]];
+    NSArray * list = [self.rlm_arrayHelper arrayFromResults:[REDRLMBook allObjects]];
+    NSMutableArray * notInvalidList = [@[] mutableCopy];
+    for (RLMObject * obj in list) {
+        if (obj.isInvalidated == NO) {
+            [notInvalidList addObject:obj];
+        }
+    }
+    return notInvalidList;
 }
 -(id)listWithPredicate:(NSPredicate *)predicate {
     return [[self list] filteredArrayUsingPredicate:predicate];
