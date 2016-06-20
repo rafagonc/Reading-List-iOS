@@ -18,6 +18,9 @@
 @implementation REDRLMBook
 
 #pragma mark - relationships
+-(NSMutableArray<id<REDNotesProtocol>> *)notes {
+    return (NSMutableArray<id<REDNotesProtocol>> *)self._notes;
+}
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
     self._author = author;
 }

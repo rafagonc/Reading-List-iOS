@@ -10,6 +10,9 @@
 
 @implementation REDBookDataAccessObjectImpl
 
+-(id<REDNotesProtocol>)createNote:(NSString *)text forBook:(id<REDBookProtocol>)book {
+    return nil;
+}
 
 #pragma mark - methods
 -(NSArray<id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name {
@@ -35,6 +38,9 @@
 }
 -(id<REDBookProtocol>)updateBook:(id<REDBookProtocol>)book withDict:(NSDictionary *)dict {
     return book;
+}
+-(void)removeNote:(id<REDNotesProtocol>)note {
+    
 }
 -(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict {
     return [self create];

@@ -32,6 +32,14 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2A0E34691D177F7600D7077C /* REDRLMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34681D177F7600D7077C /* REDRLMNote.m */; };
+		2A0E346C1D17850E00D7077C /* REDAddNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E346B1D17850E00D7077C /* REDAddNoteCell.m */; };
+		2A0E346F1D17852900D7077C /* REDAddNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0E346E1D17852900D7077C /* REDAddNoteCell.xib */; };
+		2A0E34731D17892700D7077C /* REDNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34711D17892700D7077C /* REDNoteCell.m */; };
+		2A0E34741D17892700D7077C /* REDNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0E34721D17892700D7077C /* REDNoteCell.xib */; };
+		2A0E34791D1789A300D7077C /* REDAddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34771D1789A300D7077C /* REDAddNoteViewController.m */; };
+		2A0E347A1D1789A300D7077C /* REDAddNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0E34781D1789A300D7077C /* REDAddNoteViewController.xib */; };
+		2A0E347E1D178CC500D7077C /* UITextView+Done.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E347D1D178CC500D7077C /* UITextView+Done.m */; };
 		2A13EEA71C2E5550005DB34E /* REDCloudMigrationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A13EEA61C2E5550005DB34E /* REDCloudMigrationHandler.m */; };
 		2A13EEAB1C2E5C1C005DB34E /* REDCloudDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A13EEAA1C2E5C1C005DB34E /* REDCloudDataStack.m */; };
 		2A1632D11C580DE10015F06E /* REDPhotoPickerPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1632CF1C580DE10015F06E /* REDPhotoPickerPresenter.m */; };
@@ -335,6 +343,20 @@
 		0BD1FC2164450A190DF7E4E7 /* Pods-ReadingListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B7FEE50961509749458D464 /* libPods-ReadingList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		278796C109BB0DAE7EBFBA2B /* libPods-ReadingListTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingListTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0E34661D177F6A00D7077C /* REDNotesProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNotesProtocol.h; sourceTree = "<group>"; };
+		2A0E34671D177F7600D7077C /* REDRLMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMNote.h; sourceTree = "<group>"; };
+		2A0E34681D177F7600D7077C /* REDRLMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMNote.m; sourceTree = "<group>"; };
+		2A0E346A1D17850E00D7077C /* REDAddNoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAddNoteCell.h; sourceTree = "<group>"; };
+		2A0E346B1D17850E00D7077C /* REDAddNoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAddNoteCell.m; sourceTree = "<group>"; };
+		2A0E346E1D17852900D7077C /* REDAddNoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDAddNoteCell.xib; sourceTree = "<group>"; };
+		2A0E34701D17892700D7077C /* REDNoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNoteCell.h; sourceTree = "<group>"; };
+		2A0E34711D17892700D7077C /* REDNoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNoteCell.m; sourceTree = "<group>"; };
+		2A0E34721D17892700D7077C /* REDNoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDNoteCell.xib; sourceTree = "<group>"; };
+		2A0E34761D1789A300D7077C /* REDAddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAddNoteViewController.h; sourceTree = "<group>"; };
+		2A0E34771D1789A300D7077C /* REDAddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAddNoteViewController.m; sourceTree = "<group>"; };
+		2A0E34781D1789A300D7077C /* REDAddNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDAddNoteViewController.xib; sourceTree = "<group>"; };
+		2A0E347C1D178CC500D7077C /* UITextView+Done.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Done.h"; sourceTree = "<group>"; };
+		2A0E347D1D178CC500D7077C /* UITextView+Done.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Done.m"; sourceTree = "<group>"; };
 		2A13EEA01C2E433D005DB34E /* REDTransientBookDatasourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTransientBookDatasourceDelegate.h; sourceTree = "<group>"; };
 		2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ReadingList.entitlements; sourceTree = "<group>"; };
 		2A13EEA51C2E5550005DB34E /* REDCloudMigrationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCloudMigrationHandler.h; sourceTree = "<group>"; };
@@ -941,6 +963,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2A0E346D1D17851200D7077C /* Add Note Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2A0E346A1D17850E00D7077C /* REDAddNoteCell.h */,
+				2A0E346B1D17850E00D7077C /* REDAddNoteCell.m */,
+				2A0E346E1D17852900D7077C /* REDAddNoteCell.xib */,
+			);
+			name = "Add Note Cell";
+			sourceTree = "<group>";
+		};
+		2A0E34751D17893900D7077C /* Note Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2A0E34701D17892700D7077C /* REDNoteCell.h */,
+				2A0E34711D17892700D7077C /* REDNoteCell.m */,
+				2A0E34721D17892700D7077C /* REDNoteCell.xib */,
+			);
+			name = "Note Cell";
+			sourceTree = "<group>";
+		};
+		2A0E347B1D1789A600D7077C /* Add Note View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A0E34761D1789A300D7077C /* REDAddNoteViewController.h */,
+				2A0E34771D1789A300D7077C /* REDAddNoteViewController.m */,
+				2A0E34781D1789A300D7077C /* REDAddNoteViewController.xib */,
+			);
+			name = "Add Note View Controller";
+			sourceTree = "<group>";
+		};
+		2A0E347F1D178CCB00D7077C /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				2A0E347C1D178CC500D7077C /* UITextView+Done.h */,
+				2A0E347D1D178CC500D7077C /* UITextView+Done.m */,
+			);
+			name = UITextView;
+			sourceTree = "<group>";
+		};
 		2A13EEA81C2E56BE005DB34E /* Migration */ = {
 			isa = PBXGroup;
 			children = (
@@ -1044,6 +1105,7 @@
 				2A4393661D01353A008AB65E /* Book Find Tutorial View Controller */,
 				2A43937A1D01473C008AB65E /* All Set View Controller */,
 				2A5C696A1D0BAF6000D10A2F /* Book Predicate View Controller */,
+				2A0E347B1D1789A600D7077C /* Add Note View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1074,6 +1136,8 @@
 				2ADA28771C59AD8E0068CCAC /* Choose Date Cell */,
 				2A6602061CC431A500B6D835 /* Top Rated Cell */,
 				2A4393701D013C1F008AB65E /* Transient Book Collection Cell */,
+				2A0E346D1D17851200D7077C /* Add Note Cell */,
+				2A0E34751D17893900D7077C /* Note Cell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1193,6 +1257,7 @@
 				2A7DA3851C10133A00B179D0 /* NSDictionary */,
 				2AECF4C81C44799E007BA281 /* UIImage */,
 				2ABB971B1CED72B0001C1E29 /* NSDate */,
+				2A0E347F1D178CCB00D7077C /* UITextView */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -2056,6 +2121,8 @@
 				2A45976A1C61926D0010D135 /* REDRLMRead.m */,
 				2A45976C1C6192730010D135 /* REDRLMUser.h */,
 				2A45976D1C6192730010D135 /* REDRLMUser.m */,
+				2A0E34671D177F7600D7077C /* REDRLMNote.h */,
+				2A0E34681D177F7600D7077C /* REDRLMNote.m */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -2069,6 +2136,7 @@
 				2A74EC101BCD5A02005F5E74 /* REDNamable.h */,
 				2AD174831C4D79DE00AFB560 /* REDReadProtocol.h */,
 				2A1632DB1C580E840015F06E /* REDUserProtocol.h */,
+				2A0E34661D177F6A00D7077C /* REDNotesProtocol.h */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -3608,6 +3676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */,
+				2A0E347A1D1789A300D7077C /* REDAddNoteViewController.xib in Resources */,
 				2A74EC471BCE0037005F5E74 /* REDCategoryViewController.xib in Resources */,
 				2A52A01F1BE520A1005809CC /* SHNotificationView.xib in Resources */,
 				2ABB970F1CEC097F001C1E29 /* REDSyncingLoadingView.xib in Resources */,
@@ -3636,6 +3705,7 @@
 				2A746DE61CD6ED5E0061F2B9 /* REDServerMetadata.plist in Resources */,
 				2A4393651D01344B008AB65E /* REDBookFindTutorialViewController.xib in Resources */,
 				2A5C69D71D0BDC9800D10A2F /* zbar-samples.png in Resources */,
+				2A0E346F1D17852900D7077C /* REDAddNoteCell.xib in Resources */,
 				44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */,
 				2A6602051CC431A300B6D835 /* REDTopRatedCell.xib in Resources */,
 				2A74EC2E1BCDE9A7005F5E74 /* REDBookCategoryCell.xib in Resources */,
@@ -3645,6 +3715,7 @@
 				441701F51C764C560076F9C7 /* new.txt in Resources */,
 				2A5C69D61D0BDC9800D10A2F /* zbar-helpicons.png in Resources */,
 				2ADCC0AF1BD2E69A009F638A /* the-little-prince-summary.jpg in Resources */,
+				2A0E34741D17892700D7077C /* REDNoteCell.xib in Resources */,
 				2ADCC08E1BD20711009F638A /* REDGoogleImageSearchCell.xib in Resources */,
 				2A1FF5901C554E9000520949 /* REDUserViewController.xib in Resources */,
 				2A66024F1CCDFB5F00B6D835 /* REDSignUpViewController.xib in Resources */,
@@ -3823,6 +3894,7 @@
 				2A1632D91C580E6C0015F06E /* _REDUser.m in Sources */,
 				2A943FAE1C9A553A00C4796A /* REDDateChartAnimatedSignal.m in Sources */,
 				2A77C09B1C2DDA1A00E21551 /* REDCategoryDataAccessObjectImpl.m in Sources */,
+				2A0E34791D1789A300D7077C /* REDAddNoteViewController.m in Sources */,
 				2A77C0811C2DCE8800E21551 /* REDExploreViewController.m in Sources */,
 				2A43936D1D013B55008AB65E /* REDTransientBookCollectionViewCell.m in Sources */,
 				2ABB96E51CE78619001C1E29 /* REDUpdateUserRequest.m in Sources */,
@@ -3836,6 +3908,7 @@
 				2A438B371CF8CEE700BF1ACD /* REDMailShareImpl.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
 				2A5C69541D0265DC00D10A2F /* REDBookCoverInlineView.m in Sources */,
+				2A0E346C1D17850E00D7077C /* REDAddNoteCell.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2ABB97081CE78B6D001C1E29 /* REDListLogsCall.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,
@@ -3881,6 +3954,7 @@
 				2A74EC671BD09029005F5E74 /* REDAuthorViewController.m in Sources */,
 				2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */,
 				2A74EC781BD09746005F5E74 /* REDUITextFieldCell.m in Sources */,
+				2A0E34731D17892700D7077C /* REDNoteCell.m in Sources */,
 				2ADCC0641BD1FC84009F638A /* REDPUTHTTPRequest.m in Sources */,
 				2A19B8A01BCDBBE7009C8F25 /* REDNavigationBarCustomizer.m in Sources */,
 				2AD174811C4D79BD00AFB560 /* _REDRead.m in Sources */,
@@ -3915,6 +3989,7 @@
 				2ADA28631C5995280068CCAC /* REDPagesReadCell.m in Sources */,
 				2A74EC2B1BCDE8F3005F5E74 /* REDBookCategoryCell.m in Sources */,
 				2A438B361CF8CEE700BF1ACD /* REDFacebookShareImpl.m in Sources */,
+				2A0E347E1D178CC500D7077C /* UITextView+Done.m in Sources */,
 				2A4597771C619A130010D135 /* REDRLMAuthorDataAccessObject.m in Sources */,
 				2A74EBFF1BCD59B1005F5E74 /* _REDBook.m in Sources */,
 				2A45977D1C619A280010D135 /* REDRLMReadDataAccessObject.m in Sources */,
@@ -3970,6 +4045,7 @@
 				2A74EBF41BCD57BD005F5E74 /* REDDataStack.m in Sources */,
 				2ABB96E81CE78621001C1E29 /* REDRemoveUserRequest.m in Sources */,
 				2A74EC721BD0957D005F5E74 /* REDAuthorCreateViewController.m in Sources */,
+				2A0E34691D177F7600D7077C /* REDRLMNote.m in Sources */,
 				2A4393631D013440008AB65E /* REDBookFindTutorialViewController.m in Sources */,
 				2A5C69631D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m in Sources */,
 				44A787761CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m in Sources */,

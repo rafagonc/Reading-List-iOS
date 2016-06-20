@@ -30,9 +30,12 @@
 #import "REDBookUploaderProtocol.h"
 #import "REDReadFactoryProtocol.h"
 #import "REDTopRatedBook.h"
+#import "REDAddNoteCell.h"
 #import "REDPleaseRateViewController.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
+#import "REDAddNoteViewController.h"
+#import "REDNoteCell.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -42,7 +45,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 
 @interface REDBookAddViewController ()
 
-<REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate, REDPageProgressCellDelegate>
+<REDBookCategoryCellDelegate, REDBookPagesCellDelegate, REDBookHeaderCellDelegate, REDPageProgressCellDelegate, REDAddNoteCellDelegate, REDNoteCellDelegate, REDAddNoteViewControllerDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookProtocol> book;
@@ -50,9 +53,11 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (nonatomic,assign) REDBookAddViewControllerActionType actionType;
 
 #pragma mark - ui
+@property (nonatomic,strong) NSMutableArray<REDNoteCell *> * notesCell;
 @property (nonatomic,strong) REDBookCategoryCell *categoryCell;
 @property (nonatomic,strong) REDBookHeaderCell * headerCell;
 @property (nonatomic,strong) REDBookPagesCell * pagesCell;
+@property (nonatomic,strong) REDAddNoteCell * addNoteCell;
 @property (nonatomic,strong) REDPageProgressCell *progressCell;
 @property (nonatomic,  weak) IBOutlet UIStaticTableView *tableView;
 @property (nonatomic,  weak) IBOutlet UILabel *quoteLabel;
@@ -77,6 +82,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
         self.book = [self.bookDataAccessObject create];
         self.actionType = REDBookAddViewControllerActionTypeAdding;
+        self.notesCell = [@[] mutableCopy];
     } return self;
 }
 -(instancetype)initWithBook:(id<REDBookProtocol>)book {
@@ -89,6 +95,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
             self.book = book;
             self.actionType = REDBookAddViewControllerActionTypeEditing;
         }
+        self.notesCell = [@[] mutableCopy];
     } return self;
 }
 
@@ -124,6 +131,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 
 #pragma mark - table view
 -(void)createTableView {
+    [self.tableView clean];
+    
     UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
     
     self.headerCell = [[REDBookHeaderCell alloc] init];
@@ -142,6 +151,18 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self.pagesCell setPages:[[self book] pagesValue]];
     self.pagesCell.delegate = self;
     [self.tableView addCell:self.pagesCell onSection:section];
+    
+    for (id<REDNotesProtocol> note in self.book.notes) {
+        REDNoteCell * noteCell = [[REDNoteCell alloc] init];
+        [noteCell setNote:note];
+        [noteCell setDelegate:self];
+        [self.tableView addCell:noteCell onSection:section];
+        [self.notesCell addObject:noteCell];
+    }
+    
+    self.addNoteCell = [[REDAddNoteCell alloc] init];
+    [self.addNoteCell setDelegate:self];
+    [self.tableView addCell:self.addNoteCell onSection:section];
     
     self.progressCell = [[REDPageProgressCell alloc] init];
     [self.progressCell setBook:self.book];
@@ -244,6 +265,32 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [Localytics tagEvent:@"Completed Book" attributes:@{}];
     REDPleaseRateViewController *rateViewController = [[REDPleaseRateViewController alloc] initWithBook:self.book];
     [self presentViewController:rateViewController animated:YES completion:nil];
+}
+-(void)addNoteCellWantsToAddNote:(REDAddNoteCell *)cell {
+    REDAddNoteViewController * noteViewController = [[REDAddNoteViewController alloc] initWithBook:self.book];
+    noteViewController.delegate = self;
+    [self presentViewController:noteViewController animated:YES completion:nil];
+}
+-(void)noteCell:(REDNoteCell *)cell wantsToOpenNote:(id<REDNotesProtocol>)note {
+    REDAddNoteViewController * noteViewController = [[REDAddNoteViewController alloc] initWithBook:self.book andNote:note];
+    noteViewController.delegate = self;
+    [self presentViewController:noteViewController animated:YES completion:nil];
+}
+-(void)noteCell:(REDNoteCell *)cell wantsToDeleteNote:(id<REDNotesProtocol>)note {
+    
+    if (cell) {
+        [self.tableView beginUpdates];
+        [self.bookDataAccessObject removeNote:note];
+        [self createTableView];
+        [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:cell]] withRowAnimation:UITableViewRowAnimationFade];
+         [self.tableView endUpdates];
+    } else {
+        [self createTableView];
+    }
+    
+}
+-(void)addNoteViewController:(REDAddNoteViewController *)addNoteViewController didJustAddNote:(id<REDNotesProtocol>)note {
+    [self createTableView];
 }
 
 #pragma mark - query description

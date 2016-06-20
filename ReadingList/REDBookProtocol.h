@@ -10,6 +10,7 @@
 #import "REDNamable.h"
 #import "REDAuthorProtocol.h"
 #import "REDCategoryProtocol.h"
+#import "REDNotesProtocol.h"
 
 @protocol REDBookProtocol <REDNamable>
 
@@ -20,6 +21,7 @@
 -(void)setCategory:(_Nonnull id<REDCategoryProtocol>)category;
 -(_Nullable id<REDCategoryProtocol>)category;
 -(_Nullable id<REDAuthorProtocol>)author;
+-(NSMutableArray <id<REDNotesProtocol>> * _Nullable )notes;
 -(BOOL)hasRate;
 
 #pragma mark - properties

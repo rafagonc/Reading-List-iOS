@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="REDNoteCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNL-Fj-yEN">
+                        <rect key="frame" x="15" y="8" width="257" height="27"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShE-ve-Au3">
+                        <rect key="frame" x="290" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="0OQ-wB-ubV"/>
+                            <constraint firstAttribute="width" constant="20" id="6nn-E0-232"/>
+                        </constraints>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal" image="trash"/>
+                        <connections>
+                            <action selector="trashAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YrT-Dx-tev"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dL1-Wa-JqQ">
+                        <rect key="frame" x="280" y="0.0" width="40" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="XID-kM-Vx6"/>
+                        </constraints>
+                        <connections>
+                            <action selector="trashAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a6d-Zi-mu8"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dL1-Wa-JqQ" secondAttribute="trailing" id="0bo-l0-tHY"/>
+                    <constraint firstItem="ShE-ve-Au3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AH8-3g-LbU"/>
+                    <constraint firstAttribute="trailing" secondItem="ShE-ve-Au3" secondAttribute="trailing" constant="10" id="GnH-gX-fq7"/>
+                    <constraint firstItem="lNL-Fj-yEN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="OpP-a3-iJb"/>
+                    <constraint firstAttribute="bottom" secondItem="dL1-Wa-JqQ" secondAttribute="bottom" id="PKz-1x-1a4"/>
+                    <constraint firstItem="dL1-Wa-JqQ" firstAttribute="leading" secondItem="lNL-Fj-yEN" secondAttribute="trailing" constant="8" id="dKq-yN-OI1"/>
+                    <constraint firstAttribute="bottom" secondItem="lNL-Fj-yEN" secondAttribute="bottom" constant="8" id="vRR-rY-FrK"/>
+                    <constraint firstItem="lNL-Fj-yEN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="w5z-bt-99k"/>
+                    <constraint firstItem="dL1-Wa-JqQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wQe-Vs-t6y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label" destination="lNL-Fj-yEN" id="uhz-Xf-or8"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="trash" width="30" height="30"/>
+    </resources>
+</document>

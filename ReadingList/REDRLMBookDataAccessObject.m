@@ -15,6 +15,8 @@
 #import "REDTransactionManager.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
+#import "REDRLMNote.h"
+#import "REDNotesProtocol.h"
 
 @interface REDRLMBookDataAccessObject ()
 
@@ -24,7 +26,6 @@
 @property (setter=injected4:) id<REDTransactionManager> transactionManager;
 @property (setter=injected2:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 @property (setter=injected3:) id<REDCategoryDataAccessObject> categoryDataAccessObject;
-
 
 @end
 
@@ -44,10 +45,24 @@
     [self.transactionManager commit];
     return book;
 }
+-(void)removeNote:(id<REDNotesProtocol>)note {
+    [self.transactionManager begin];
+    [[RLMRealm defaultRealm] deleteObject:note];
+    [self.transactionManager commit];
+}
 -(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict {
     id<REDBookProtocol> book = [self create];
     [self updateBook:book withDict:dict];
     return book;
+}
+-(id<REDNotesProtocol>)createNote:(NSString *)text forBook:(id<REDBookProtocol>)book {
+    [self.transactionManager begin];
+    REDRLMNote * note = [[REDRLMNote alloc] init];
+    [note setText:text];
+    [note setBookName:[book name]];
+    [book.notes addObject:note];
+    [self.transactionManager commit];
+    return note;
 }
 -(id<REDBookProtocol>)createFromTransientBook:(REDTransientBook *)transientBook {
     id<REDBookProtocol> book = [self create];
@@ -82,6 +97,8 @@
     [self.transactionManager begin];
     [book setName:dict[@"book"][@"name"]];
     [self.transactionManager commit];
+    
+    
     NSString * authorName = dict[@"book"][@"author"][@"name"];
     id<REDAuthorProtocol> author = [self.authorDataAccessObject authorByName:authorName];
     if (!author) {
@@ -96,6 +113,21 @@
     NSString * categoryName = dict[@"book"][@"category"][@"name"];
     id<REDCategoryProtocol> category = [self.categoryDataAccessObject categoryByName:categoryName];
     [book setCategory:category];
+    
+    NSArray * notesDict = dict[@"book"][@"notes"];
+    for (NSDictionary * note_dict in notesDict) {
+        REDRLMNote * note = [self noteWithID:[note_dict[@"id"] integerValue] book:book];
+        if (!note) {
+            REDRLMNote * note = [[REDRLMNote alloc] init];
+            [note setIdentifier:[note_dict[@"id"] integerValue]];
+            [note setText:note_dict[@"text"]];
+            [note setBookName:dict[@"book"][@"name"]];
+            [book.notes addObject:note];
+        } else {
+            [note setText:note_dict[@"text"]];
+            [note setBookName:dict[@"book"][@"name"]];
+        }
+    }
     
     [book setRate:[dict[@"rate"] doubleValue]];
     [book setSnippet:dict[@"snippet"]];
@@ -149,6 +181,14 @@
     NSArray <id<REDBookProtocol>> * books = [self allBooksSorted];
     NSUInteger booksCompleted = [books filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"completed = 1"]].count;
     return [NSString stringWithFormat:@"%lu/%lu books completed", (unsigned long)booksCompleted, (unsigned long)books.count];
+}
+-(id<REDNotesProtocol>)noteWithID:(NSInteger)note_id book:(REDRLMBook * )book {
+    for (REDRLMNote * note in book.notes) {
+        if (note.identifier == note_id) {
+            return note;
+        }
+    }
+    return nil;
 }
 
 @end
