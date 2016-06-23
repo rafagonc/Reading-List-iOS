@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol REDBookProtocol;
+
 @protocol REDNotesProtocol <NSObject>
 
+#pragma mark - properties
 @property (nonatomic,assign) NSInteger identifier;
 @property (nonatomic,strong,nonnull) NSString * text;
 @property (nonatomic,strong,nonnull) NSString * bookName;
+
+#pragma mark - getters
+-(_Nonnull id<REDBookProtocol>)book;
 
 @end

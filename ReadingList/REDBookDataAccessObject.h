@@ -12,10 +12,8 @@
 
 @protocol REDBookDataAccessObject <REDDataAccessObject>
 
--(void)removeNote:(id<REDNotesProtocol>)note;
 -(id<REDBookProtocol>)createFromTransientBook:(REDTransientBook *)transientBook;
 -(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict;
--(id<REDNotesProtocol>)createNote:(NSString *)text forBook:(id<REDBookProtocol>)book;
 -(id<REDBookProtocol>)updateBook:(id<REDBookProtocol>)book withDict:(NSDictionary *)dict;
 -(NSArray <id<REDBookProtocol>> *)allBooksSorted;
 -(NSArray <id<REDBookProtocol>> *)searchBooksWithString:(NSString *)name;

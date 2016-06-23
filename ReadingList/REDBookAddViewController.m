@@ -36,6 +36,8 @@
 #import "REDUserProtocol.h"
 #import "REDAddNoteViewController.h"
 #import "REDNoteCell.h"
+#import "REDNotesDataAccessObject.h"
+#import "REDNoteRepositoryFactory.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -72,6 +74,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (setter=injected5:) id<REDReadFactoryProtocol> readFactory;;
 @property (setter=injected6:) id<REDBookDataAccessObject> bookDataAccessObject;
 @property (setter=injected7:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected8:) id<REDNoteRepositoryFactory> noteRepositoryFactory;
 
 @end
 
@@ -277,13 +280,15 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self presentViewController:noteViewController animated:YES completion:nil];
 }
 -(void)noteCell:(REDNoteCell *)cell wantsToDeleteNote:(id<REDNotesProtocol>)note {
-    
     if (cell) {
         [self.tableView beginUpdates];
-        [self.bookDataAccessObject removeNote:note];
-        [self createTableView];
-        [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:cell]] withRowAnimation:UITableViewRowAnimationFade];
-         [self.tableView endUpdates];
+        [[self.noteRepositoryFactory repository] removeForUser:self.user note:note callback:^{
+            [self createTableView];
+            [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:cell]] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+        } error:^(NSError *error) {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+        }];
     } else {
         [self createTableView];
     }

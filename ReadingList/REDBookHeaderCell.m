@@ -35,7 +35,6 @@
 #pragma mark - properties
 @property (nonatomic,assign) BOOL snippetOpen;
 
-
 @end
 
 @implementation REDBookHeaderCell

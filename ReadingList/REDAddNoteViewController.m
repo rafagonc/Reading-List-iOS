@@ -11,6 +11,11 @@
 #import "REDBookDataAccessObject.h"
 #import "REDNotesProtocol.h"
 #import "REDTransactionManager.h"
+#import "REDNotesDataAccessObject.h"
+#import "REDNoteRepositoryFactory.h"
+#import "REDUserProtocol.h"
+#import "REDNotesDataAccessObject.h"
+#import "UIViewController+NotificationShow.h"
 
 @interface REDAddNoteViewController () <UITextViewDelegate>
 
@@ -25,6 +30,9 @@
 #pragma mark - injected
 @property (setter=injected1:) id<REDTransactionManager> transactionManager;
 @property (setter=injected2:) id<REDBookDataAccessObject> bookDataAccessObject;
+@property (setter=injected5:) id<REDNotesDataAccessObject> noteDataAccessObject;
+@property (setter=injected3:) id<REDUserProtocol> user;
+@property (setter=injected4:) id<REDNoteRepositoryFactory> noteRepositoryFactory;
 
 @end
 
@@ -66,18 +74,28 @@
 
 #pragma mark - actions
 -(IBAction)createAction:(id)sender {
-    if (self.note ) {
+    if (self.note) {
         if (self.textView.text.length > 2) {
             [self.transactionManager begin];
             [self.note setText:self.textView.text];
             [self.transactionManager commit];
+            [[self.noteRepositoryFactory repository] updateForUser:self.user note:self.note callback:^(id<REDNotesProtocol> note) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } error:^(NSError *error) {
+                [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+            }];
         }
     } else {
         if (self.textView.text.length > 2) {
-            [self.delegate addNoteViewController:self didJustAddNote:[self.bookDataAccessObject createNote:self.textView.text forBook:self.book]];
+            self.note = [self.noteDataAccessObject createWithText:self.textView.text andBook:self.book];
+            [[self.noteRepositoryFactory repository] createForUser:self.user note:self.note callback:^(id<REDNotesProtocol> note) {
+                [self.delegate addNoteViewController:self didJustAddNote:self.note];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } error:^(NSError *error) {
+                [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+            }];
         }
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - text view delegate

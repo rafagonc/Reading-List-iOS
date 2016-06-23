@@ -17,9 +17,11 @@
 #import "REDUserProtocol.h"
 #import "REDRLMNote.h"
 #import "REDNotesProtocol.h"
+#import "REDNotesDataAccessObject.h"
 
 @interface REDRLMBookDataAccessObject ()
 
+@property (setter=injected7:) id<REDNotesDataAccessObject> notesDataAccessObject;
 @property (setter=injected6:) id<REDUserProtocol> user;
 @property (setter=injected5:) id<REDBookRepositoryFactory> bookRepositoryFactory;
 @property (setter=injected1:) id<REDRLMArrayHelper> rlm_arrayHelper;
@@ -45,24 +47,10 @@
     [self.transactionManager commit];
     return book;
 }
--(void)removeNote:(id<REDNotesProtocol>)note {
-    [self.transactionManager begin];
-    [[RLMRealm defaultRealm] deleteObject:note];
-    [self.transactionManager commit];
-}
 -(id<REDBookProtocol>)createFromDictionary:(NSDictionary *)dict {
     id<REDBookProtocol> book = [self create];
     [self updateBook:book withDict:dict];
     return book;
-}
--(id<REDNotesProtocol>)createNote:(NSString *)text forBook:(id<REDBookProtocol>)book {
-    [self.transactionManager begin];
-    REDRLMNote * note = [[REDRLMNote alloc] init];
-    [note setText:text];
-    [note setBookName:[book name]];
-    [book.notes addObject:note];
-    [self.transactionManager commit];
-    return note;
 }
 -(id<REDBookProtocol>)createFromTransientBook:(REDTransientBook *)transientBook {
     id<REDBookProtocol> book = [self create];
@@ -116,17 +104,7 @@
     
     NSArray * notesDict = dict[@"book"][@"notes"];
     for (NSDictionary * note_dict in notesDict) {
-        REDRLMNote * note = [self noteWithID:[note_dict[@"id"] integerValue] book:book];
-        if (!note) {
-            REDRLMNote * note = [[REDRLMNote alloc] init];
-            [note setIdentifier:[note_dict[@"id"] integerValue]];
-            [note setText:note_dict[@"text"]];
-            [note setBookName:dict[@"book"][@"name"]];
-            [book.notes addObject:note];
-        } else {
-            [note setText:note_dict[@"text"]];
-            [note setBookName:dict[@"book"][@"name"]];
-        }
+        [self.notesDataAccessObject updateNote:note_dict book:book];
     }
     
     [book setRate:[dict[@"rate"] doubleValue]];
@@ -182,13 +160,6 @@
     NSUInteger booksCompleted = [books filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"completed = 1"]].count;
     return [NSString stringWithFormat:@"%lu/%lu books completed", (unsigned long)booksCompleted, (unsigned long)books.count];
 }
--(id<REDNotesProtocol>)noteWithID:(NSInteger)note_id book:(REDRLMBook * )book {
-    for (REDRLMNote * note in book.notes) {
-        if (note.identifier == note_id) {
-            return note;
-        }
-    }
-    return nil;
-}
+
 
 @end
