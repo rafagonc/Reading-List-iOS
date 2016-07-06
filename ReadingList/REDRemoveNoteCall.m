@@ -22,7 +22,7 @@
 @interface REDRemoveNoteCall ()
 
 @property (setter=injected1:) id<REDTransactionManager> transactionManager;
-@property (setter=injected2:) id<REDNotesDataAccessObject> bookDataAccessObject;
+@property (setter=injected2:) id<REDNotesDataAccessObject>noteskDataAccessObject;
 
 @end
 
@@ -35,15 +35,13 @@
         REDServiceResponse * response = [[REDServiceResponse alloc] init];
         if (success) {
             [response setSuccess:YES];
-            REDRemoveNoteRequest * note_request = (REDRemoveNoteRequest *)request;
-            [self.transactionManager begin];
-            [self.bookDataAccessObject remove:note_request.note];
-            [self.transactionManager commit];
             [self success:response];
+            completion(YES);
         } else {
             [response setError:error];
             [response setSuccess:NO];
             [self error:response];
+            completion(NO);
         }
     }];
 }

@@ -28,7 +28,7 @@
 -(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(BOOL))completion {
     self.request = request;
     [self call:^(id responseObject, NSError *error) {
-        BOOL success = responseObject[@"success"];
+        BOOL success = [responseObject[@"success"] boolValue];
         REDServiceResponse * response = [[REDServiceResponse alloc] init];
         if (success) {
             [response setSuccess:YES];
@@ -36,14 +36,16 @@
             REDCreateNoteRequest * create_note_request = (REDCreateNoteRequest *)request;
             [self.transactionManager begin];
             [create_note_request.note setText:[note_dict objectForKey:@"text"]];
-            [create_note_request.note setIdentifier:[[note_dict objectForKey:@"identifier"] integerValue]];
+            [create_note_request.note setIdentifier:[[note_dict objectForKey:@"id"] integerValue]];
             [self.transactionManager commit];
             [response setData:create_note_request.note];
             [self success:response];
+            completion(YES);
         } else {
             [response setError:error];
             [response setSuccess:NO];
             [self error:response];
+            completion(NO);
         }
     }];
 }

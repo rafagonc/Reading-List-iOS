@@ -281,11 +281,8 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 }
 -(void)noteCell:(REDNoteCell *)cell wantsToDeleteNote:(id<REDNotesProtocol>)note {
     if (cell) {
-        [self.tableView beginUpdates];
         [[self.noteRepositoryFactory repository] removeForUser:self.user note:note callback:^{
             [self createTableView];
-            [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:cell]] withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView endUpdates];
         } error:^(NSError *error) {
             [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
         }];

@@ -19,7 +19,9 @@ static RLMRealm * realm;
 
 #pragma mark - manager
 -(void)commit {
-    [realm commitWriteTransaction];
+    if ([realm inWriteTransaction]) {
+        [realm commitWriteTransaction];
+    }
 }
 -(void)begin {
     if (!realm) {

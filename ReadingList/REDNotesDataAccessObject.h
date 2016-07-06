@@ -21,4 +21,7 @@
 #pragma mark - update
 -(void)updateNote:(NSDictionary *)note_dict book:(id<REDBookProtocol>)book;
 
+#pragma mark - delete
+-(void)deleteNotFoundNotesInSequence:(NSArray *)notes forBook:(id<REDBookProtocol>)book;
+
 @end

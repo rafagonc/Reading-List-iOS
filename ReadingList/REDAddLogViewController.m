@@ -117,7 +117,7 @@
 #pragma mark - action
 -(void)doneAction:(UIBarButtonItem *)item {
     self.read = [self.readDataAccessObject create];
-    [Localytics tagEvent:@"Add Log" attributes:@{@"book" : [self.chooseBookCell.book name], @"pages" : [@([self.chooseBookCell.book pagesValue]) stringValue]}];
+    [Localytics tagEvent:@"Add Log"];
     NSError *error;
     if (![self process:self.read error:&error]) {
         [self.readDataAccessObject remove:self.read];

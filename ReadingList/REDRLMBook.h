@@ -29,7 +29,7 @@ RLM_ARRAY_TYPE(REDRLMNote)
 @property (nonatomic) double            rate;
 @property (nonatomic, nullable) REDRLMAuthor *    _author;
 @property (nonatomic, nullable) REDRLMCategory *  _category;
-@property (nonatomic,strong)  RLMArray<REDRLMNote *><REDRLMNote> * _notes;
+@property (nonatomic,strong,nonnull)  RLMArray<REDRLMNote *><REDRLMNote> * _notes;
 @property (nonatomic, nonnull) NSData *          cover;
 @property (nonatomic) BOOL completed;
 @property (nonatomic) BOOL unprocessed;

@@ -13,12 +13,14 @@
 #import "REDUpdateNoteRequest.h"
 #import "REDRemoveNoteRequest.h"
 #import "REDServiceResponseProtocol.h"
+#import "REDNotesDataAccessObject.h"
 
 @interface REDSyncNoteRepository () {
     REDErrorCallback createErrorCallback, updateErrorCallback, removeErrorCallback;
     REDNoteRepositoryCallback createCallback, updateCallback, removeCallback;
 }
 
+@property (setter=injected3:) id<REDNotesDataAccessObject> notesDataAccessObject;
 @property (setter=injected2:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 @property (setter=injected1:) id<REDTransactionManager> transactionManager;
 
@@ -33,7 +35,6 @@
     @try {
         REDCreateNoteRequest * createNoteRequest = [[REDCreateNoteRequest alloc] initWithNote:note];
         [self.serviceDispatcher callWithRequest:createNoteRequest withTarget:self andSelector:@selector(createNoteResponse:)];
-        [self.transactionManager commit];
         if (callback) callback(note);
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
@@ -45,7 +46,6 @@
     @try {
         REDUpdateNoteRequest * updateNoteRequest = [[REDUpdateNoteRequest alloc] initWithNote:note withText:[note text]];
         [self.serviceDispatcher callWithRequest:updateNoteRequest withTarget:self andSelector:@selector(updateNoteResponse:)];
-        [self.transactionManager commit];
         if (callback) callback(note);
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
@@ -57,7 +57,7 @@
     @try {
         REDRemoveNoteRequest * removeNoteRequest = [[REDRemoveNoteRequest alloc] initWithNote:note];
         [self.serviceDispatcher callWithRequest:removeNoteRequest withTarget:self andSelector:@selector(removeNoteResponse:)];
-        [self.transactionManager commit];
+        [self.notesDataAccessObject remove:note];
         if (callback) callback();
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);

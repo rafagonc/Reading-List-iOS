@@ -84,16 +84,20 @@
 #import "REDLibraryDatasourceFactoryImpl.h"
 #import "REDNoteRepositoryFactory.h"
 #import "REDNoteRepositoryFactoryImpl.h"
-
+#import "REDRLMNoteDataAccessObject.h"
+#import "REDNotesDataAccessObject.h"
 
 @implementation REDDepedencyInjection
 
 +(void)registerImplementations {
     
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
+    
     //migration
     [[DPRegistry sharedRegistry] registerImplementation:[[REDRealmMigrationV2 alloc] init] forProtocol:@protocol(REDRealmMigration) context:nil];
 
     //user
+    if ([[[REDRLMUserDataAccessObject alloc] init] user])
     [[DPRegistry sharedRegistry] registerImplementation:[[[REDRLMUserDataAccessObject alloc] init] user] forProtocol:@protocol(REDUserProtocol) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[[REDUserUploadImpl alloc] init] forProtocol:@protocol(REDUserUpload) context:nil];
 
@@ -127,6 +131,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDListLogsFactory class] forProtocol:@protocol(REDDictionary2ModelFactoryProtocol) context:@"log"];
 
     //DAOs
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRLMNoteDataAccessObject class] forProtocol:@protocol(REDNotesDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRLMUserDataAccessObject class] forProtocol:@protocol(REDUserDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRLMBookDataAccessObject class] forProtocol:@protocol(REDBookDataAccessObject) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRLMCategoryDataAccessObject class] forProtocol:@protocol(REDCategoryDataAccessObject) context:nil];
@@ -148,7 +153,6 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookRepositoryFactoryImpl class] forProtocol:@protocol(REDBookRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookQueryServiceImpl class] forProtocol:@protocol(REDBookQueryService) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRequestFeatureImpl class] forProtocol:@protocol(REDRequestFeature) context:nil];
-    [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDPhotoPickerPresenter class] forProtocol:@protocol(REDPhotoPickerPresenterProtocol) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDRLMResultsToNSArray class] forProtocol:@protocol(REDRLMArrayHelper) context:nil];
 

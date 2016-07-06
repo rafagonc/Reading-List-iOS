@@ -81,7 +81,6 @@
 
 #pragma mark - update
 -(id<REDBookProtocol>)updateBook:(id<REDBookProtocol>)book withDict:(NSDictionary *)dict {
-    RLMRealm *realm = [RLMRealm defaultRealm];
     [self.transactionManager begin];
     [book setName:dict[@"book"][@"name"]];
     [self.transactionManager commit];
@@ -101,12 +100,15 @@
     NSString * categoryName = dict[@"book"][@"category"][@"name"];
     id<REDCategoryProtocol> category = [self.categoryDataAccessObject categoryByName:categoryName];
     [book setCategory:category];
+    [self.transactionManager commit];
     
-    NSArray * notesDict = dict[@"book"][@"notes"];
+    NSArray * notesDict = dict[@"notes_list"];
     for (NSDictionary * note_dict in notesDict) {
         [self.notesDataAccessObject updateNote:note_dict book:book];
     }
+    [self.notesDataAccessObject deleteNotFoundNotesInSequence:notesDict forBook:book];
     
+    [self.transactionManager begin];
     [book setRate:[dict[@"rate"] doubleValue]];
     [book setSnippet:dict[@"snippet"]];
     [book setIdentifier:[dict[@"id"] integerValue]];
@@ -115,7 +117,7 @@
     [book setPagesReadValue:[dict[@"pages_read"] integerValue]];
     [book setCoverURL:[[dict objectForKey:@"cover_url"] isEqual:[NSNull null]] ? @"" : [dict objectForKey:@"cover_url"]];
     [book setUnprocessed:NO];
-    [realm commitWriteTransaction];
+    [self.transactionManager commit];
     return book;
 }
 

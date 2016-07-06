@@ -78,7 +78,7 @@
         [self.coverButton setBackgroundImage:coverImage forState:UIControlStateNormal];
     } else if ([self.book coverURL]) {
         [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:[self.book coverURL]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            [self setCoverImage:image];
+            [self.coverImageView setImage:image];
         }];
     }
 }
@@ -132,7 +132,7 @@
 #pragma mark - height
 -(CGFloat)height {
     if (self.snippetOpen) {
-        return MAX([self.snippet boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont AvenirNextRegularWithSize:15.0f]} context:nil].size.height + self.descriptionTextView.frame.origin.y, 235);
+        return MAX([self.snippet boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont AvenirNextRegularWithSize:15.0f]} context:nil].size.height + self.descriptionTextView.frame.origin.y + 10, 235);
     } else {
         return 235;
     }

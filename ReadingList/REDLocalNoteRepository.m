@@ -19,21 +19,21 @@
 
 -(void)createForUser:(id<REDNotesProtocol>)user note:(id<REDNotesProtocol>)note callback:(REDNoteRepositoryCallback)callback error:(REDErrorCallback)errorCallback {
     @try {
-        [self.transactionManager commit];
+        if (callback) callback(note);
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)updateForUser:(id<REDNotesProtocol>)user note:(id<REDNotesProtocol>)note callback:(REDNoteRepositoryCallback)callback error:(REDErrorCallback)errorCallback {
     @try {
-        [self.transactionManager commit];
+        if (callback) callback(note);
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }
 }
 -(void)removeForUser:(id<REDNotesProtocol>)user note:(id<REDNotesProtocol>)note callback:(void (^)())callback error:(REDErrorCallback)errorCallback {
     @try {
-        [self.transactionManager commit];
+        if (callback) callback();
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }

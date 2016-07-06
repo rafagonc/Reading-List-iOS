@@ -77,7 +77,9 @@
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.delegate datasource:self didDeleteBook:self.books[indexPath.row]];
+        if (self.books.count - 1 >= indexPath.row) {
+            [self.delegate datasource:self didDeleteBook:self.books[indexPath.row]];
+        }
     }
 }
 

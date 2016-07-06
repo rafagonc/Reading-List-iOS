@@ -23,7 +23,7 @@
 
 #pragma mark - request
 -(REDHTTPMethod)HTTPMethod {
-    return REDHTTPMethodDELETE;
+    return REDHTTPMethodPUT;
 }
 -(NSDictionary *)HTTPEncode {
     return @{@"note_id" : @([self.note identifier]) , @"text" : self.text};

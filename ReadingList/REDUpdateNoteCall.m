@@ -41,10 +41,12 @@
             [self.transactionManager commit];
             [response setData:create_note_request.note];
             [self success:response];
+            completion(YES);
         } else {
             [response setError:error];
             [response setSuccess:NO];
             [self error:response];
+            completion(NO);
         }
     }];
 }

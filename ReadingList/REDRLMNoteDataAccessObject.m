@@ -26,9 +26,12 @@
 @implementation REDRLMNoteDataAccessObject
 
 -(void)remove:(id)object {
-    [self.transactionManager begin];
-    [[RLMRealm defaultRealm] deleteObject:object];
-    [self.transactionManager commit];
+    RLMObject * rlm_object = (RLMObject *)object;
+    if ([rlm_object isInvalidated] == NO) {
+        [self.transactionManager begin];
+        [[RLMRealm defaultRealm] deleteObject:object];
+        [self.transactionManager commit];
+    }
 }
 -(id)create {
     [self.transactionManager begin];
@@ -61,14 +64,36 @@
 -(void)updateNote:(NSDictionary *)note_dict book:(id<REDBookProtocol>)book {
     REDRLMNote * note = [self noteWithID:[note_dict[@"id"] integerValue] book:book];
     if (!note) {
+        [self.transactionManager begin];
         REDRLMNote * note = [[REDRLMNote alloc] init];
         [note setIdentifier:[note_dict[@"id"] integerValue]];
         [note setText:note_dict[@"text"]];
         [note setBookName:[book name]];
         [book.notes addObject:note];
+        [self.transactionManager commit];
     } else {
+        [self.transactionManager begin];
         [note setText:note_dict[@"text"]];
         [note setBookName:[book name]];
+        [self.transactionManager commit];
+    }
+}
+-(void)deleteNotFoundNotesInSequence:(NSArray *)notes forBook:(id<REDBookProtocol>)book {
+    for (id<REDNotesProtocol> note in [book notes]) {
+//        NSDictionary * dict = [[notes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"id = %@", @([note identifier])]] firstObject];
+//        if (!dict) {
+//            [self remove:note];
+//        }
+        NSDictionary * dict;
+        for (NSDictionary * note_dit in notes) {
+            if ([[note_dit objectForKey:@"id"] integerValue] == [note identifier]) {
+                dict = note_dit;
+            }
+        }
+        if (!dict) {
+            [self remove:note];
+        }
+
     }
 }
 

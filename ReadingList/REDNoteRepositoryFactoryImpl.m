@@ -21,7 +21,7 @@
 
 -(id<REDNoteRepository>)repository {
     if ([self.user isSyncable]) {
-        return [[REDLocalNoteRepository alloc] init];
+        return [[REDSyncNoteRepository alloc] init];
     }
     return [[REDLocalNoteRepository alloc] init];
 }
