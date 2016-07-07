@@ -33,14 +33,12 @@
 #import "REDServiceDispatcherProtocol.h"
 #import "REDServiceResponseProtocol.h"
 #import "UIViewController+Loading.h"
+#import "REDAuthorRemover.h"
+#import "REDAuthorCreateViewController.h"
 
 @interface REDLibraryViewController ()
 
-< REDBookDatasourceDelegate
-, UISearchBarDelegate
-, REDAuthorDatasourceDelegate
-, REDCategoryDatasourceDelegate
-, ZBarReaderDelegate>
+<REDBookDatasourceDelegate, UISearchBarDelegate, REDAuthorDatasourceDelegate, REDCategoryDatasourceDelegate, ZBarReaderDelegate>
 
 {
     UIBarButtonItem *doneButton, *editButton;
@@ -61,6 +59,7 @@
 @property (setter=injected3:) id<REDUserProtocol> user;
 @property (setter=injected4:) id<REDLibraryDatasourceFactory> libraryDatasourceFactory;
 @property (setter=injected5:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected6:) id<REDAuthorRemover> authorRemover;
 
 @end
 
@@ -150,13 +149,27 @@
     [bookPredicateViewController setNavigationBarTitle:[author name]];
     [self.navigationController pushViewController:bookPredicateViewController animated:YES];
 }
+-(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource wantsToDeleteAuthor:(id<REDAuthorProtocol>)author {
+    __weak typeof(self) welf = self;
+    [self.authorRemover removeAuthor:author withCallback:^{
+        [welf updateDataWithType:REDLibraryTypeAuthor];
+    }];
+}
+-(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource wantsToEditAuthor:(id<REDAuthorProtocol>)author {
+    __weak typeof(self) welf = self;
+    REDAuthorCreateViewController * authorCreate = [[REDAuthorCreateViewController alloc] initWithAuthor:author];
+    [authorCreate setCallback:^(id<REDAuthorProtocol> author) {
+        [welf updateDataWithType:REDLibraryTypeAuthor];
+    }];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:authorCreate] animated:YES completion:nil];
+}
 -(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource didSelectCategory:(id<REDCategoryProtocol>)category {
     REDBookPredicateViewController * bookPredicateViewController = [[REDBookPredicateViewController alloc] initWithPrediate:[NSPredicate predicateWithFormat:@"category.name LIKE[cd] %@", [category name]]];
     [bookPredicateViewController setNavigationBarTitle:[category name]];
     [self.navigationController pushViewController:bookPredicateViewController animated:YES];
 }
 
-#pragma mark - search bar protocl
+#pragma mark - search bar protocol
 -(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
 }
@@ -206,7 +219,7 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 -(void)editAction:(UIBarButtonItem *)editAction {
-    if (self.segmentedControl.selectedSegmentIndex != REDLibraryTypeBooks) return;
+    if (self.segmentedControl.selectedSegmentIndex != REDLibraryTypeBooks && self.segmentedControl.selectedSegmentIndex != REDLibraryTypeAuthor) return;
     [self.tableView setEditing:!self.tableView.editing animated:YES];
     [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
 }
@@ -218,6 +231,8 @@
     [self presentViewController:codeReader animated:YES completion:nil];
 }
 -(void)segmentedControlChanged:(UISegmentedControl *)sender {
+    self.tableView.editing = NO;
+    [self.navigationItem setLeftBarButtonItem:editButton];
     [self changeType:sender.selectedSegmentIndex];
 }
 -(void)changeType:(REDLibraryType)type {

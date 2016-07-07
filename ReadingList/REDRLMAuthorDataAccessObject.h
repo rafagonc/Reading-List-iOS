@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "REDDefaultDataAccessObject.h"
+#import "REDRLMDefaultDataAccessObject.h"
 #import "REDAuthorDataAccessObject.h"
 
-@interface REDRLMAuthorDataAccessObject : REDDefaultDataAccessObject
+@interface REDRLMAuthorDataAccessObject : REDRLMDefaultDataAccessObject
 
 <REDAuthorDataAccessObject>
 

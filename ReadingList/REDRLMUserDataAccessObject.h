@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "REDUserDataAccessObject.h"
-#import "REDDefaultDataAccessObject.h"
+#import "REDRLMDefaultDataAccessObject.h"
 
-@interface REDRLMUserDataAccessObject : REDDefaultDataAccessObject
+@interface REDRLMUserDataAccessObject : REDRLMDefaultDataAccessObject
 
 <REDUserDataAccessObject>
 

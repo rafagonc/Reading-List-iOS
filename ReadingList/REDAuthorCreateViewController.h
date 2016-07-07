@@ -13,6 +13,10 @@ typedef void(^REDAuthorCreateViewControllerCallback)(id<REDAuthorProtocol> autho
 
 @interface REDAuthorCreateViewController : UIViewController
 
+#pragma mark  - constructor
+-(instancetype)initWithAuthor:(id<REDAuthorProtocol>)author;
+
+#pragma mark - callback
 @property (nonatomic,copy) REDAuthorCreateViewControllerCallback callback;
 
 @end

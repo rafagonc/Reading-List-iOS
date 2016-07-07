@@ -86,6 +86,8 @@
 #import "REDNoteRepositoryFactoryImpl.h"
 #import "REDRLMNoteDataAccessObject.h"
 #import "REDNotesDataAccessObject.h"
+#import "REDAuthorRemover.h"
+#import "REDAuthorRemoverImpl.h"
 
 @implementation REDDepedencyInjection
 
@@ -149,6 +151,7 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorNameValidator class] forProtocol:@protocol(REDValidator) context:@"authorName"];
 
     //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorRemoverImpl class] forProtocol:@protocol(REDAuthorRemover) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDLogRepositoryFactoryImpl class] forProtocol:@protocol(REDLogRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookRepositoryFactoryImpl class] forProtocol:@protocol(REDBookRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookQueryServiceImpl class] forProtocol:@protocol(REDBookQueryService) context:nil];

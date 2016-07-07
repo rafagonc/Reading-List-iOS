@@ -67,7 +67,7 @@
 }
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
     _author = author;
-    [self.authorButton setTitle:author ? [author name] : @"Author" forState:UIControlStateNormal];
+    [self.authorButton setTitle:author ? [author name] : @"Tap to choose author" forState:UIControlStateNormal];
     [self.authorButton setTitleColor:author ? [UIColor whiteColor] : [UIColor whiteColor] forState:UIControlStateNormal];
 }
 -(void)setCoverImage:(UIImage *)coverImage {

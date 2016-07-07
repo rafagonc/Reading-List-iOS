@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIStaticTableView *tableView;
 @property (strong, nonatomic) REDUITextFieldCell *authorNameCell;
 
+#pragma mark - properties
+@property (nonatomic,strong) id<REDAuthorProtocol> author;
+
 #pragma mark - injected
 @property (setter=injected1:) id<REDAuthorDataAccessObject> authorDataAccessObject;
 @property (setter=injected2:) id<REDTransactionManager> transactionManager;
@@ -38,15 +41,22 @@
         
     } return self;
 }
+-(instancetype)initWithAuthor:(id<REDAuthorProtocol>)author {
+    if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
+        _author = author;
+    } return self;
+}
 
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Create Author";
+    self.title = self.author ? @"Edit Author" : @"Create Author";
     
     [self setUpBarButtonsItems];
     [self createTableview];
+    
+    self.authorNameCell.textField.text = [self.author name];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -62,7 +72,7 @@
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
     
-    UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithTitle:@"Create" style:UIBarButtonItemStylePlain target:self action:@selector(createAction:)];
+    UIBarButtonItem *createButton = [[UIBarButtonItem alloc] initWithTitle:self.author ? @"Edit" : @"Create" style:UIBarButtonItemStylePlain target:self action:@selector(createAction:)];
     [self.navigationItem setRightBarButtonItem:createButton];
 }
 
@@ -83,7 +93,7 @@
 }
 -(void)createAction:(UIBarButtonItem *)item {
     if ([self isValid]) {
-        id<REDAuthorProtocol> author = [self.authorDataAccessObject create];
+        id<REDAuthorProtocol> author = self.author ? self.author : [self.authorDataAccessObject create];
         [self.transactionManager begin];
         [author setName:self.authorNameCell.textField.text];
         [self.transactionManager commit];

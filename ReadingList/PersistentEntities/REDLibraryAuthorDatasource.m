@@ -11,8 +11,9 @@
 #import "UIFont+ReadingList.h"
 #import "UITableViewCell+Clear.h"
 #import "REDAuthorDatasourceDelegate.h"
+#import "REDAuthorCell.h"
 
-@interface REDLibraryAuthorDatasource ()
+@interface REDLibraryAuthorDatasource () <REDAuthorCellDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) NSArray *authors;
@@ -49,24 +50,38 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellID = @"REDAuthorCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    REDAuthorCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([REDAuthorCell class]) owner:self options:nil] firstObject];
         [cell.textLabel setFont:[UIFont AvenirNextRegularWithSize:14.0f]];
         [cell clearBackgroundSelection];
     }
     
     
     id<REDAuthorProtocol> author = self.authors[indexPath.row];
-    cell.textLabel.text = [author name];
+    cell.author = author;
+    cell.delegate = self;
     
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.delegate authorDatasource:self wantsToDeleteAuthor:self.authors[indexPath.row]];
+    }
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.delegate authorDatasource:self didSelectAuthor:self.authors[indexPath.row]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - delegate
+-(void)authorCell:(REDAuthorCell *)cell wantsToEditAuthor:(id<REDAuthorProtocol>)author {
+    [self.delegate authorDatasource:self wantsToEditAuthor:author];
 }
 
 @end

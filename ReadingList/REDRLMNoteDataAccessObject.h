@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "REDNotesDataAccessObject.h"
+#import "REDRLMDefaultDataAccessObject.h"
 
-@interface REDRLMNoteDataAccessObject : NSObject
+@interface REDRLMNoteDataAccessObject : REDRLMDefaultDataAccessObject
 
 <REDNotesDataAccessObject>
 
