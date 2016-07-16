@@ -7,7 +7,7 @@ An simple app for keep tracking of books
 - good explore page.
 
 ## Doing
-
+- UX - design
 
 ## Done
 - manage authors - bob, neil, branch = authors, manage_author;
