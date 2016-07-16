@@ -43,11 +43,7 @@
         
     } else {
         for (id<REDBookProtocol> book in [self.author books]) {
-            [[self.bookRepositoryFactory repository] removeForUser:self.user book:book callback:^{
-                
-            } error:^(NSError *error) {
-                
-            }];
+            [[self.bookRepositoryFactory repository] removeForUser:self.user book:book callback:^{} error:^(NSError *error) {}];
         }
         [self.authorDataAccessObject remove:self.author];
         if (self.callback) self.callback();
