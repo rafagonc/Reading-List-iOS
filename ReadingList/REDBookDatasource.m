@@ -41,7 +41,7 @@
 
 #pragma mark - table view datasource
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return REDBookCellHeight;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

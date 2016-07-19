@@ -88,6 +88,8 @@
 #import "REDNotesDataAccessObject.h"
 #import "REDAuthorRemover.h"
 #import "REDAuthorRemoverImpl.h"
+#import "REDLUNSegmentedControlDatasource.h"
+#import "REDLibrarySegmentedControlDatasource.h"
 
 @implementation REDDepedencyInjection
 
@@ -105,6 +107,7 @@
 
     
     //datasources
+    [[DPRegistry sharedRegistry] registerImplementation:[REDLibrarySegmentedControlDatasource class] forProtocol:@protocol(REDLUNSegmentedControlDatasource) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"book"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDLogDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"log"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryDatasource class] forProtocol:@protocol(REDDatasourceProtocol) context:@"category"];

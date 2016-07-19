@@ -12,6 +12,7 @@
 
 #pragma mark - properties
 @property (nonatomic,readonly) UINavigationBar *navigationBar;
+@property (nonatomic,readonly) UINavigationItem *item;
 
 #pragma mark - constructor
 -(instancetype)initWithNavigationBar:(UINavigationBar *)navigationBar;
@@ -21,5 +22,6 @@
 
 #pragma mark - factory method
 +(void)customizeNavigationBar:(UINavigationBar *)navigationBar;
++(void)customizeNavigationBar:(UINavigationBar *)navigationBar andItem:(UINavigationItem *)item;
 
 @end

@@ -14,7 +14,6 @@
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
-@property (weak, nonatomic) IBOutlet UIImageView *cloudImageView;
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDAnimation> animation;
@@ -34,15 +33,13 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startLoading) name:REDStartStatusBarSyncingLoadingViewNotificationKey object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopLoading) name:REDStopStatusBarSyncingLoadingViewNotificationKey object:nil];
-        
-        [self.cloudImageView setImage:[[UIImage imageNamed:@"cloud-1"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-        [self.cloudImageView setTintColor:[UIColor whiteColor]];
+
     } return self;
 }
 
 #pragma mark - actions
 -(IBAction)syncAction:(id)sender {
-    [self.delegate syncViewWantsToAuthenticateWithView:self];
+   if (![self.user isSyncable]) [self.delegate syncViewWantsToAuthenticateWithView:self];
 }
 
 #pragma mark - layout
@@ -63,7 +60,7 @@
     if ([self.animation animating] == NO) {
         [self.animation stopAnimating];
         self.animation = [self.animationFactory minimumScaleAnimation];
-        [self.animation startAnimating:self.cloudImageView];
+        [self.animation startAnimating:self.signUpButton];
     }
 }
 -(void)stopLoading {

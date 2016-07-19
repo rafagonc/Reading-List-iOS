@@ -57,8 +57,10 @@
         callback([self.bookDataAccessObject allBooksSorted]);
         self.listCallback = callback;
         self.listErroCallback = errorCallback;
-        REDListBooksRequest * listRequest = [[REDListBooksRequest alloc] initWithUserId:[user userId]];
-        [self.serviceDispatcher callWithRequest:listRequest withTarget:self andSelector:@selector(listResponse:)];
+        if (arc4random() % 10 < 4) {
+            REDListBooksRequest * listRequest = [[REDListBooksRequest alloc] initWithUserId:[user userId]];
+            [self.serviceDispatcher callWithRequest:listRequest withTarget:self andSelector:@selector(listResponse:)];
+        }
     } @catch (NSException *exception) {
         errorCallback([NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : [exception reason]}]);
     }

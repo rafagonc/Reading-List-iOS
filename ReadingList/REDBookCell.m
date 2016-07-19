@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *percentCompletedLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *heartImageView;
 
@@ -49,10 +50,13 @@
         }];
     }
     
+    self.percentCompletedLabel.text = [NSString stringWithFormat:@"%lu%% completed", (unsigned long)[book percentage]];
+    
+    
     if ([book completed]) {
         self.tintColor = [UIColor red_redColor];
         self.accessoryType = UITableViewCellAccessoryCheckmark;
-        self.progressLabel.text = [NSString stringWithFormat:@"%lu%% completed", (unsigned long)[book percentage]];
+        self.progressLabel.text = [NSString stringWithFormat:@"Finished"];
     } else {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.progressLabel.text = [NSString stringWithFormat:@"Current Page: %lu", (unsigned long)[book pagesReadValue]];

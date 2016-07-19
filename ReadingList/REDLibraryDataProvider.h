@@ -12,7 +12,7 @@
 @interface REDLibraryDataProvider : NSObject
 
 #pragma mark - method
--(void)dataForType:(REDLibraryType)type callback:(void(^)(id data))callback error:(NSError **)error_pointer;
+-(void)dataForType:(REDLibraryType)type sync:(BOOL)sync callback:(void(^)(id data))callback error:(NSError **)error_pointer;
 -(void)dataForType:(REDLibraryType)type withNameFilter:(NSString *)name callback:(void(^)(id data))callback error:(NSError **)error_pointer ;
 
 @end

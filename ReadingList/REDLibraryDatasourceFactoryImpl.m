@@ -11,6 +11,7 @@
 #import "REDAuthorDatasource.h"
 #import "REDCategoryDatasource.h"
 #import "REDLibraryAuthorDatasource.h"
+#import "REDLogDatasource.h"
 
 @implementation REDLibraryDatasourceFactoryImpl
 
@@ -25,6 +26,10 @@
         case REDLibraryTypeCategories:
             return [[REDCategoryDatasource alloc] init];
             break;
+        case REDLibraryTypeLogs:
+            return [[REDLogDatasource alloc] init];
+            break;
+            
         default:
             break;
     }

@@ -1,0 +1,54 @@
+//
+//  REDUserCellStateOpen.m
+//  ReadingList
+//
+//  Created by Rafael Gonzalves on 7/18/16.
+//  Copyright © 2016 Rafael Gonzalves. All rights reserved.
+//
+
+#import "REDUserCellStateOpen.h"
+#import "REDChartView.h"
+#import "REDPageScrollView.h"
+#import "REDSyncView.h"
+#import "REDPagesInfoView.h"
+
+@interface REDUserCellStateOpen () <REDSyncViewDelegate>
+
+@end
+
+@implementation REDUserCellStateOpen
+
+@synthesize delegate;
+
+-(void)populateScrollView:(REDPageScrollView *)scrollView andCallback:(void (^)(CGSize))callback {
+    
+    REDChartView * chartView = [[REDChartView alloc] init];
+    [chartView setScrollEnabled:NO];
+    [chartView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chartTapAction:)]];
+    [chartView setTag:REDUserCellChartViewTag];
+    
+    REDSyncView * syncView = [[REDSyncView alloc] init];
+    [syncView setDelegate:self];
+    [syncView setTag:REDUserCellSyncViewTag];
+    
+    REDPagesInfoView * pagesView = [[REDPagesInfoView alloc] init];
+    [syncView setTag:REDUserCellPagesInfoViewTag];
+    
+    [scrollView setViews:@[chartView, syncView, pagesView]];
+    
+}
+-(BOOL)hidePageControl {
+    return NO;
+}
+
+#pragma mark - delegates
+-(void)syncViewWantsToAuthenticateWithView:(REDSyncView *)syncView {
+    [self.delegate userStateWantsToAuthenticate:self];
+}
+
+#pragma makr - actions
+-(void)chartTapAction:(UITapGestureRecognizer *)tap {
+    [self.delegate userStateWantsToOpenChart:self];
+}
+
+@end
