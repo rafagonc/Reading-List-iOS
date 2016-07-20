@@ -32,7 +32,7 @@
     [syncView setTag:REDUserCellSyncViewTag];
     
     REDPagesInfoView * pagesView = [[REDPagesInfoView alloc] init];
-    [syncView setTag:REDUserCellPagesInfoViewTag];
+    [pagesView setTag:REDUserCellPagesInfoViewTag];
     
     [scrollView setViews:@[chartView, syncView, pagesView]];
     

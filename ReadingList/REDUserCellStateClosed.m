@@ -7,6 +7,7 @@
 //
 
 #import "REDUserCellStateClosed.h"
+#import "REDChartView.h"
 
 @interface REDUserCellStateClosed ()
 
@@ -18,6 +19,7 @@
 
 -(void)populateScrollView:(UIScrollView *)scrollView andCallback:(void (^)(CGSize))callback {
     UIView * chartView = [scrollView viewWithTag:REDUserCellChartViewTag];
+    [chartView removeGestureRecognizer:chartView.gestureRecognizers.firstObject];
     [chartView removeFromSuperview];
     
     UIView * syncView = [scrollView viewWithTag:REDUserCellSyncViewTag];

@@ -17,8 +17,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lw-i3-GJL">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzl-U5-8w3">
-                                    <rect key="frame" x="0.0" y="76.5" width="320" height="33"/>
+                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzl-U5-8w3">
+                                    <rect key="frame" x="132.5" y="76.5" width="55" height="33"/>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                     <state key="normal" title="Sign Up">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

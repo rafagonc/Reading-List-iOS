@@ -59,7 +59,6 @@
 -(void)layoutSubviews {
     [super layoutSubviews];
     self.chart.frame = CGRectMake(0, 70 , [self.chart sizeForChart].width, self.scrollView.frame.size.height - 70);
-    [self updateData];
 }
 
 //#pragma mark - orientation
@@ -96,7 +95,6 @@
 
 #pragma mark - dealloc
 -(void)dealloc {
-    
 }
 
 @end

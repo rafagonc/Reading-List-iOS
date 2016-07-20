@@ -57,19 +57,21 @@
 #pragma mark - loading
 -(void)startLoading {
     [self.signUpButton setTitle:@"Syncing..." forState:UIControlStateNormal];
-    if ([self.animation animating] == NO) {
-        [self.animation stopAnimating];
-        self.animation = [self.animationFactory minimumScaleAnimation];
-        [self.animation startAnimating:self.signUpButton];
-    }
+//    if ([self.animation animating] == NO) {
+//        [self.animation stopAnimating];
+//        self.animation = [self.animationFactory minimumScaleAnimation];
+//        [self.animation startAnimating:self.signUpButton];
+//    }
 }
 -(void)stopLoading {
     [self setNeedsLayout];
+    [self.signUpButton setTitle:@"Synced" forState:UIControlStateNormal];
     [self.animation stopAnimating];
 }
 
 #pragma mark - dealloc
 -(void)dealloc {
+    [self.animation stopAnimating];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

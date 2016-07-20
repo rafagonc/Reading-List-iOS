@@ -218,6 +218,8 @@
 -(NSDate *)dateForX:(CGFloat)x {
     return nil;
 }
+
+#pragma mark - setters
 -(void)setLineColor:(UIColor *)lineColor {
     _lineColor = lineColor;
     self.signalView.tintColor = lineColor;
@@ -230,10 +232,14 @@
         self.signalView.frame = CGRectMake([self xForDate:[self maxDate]] - 8, [self yForValue:[self lastDateValue]] - 8, 16, 16);        
     }
 }
+-(void)removeFromSuperview {
+    [super removeFromSuperview];
+    [self.signalView stopInflating];
+    self.signalView = nil;÷
+}
 
 #pragma mark - dealloc
 -(void)dealloc {
-    [self.signalView stopInflating];
 }
 
 @end

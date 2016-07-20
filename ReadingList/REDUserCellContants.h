@@ -10,7 +10,7 @@
 #define REDUserCellContants_h
 
 static int REDUserCellChartViewTag = 1231;
-static int REDUserCellSyncViewTag = 31321;
+static int REDUserCellSyncViewTag = 193;
 static int REDUserCellPagesInfoViewTag = 1231201;
 
 

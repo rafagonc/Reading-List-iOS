@@ -16,8 +16,8 @@
 
 #pragma mark - setters
 -(void)setViews:(NSArray<UIView *> *)views {
+    for (UIView * view in self.views) [view removeFromSuperview];
     _views = views;
-    for (UIView * view in self.subviews) [view removeFromSuperview];
     for (UIView * view in self.views) {
         [self addSubview:view];
     }
