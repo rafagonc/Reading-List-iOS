@@ -39,6 +39,10 @@
 #import "REDUserCell.h"
 #import "REDSegmentedCell.h"
 #import "REDLibraryCell.h"
+#import "REDPhotoPickerPresenterProtocol.h"
+#import "REDTransactionManager.h"
+#import "REDSignUpViewController.h"
+#import "REDChartViewController.h"
 
 @interface REDLibraryViewController ()
 
@@ -49,9 +53,7 @@
 }
 
 #pragma mark - ui
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *saerchBar;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UIStaticTableView *staticTableView;
 @property (weak, nonatomic) IBOutlet REDUserCell *userCell;
 @property (weak, nonatomic) IBOutlet REDLibraryCell *libraryCell;
@@ -67,6 +69,8 @@
 @property (setter=injected4:) id<REDLibraryDatasourceFactory> libraryDatasourceFactory;
 @property (setter=injected5:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 @property (setter=injected6:) id<REDAuthorRemover> authorRemover;
+@property (setter=injected7:) id<REDPhotoPickerPresenterProtocol> photoPicker;
+@property (setter=injected8:) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -86,6 +90,8 @@
     
     [Localytics tagScreen:@"Library Screen"];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    
     [self createTableView];
     
     [self setUpBarButtonItems];
@@ -98,12 +104,13 @@
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar andItem:self.navigationItem];
     [REDTabBarCustomizer customizeTabBar:self.tabBarController.tabBar];
-    [self.tableView reloadData];
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.libraryCell.libraryView update];
     [self.saerchBar setText:@""];
+    self.tabBarController.tabBar.hidden = NO;
 }
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.tableView reloadData];
 }
 
 #pragma mark - setups
@@ -118,6 +125,24 @@
     
     UIBarButtonItem *barAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barcode"] style:UIBarButtonItemStylePlain target:self action:@selector(barAction:)];
     [self.navigationItem setRightBarButtonItems:@[addAction, barAction]];
+}
+
+#pragma mark - orientation
+-(void)orientationChanged:(NSNotification *)ntif {
+    if ([self.navigationController.topViewController isEqual:self]) {
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        if (UIInterfaceOrientationIsLandscape(orientation)) {
+            REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
+            [self.navigationController pushViewController:chartViewController animated:NO];
+        } else {
+            [self.navigationController setNavigationBarHidden:NO];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    }
+    if (self.tabBarController.selectedIndex != 0) {
+        [self.navigationController setNavigationBarHidden:NO];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - create table view
@@ -170,7 +195,25 @@
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didSelectBook:(id<REDBookProtocol>)book error:(NSError *)error {
     REDBookAddViewController *editViewController = [[REDBookAddViewController alloc] initWithBook:book];
     [self.navigationController pushViewController:editViewController animated:YES];
-    
+}
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didChangeEditing:(BOOL)editing {
+    [self.navigationItem setLeftBarButtonItem:self.libraryCell.libraryView.editing ? doneButton : editButton];
+}
+-(void)segmetedCell:(REDSegmentedCell *)cell wantsToChangeType:(REDLibraryType)library {
+    [self.libraryCell.libraryView setType:library];
+}
+-(void)userCellWantsToChangePhoto:(REDUserCell *)cell {
+    __weak typeof(self) welf = self;
+    [self.photoPicker pickPhotoFromViewController:self hasPhoto:[self.user hasPhoto] withCallback:^(UIImage *image, NSError *error) {
+        if (error) {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+        } else {
+            [welf.transactionManager begin];
+            [welf.user setPhoto:image];
+            [welf.userCell setUser:welf.user];
+            [welf.transactionManager commit];
+        }
+    }];
 }
 -(void)userCellWantsToOpen:(REDUserCell *)cell {
     [self.staticTableView beginUpdates];
@@ -181,8 +224,16 @@
     }];
     [self.staticTableView endUpdates];
 }
--(void)segmetedCell:(REDSegmentedCell *)cell wantsToChangeType:(REDLibraryType)library {
-    [self.libraryCell.libraryView setType:library];
+-(void)userCellWantsToAuthenticate:(REDUserCell *)cell {
+    REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
+    [self presentViewController:signIn animated:YES completion:nil];
+}
+-(void)userCellWantsToOpenChart:(REDUserCell *)cell {
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+}
+-(void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
 #pragma mark - zbar
@@ -223,9 +274,8 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 -(void)editAction:(UIBarButtonItem *)editAction {
-    if (self.segmentedControl.selectedSegmentIndex != REDLibraryTypeBooks && self.segmentedControl.selectedSegmentIndex != REDLibraryTypeAuthor) return;
-    [self.tableView setEditing:!self.tableView.editing animated:YES];
-    [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
+    [self.libraryCell.libraryView setEditing:!self.libraryCell.libraryView.editing];
+    [self.navigationItem setLeftBarButtonItem:self.libraryCell.libraryView.editing ? doneButton : editButton];
 }
 -(void)barAction:(UIBarButtonItem *)item {
     ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
@@ -235,13 +285,11 @@
     [self presentViewController:codeReader animated:YES completion:nil];
 }
 -(void)segmentedControlChanged:(UISegmentedControl *)sender {
-    self.tableView.editing = NO;
     [self.navigationItem setLeftBarButtonItem:editButton];
     [self changeType:sender.selectedSegmentIndex];
 }
 -(void)changeType:(REDLibraryType)type {
     [self.libraryCell.libraryView setType:type];
 }
-
 
 @end

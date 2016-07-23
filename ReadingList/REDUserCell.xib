@@ -23,10 +23,10 @@
                         <rect key="frame" x="15" y="15" width="290" height="181.5"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLL-nq-sxM" customClass="REDPageScrollView">
-                                <rect key="frame" x="0.0" y="60.5" width="290" height="121"/>
+                                <rect key="frame" x="0.0" y="60" width="290" height="121"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2FV-cd-Xuc">
-                                <rect key="frame" x="0.0" y="0.5" width="290" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rafagonc" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AAD-r9-LXZ">
                                         <rect key="frame" x="56" y="0.0" width="167" height="60"/>
@@ -74,21 +74,29 @@
                                             <constraint firstAttribute="width" constant="15" id="q8D-FI-FMO"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMl-em-rVD">
-                                        <rect key="frame" x="-56" y="-5" width="9" height="59"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQ6-oH-YUT">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="0MR-3C-GnQ"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="changeImageAction:" destination="kpg-Cq-F7F" eventType="touchUpInside" id="MeN-7W-PZh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="QQ6-oH-YUT" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" id="9o2-1O-kaY"/>
                                     <constraint firstItem="uB0-e8-ppf" firstAttribute="leading" secondItem="AAD-r9-LXZ" secondAttribute="trailing" constant="8" id="AbI-YH-oNd"/>
                                     <constraint firstItem="uB0-e8-ppf" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" constant="19" id="Bob-YG-Y7u"/>
                                     <constraint firstItem="QNN-2f-C9G" firstAttribute="leading" secondItem="2FV-cd-Xuc" secondAttribute="leading" constant="8" id="I4f-Cv-gck"/>
+                                    <constraint firstAttribute="bottom" secondItem="QQ6-oH-YUT" secondAttribute="bottom" id="MXc-DA-isH"/>
                                     <constraint firstItem="EdK-xZ-8NU" firstAttribute="leading" secondItem="uB0-e8-ppf" secondAttribute="trailing" constant="8" id="XyD-b9-gmh"/>
                                     <constraint firstAttribute="bottom" secondItem="h9M-r8-4nP" secondAttribute="bottom" id="ch9-PL-JmO"/>
                                     <constraint firstItem="h9M-r8-4nP" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" id="gGT-yD-g18"/>
                                     <constraint firstAttribute="trailing" secondItem="h9M-r8-4nP" secondAttribute="trailing" id="hVr-pc-1BX"/>
                                     <constraint firstAttribute="height" constant="60" id="lD8-6f-hXJ"/>
+                                    <constraint firstItem="QQ6-oH-YUT" firstAttribute="leading" secondItem="2FV-cd-Xuc" secondAttribute="leading" id="nd3-dY-7rT"/>
                                     <constraint firstItem="EdK-xZ-8NU" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" constant="20" id="oy4-UD-6qi"/>
                                     <constraint firstItem="QNN-2f-C9G" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" constant="11" id="pbG-bO-4vJ"/>
                                     <constraint firstItem="AAD-r9-LXZ" firstAttribute="leading" secondItem="QNN-2f-C9G" secondAttribute="trailing" constant="8" id="tCe-Cs-fo9"/>
@@ -97,7 +105,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSn-p7-Adt">
-                                <rect key="frame" x="0.0" y="150.5" width="290" height="1"/>
+                                <rect key="frame" x="0.0" y="150" width="290" height="1"/>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="OBt-mG-MnV"/>

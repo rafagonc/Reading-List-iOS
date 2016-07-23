@@ -17,8 +17,9 @@
 #import "REDUserCellStateOpen.h"
 #import "REDUserCellStateClosed.h"
 #import "REDPageScrollView.h"
+#import "REDUserCellStateDelegate.h"
 
-@interface REDUserCell ()  <UITextFieldDelegate>
+@interface REDUserCell ()  <UITextFieldDelegate, REDUserCellStateDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -66,6 +67,7 @@
 -(void)setOpen:(BOOL)open {
     _open = open;
     self.state = open ? [[REDUserCellStateOpen alloc] init] : [[REDUserCellStateClosed alloc] init];
+    [self.state setDelegate:self];
     [self.delegate userCellWantsToOpen:self];
     [self.pageControl setHidden:[self.state hidePageControl]];
     [self.arrowImageView setImage:self.open ? [UIImage imageNamed:@"up_arrow"] : [UIImage imageNamed:@"down_arrow"]];
@@ -126,11 +128,23 @@
     }
 }
 
+#pragma mark - delegate
+-(void)userStateWantsToOpenChart:(id<REDUserCellState>)cell {
+    [self.delegate userCellWantsToOpenChart:self];
+}
+-(void)userStateWantsToAuthenticate:(id<REDUserCellState>)cell {
+    if ([self.user isSyncable] == NO) {
+        [self.delegate userCellWantsToAuthenticate:self];
+    }
+}
+
 #pragma mark - action
 -(IBAction)openAction:(id)sender {
     self.open = !self.open;
 }
-
+-(IBAction)changeImageAction:(id)sender {
+    [self.delegate userCellWantsToChangePhoto:self];
+}
 
 #pragma mark - dealloc
 -(void)dealloc {

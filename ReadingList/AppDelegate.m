@@ -70,12 +70,11 @@
     
     REDLibraryViewController *bookList = [[REDLibraryViewController alloc] init];
     REDExploreViewController *reccomendedBooks = [[REDExploreViewController alloc] init];
-    REDUserViewController *log = [[REDUserViewController alloc] init];
     
     UITabBarController *tab = [[UITabBarController alloc] init];
     [tab setViewControllers:@[[[UINavigationController alloc] initWithRootViewController:bookList],
                               [[UINavigationController alloc] initWithRootViewController:reccomendedBooks],
-                              [[UINavigationController alloc] initWithRootViewController:log]]];
+                              ]];
     tab.delegate = self;
 
     

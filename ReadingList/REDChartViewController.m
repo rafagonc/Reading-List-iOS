@@ -6,7 +6,7 @@
 //  Copyright © 2016 Rafael Gonzalves. All rights reserved.
 //
 
-#import "REDChartView.h"
+#import "REDChartViewController.h"
 #import "REDReadDataAccessObject.h"
 #import "REDDateChart.h"
 #import "REDReadProtocol.h"
@@ -14,7 +14,7 @@
 #import "NSDate+Escort.h"
 #import "REDLogSummaryViewController.h"
 
-@interface REDChartView () <REDDateChartDelegate>
+@interface REDChartViewController () <REDDateChartDelegate>
 
 #pragma mark - injected
 @property (setter=injected:) id<REDReadDataAccessObject> readDataAccessObject;
@@ -27,23 +27,20 @@
 
 @end
 
-@implementation REDChartView
+@implementation REDChartViewController
 
 #pragma mark - constructor
 -(instancetype)init {
-    self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
-    if (self) {
+    if (self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil]) {
         
     } return self;
 }
 
 #pragma mark - lifecycle
--(void)didMoveToSuperview {
-    [super didMoveToSuperview];
+-(void)viewDidLoad {
+    [super viewDidLoad];
     
     [Localytics tagEvent:@"Chart View"];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     self.chart = [[REDDateChart alloc] init];
     [self.chart sizeToFitWithPerDayWidth:30];
@@ -54,30 +51,35 @@
     [self.scrollView addSubview:self.chart];
     [self updateData];
     
-    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width, 0)];
+    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width - self.scrollView.frame.size.width, 0)];
     
-}
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 
--(void)layoutSubviews {
-    [super layoutSubviews];
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+    self.tabBarController.tabBar.hidden = YES;
+    [self updateData];
+}
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     self.chart.frame = CGRectMake(0, 70 , [self.chart sizeForChart].width, self.scrollView.frame.size.height - 70);
 }
 
 #pragma mark - orientation
 -(void)orientationChanged:(NSNotification *)notification {
-    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width, 0)];
+    UIDeviceOrientation currentDeviceOrientation =  [[UIDevice currentDevice] orientation];
+    if (UIDeviceOrientationIsPortrait(currentDeviceOrientation)) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - chart delegate
 -(void)dateChart:(REDDateChart *)dateChart isNearItem:(REDDateChartItem *)item inPosition:(CGPoint)position {
     NSArray <id<REDReadProtocol>> * readsForDay = [self.readDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"date > %@ AND date < %@", [[item date] dateAtStartOfDay], [[item date] dateAtEndOfDay]]];
     REDLogSummaryViewController * summary = [[REDLogSummaryViewController alloc] initWithLogs:readsForDay andDate:item.date];
-//    [self.navigationController pushViewController:summary animated:YES];
-}
-
-#pragma mark - setters
--(void)setScrollEnabled:(BOOL)scrollEnabled {
-    self.scrollView.scrollEnabled =scrollEnabled;
+    [self.navigationController pushViewController:summary animated:YES];
 }
 
 #pragma mark - update
@@ -94,6 +96,7 @@
 
 #pragma mark - dealloc
 -(void)dealloc {
+    
 }
 
 @end

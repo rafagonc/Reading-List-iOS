@@ -25,6 +25,8 @@
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource didSelectAuthor:(id<REDAuthorProtocol>)book error:(NSError *)error;
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource wantsToEditAuthor:(id<REDAuthorProtocol>)book error:(NSError *)error;
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource didSelectCategory:(id<REDCategoryProtocol>)book error:(NSError *)error;
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource didChangeEditing:(BOOL)editing;
+
 
 
 @end
@@ -33,6 +35,7 @@
 
 
 #pragma makr - properties
+@property (nonatomic,assign) BOOL editing;
 @property (nonatomic,assign) REDLibraryType type;
 @property (nonatomic,weak) id<REDLibraryViewDelegate> delegate;
 @property (nonatomic,strong) id<REDDatasourceProtocol> datasource;
@@ -40,6 +43,9 @@
 
 #pragma mark - setter
 -(void)setType:(REDLibraryType)type andSync:(BOOL)sync;
+
+#pragma mark - methods
+-(void)update;
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

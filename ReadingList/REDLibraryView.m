@@ -89,14 +89,16 @@
     [self.datasource setDelegate:self];
     [self.tableView reloadData];
     
-    
     [self updateDataWithType:self.type sync:sync];
+}
+-(void)setEditing:(BOOL)editing {
+    _editing = editing;
+    [self.tableView setEditing:editing animated:YES];
+    [self.datasourceDelegate libraryView:self datasource:self.datasource didChangeEditing:editing];
 }
 
 #pragma mark - delegates
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didSelectBook:(id<REDBookProtocol>)book {
-//    REDBookAddViewController *editViewController = [[REDBookAddViewController alloc] initWithBook:book];
-//    [self.navigationController pushViewController:editViewController animated:YES];
     [self.datasourceDelegate libraryView:self datasource:self.datasource didSelectBook:book error:nil];
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book {
@@ -110,7 +112,6 @@
     } error:^(NSError *error) {
         [self.datasourceDelegate libraryView:self datasource:datasource didDeleteBook:book error:error];
     }];
-    
 }
 -(BOOL)datasourceCanEditBooks:(id<REDDatasourceProtocol>)datasource {
     return YES;
@@ -119,9 +120,6 @@
     return YES;
 }
 -(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource didSelectAuthor:(id<REDAuthorProtocol>)author {
-    REDBookPredicateViewController * bookPredicateViewController = [[REDBookPredicateViewController alloc] initWithPrediate:[NSPredicate predicateWithFormat:@"author.name LIKE[cd] %@", [author name]]];
-    [bookPredicateViewController setNavigationBarTitle:[author name]];
-//    [self.navigationController pushViewController:bookPredicateViewController animated:YES];
     [self.datasourceDelegate libraryView:self datasource:authorDatasource didSelectAuthor:author error:nil];
 }
 -(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource wantsToDeleteAuthor:(id<REDAuthorProtocol>)author {
@@ -131,20 +129,10 @@
     }];
 }
 -(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource wantsToEditAuthor:(id<REDAuthorProtocol>)author {
-    __weak typeof(self) welf = self;
-    REDAuthorCreateViewController * authorCreate = [[REDAuthorCreateViewController alloc] initWithAuthor:author];
-    [authorCreate setCallback:^(id<REDAuthorProtocol> author) {
-        [welf updateDataWithType:REDLibraryTypeAuthor sync:YES];
-    }];
-//    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:authorCreate] animated:YES completion:nil];
     [self.datasourceDelegate libraryView:self datasource:authorDatasource wantsToEditAuthor:author error:nil];
 }
 -(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource didSelectCategory:(id<REDCategoryProtocol>)category {
-    REDBookPredicateViewController * bookPredicateViewController = [[REDBookPredicateViewController alloc] initWithPrediate:[NSPredicate predicateWithFormat:@"category.name LIKE[cd] %@", [category name]]];
-    [bookPredicateViewController setNavigationBarTitle:[category name]];
-//    [self.navigationController pushViewController:bookPredicateViewController animated:YES];
     [self.datasourceDelegate libraryView:self datasource:datasource didSelectCategory:category error:nil];
-    
 }
 -(BOOL)datasourceCanDeleteLogs:(id<REDDatasourceProtocol>)datasource {
     return YES;
@@ -154,11 +142,11 @@
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id)read {
     [self updateDataWithType:self.type sync:YES];
-    [self.tableView reloadData];
 }
 
 #pragma mark - methods
 -(void)updateDataWithType:(REDLibraryType)type sync:(BOOL)sync{
+    if (type == REDLibraryTypeCategories) [self setEditing:NO];
     NSError * error;
     if ([self isSearcingBooks]) {
         [[REDLibraryDataProvider new] dataForType:type withNameFilter:[self.searchBar.text copy] callback:^(id data) {
@@ -173,7 +161,9 @@
             [self.delegate libraryViewDidUpdate:self];
         } error:&error];
     }
-//    if (error) [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+}
+-(void)update {
+    [self updateDataWithType:self.type sync:NO];
 }
 
 

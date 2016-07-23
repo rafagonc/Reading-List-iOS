@@ -31,11 +31,13 @@
     self.imagePickerController.allowsEditing = YES;
     self.imagePickerController.delegate = self;
     if (hasPhoto) {
-        [UIActionSheet showInView:vc.view withTitle:@"Escolher Foto" cancelButtonTitle:@"Cancelar" destructiveButtonTitle:@"Remove Photo" otherButtonTitles:@[@"Camera", @"Photo Library"] tapBlock:^(UIActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+        [UIActionSheet showInView:vc.view withTitle:@"Choose Photo" cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove Photo" otherButtonTitles:@[@"Camera", @"Photo Library"] tapBlock:^(UIActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
             if (buttonIndex == 1) {
                 if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                    [vc presentViewController:self.imagePickerController animated:YES completion:nil];
+                    dispatch_async(dispatch_get_main_queue(), ^ {
+                        [vc presentViewController:self.imagePickerController animated:YES completion:nil];
+                    });
                 } else {
                     if (self.callback) self.callback(nil,[NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Camera Not Available"}]);
                     self.callback = nil;
@@ -43,7 +45,9 @@
             } else if (buttonIndex == 2) {
                 if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
                     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                    [vc presentViewController:self.imagePickerController animated:YES completion:nil];
+                    dispatch_async(dispatch_get_main_queue(), ^ {
+                        [vc presentViewController:self.imagePickerController animated:YES completion:nil];
+                    });
                 } else {
                     if (self.callback) self.callback(nil,[NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Photo Library not Available"}]);
                     self.callback = nil;
@@ -54,7 +58,7 @@
             }
         }];
     } else {
-        [UIActionSheet showInView:vc.view withTitle:@"Escolher Foto" cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@[@"Camera", @"Photo Library"] tapBlock:^(UIActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+        [UIActionSheet showInView:vc.view withTitle:@"Choose Photo" cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"Camera", @"Photo Library"] tapBlock:^(UIActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
             if (buttonIndex == 0) {
                 if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                     self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;

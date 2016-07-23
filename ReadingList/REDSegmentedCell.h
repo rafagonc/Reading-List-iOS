@@ -12,8 +12,10 @@
 @class REDSegmentedCell;
 @protocol REDSegmentedCellDelegate <NSObject>
 
--(void)segmetedCell:(REDSegmentedCell *)cell willChangeType:(REDLibraryType)library;
 -(void)segmetedCell:(REDSegmentedCell *)cell wantsToChangeType:(REDLibraryType)library;
+
+@optional
+-(void)segmetedCell:(REDSegmentedCell *)cell willChangeType:(REDLibraryType)library;
 
 @end
 

@@ -36,10 +36,15 @@
     self.libraryView.frame = self.contentView.frame;
 }
 
-#pragma mark - height
+#pragma mark - delegate
 -(void)libraryViewDidUpdate:(REDLibraryView *)libraryView {
     self.cellHeight = [[libraryView.datasource data] count] * REDBookCellHeight;
     [self.delegate libraryCellDidUpdate:self];
+}
+
+#pragma mark - setters
+-(void)setEditing:(BOOL)editing {
+    
 }
 
 #pragma mark - height 

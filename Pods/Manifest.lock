@@ -36,7 +36,6 @@ PODS:
   - Realm (0.97.1):
     - Realm/Headers (= 0.97.1)
   - Realm/Headers (0.97.1)
-  - RFRateMe (1.0.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -60,7 +59,6 @@ DEPENDENCIES:
   - PhotoTweaks (~> 1.0.2)
   - Realm
   - Realm/Headers
-  - RFRateMe (~> 1.0.0)
   - SDWebImage
   - TwitterCore
   - UIActionSheet+Blocks
@@ -80,7 +78,6 @@ SPEC CHECKSUMS:
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   PhotoTweaks: e91ce097f9df435049e7c35d419f9a7749e252bc
   Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
-  RFRateMe: 07fbc459799535254db3bd221e930817e8c8ffff
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358

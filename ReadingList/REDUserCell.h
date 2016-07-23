@@ -14,6 +14,9 @@
 @protocol REDUserCellDelegate <NSObject>
 
 -(void)userCellWantsToOpen:(REDUserCell *)cell;
+-(void)userCellWantsToOpenChart:(REDUserCell *)cell;
+-(void)userCellWantsToAuthenticate:(REDUserCell *)cell;
+-(void)userCellWantsToChangePhoto:(REDUserCell *)cell;
 
 @end
 
@@ -21,6 +24,7 @@
 
 <UIStaticTableViewCellCustomizationProtocol>
 
+#pragma mark - properties
 @property (nonatomic,weak) id<REDUserProtocol> user;
 @property (nonatomic,weak) id<REDUserCellDelegate> delegate;
 

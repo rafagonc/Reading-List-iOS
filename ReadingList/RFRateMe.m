@@ -10,8 +10,8 @@
 #import "UIAlertView+NSCookbook.h"
 
 #define kNumberOfDaysUntilShowAgain 3
-#define kAppStoreAddress @"https://itunes.apple.com/us/app/jobsy/id687059035"
-#define kAppName @"MyApp"
+#define kAppStoreAddress @"https://itunes.apple.com/us/app/reading-list-keep-track-your/id1050466668?ls=1&mt=8"
+#define kAppName @"Reading List"
 
 @implementation RFRateMe
 
