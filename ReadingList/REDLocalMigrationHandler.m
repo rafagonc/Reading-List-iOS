@@ -109,7 +109,7 @@ static NSString * REDLocalMigrationHandlerAlreadyDone = @"REDLocalMigrationHandl
         [localBook setName:[book name]];
         [localBook setPagesReadValue:[book pagesReadValue]];
         [localBook setPagesValue:[book pagesValue]];
-        [localBook setCoverImage:[book coverImage]];
+        [localBook setCoverImage:[[UIImage alloc] initWithData:[book coverData]]];
         if ([[book category] name])[localBook setCategory:[[localCategoryDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", [[book category] name]]] firstObject]];
         if ([[book author] name])[localBook setAuthor:[[localAuthorDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", [[book author] name]]] firstObject]];
     }

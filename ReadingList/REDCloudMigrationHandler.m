@@ -71,7 +71,7 @@ static NSString * REDCloudMigrationHandlerAlreadyDone = @"REDCloudMigrationHandl
         [cloudBook setName:[book name]];
         [cloudBook setPagesReadValue:[book pagesReadValue]];
         [cloudBook setPagesValue:[book pagesValue]];
-        [cloudBook setCoverImage:[book coverImage]];
+        [cloudBook setCoverImage:[[UIImage alloc] initWithData:[book coverData]]];
         [cloudBook setCategory:[[cloudCategoryDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", [[book category] name]]] firstObject]];
         [cloudBook setAuthor:[[cloudAuthorDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"name LIKE %@", [[book author] name]]] firstObject]];
     }

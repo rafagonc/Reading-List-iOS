@@ -27,11 +27,9 @@
 @interface REDLibraryView () <REDBookDatasourceDelegate, UISearchBarDelegate, REDAuthorDatasourceDelegate, REDCategoryDatasourceDelegate, REDLogDatasourceDelegate>
 
 
-#pragma mark - ui
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookRepository> bookRepository;
+@property (nonatomic,strong) NSString * searchText;
 
 #pragma mark - injected
 @property (setter=injected1:) id<REDBookDataAccessObject> bookDataAccessObject;
@@ -51,9 +49,6 @@
     
     self.type = REDLibraryTypeBooks;
     
-    [self.searchBar addToolbar];
-    self.searchBar.delegate = self;
-    
     self.datasource = [self.libraryDatasourceFactory datasourceForType:REDLibraryTypeBooks];
     self.tableView.delegate = self.datasource;
     self.tableView.dataSource = self.datasource;
@@ -65,15 +60,8 @@
 }
 
 #pragma mark - search bar protocol
--(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-}
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self updateDataWithType:self.type sync:NO];
-    [self.tableView reloadData];
-}
 -(BOOL)isSearcingBooks {
-    return self.searchBar.text.length > 0;
+    return self.searchText.length > 0;
 }
 
 #pragma mark - setter
@@ -95,6 +83,10 @@
     _editing = editing;
     [self.tableView setEditing:editing animated:YES];
     [self.datasourceDelegate libraryView:self datasource:self.datasource didChangeEditing:editing];
+}
+-(void)setSearchText:(NSString *)searchText {
+    _searchText = searchText;
+    [self updateDataWithType:self.type sync:NO];
 }
 
 #pragma mark - delegates
@@ -144,12 +136,21 @@
     [self updateDataWithType:self.type sync:YES];
 }
 
+#pragma mark - searching
+-(void)pleaseSirSearchForThisBooks:(NSString *)searchText {
+    [self setSearchText:searchText];
+}
+-(void)stopSearchNowSir {
+    [self setSearchText:nil];
+    [self updateDataWithType:self.type sync:NO];
+}
+
 #pragma mark - methods
 -(void)updateDataWithType:(REDLibraryType)type sync:(BOOL)sync{
     if (type == REDLibraryTypeCategories) [self setEditing:NO];
     NSError * error;
     if ([self isSearcingBooks]) {
-        [[REDLibraryDataProvider new] dataForType:type withNameFilter:[self.searchBar.text copy] callback:^(id data) {
+        [[REDLibraryDataProvider new] dataForType:type withNameFilter:[self.searchText copy] callback:^(id data) {
             [self.datasource setData:data];
             [self.tableView reloadData];
             [self.delegate libraryViewDidUpdate:self];

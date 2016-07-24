@@ -10,6 +10,8 @@
 #import "REDBookDataAccessObject.h"
 #import "REDAuthorDataAccessObject.h"
 #import "REDCategoryDataAccessObject.h"
+#import "REDBookCoverFlyweightFactory.h"
+#import "REDBookCoverFlyweight.h"
 
 @interface REDRLMBook ()
 
@@ -36,11 +38,12 @@
 
 #pragma mark - protocol
 -(void)setCoverImage:(UIImage *)coverImage {
-    
     self.cover = UIImagePNGRepresentation(coverImage);
 }
 -(UIImage *)coverImage {
-    return [UIImage imageWithData:self.cover];
+    UIImage * coverImage = [REDBookCoverFlyweightFactory coverImageForBook:self];
+    if (!coverImage && self.cover) [[REDBookCoverFlyweight sharedFlyweight] addCoverImage:[[UIImage alloc] initWithData:self.cover] forBook:self];
+    return [REDBookCoverFlyweightFactory coverImageForBook:self];
 }
 -(NSUInteger)percentage {
     if (self.pagesValue == 0) return 0;

@@ -64,7 +64,6 @@
 //    }
 }
 -(void)stopLoading {
-    [self setNeedsLayout];
     [self.signUpButton setTitle:@"Synced" forState:UIControlStateNormal];
     [self.animation stopAnimating];
 }

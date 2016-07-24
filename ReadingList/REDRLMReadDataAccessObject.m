@@ -70,6 +70,7 @@
 
 #pragma mark - fetching
 -(NSArray<id<REDReadProtocol>> *)logsOrderedByDate {
+    //return @[];
     return (NSArray *)[[self listWithPredicate:[NSPredicate predicateWithFormat:@"invalidated = %d AND book != nil", NO]] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
 }
 -(id<REDReadProtocol>)logWithDate:(NSDate *)date {

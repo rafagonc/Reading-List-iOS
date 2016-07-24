@@ -15,7 +15,6 @@
 #import "UISearchBar+Toolbar.h"
 #import "REDBookDataAccessObject.h"
 #import "REDTabBarCustomizer.h"
-#import "REDNewViewController.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
 #import "REDTutorialViewController.h"
@@ -29,6 +28,7 @@
 #import "REDBookPredicateViewController.h"
 #import "ZBarSDK.h"
 #import "UIColor+ReadingList.h"
+#import "REDNewOptionsViewController.h"
 #import "REDGoogleBooksQueryRequest.h"
 #import "REDServiceDispatcherProtocol.h"
 #import "REDServiceResponseProtocol.h"
@@ -43,20 +43,27 @@
 #import "REDTransactionManager.h"
 #import "REDSignUpViewController.h"
 #import "REDChartViewController.h"
+#import "UISearchBar+Toolbar.h"
+#import "UITableView+Autoresize.h"
+#import "REDAddLogViewController.h"
 
 @interface REDLibraryViewController ()
 
-<ZBarReaderDelegate, REDUserCellDelegate, REDSegmentedCellDelegate, REDLibraryCellDelegate, REDLibraryViewDatasourceDelegate>
+<ZBarReaderDelegate, REDUserCellDelegate, REDSegmentedCellDelegate, REDLibraryCellDelegate, REDLibraryViewDatasourceDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 {
     UIBarButtonItem *doneButton, *editButton;
+    UIStaticTableViewSection * section;
 }
 
-#pragma mark - ui
-@property (weak, nonatomic) IBOutlet UISearchBar *saerchBar;
+#pragma mark - table view
 @property (weak, nonatomic) IBOutlet UIStaticTableView *staticTableView;
-@property (weak, nonatomic) IBOutlet REDUserCell *userCell;
-@property (weak, nonatomic) IBOutlet REDLibraryCell *libraryCell;
+
+#pragma mark - ui
+@property (weak, nonatomic) UISearchBar *searchBar;
+@property (strong, nonatomic) UISearchController * searchController;
+@property (weak, nonatomic) REDUserCell *userCell;
+@property (weak, nonatomic) REDLibraryCell *libraryCell;
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookRepository> bookRepository;
@@ -95,6 +102,8 @@
     [self createTableView];
     
     [self setUpBarButtonItems];
+        
+    [self setUpSearchController];
     
     [REDTutorialCreator showTutorialOn:self];
 }
@@ -106,11 +115,17 @@
     [REDTabBarCustomizer customizeTabBar:self.tabBarController.tabBar];
     [self.navigationController setNavigationBarHidden:NO];
     [self.libraryCell.libraryView update];
-    [self.saerchBar setText:@""];
+    [self.searchBar setText:@""];
     self.tabBarController.tabBar.hidden = NO;
 }
 -(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    [self.staticTableView setContentOffset:CGPointMake(0, 40) animated:0];
+    [self.searchBar resignFirstResponder];
+    [self.searchController dismissViewControllerAnimated:YES completion:nil];
+    [self.userCell update];
+}
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 #pragma mark - setups
@@ -125,6 +140,23 @@
     
     UIBarButtonItem *barAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barcode"] style:UIBarButtonItemStylePlain target:self action:@selector(barAction:)];
     [self.navigationItem setRightBarButtonItems:@[addAction, barAction]];
+}
+-(void)setUpSearchController {
+    [self setDefinesPresentationContext:YES];
+    UISearchController * searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    [searchController setSearchResultsUpdater:self];
+    [searchController setDimsBackgroundDuringPresentation:NO];
+    [searchController setHidesNavigationBarDuringPresentation:YES];
+    [self.staticTableView setTableHeaderView:searchController.searchBar];
+    [self setSearchBar:searchController.searchBar];
+    [self.searchBar setDelegate:self];
+    [self.searchBar addToolbarWithCallback:^{
+        [searchController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self.searchBar setSearchBarStyle:UISearchBarStyleMinimal];
+    [self.searchBar setBackgroundColor:[UIColor whiteColor]];
+    [self.searchBar setTintColor:[UIColor red_redColor]];
+    [self setSearchController:searchController];
 }
 
 #pragma mark - orientation
@@ -147,7 +179,7 @@
 
 #pragma mark - create table view
 -(void)createTableView {
-    UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
+    section = [[UIStaticTableViewSection alloc] init];
     
     REDUserCell * userCell = [[REDUserCell alloc] init];
     [userCell setUser:self.user];
@@ -190,6 +222,7 @@
     
 }
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book error:(NSError *)error {
+    if (error)
     [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
 }
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didSelectBook:(id<REDBookProtocol>)book error:(NSError *)error {
@@ -235,6 +268,30 @@
 -(void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
     [super presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self.libraryCell.libraryView pleaseSirSearchForThisBooks:searchController.searchBar.text];
+}
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.libraryCell.libraryView stopSearchNowSir];
+}
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    if (searchBar.text.length == 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.searchBar setAlpha:0];
+        } completion:^(BOOL finished) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.searchBar setAlpha:1];
+            });
+        }];
+    };
+    [self.staticTableView setContentOffset:CGPointMake(0, 30)];
+    
+}
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    [self.searchController dismissViewControllerAnimated:YES completion:nil];
+    
+}
 
 #pragma mark - zbar
 -(void)readerControllerDidFailToRead:(ZBarReaderController *)reader withRetry:(BOOL)retry {
@@ -270,8 +327,17 @@
 
 #pragma mark - actions
 -(void)addAction:(UIBarButtonItem *)addbutton {
-    REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    REDNewOptionsViewController *newViewController = [[REDNewOptionsViewController alloc] init];
+    [newViewController whatToCreateCallback:^(REDNewOptions option) {
+        if (option == REDNewOptionsNewBook) {
+            REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        } else {
+            REDAddLogViewController *addLog = [[REDAddLogViewController alloc] init];
+            [self.navigationController pushViewController:addLog animated:YES];
+        }
+    }];
+    [self presentViewController:newViewController animated:YES completion:nil];
 }
 -(void)editAction:(UIBarButtonItem *)editAction {
     [self.libraryCell.libraryView setEditing:!self.libraryCell.libraryView.editing];

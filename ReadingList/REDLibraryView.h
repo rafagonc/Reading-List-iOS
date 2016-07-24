@@ -44,6 +44,10 @@
 #pragma mark - setter
 -(void)setType:(REDLibraryType)type andSync:(BOOL)sync;
 
+#pragma mark - searching (im high)
+-(void)pleaseSirSearchForThisBooks:(NSString *)searchText;
+-(void)stopSearchNowSir;
+
 #pragma mark - methods
 -(void)update;
 

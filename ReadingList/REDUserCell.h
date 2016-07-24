@@ -28,4 +28,6 @@
 @property (nonatomic,weak) id<REDUserProtocol> user;
 @property (nonatomic,weak) id<REDUserCellDelegate> delegate;
 
+-(void)update;
+
 @end

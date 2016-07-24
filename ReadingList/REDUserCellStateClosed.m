@@ -31,5 +31,8 @@
 -(BOOL)hidePageControl {
     return YES;
 }
+-(void)layoutViews {
+    
+}
 
 @end

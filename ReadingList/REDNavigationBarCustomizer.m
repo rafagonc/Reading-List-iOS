@@ -31,12 +31,12 @@
 
 #pragma mark - customize
 -(void)customize {
-    [_navigationBar setClipsToBounds:YES];
     _navigationBar.tintColor = [UIColor red_redColor];
     _navigationBar.titleTextAttributes = @{NSFontAttributeName : [UIFont AvenirNextBoldWithSize:18.0f],  NSForegroundColorAttributeName : [UIColor darkTextColor]};
     _navigationBar.shadowImage = [[UIImage alloc] init];
     _navigationBar.translucent = NO;
     _navigationBar.backgroundColor = [UIColor whiteColor];
+    
     
     UIImageView * view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     view.frame = CGRectMake(0, 0, 23, 23);

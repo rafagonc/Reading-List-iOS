@@ -77,12 +77,14 @@
                               ]];
     tab.delegate = self;
 
-    
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = tab;
-    self.window.backgroundColor = [UIColor colorWithWhite:.98 alpha:1];
+    self.window.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
     [self.window makeKeyAndVisible];
-    
+//    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+//    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)])statusBar.backgroundColor = [UIColor whiteColor];
+//    
     [self changes];
     
     return YES;
@@ -115,7 +117,6 @@
     if (tabBarController.selectedIndex == 0 && [[(UINavigationController *)viewController topViewController] isKindOfClass:[REDLibraryViewController class]]) {
         REDLibraryViewController * l = (REDLibraryViewController *)[(UINavigationController *)viewController topViewController];
         [l changeType:REDLibraryTypeBooks];
-        
     }
     return YES;
 }

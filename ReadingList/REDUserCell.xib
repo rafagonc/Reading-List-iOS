@@ -28,11 +28,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2FV-cd-Xuc">
                                 <rect key="frame" x="0.0" y="0.0" width="290" height="60"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpg-Hb-BYJ">
+                                        <rect key="frame" x="57" y="31" width="165" height="16.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rafagonc" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AAD-r9-LXZ">
-                                        <rect key="frame" x="56" y="0.0" width="167" height="60"/>
+                                        <rect key="frame" x="56" y="8" width="167" height="23"/>
                                         <color key="tintColor" red="0.78823529410000004" green="0.2784313725" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="kbc-rn-Fce"/>
+                                            <constraint firstAttribute="height" constant="23" id="kbc-rn-Fce"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -60,7 +66,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud-1" translatesAutoresizingMaskIntoConstraints="NO" id="uB0-e8-ppf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud-1" translatesAutoresizingMaskIntoConstraints="NO" id="uB0-e8-ppf">
                                         <rect key="frame" x="231" y="19" width="21" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="21" id="7Q8-yK-fsT"/>
@@ -91,17 +97,20 @@
                                     <constraint firstItem="uB0-e8-ppf" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" constant="19" id="Bob-YG-Y7u"/>
                                     <constraint firstItem="QNN-2f-C9G" firstAttribute="leading" secondItem="2FV-cd-Xuc" secondAttribute="leading" constant="8" id="I4f-Cv-gck"/>
                                     <constraint firstAttribute="bottom" secondItem="QQ6-oH-YUT" secondAttribute="bottom" id="MXc-DA-isH"/>
+                                    <constraint firstItem="h9M-r8-4nP" firstAttribute="leading" secondItem="qpg-Hb-BYJ" secondAttribute="trailing" constant="8" id="PXz-Gz-SII"/>
                                     <constraint firstItem="EdK-xZ-8NU" firstAttribute="leading" secondItem="uB0-e8-ppf" secondAttribute="trailing" constant="8" id="XyD-b9-gmh"/>
+                                    <constraint firstItem="qpg-Hb-BYJ" firstAttribute="leading" secondItem="QQ6-oH-YUT" secondAttribute="trailing" constant="7" id="ZXn-Mc-MAK"/>
                                     <constraint firstAttribute="bottom" secondItem="h9M-r8-4nP" secondAttribute="bottom" id="ch9-PL-JmO"/>
                                     <constraint firstItem="h9M-r8-4nP" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" id="gGT-yD-g18"/>
                                     <constraint firstAttribute="trailing" secondItem="h9M-r8-4nP" secondAttribute="trailing" id="hVr-pc-1BX"/>
                                     <constraint firstAttribute="height" constant="60" id="lD8-6f-hXJ"/>
+                                    <constraint firstItem="qpg-Hb-BYJ" firstAttribute="top" secondItem="AAD-r9-LXZ" secondAttribute="bottom" id="miH-cL-SFJ"/>
                                     <constraint firstItem="QQ6-oH-YUT" firstAttribute="leading" secondItem="2FV-cd-Xuc" secondAttribute="leading" id="nd3-dY-7rT"/>
                                     <constraint firstItem="EdK-xZ-8NU" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" constant="20" id="oy4-UD-6qi"/>
                                     <constraint firstItem="QNN-2f-C9G" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" constant="11" id="pbG-bO-4vJ"/>
                                     <constraint firstItem="AAD-r9-LXZ" firstAttribute="leading" secondItem="QNN-2f-C9G" secondAttribute="trailing" constant="8" id="tCe-Cs-fo9"/>
                                     <constraint firstAttribute="trailing" secondItem="EdK-xZ-8NU" secondAttribute="trailing" constant="15" id="tn3-f8-okT"/>
-                                    <constraint firstItem="AAD-r9-LXZ" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" id="txH-2o-o3X"/>
+                                    <constraint firstItem="AAD-r9-LXZ" firstAttribute="top" secondItem="2FV-cd-Xuc" secondAttribute="top" constant="8" id="txH-2o-o3X"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSn-p7-Adt">
@@ -147,6 +156,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="arrowImageView" destination="EdK-xZ-8NU" id="DrM-Sd-EAz"/>
+                <outlet property="booksCompletedLabel" destination="qpg-Hb-BYJ" id="4uL-bL-ofw"/>
                 <outlet property="bottomView" destination="mSn-p7-Adt" id="Cgn-tc-5FW"/>
                 <outlet property="cloudImageView" destination="uB0-e8-ppf" id="q7l-XB-32S"/>
                 <outlet property="nameTextField" destination="AAD-r9-LXZ" id="YfT-qh-iKx"/>

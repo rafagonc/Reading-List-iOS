@@ -19,7 +19,9 @@
 #import "REDNotesProtocol.h"
 #import "REDNotesDataAccessObject.h"
 
-@interface REDRLMBookDataAccessObject ()
+@interface REDRLMBookDataAccessObject () {
+    dispatch_queue_t concurrentQueryQueue;
+}
 
 @property (setter=injected7:) id<REDNotesDataAccessObject> notesDataAccessObject;
 @property (setter=injected6:) id<REDUserProtocol> user;
@@ -32,6 +34,14 @@
 @end
 
 @implementation REDRLMBookDataAccessObject
+
+#pragma mark - constructor
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        concurrentQueryQueue = dispatch_queue_create("com.ReadingList.ConcurrentQueue", DISPATCH_QUEUE_CONCURRENT);
+    } return self;
+}
 
 #pragma mark - creating
 -(id)create {

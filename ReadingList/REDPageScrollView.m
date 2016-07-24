@@ -22,6 +22,7 @@
         [self addSubview:view];
     }
     [self setDelegate:self];
+    [self setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.pageControl setNumberOfPages:views.count];
     [self setNeedsLayout];
 }

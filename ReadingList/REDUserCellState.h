@@ -14,6 +14,7 @@
 
 -(void)populateScrollView:(REDPageScrollView *)scrollView andCallback:(void(^)(CGSize contentSize))callback;
 -(BOOL)hidePageControl;
+-(void)layoutViews;
 
 @property id<REDUserCellStateDelegate> delegate;
 

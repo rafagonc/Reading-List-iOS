@@ -14,6 +14,10 @@
 
 @interface REDUserCellStateOpen () <REDSyncViewDelegate>
 
+@property (nonatomic,strong) REDSyncView * syncView;
+@property (nonatomic,strong) REDChartView * chartView;
+@property (nonatomic,strong) REDPagesInfoView * pagesInfoView;
+
 @end
 
 @implementation REDUserCellStateOpen
@@ -26,15 +30,21 @@
     [chartView setScrollEnabled:NO];
     [chartView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chartTapAction:)]];
     [chartView setTag:REDUserCellChartViewTag];
+    [self setChartView:chartView];
     
     REDSyncView * syncView = [[REDSyncView alloc] init];
     [syncView setDelegate:self];
     [syncView setTag:REDUserCellSyncViewTag];
+    [self setSyncView:syncView];
     
     REDPagesInfoView * pagesView = [[REDPagesInfoView alloc] init];
     [pagesView setTag:REDUserCellPagesInfoViewTag];
+    [self setPagesInfoView:pagesView];
     
     [scrollView setViews:@[chartView, syncView, pagesView]];
+    
+}
+-(void)layoutViews {
     
 }
 -(BOOL)hidePageControl {

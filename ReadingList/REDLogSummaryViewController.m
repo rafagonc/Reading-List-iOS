@@ -11,6 +11,7 @@
 #import "REDReadProtocol.h"
 #import "REDLogDatasourceDelegate.h"
 #import "REDBookAddViewController.h"
+#import "REDNavigationBarCustomizer.h"
 
 @interface REDLogSummaryViewController () <REDLogDatasourceDelegate>
 
@@ -59,6 +60,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
 }
 
 #pragma mark - delegate

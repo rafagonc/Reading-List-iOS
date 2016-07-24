@@ -18,6 +18,7 @@
 #import "REDUserCellStateClosed.h"
 #import "REDPageScrollView.h"
 #import "REDUserCellStateDelegate.h"
+#import "REDBookDataAccessObject.h"
 
 @interface REDUserCell ()  <UITextFieldDelegate, REDUserCellStateDelegate>
 
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowImageView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UILabel *booksCompletedLabel;
 @property (weak, nonatomic) IBOutlet REDPageScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 
@@ -39,6 +41,7 @@
 @property (setter=injected1:) id<REDAnimationFactory> animationFactory;
 @property (setter=injected2:) id<REDTransactionManager> transactionManager;
 @property (setter=injected3:) id<REDServiceDispatcherProtocol> serviceDispatcher;
+@property (setter=injected4:) id<REDBookDataAccessObject> bookDataAccessObject;
 @end
 
 @implementation REDUserCell
@@ -50,6 +53,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startLoading) name:REDStartStatusBarSyncingLoadingViewNotificationKey object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopLoading) name:REDStopStatusBarSyncingLoadingViewNotificationKey object:nil];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.open = NO;
     } return self;
 }
 
@@ -61,7 +65,9 @@
     self.nameTextField.delegate =self;
     self.scrollView.pageControl = self.pageControl;
     [self.nameTextField addToolbar];
-    self.open = NO;
+    self.booksCompletedLabel.text = [self.bookDataAccessObject booksCompletedAndTotalBooks];
+    [self.cloudImageView setImage: [user isSyncable] ?[UIImage imageNamed:@"cloud-1"] : [UIImage imageNamed:@"cloud-x"]];
+    self.open = _open;
 
 }
 -(void)setOpen:(BOOL)open {
@@ -119,6 +125,12 @@
     
 }
 
+#pragma mark - layout
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    [self.state layoutViews];
+}
+
 #pragma mark - height
 -(CGFloat)height {
     if (self.open) {
@@ -136,6 +148,11 @@
     if ([self.user isSyncable] == NO) {
         [self.delegate userCellWantsToAuthenticate:self];
     }
+}
+
+#pragma mark - update
+-(void)update {
+    [self setUser:_user];
 }
 
 #pragma mark - action

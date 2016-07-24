@@ -70,9 +70,6 @@
 
 #pragma mark - chart delegate
 -(void)dateChart:(REDDateChart *)dateChart isNearItem:(REDDateChartItem *)item inPosition:(CGPoint)position {
-    NSArray <id<REDReadProtocol>> * readsForDay = [self.readDataAccessObject listWithPredicate:[NSPredicate predicateWithFormat:@"date > %@ AND date < %@", [[item date] dateAtStartOfDay], [[item date] dateAtEndOfDay]]];
-    REDLogSummaryViewController * summary = [[REDLogSummaryViewController alloc] initWithLogs:readsForDay andDate:item.date];
-//    [self.navigationController pushViewController:summary animated:YES];
 }
 
 #pragma mark - setters
