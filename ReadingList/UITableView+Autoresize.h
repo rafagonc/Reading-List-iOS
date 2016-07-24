@@ -18,7 +18,6 @@
 
 #pragma mark - properties
 @property (nonatomic, weak) id<UITableViewKeyboardEventDelegate> keyboardEventDelegate;
-@property (nonatomic,assign) CGFloat keyboardHeight;
 
 #pragma mark - methods
 -(void)automaticallyResizeOnKeyboardEvent;

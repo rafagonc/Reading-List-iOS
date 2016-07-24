@@ -13,6 +13,7 @@
 #import "UIFont+ReadingList.h"
 #import "UIImageView+WebCache.h"
 #import "REDTransactionManager.h"
+#import "UIColor+ReadingList.h"
 
 @interface REDBookHeaderCell ()
 
@@ -62,13 +63,14 @@
     _book = book;
     [self setCoverImage:[book coverImage]];
     [self setAuthor:[book author]];
-    [self.heartButton setImage:[book loved] ? [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[UIImage imageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.heartButton setTintColor:[UIColor red_redColor]];
+    [self.heartButton setImage:[book loved] ? [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[[UIImage imageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     if ([book name].length) [self.nameTextField setText:[book name]];
 }
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
     _author = author;
     [self.authorButton setTitle:author ? [author name] : @"Tap to choose author" forState:UIControlStateNormal];
-    [self.authorButton setTitleColor:author ? [UIColor whiteColor] : [UIColor whiteColor] forState:UIControlStateNormal];
+    [self.authorButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
 }
 -(void)setCoverImage:(UIImage *)coverImage {
     _coverImage = coverImage;
@@ -132,9 +134,9 @@
 #pragma mark - height
 -(CGFloat)height {
     if (self.snippetOpen) {
-        return MAX([self.snippet boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont AvenirNextRegularWithSize:15.0f]} context:nil].size.height + self.descriptionTextView.frame.origin.y + 10, 235);
+        return MAX([self.snippet boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont AvenirNextRegularWithSize:15.0f]} context:nil].size.height + self.descriptionTextView.frame.origin.y + 10, 205);
     } else {
-        return 235;
+        return 205;
     }
 }
 

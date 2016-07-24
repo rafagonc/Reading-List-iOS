@@ -68,7 +68,7 @@
     [Localytics tagScreen:@"User Screen"];
     
     //orientation change
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
     //scroll view
     self.userScrollView.userViewDelegate = self;
@@ -124,22 +124,22 @@
     self.blurImageView.image = [self.user hasPhoto] ? [self.user cover]: nil;
 }
 
-#pragma mark - orientation
--(void)orientationChanged:(NSNotification *)ntif {
-    if ([self.navigationController.topViewController isEqual:self]) {
-        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-        if (UIInterfaceOrientationIsLandscape(orientation)) {
-            REDChartView *chartViewController = [[REDChartView alloc] init];
-            [self.navigationController pushViewController:chartViewController animated:NO];
-            self.chartViewController = chartViewController;
-        } else {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    }
-    if (self.tabBarController.selectedIndex != 2) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
-}
+//#pragma mark - orientation
+//-(void)orientationChanged:(NSNotification *)ntif {
+//    if ([self.navigationController.topViewController isEqual:self]) {
+//        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+//        if (UIInterfaceOrientationIsLandscape(orientation)) {
+//            REDChartView *chartViewController = [[REDChartView alloc] init];
+//            [self.navigationController pushViewController:chartViewController animated:NO];
+//            self.chartViewController = chartViewController;
+//        } else {
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+//        }
+//    }
+//    if (self.tabBarController.selectedIndex != 2) {
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//    }
+//}
 
 #pragma mark - delegates
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id<REDReadProtocol>)read {

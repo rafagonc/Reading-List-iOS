@@ -22,6 +22,7 @@
 #import <Crashlytics/Answers.h>
 #import "REDTransientBook.h"
 #import "REDBookDataAccessObject.h"
+#import "UIColor+ReadingList.h"
 #import "REDGoogleBooksQueryRequest.h"
 #import "REDServiceDispatcherProtocol.h"
 #import "REDServiceResponse.h"
@@ -114,6 +115,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    [self.navigationController.navigationBar setClipsToBounds:YES];
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
 }
 -(void)viewDidAppear:(BOOL)animated {
@@ -125,10 +127,12 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 
 #pragma mark - setups
 -(void)setUpBarButtonItems {
-    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneAction:)];
+    UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"check"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(doneAction:)];
+    [doneButton setTintColor:[UIColor red_redColor]];
     [self.navigationItem setRightBarButtonItem:doneButton];
     
-    UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction:)];
+    UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"cancel"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
+    [cancelButton setTintColor:[UIColor colorWithWhite:0.8 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
 }
 
