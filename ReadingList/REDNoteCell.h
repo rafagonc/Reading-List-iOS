@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "REDNotesProtocol.h"
+#import "UIStaticTableView.h"
 
 @class REDNoteCell;
 @protocol REDNoteCellDelegate <NSObject>
@@ -18,6 +19,8 @@
 @end
 
 @interface REDNoteCell : UITableViewCell
+
+<UIStaticTableViewCellCustomizationProtocol>
 
 -(void)setNote:(id<REDNotesProtocol>)note;
 

@@ -155,14 +155,6 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     self.pagesCell.delegate = self;
     [self.tableView addCell:self.pagesCell onSection:section];
     
-    for (id<REDNotesProtocol> note in self.book.notes) {
-        REDNoteCell * noteCell = [[REDNoteCell alloc] init];
-        [noteCell setNote:note];
-        [noteCell setDelegate:self];
-        [self.tableView addCell:noteCell onSection:section];
-        [self.notesCell addObject:noteCell];
-    }
-    
     self.addNoteCell = [[REDAddNoteCell alloc] init];
     [self.addNoteCell setDelegate:self];
     [self.tableView addCell:self.addNoteCell onSection:section];
@@ -173,11 +165,25 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self.progressCell setPages:[self.book pagesValue]];
     [self.tableView addCell:self.progressCell onSection:section];
     
+    for (id<REDNotesProtocol> note in self.book.notes) {
+        REDNoteCell * noteCell = [[REDNoteCell alloc] init];
+        [noteCell setNote:note];
+        [noteCell setDelegate:self];
+        [self.tableView addCell:noteCell onSection:section];
+        [self.notesCell addObject:noteCell];
+    }
+    
     [self.tableView addSection:section];
 }
 
 #pragma mark - process book
+-(void)resignAllNoteTextViews {
+    for (REDAddNoteCell * cell in self.notesCell) {
+        [cell resignFirstResponder];
+    }
+}
 -(void)processBookWithCallback:(void(^)(BOOL success, NSError * out_error))callback {
+    [self resignAllNoteTextViews];
     [self.transactionManager begin];
     NSArray *chainOfResponsilbiity = @[self.categoryCell, self.headerCell, self.pagesCell, self.progressCell];
     NSError *error;
