@@ -77,6 +77,7 @@
 -(BOOL)resignFirstResponder {
     [super resignFirstResponder];
     [self.textView resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - selected
