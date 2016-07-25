@@ -10,9 +10,10 @@
 #define REDLibraryViewController_Constants_h
 
 typedef NS_ENUM(NSUInteger, REDLibraryType) {
-    REDLibraryTypeBooks,
-    REDLibraryTypeAuthor,
-    REDLibraryTypeCategories,
+    REDLibraryTypeBooks = 0,
+    REDLibraryTypeAuthor = 1,
+    REDLibraryTypeCategories = 2,
+    REDLibraryTypeLogs = 3,
 };
 
 

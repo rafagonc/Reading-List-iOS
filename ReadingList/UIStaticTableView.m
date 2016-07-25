@@ -10,8 +10,6 @@
 
 @interface UIStaticTableViewSection ()
 
-@property (nonatomic,strong) NSMutableArray *cells;
-
 @end
 
 @implementation UIStaticTableViewSection
@@ -27,7 +25,7 @@
 
 @interface UIStaticTableView () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic,strong) NSMutableArray *sections;
+@property (nonatomic,strong) NSMutableArray<UIStaticTableViewSection *> *sections;
 
 @end
 
@@ -122,6 +120,9 @@
 -(void)removeSection:(UIStaticTableViewSection *)section {
     [self.sections removeObject:section];
     [self reloadData];
+}
+-(void)insertCell:(UITableViewCell *)cell onIndex:(NSInteger)index ofSection:(UIStaticTableViewSection *)section {
+    [section.cells insertObject:cell atIndex:0];
 }
 -(void)addCell:(UITableViewCell *)cell onSection:(UIStaticTableViewSection *)section {
     if (![section.cells containsObject:cell])

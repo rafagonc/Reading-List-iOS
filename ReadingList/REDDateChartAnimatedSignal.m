@@ -48,6 +48,7 @@
 
 #pragma mark - animate
 -(void)startInflating {
+    if (self.timer) [self.timer invalidate];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.f/60.f target:self selector:@selector(inflate) userInfo:@{} repeats:YES];
 
 }

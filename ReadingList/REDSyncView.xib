@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,43 +15,52 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lw-i3-GJL">
-                            <rect key="frame" x="100" y="33" width="120" height="120"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="186"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud-1" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-4q-cx8">
-                                    <rect key="frame" x="0.0" y="15" width="120" height="44"/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="gaT-Ph-8gE"/>
-                                    </constraints>
-                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzl-U5-8w3">
-                                    <rect key="frame" x="0.0" y="54" width="120" height="33"/>
+                                    <rect key="frame" x="132.5" y="73" width="55" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="2Mx-hw-HPh"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
                                     <state key="normal" title="Sign Up">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
                                         <action selector="syncAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="dPd-Zm-GYC"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btN-WJ-R2z">
+                                    <rect key="frame" x="0.0" y="110.5" width="320" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="aAq-4q-cx8" firstAttribute="top" secondItem="5Lw-i3-GJL" secondAttribute="top" constant="15" id="8q1-5S-wIP"/>
-                                <constraint firstAttribute="trailing" secondItem="Zzl-U5-8w3" secondAttribute="trailing" id="AjU-wX-6g9"/>
-                                <constraint firstItem="Zzl-U5-8w3" firstAttribute="centerY" secondItem="5Lw-i3-GJL" secondAttribute="centerY" constant="11" id="Iah-Ge-9Lg"/>
-                                <constraint firstItem="aAq-4q-cx8" firstAttribute="leading" secondItem="5Lw-i3-GJL" secondAttribute="leading" id="SWC-tz-teZ"/>
-                                <constraint firstAttribute="trailing" secondItem="aAq-4q-cx8" secondAttribute="trailing" id="aHF-BL-od6"/>
-                                <constraint firstItem="Zzl-U5-8w3" firstAttribute="leading" secondItem="5Lw-i3-GJL" secondAttribute="leading" id="hSB-WD-Byg"/>
+                                <constraint firstItem="Zzl-U5-8w3" firstAttribute="centerX" secondItem="5Lw-i3-GJL" secondAttribute="centerX" id="4r0-ib-t0m"/>
+                                <constraint firstItem="btN-WJ-R2z" firstAttribute="leading" secondItem="5Lw-i3-GJL" secondAttribute="leading" id="BHR-fl-0RP"/>
+                                <constraint firstAttribute="trailing" secondItem="btN-WJ-R2z" secondAttribute="trailing" id="JWE-iw-qHC"/>
+                                <constraint firstItem="Zzl-U5-8w3" firstAttribute="centerY" secondItem="5Lw-i3-GJL" secondAttribute="centerY" id="QQh-8f-uxO"/>
                                 <constraint firstAttribute="height" constant="120" id="seo-6A-89S"/>
-                                <constraint firstAttribute="width" constant="120" id="zKv-lC-RiY"/>
+                                <constraint firstItem="btN-WJ-R2z" firstAttribute="top" secondItem="Zzl-U5-8w3" secondAttribute="bottom" constant="0.80000000000000004" id="yOj-rm-pg3"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="seo-6A-89S"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="5Lw-i3-GJL" firstAttribute="centerY" secondItem="A7D-7J-UZf" secondAttribute="centerY" id="5Fo-AM-wzf"/>
-                        <constraint firstItem="5Lw-i3-GJL" firstAttribute="centerX" secondItem="A7D-7J-UZf" secondAttribute="centerX" id="NWP-ak-5lJ"/>
+                        <constraint firstItem="5Lw-i3-GJL" firstAttribute="centerY" secondItem="A7D-7J-UZf" secondAttribute="centerY" id="4b9-dS-WRV"/>
+                        <constraint firstItem="5Lw-i3-GJL" firstAttribute="centerX" secondItem="A7D-7J-UZf" secondAttribute="centerX" id="7Ad-Ia-bEg"/>
+                        <constraint firstItem="5Lw-i3-GJL" firstAttribute="top" secondItem="A7D-7J-UZf" secondAttribute="top" id="OTZ-oh-f8j"/>
+                        <constraint firstItem="5Lw-i3-GJL" firstAttribute="leading" secondItem="A7D-7J-UZf" secondAttribute="leading" id="Phi-7B-11S"/>
+                        <constraint firstAttribute="bottom" secondItem="5Lw-i3-GJL" secondAttribute="bottom" id="fuB-5H-mrG"/>
+                        <constraint firstAttribute="trailing" secondItem="5Lw-i3-GJL" secondAttribute="trailing" id="qUh-xs-5Qo"/>
                     </constraints>
                 </view>
             </subviews>
@@ -65,12 +74,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="cloudImageView" destination="aAq-4q-cx8" id="1RW-xg-MiG"/>
                 <outlet property="signUpButton" destination="Zzl-U5-8w3" id="B4u-wh-pQp"/>
             </connections>
         </view>
     </objects>
-    <resources>
-        <image name="cloud-1" width="44" height="44"/>
-    </resources>
 </document>

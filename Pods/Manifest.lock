@@ -29,13 +29,13 @@ PODS:
   - Fabric (1.6.7)
   - LLARingSpinnerView (0.1.3)
   - Localytics (4.0.0)
+  - LUNSegmentedControl (1.0.7)
   - NSDate-Escort (1.7.0)
   - OCMock (3.2.2)
   - PhotoTweaks (1.0.2)
   - Realm (0.97.1):
     - Realm/Headers (= 0.97.1)
   - Realm/Headers (0.97.1)
-  - RFRateMe (1.0.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -53,12 +53,12 @@ DEPENDENCIES:
   - Fabric
   - LLARingSpinnerView
   - Localytics
+  - LUNSegmentedControl
   - NSDate-Escort
   - OCMock
   - PhotoTweaks (~> 1.0.2)
   - Realm
   - Realm/Headers
-  - RFRateMe (~> 1.0.0)
   - SDWebImage
   - TwitterCore
   - UIActionSheet+Blocks
@@ -73,16 +73,14 @@ SPEC CHECKSUMS:
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   LLARingSpinnerView: d5f9057460e97989aff1c52a247c6acb62b8d883
   Localytics: 205a563a2761b5d844e8bba522d3c1da6cf4bc5b
+  LUNSegmentedControl: f868b1ea740f9917f05dbcb4cded85c33ec606e6
   NSDate-Escort: 3469fefab423c094108c2e864416b61b6ac0edbc
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   PhotoTweaks: e91ce097f9df435049e7c35d419f9a7749e252bc
   Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
-  RFRateMe: 07fbc459799535254db3bd221e930817e8c8ffff
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: 59ff926ff99c9b7aabb8be79190af01f33a0b833
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

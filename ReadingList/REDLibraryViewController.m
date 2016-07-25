@@ -15,7 +15,6 @@
 #import "UISearchBar+Toolbar.h"
 #import "REDBookDataAccessObject.h"
 #import "REDTabBarCustomizer.h"
-#import "REDNewViewController.h"
 #import "REDBookRepositoryFactory.h"
 #import "REDUserProtocol.h"
 #import "REDTutorialViewController.h"
@@ -29,25 +28,42 @@
 #import "REDBookPredicateViewController.h"
 #import "ZBarSDK.h"
 #import "UIColor+ReadingList.h"
+#import "REDNewOptionsViewController.h"
 #import "REDGoogleBooksQueryRequest.h"
 #import "REDServiceDispatcherProtocol.h"
 #import "REDServiceResponseProtocol.h"
 #import "UIViewController+Loading.h"
 #import "REDAuthorRemover.h"
 #import "REDAuthorCreateViewController.h"
+#import "UIStaticTableView.h"
+#import "REDUserCell.h"
+#import "REDSegmentedCell.h"
+#import "REDLibraryCell.h"
+#import "REDPhotoPickerPresenterProtocol.h"
+#import "REDTransactionManager.h"
+#import "REDSignUpViewController.h"
+#import "REDChartViewController.h"
+#import "UISearchBar+Toolbar.h"
+#import "UITableView+Autoresize.h"
+#import "REDAddLogViewController.h"
 
 @interface REDLibraryViewController ()
 
-<REDBookDatasourceDelegate, UISearchBarDelegate, REDAuthorDatasourceDelegate, REDCategoryDatasourceDelegate, ZBarReaderDelegate>
+<ZBarReaderDelegate, REDUserCellDelegate, REDSegmentedCellDelegate, REDLibraryCellDelegate, REDLibraryViewDatasourceDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 {
     UIBarButtonItem *doneButton, *editButton;
+    UIStaticTableViewSection * section;
 }
 
+#pragma mark - table view
+@property (weak, nonatomic) IBOutlet UIStaticTableView *staticTableView;
+
 #pragma mark - ui
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *saerchBar;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) UISearchBar *searchBar;
+@property (strong, nonatomic) UISearchController * searchController;
+@property (weak, nonatomic) REDUserCell *userCell;
+@property (weak, nonatomic) REDLibraryCell *libraryCell;
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookRepository> bookRepository;
@@ -60,6 +76,8 @@
 @property (setter=injected4:) id<REDLibraryDatasourceFactory> libraryDatasourceFactory;
 @property (setter=injected5:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 @property (setter=injected6:) id<REDAuthorRemover> authorRemover;
+@property (setter=injected7:) id<REDPhotoPickerPresenterProtocol> photoPicker;
+@property (setter=injected8:) id<REDTransactionManager> transactionManager;
 
 @end
 
@@ -79,32 +97,35 @@
     
     [Localytics tagScreen:@"Library Screen"];
     
-    [self.saerchBar addToolbar];
-    self.saerchBar.delegate = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
     
-    self.datasource = [self.libraryDatasourceFactory datasourceForType:REDLibraryTypeBooks];
-    self.tableView.delegate = self.datasource;
-    self.tableView.dataSource = self.datasource;
-    [self.datasource setDelegate:self];
-    [self updateDataWithType:self.segmentedControl.selectedSegmentIndex];
-    [self.tableView reloadData];
+    [self createTableView];
     
     [self setUpBarButtonItems];
+        
+    [self setUpSearchController];
     
     [REDTutorialCreator showTutorialOn:self];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar];
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
+    [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar andItem:self.navigationItem];
     [REDTabBarCustomizer customizeTabBar:self.tabBarController.tabBar];
-    [self.tableView reloadData];
-    [self.saerchBar setText:@""];
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.libraryCell.libraryView update];
+    [self.searchBar setText:@""];
+    self.tabBarController.tabBar.hidden = NO;
 }
 -(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.tableView reloadData];
-    [self updateDataWithType:self.segmentedControl.selectedSegmentIndex]; /*deixar no did */
+    [self.staticTableView setContentOffset:CGPointMake(0, 40) animated:0];
+    [self.searchBar resignFirstResponder];
+    [self.searchController dismissViewControllerAnimated:YES completion:nil];
+    [self.userCell update];
+}
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 #pragma mark - setups
@@ -120,65 +141,156 @@
     UIBarButtonItem *barAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barcode"] style:UIBarButtonItemStylePlain target:self action:@selector(barAction:)];
     [self.navigationItem setRightBarButtonItems:@[addAction, barAction]];
 }
+-(void)setUpSearchController {
+    [self setDefinesPresentationContext:YES];
+    UISearchController * searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    [searchController setSearchResultsUpdater:self];
+    [searchController setDimsBackgroundDuringPresentation:NO];
+    [searchController setHidesNavigationBarDuringPresentation:YES];
+    [self.staticTableView setTableHeaderView:searchController.searchBar];
+    [self setSearchBar:searchController.searchBar];
+    [self.searchBar setDelegate:self];
+    [self.searchBar addToolbarWithCallback:^{
+        [searchController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self.searchBar setSearchBarStyle:UISearchBarStyleMinimal];
+    [self.searchBar setBackgroundColor:[UIColor whiteColor]];
+    [self.searchBar setTintColor:[UIColor red_redColor]];
+    [self setSearchController:searchController];
+}
+
+#pragma mark - orientation
+-(void)orientationChanged:(NSNotification *)ntif {
+    if ([self.navigationController.topViewController isEqual:self]) {
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        if (UIInterfaceOrientationIsLandscape(orientation)) {
+            REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
+            [self.navigationController pushViewController:chartViewController animated:NO];
+        } else {
+            [self.navigationController setNavigationBarHidden:NO];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    }
+    if (self.tabBarController.selectedIndex != 0) {
+        [self.navigationController setNavigationBarHidden:NO];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
+#pragma mark - create table view
+-(void)createTableView {
+    section = [[UIStaticTableViewSection alloc] init];
+    
+    REDUserCell * userCell = [[REDUserCell alloc] init];
+    [userCell setUser:self.user];
+    [userCell setDelegate:self];
+    [self.staticTableView addCell:userCell onSection:section];
+    [self setUserCell:userCell];
+    
+    REDSegmentedCell * segmentedCell = [[REDSegmentedCell alloc] init];
+    [segmentedCell setDelegate:self];
+    [self.staticTableView addCell:segmentedCell onSection:section];
+    
+    REDLibraryCell * libraryCell = [[REDLibraryCell alloc] init];
+    [libraryCell setDelegate:self];
+    [libraryCell.libraryView setDatasourceDelegate:self];
+    [self.staticTableView addCell:libraryCell onSection:section];
+    [self setLibraryCell:libraryCell];
+    
+    [self.staticTableView addSection:section];
+}
 
 #pragma mark - datasource protocols
--(void)datasource:(id<REDDatasourceProtocol>)datasource didSelectBook:(id<REDBookProtocol>)book {
-    REDBookAddViewController *editViewController = [[REDBookAddViewController alloc] initWithBook:book];
-    [self.navigationController pushViewController:editViewController animated:YES];
+-(void)libraryCellDidUpdate:(REDLibraryCell *)cell {
+    [self.staticTableView reloadData];
 }
--(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book {
-    self.bookRepository = [self.bookRepositoryFactory repository];
-    [self.bookRepository removeForUser:self.user book:book callback:^() {
-        [self.tableView beginUpdates];
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:[self.datasource.data indexOfObject:book] inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-        [self updateDataWithType:self.segmentedControl.selectedSegmentIndex];
-        [self.tableView endUpdates];
-    } error:^(NSError *error) {
-        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
-    }];
-
-}
--(BOOL)datasourceCanEditBooks:(id<REDDatasourceProtocol>)datasource {
-    return YES;
-}
--(BOOL)datasourceShouldShowAccessoryType:(id<REDDatasourceProtocol>)datasource {
-    return YES;
-}
--(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource didSelectAuthor:(id<REDAuthorProtocol>)author {
-    REDBookPredicateViewController * bookPredicateViewController = [[REDBookPredicateViewController alloc] initWithPrediate:[NSPredicate predicateWithFormat:@"author.name LIKE[cd] %@", [author name]]];
-    [bookPredicateViewController setNavigationBarTitle:[author name]];
-    [self.navigationController pushViewController:bookPredicateViewController animated:YES];
-}
--(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource wantsToDeleteAuthor:(id<REDAuthorProtocol>)author {
-    __weak typeof(self) welf = self;
-    [self.authorRemover removeAuthor:author withCallback:^{
-        [welf updateDataWithType:REDLibraryTypeAuthor];
-    }];
-}
--(void)authorDatasource:(id<REDDatasourceProtocol>)authorDatasource wantsToEditAuthor:(id<REDAuthorProtocol>)author {
-    __weak typeof(self) welf = self;
-    REDAuthorCreateViewController * authorCreate = [[REDAuthorCreateViewController alloc] initWithAuthor:author];
-    [authorCreate setCallback:^(id<REDAuthorProtocol> author) {
-        [welf updateDataWithType:REDLibraryTypeAuthor];
-    }];
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:authorCreate] animated:YES completion:nil];
-}
--(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource didSelectCategory:(id<REDCategoryProtocol>)category {
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didSelectCategory:(id<REDCategoryProtocol>)category error:(NSError *)error {
     REDBookPredicateViewController * bookPredicateViewController = [[REDBookPredicateViewController alloc] initWithPrediate:[NSPredicate predicateWithFormat:@"category.name LIKE[cd] %@", [category name]]];
     [bookPredicateViewController setNavigationBarTitle:[category name]];
     [self.navigationController pushViewController:bookPredicateViewController animated:YES];
 }
-
-#pragma mark - search bar protocol
--(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource wantsToEditAuthor:(id<REDAuthorProtocol>)author error:(NSError *)error {
+    REDAuthorCreateViewController * authorCreate = [[REDAuthorCreateViewController alloc] initWithAuthor:author];
+    [authorCreate setCallback:^(id<REDAuthorProtocol> author) {
+    }];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:authorCreate] animated:YES completion:nil];
+}
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didSelectAuthor:(id<REDBookProtocol>)author error:(NSError *)error {
+    REDBookPredicateViewController * bookPredicateViewController = [[REDBookPredicateViewController alloc] initWithPrediate:[NSPredicate predicateWithFormat:@"author.name LIKE[cd] %@", [author name]]];
+    [bookPredicateViewController setNavigationBarTitle:[author name]];
+    [self.navigationController pushViewController:bookPredicateViewController animated:YES];
+    
+}
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didDeleteBook:(id<REDBookProtocol>)book error:(NSError *)error {
+    if (error)
+    [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+}
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didSelectBook:(id<REDBookProtocol>)book error:(NSError *)error {
+    REDBookAddViewController *editViewController = [[REDBookAddViewController alloc] initWithBook:book];
+    [self.navigationController pushViewController:editViewController animated:YES];
+}
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didChangeEditing:(BOOL)editing {
+    [self.navigationItem setLeftBarButtonItem:self.libraryCell.libraryView.editing ? doneButton : editButton];
+}
+-(void)segmetedCell:(REDSegmentedCell *)cell wantsToChangeType:(REDLibraryType)library {
+    [self.libraryCell.libraryView setType:library];
+}
+-(void)userCellWantsToChangePhoto:(REDUserCell *)cell {
+    __weak typeof(self) welf = self;
+    [self.photoPicker pickPhotoFromViewController:self hasPhoto:[self.user hasPhoto] withCallback:^(UIImage *image, NSError *error) {
+        if (error) {
+            [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
+        } else {
+            [welf.transactionManager begin];
+            [welf.user setPhoto:image];
+            [welf.userCell setUser:welf.user];
+            [welf.transactionManager commit];
+        }
+    }];
+}
+-(void)userCellWantsToOpen:(REDUserCell *)cell {
+    [self.staticTableView beginUpdates];
+    [UIView animateWithDuration:.6 delay:0 usingSpringWithDamping:.6 initialSpringVelocity:2 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.userCell setFrame:CGRectMake(self.userCell.frame.origin.x, self.userCell.frame.origin.y, self.userCell.frame.size.width, [self.userCell height])];
+    } completion:^(BOOL finished) {
+        
+    }];
+    [self.staticTableView endUpdates];
+}
+-(void)userCellWantsToAuthenticate:(REDUserCell *)cell {
+    REDSignUpViewController * signIn = [[REDSignUpViewController alloc] init];
+    [self presentViewController:signIn animated:YES completion:nil];
+}
+-(void)userCellWantsToOpenChart:(REDUserCell *)cell {
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+}
+-(void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+}
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self.libraryCell.libraryView pleaseSirSearchForThisBooks:searchController.searchBar.text];
+}
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.libraryCell.libraryView stopSearchNowSir];
+}
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    if (searchBar.text.length == 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.searchBar setAlpha:0];
+        } completion:^(BOOL finished) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.searchBar setAlpha:1];
+            });
+        }];
+    };
+    [self.staticTableView setContentOffset:CGPointMake(0, 30)];
+    
+}
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-}
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self updateDataWithType:self.segmentedControl.selectedSegmentIndex];
-    [self.tableView reloadData];
-}
--(BOOL)isSearcingBooks {
-    return self.saerchBar.text.length > 0;
+    [self.searchController dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 #pragma mark - zbar
@@ -215,13 +327,21 @@
 
 #pragma mark - actions
 -(void)addAction:(UIBarButtonItem *)addbutton {
-    REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    REDNewOptionsViewController *newViewController = [[REDNewOptionsViewController alloc] init];
+    [newViewController whatToCreateCallback:^(REDNewOptions option) {
+        if (option == REDNewOptionsNewBook) {
+            REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        } else {
+            REDAddLogViewController *addLog = [[REDAddLogViewController alloc] init];
+            [self.navigationController pushViewController:addLog animated:YES];
+        }
+    }];
+    [self presentViewController:newViewController animated:YES completion:nil];
 }
 -(void)editAction:(UIBarButtonItem *)editAction {
-    if (self.segmentedControl.selectedSegmentIndex != REDLibraryTypeBooks && self.segmentedControl.selectedSegmentIndex != REDLibraryTypeAuthor) return;
-    [self.tableView setEditing:!self.tableView.editing animated:YES];
-    [self.navigationItem setLeftBarButtonItem:self.tableView.editing ? doneButton : editButton];
+    [self.libraryCell.libraryView setEditing:!self.libraryCell.libraryView.editing];
+    [self.navigationItem setLeftBarButtonItem:self.libraryCell.libraryView.editing ? doneButton : editButton];
 }
 -(void)barAction:(UIBarButtonItem *)item {
     ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
@@ -231,33 +351,11 @@
     [self presentViewController:codeReader animated:YES completion:nil];
 }
 -(void)segmentedControlChanged:(UISegmentedControl *)sender {
-    self.tableView.editing = NO;
     [self.navigationItem setLeftBarButtonItem:editButton];
     [self changeType:sender.selectedSegmentIndex];
 }
 -(void)changeType:(REDLibraryType)type {
-    [self.segmentedControl setSelectedSegmentIndex:type];
-    self.datasource = [self.libraryDatasourceFactory datasourceForType:type];
-    self.tableView.delegate = self.datasource;
-    self.tableView.dataSource = self.datasource;
-    [self.datasource setDelegate:self];
-    [self updateDataWithType:type];
-    [self.tableView reloadData];
-}
-
-#pragma mark - methods
--(void)updateDataWithType:(REDLibraryType)type {
-    NSError * error;
-    if ([self isSearcingBooks]) {
-        [[REDLibraryDataProvider new] dataForType:type withNameFilter:[self.saerchBar.text copy] callback:^(id data) {
-            [self.datasource setData:data];
-        } error:&error];
-    } else {
-        [[REDLibraryDataProvider new] dataForType:type callback:^(id data) {
-            [self.datasource setData:data];
-        } error:&error];
-    }
-    if (error) [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+    [self.libraryCell.libraryView setType:type];
 }
 
 @end

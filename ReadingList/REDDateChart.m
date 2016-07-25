@@ -19,9 +19,6 @@
 @property (nonatomic,assign) CGFloat absoluteWidth;
 @property (nonatomic,assign) BOOL fitting;
 
-#pragma mark - ui
-@property (nonatomic,strong) REDDateChartAnimatedSignal *signalView;
-
 @end
 
 @implementation REDDateChart
@@ -54,10 +51,6 @@
     self.gradientEndColor = [UIColor whiteColor];
     self.fitting = YES;
     
-    self.signalView = [[REDDateChartAnimatedSignal alloc] initWithFrame:CGRectZero];
-    self.signalView.tintColor = [UIColor colorWithRed:(239/255.0) green:(81/255.0) blue:(79/255.0) alpha:1];
-    [self.signalView startInflating];
-    [self addSubview:self.signalView];
 }
 
 #pragma mark - drawing
@@ -218,22 +211,25 @@
 -(NSDate *)dateForX:(CGFloat)x {
     return nil;
 }
+
+#pragma mark - setters
 -(void)setLineColor:(UIColor *)lineColor {
     _lineColor = lineColor;
-    self.signalView.tintColor = lineColor;
 }
 
 #pragma mark - layout
 -(void)layoutSubviews {
     [super layoutSubviews];
     if (self.items.count) {
-        self.signalView.frame = CGRectMake([self xForDate:[self maxDate]] - 8, [self yForValue:[self lastDateValue]] - 8, 16, 16);        
     }
+}
+-(void)removeFromSuperview {
+    [super removeFromSuperview];
 }
 
 #pragma mark - dealloc
 -(void)dealloc {
-    [self.signalView stopInflating];
+    self.items = nil;
 }
 
 @end

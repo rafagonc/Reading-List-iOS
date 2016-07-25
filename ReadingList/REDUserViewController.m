@@ -21,7 +21,7 @@
 #import "REDAddLogViewController.h"
 #import "REDNavigationBarCustomizer.h"
 #import "UIImage+Blur.h"
-#import "REDChartViewController.h"
+#import "REDChartView.h"
 #import "REDTransactionManager.h"
 #import "REDSignUpViewController.h"
 #import "REDLogRepositoryFactory.h"
@@ -38,7 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 #pragma mark - properties
-@property (weak, nonatomic) REDChartViewController *chartViewController;
+@property (weak, nonatomic) REDChartView *chartViewController;
 
 #pragma mark - injected
 @property (setter=injected_log:) id<REDDatasourceProtocol> datasource;
@@ -129,7 +129,7 @@
     if ([self.navigationController.topViewController isEqual:self]) {
         UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
         if (UIInterfaceOrientationIsLandscape(orientation)) {
-            REDChartViewController *chartViewController = [[REDChartViewController alloc] init];
+            REDChartView *chartViewController = [[REDChartView alloc] init];
             [self.navigationController pushViewController:chartViewController animated:NO];
             self.chartViewController = chartViewController;
         } else {

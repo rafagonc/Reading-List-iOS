@@ -69,6 +69,7 @@
         id<REDReadProtocol> read = self.logs[indexPath.row];
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.readDataAccessObject remove:read];
         [self.delegate datasource:self didDeleteRead:read];
         [tableView endUpdates];
     }

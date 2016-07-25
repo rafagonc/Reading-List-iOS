@@ -23,6 +23,7 @@
 -(_Nullable id<REDAuthorProtocol>)author;
 -(NSMutableArray <id<REDNotesProtocol>> * _Nullable )notes;
 -(BOOL)hasRate;
+-(NSData * _Nullable)coverData;
 
 #pragma mark - properties
 @property (nonatomic) BOOL unprocessed;

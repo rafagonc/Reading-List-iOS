@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "REDDatasourceProtocol.h"
-#import "REDBookProtocol.h"
+#import "REDReadProtocol.h"
 
 @protocol REDLogDatasourceDelegate <NSObject>
 

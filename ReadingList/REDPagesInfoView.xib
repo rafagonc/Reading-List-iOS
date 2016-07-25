@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,34 +11,33 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="218"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4F-k2-wCP">
-                    <rect key="frame" x="0.0" y="217" width="320" height="1"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="sZi-5m-tOB"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvQ-e8-ma9">
-                    <rect key="frame" x="8" y="87" width="304" height="43"/>
+                    <rect key="frame" x="8" y="78.5" width="304" height="60"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVP-ND-E2L">
-                            <rect key="frame" x="8" y="0.0" width="288" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVP-ND-E2L">
+                            <rect key="frame" x="8" y="0.0" width="288" height="30"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR7-pl-Q3Z">
-                            <rect key="frame" x="8" y="22" width="288" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XR7-pl-Q3Z">
+                            <rect key="frame" x="8" y="30" width="288" height="30"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="XR7-pl-Q3Z" firstAttribute="leading" secondItem="nvQ-e8-ma9" secondAttribute="leading" constant="8" id="3Ug-CD-a45"/>
+                        <constraint firstItem="XR7-pl-Q3Z" firstAttribute="height" secondItem="gVP-ND-E2L" secondAttribute="height" id="Efg-RA-TKZ"/>
+                        <constraint firstAttribute="bottom" secondItem="XR7-pl-Q3Z" secondAttribute="bottom" id="RtO-w3-qKw"/>
+                        <constraint firstItem="gVP-ND-E2L" firstAttribute="leading" secondItem="nvQ-e8-ma9" secondAttribute="leading" constant="8" id="Ual-hD-5aO"/>
                         <constraint firstAttribute="height" constant="178" id="Yrg-XF-TC6"/>
+                        <constraint firstItem="gVP-ND-E2L" firstAttribute="top" secondItem="nvQ-e8-ma9" secondAttribute="top" id="a9y-ZK-Dfm"/>
+                        <constraint firstAttribute="trailing" secondItem="gVP-ND-E2L" secondAttribute="trailing" constant="8" id="aoc-tU-bpz"/>
+                        <constraint firstAttribute="trailing" secondItem="XR7-pl-Q3Z" secondAttribute="trailing" constant="8" id="kln-0K-KyI"/>
+                        <constraint firstItem="XR7-pl-Q3Z" firstAttribute="top" secondItem="gVP-ND-E2L" secondAttribute="bottom" id="rcb-kJ-Nae"/>
                         <constraint firstAttribute="width" constant="304" id="swM-1M-aPe"/>
-                        <constraint firstAttribute="height" constant="43" id="wvg-uZ-hng"/>
+                        <constraint firstAttribute="height" constant="60" id="wvg-uZ-hng"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -50,14 +49,11 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="T4F-k2-wCP" secondAttribute="bottom" id="3Qa-K0-nUP"/>
                 <constraint firstItem="nvQ-e8-ma9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="61F-aO-PkV"/>
                 <constraint firstItem="nvQ-e8-ma9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Snn-We-eJE"/>
                 <constraint firstItem="nvQ-e8-ma9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UKo-4I-UyE"/>
                 <constraint firstItem="nvQ-e8-ma9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fFV-y4-q5s"/>
                 <constraint firstAttribute="trailing" secondItem="nvQ-e8-ma9" secondAttribute="trailing" constant="8" id="mhs-Ng-LW3"/>
-                <constraint firstAttribute="trailing" secondItem="T4F-k2-wCP" secondAttribute="trailing" id="njP-qe-XfN"/>
-                <constraint firstItem="T4F-k2-wCP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y1J-DJ-vA4"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^UISearchBarDoneCallback)();
+
 @interface UISearchBar (Toolbar)
 
 -(void)addToolbar;
+-(void)addToolbarWithCallback:(UISearchBarDoneCallback)callback;
 
 @end

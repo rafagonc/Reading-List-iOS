@@ -14,13 +14,13 @@ pod 'UIAlertView+Blocks'
 pod 'UIActionSheet+Blocks'
 pod 'NSDate-Escort'
 pod 'Realm'
-pod "RFRateMe", "~> 1.0.0"
 pod "Digits"
 pod "Crashlytics"
 pod "TwitterCore"
 pod "Fabric"
 pod 'PhotoTweaks', '~> 1.0.2'
 pod "Localytics"
+pod 'LUNSegmentedControl'
 
 end
 

@@ -31,7 +31,7 @@
 -(void)startWithRequest:(id<REDRequestProtocol>)request withCompletion:(void (^)(BOOL))completion {
     self.request = request;
     [self call:^(id responseObject, NSError *error) {
-        BOOL success = responseObject[@"success"];
+        BOOL success = [responseObject[@"success"] boolValue];
         REDServiceResponse * response = [[REDServiceResponse alloc] init];
         if (success) {
             [response setSuccess:YES];

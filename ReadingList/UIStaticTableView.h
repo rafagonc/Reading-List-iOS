@@ -20,6 +20,8 @@
 @property (nonatomic,strong) NSString *headerName;
 @property (nonatomic,strong) NSString *footerName;
 
+@property (nonatomic,strong) NSMutableArray *cells;
+
 @end
 
 @interface UIStaticTableView : UITableView
@@ -33,6 +35,7 @@
 -(void)addCell:(UITableViewCell *)cell onSection:(UIStaticTableViewSection *)section animated:(BOOL)animated ;
 -(void)removeCell:(UITableViewCell *)cell ofSection:(UIStaticTableViewSection *)section;
 -(void)removeCell:(UITableViewCell *)cell ofSection:(UIStaticTableViewSection *)section animated:(BOOL)animated;
+-(void)insertCell:(UITableViewCell *)cell onIndex:(NSInteger)index ofSection:(UIStaticTableViewSection *)section;
 -(void)clean;
 
 @end

@@ -14,7 +14,8 @@
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet HCSStarRatingView *ratingView;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *ratingImageView;
 
 @end
 
@@ -22,20 +23,10 @@
 
 -(void)setBook:(id<REDTopRatedBook>)book {
     _book = book;
-    self.ratingView.enabled = NO;
-    self.ratingView.value = [book rating];
+    self.ratingLabel.text = [NSString stringWithFormat:@"%.1f",[book rating]];
     self.nameLabel.text = [book name];
-    
-    /* BEING LAZY */
-    UIImage *starImage = [UIImage imageNamed:@"star-template"];
-    starImage = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImage *highlightedStarImage = [UIImage imageNamed:@"star-highlighted-template"];
-    highlightedStarImage = [highlightedStarImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self.ratingView.emptyStarImage = starImage;
-    self.ratingView.filledStarImage = highlightedStarImage;
-    self.ratingView.tintColor = [UIColor red_redColor];
-    [self.ratingView addTarget:self action:@selector(ratingDidChangeValue:) forControlEvents:UIControlEventValueChanged];
-    /* DONT FEEL BAD, YOU ARE IN A REALLY BAD HANGOVER */
+    [self.ratingImageView setTintColor:[UIColor red_redColor]];
+    [self.ratingImageView setImage:[[UIImage imageNamed:@"starf"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
 }
 
 @end
