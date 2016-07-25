@@ -38,6 +38,7 @@
 #import "REDNoteCell.h"
 #import "REDNotesDataAccessObject.h"
 #import "REDNoteRepositoryFactory.h"
+#import "UITableView+Autoresize.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -135,6 +136,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 #pragma mark - table view
 -(void)createTableView {
     [self.tableView clean];
+    [self.tableView automaticallyResizeOnKeyboardEvent];
     
     UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
     
