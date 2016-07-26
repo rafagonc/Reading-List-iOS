@@ -21,10 +21,8 @@
 
 @property (nonatomic, weak) id<REDPageProgressCellDelegate> delegate;
 @property (nonatomic, weak) id<REDBookProtocol> book;
-@property (nonatomic, assign) BOOL didChangeRate;
 @property (nonatomic, assign) NSUInteger pages;
 @property (nonatomic, assign) NSUInteger pagesRead;
 @property (nonatomic, assign) NSInteger diff;
-@property (nonatomic, readonly) CGFloat rating;
 
 @end

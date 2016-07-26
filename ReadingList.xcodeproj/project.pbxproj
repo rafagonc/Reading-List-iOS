@@ -33,8 +33,6 @@
 
 /* Begin PBXBuildFile section */
 		2A0E34691D177F7600D7077C /* REDRLMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34681D177F7600D7077C /* REDRLMNote.m */; };
-		2A0E346C1D17850E00D7077C /* REDAddNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E346B1D17850E00D7077C /* REDAddNoteCell.m */; };
-		2A0E346F1D17852900D7077C /* REDAddNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0E346E1D17852900D7077C /* REDAddNoteCell.xib */; };
 		2A0E34731D17892700D7077C /* REDNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34711D17892700D7077C /* REDNoteCell.m */; };
 		2A0E34741D17892700D7077C /* REDNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0E34721D17892700D7077C /* REDNoteCell.xib */; };
 		2A0E34791D1789A300D7077C /* REDAddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34771D1789A300D7077C /* REDAddNoteViewController.m */; };
@@ -377,9 +375,6 @@
 		2A0E34661D177F6A00D7077C /* REDNotesProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNotesProtocol.h; sourceTree = "<group>"; };
 		2A0E34671D177F7600D7077C /* REDRLMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMNote.h; sourceTree = "<group>"; };
 		2A0E34681D177F7600D7077C /* REDRLMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMNote.m; sourceTree = "<group>"; };
-		2A0E346A1D17850E00D7077C /* REDAddNoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAddNoteCell.h; sourceTree = "<group>"; };
-		2A0E346B1D17850E00D7077C /* REDAddNoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAddNoteCell.m; sourceTree = "<group>"; };
-		2A0E346E1D17852900D7077C /* REDAddNoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDAddNoteCell.xib; sourceTree = "<group>"; };
 		2A0E34701D17892700D7077C /* REDNoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNoteCell.h; sourceTree = "<group>"; };
 		2A0E34711D17892700D7077C /* REDNoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDNoteCell.m; sourceTree = "<group>"; };
 		2A0E34721D17892700D7077C /* REDNoteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDNoteCell.xib; sourceTree = "<group>"; };
@@ -1054,16 +1049,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A0E346D1D17851200D7077C /* Add Note Cell */ = {
-			isa = PBXGroup;
-			children = (
-				2A0E346A1D17850E00D7077C /* REDAddNoteCell.h */,
-				2A0E346B1D17850E00D7077C /* REDAddNoteCell.m */,
-				2A0E346E1D17852900D7077C /* REDAddNoteCell.xib */,
-			);
-			name = "Add Note Cell";
-			sourceTree = "<group>";
-		};
 		2A0E34751D17893900D7077C /* Note Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,7 +1215,6 @@
 				2ADA28771C59AD8E0068CCAC /* Choose Date Cell */,
 				2A6602061CC431A500B6D835 /* Top Rated Cell */,
 				2A4393701D013C1F008AB65E /* Transient Book Collection Cell */,
-				2A0E346D1D17851200D7077C /* Add Note Cell */,
 				2A0E34751D17893900D7077C /* Note Cell */,
 				2A974E161D3AFA3D00842266 /* User Cell */,
 				2A974E1C1D3B01DA00842266 /* Library Cell */,
@@ -4139,7 +4123,6 @@
 				2A746DE61CD6ED5E0061F2B9 /* REDServerMetadata.plist in Resources */,
 				2A4393651D01344B008AB65E /* REDBookFindTutorialViewController.xib in Resources */,
 				2A5C69D71D0BDC9800D10A2F /* zbar-samples.png in Resources */,
-				2A0E346F1D17852900D7077C /* REDAddNoteCell.xib in Resources */,
 				44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */,
 				2A6602051CC431A300B6D835 /* REDTopRatedCell.xib in Resources */,
 				2A74EC2E1BCDE9A7005F5E74 /* REDBookCategoryCell.xib in Resources */,
@@ -4374,7 +4357,6 @@
 				2A438B371CF8CEE700BF1ACD /* REDMailShareImpl.m in Sources */,
 				2A61F7D11C4DC4F40083B768 /* REDLocalMigrationHandler.m in Sources */,
 				2A5C69541D0265DC00D10A2F /* REDBookCoverInlineView.m in Sources */,
-				2A0E346C1D17850E00D7077C /* REDAddNoteCell.m in Sources */,
 				2ADCC07C1BD1FE7E009F638A /* REDAbstractClassMethodCallingException.m in Sources */,
 				2ABB97081CE78B6D001C1E29 /* REDListLogsCall.m in Sources */,
 				2A74EC921BD0A8C4005F5E74 /* REDServiceCallFactory.m in Sources */,

@@ -120,7 +120,7 @@
     self.tabBarController.tabBar.hidden = NO;
 }
 -(void)viewDidAppear:(BOOL)animated {
-    [self.staticTableView setContentOffset:CGPointMake(0, 40) animated:YES];
+    //[self.staticTableView setContentOffset:CGPointMake(0, 40) animated:YES];
     [self.searchBar resignFirstResponder];
     [self.searchController dismissViewControllerAnimated:YES completion:nil];
     [self.userCell update];

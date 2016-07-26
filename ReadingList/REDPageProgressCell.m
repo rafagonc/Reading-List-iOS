@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentPageLabel;
 @property (weak, nonatomic) IBOutlet UITextField *currentPageTextField;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet HCSStarRatingView *ratingView;
 
 #pragma mark - injected
 @property (setter=injected_pages:) id<REDValidator> pagesValidator;
@@ -39,19 +38,8 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self.slider addTarget:self action:@selector(sliderEditEnd:) forControlEvents:UIControlEventTouchUpInside];
-        self.didChangeRate = NO;
         self.currentPageTextField.delegate = self;
         [self.currentPageTextField addToolbar];
-        
-        //rating setup
-        UIImage *starImage = [UIImage imageNamed:@"stare"];
-        starImage = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        UIImage *highlightedStarImage = [UIImage imageNamed:@"starf"];
-        highlightedStarImage = [highlightedStarImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        self.ratingView.emptyStarImage = starImage;
-        self.ratingView.filledStarImage = highlightedStarImage;
-        self.ratingView.tintColor = [UIColor red_redColor];
-        [self.ratingView addTarget:self action:@selector(ratingDidChangeValue:) forControlEvents:UIControlEventValueChanged];
         
     } return self;
 }
@@ -62,7 +50,6 @@
     self.pages = [book pagesValue];
     self.pagesRead = [book pagesReadValue];
     self.pagedReadInitialValue = [book pagesReadValue];
-    self.ratingView.value = [book rate];
     self.slider.minimumValue = 0.0f;
     self.slider.maximumValue = self.pages;
     self.slider.value = (CGFloat)[book pagesReadValue];
@@ -71,11 +58,6 @@
 -(void)setPages:(NSUInteger)pages {
     _pages = pages;
     self.slider.maximumValue = (CGFloat)self.pages;
-}
-
-#pragma mark - getters
--(CGFloat)rating {
-    return self.ratingView.value;
 }
 
 #pragma mark - actions
@@ -106,7 +88,6 @@
 #pragma mark - chain of responsiblity
 -(BOOL)setNewValuesOnBook:(id<REDBookProtocol>)book error:(NSError *__autoreleasing *)error {
     [book setPagesReadValue:self.pagesRead];
-    [book setRate:self.ratingView.value];
     if (self.pages == self.pagesRead) {
         [Answers logContentViewWithName:@"Book"
                             contentType:@"Completed"
@@ -123,11 +104,6 @@
     if (self.pages == 0) {
         [self.delegate pageProgressCell:self tryingToSetPagesWhileIsZeroForBook:self.book];
     }
-}
-
-#pragma mark - delegate
--(void)ratingDidChangeValue:(HCSStarRatingView *)ratingView {
-    if (ratingView.value > 0) self.didChangeRate = YES;
 }
 
 #pragma mark - helper methods
