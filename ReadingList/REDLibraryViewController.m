@@ -124,6 +124,7 @@
     [self.searchBar resignFirstResponder];
     [self.searchController dismissViewControllerAnimated:YES completion:nil];
     [self.userCell update];
+    [self.libraryCell.libraryView sync];
 }
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];

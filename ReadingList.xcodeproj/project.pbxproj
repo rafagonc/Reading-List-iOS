@@ -114,7 +114,6 @@
 		2A5C69631D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69621D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m */; };
 		2A5C69671D0BAD5700D10A2F /* REDBookPredicateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69661D0BAD5700D10A2F /* REDBookPredicateViewController.m */; };
 		2A5C69691D0BAF5D00D10A2F /* REDBookPredicateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A5C69681D0BAF5D00D10A2F /* REDBookPredicateViewController.xib */; };
-		2A5C69D21D0BDC9800D10A2F /* libzbar-sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5C69CB1D0BDC9800D10A2F /* libzbar-sim.a */; };
 		2A5C69D41D0BDC9800D10A2F /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5C69CE1D0BDC9800D10A2F /* zbar-back.png */; };
 		2A5C69D51D0BDC9800D10A2F /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A5C69CF1D0BDC9800D10A2F /* zbar-help.html */; };
 		2A5C69D61D0BDC9800D10A2F /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5C69D01D0BDC9800D10A2F /* zbar-helpicons.png */; };
@@ -1026,7 +1025,6 @@
 				44F31CFB1CFC777D0067DA55 /* FBSDKLoginKit.framework in Frameworks */,
 				2A5C69D91D0BDD3D00D10A2F /* libzbar.a in Frameworks */,
 				44F31CFC1CFC777D0067DA55 /* FBSDKShareKit.framework in Frameworks */,
-				2A5C69D21D0BDC9800D10A2F /* libzbar-sim.a in Frameworks */,
 				60FBA49CA798989170203D7E /* libPods-ReadingList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

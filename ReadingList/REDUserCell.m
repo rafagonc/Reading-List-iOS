@@ -61,7 +61,7 @@
 -(void)setUser:(id<REDUserProtocol>)user {
     _user = user;
     self.userImageView.image = [user photo];
-    self.nameTextField.text = [user name];
+    self.nameTextField.text = [user name] ? [user name] : @"Book Reader";
     self.nameTextField.delegate =self;
     self.scrollView.pageControl = self.pageControl;
     [self.nameTextField addToolbar];

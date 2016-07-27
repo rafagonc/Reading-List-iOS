@@ -36,8 +36,8 @@
             NSDictionary * note_dict = [responseObject objectForKey:@"data"];
             REDUpdateNoteRequest * create_note_request = (REDUpdateNoteRequest *)request;
             [self.transactionManager begin];
-            [create_note_request.note setText:[note_dict objectForKey:@"text"]];
-            [create_note_request.note setIdentifier:[[note_dict objectForKey:@"identifier"] integerValue]];
+            //[create_note_request.note setText:[note_dict objectForKey:@"text"]];
+            //[create_note_request.note setIdentifier:[[note_dict objectForKey:@"identifier"] integerValue]];
             [self.transactionManager commit];
             [response setData:create_note_request.note];
             [self success:response];

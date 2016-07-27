@@ -38,6 +38,7 @@
 #import "REDNoteCell.h"
 #import "REDNotesDataAccessObject.h"
 #import "REDNoteRepositoryFactory.h"
+#import "UITableView+Autoresize.h"
 
 typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     REDBookAddViewControllerActionTypeAdding,
@@ -62,6 +63,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (nonatomic,strong) REDPageProgressCell *progressCell;
 @property (nonatomic,  weak) IBOutlet UIStaticTableView *tableView;
 @property (nonatomic,  weak) IBOutlet UILabel *quoteLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
 
 #pragma mark - injected
 @property (setter=injected_name:) id<REDValidator> bookNameValidator;
@@ -105,6 +107,10 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 -(void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.actionType == REDBookAddViewControllerActionTypeAdding || self.actionType == REDBookAddViewControllerActionTypeTransientBook ? @"New Book" : @"Edit Book";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
+    
     [self createTableView];
     if ([self.book snippet].length == 0 && self.actionType == REDBookAddViewControllerActionTypeEditing) [self callServiceForBookDescription];
     [self setUpBarButtonItems];
@@ -136,6 +142,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 #pragma mark - table view
 -(void)createTableView {
     [self.tableView clean];
+    [self.tableView automaticallyResizeOnKeyboardEvent];
     
     UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
     
@@ -156,6 +163,12 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     self.pagesCell.delegate = self;
     [self.tableView addCell:self.pagesCell onSection:section];
     
+    self.progressCell = [[REDPageProgressCell alloc] init];
+    [self.progressCell setBook:self.book];
+    [self.progressCell setDelegate:self];
+    [self.progressCell setPages:[self.book pagesValue]];
+    [self.tableView addCell:self.progressCell onSection:section];
+    
     for (id<REDNotesProtocol> note in self.book.notes) {
         REDNoteCell * noteCell = [[REDNoteCell alloc] init];
         [noteCell setNote:note];
@@ -164,17 +177,17 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         [self.notesCell addObject:noteCell];
     }
     
-    self.progressCell = [[REDPageProgressCell alloc] init];
-    [self.progressCell setBook:self.book];
-    [self.progressCell setDelegate:self];
-    [self.progressCell setPages:[self.book pagesValue]];
-    [self.tableView addCell:self.progressCell onSection:section];
-    
     [self.tableView addSection:section];
 }
 
 #pragma mark - process book
+-(void)resignAllNoteTextViews {
+    for (REDNoteCell * cell in self.notesCell) {
+        [cell resignFirstResponder];
+    }
+}
 -(void)processBookWithCallback:(void(^)(BOOL success, NSError * out_error))callback {
+    [self resignAllNoteTextViews];
     [self.transactionManager begin];
     NSArray *chainOfResponsilbiity = @[self.categoryCell, self.headerCell, self.pagesCell, self.progressCell];
     NSError *error;
@@ -280,6 +293,10 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     [self presentViewController:activityController animated:YES completion:nil];
 }
+-(void)noteCell:(REDNoteCell *)cell didUpdateNote:(id<REDNotesProtocol>)note {
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
 -(void)noteCell:(REDNoteCell *)cell wantsToOpenNote:(id<REDNotesProtocol>)note {
     REDAddNoteViewController * noteViewController = [[REDAddNoteViewController alloc] initWithBook:self.book andNote:note];
     noteViewController.delegate = self;
@@ -355,6 +372,17 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         [self.bookDataAccessObject remove:self.book];
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - keyboard
+-(void)keyboardChangeFrame:(NSNotification *)notif {
+    CGRect rect = [[[notif userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    self.tableViewBottomConstraint.constant = rect.size.height;
+    [self.view layoutIfNeeded];
+}
+-(void)keyboardDidHide:(NSNotification *)notif {
+    self.tableViewBottomConstraint.constant = 0;
+    [self.view layoutIfNeeded];
 }
 
 #pragma mark - dealloc

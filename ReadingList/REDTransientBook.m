@@ -62,5 +62,11 @@
 -(BOOL)loved {
     return NO;
 }
+-(double)rate {
+    return 0.0;
+}
+-(BOOL)hasRate {
+    return NO;
+}
 
 @end

@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="quoteLabel" destination="9nn-8E-RR5" id="bOQ-0c-EDe"/>
                 <outlet property="tableView" destination="7Jk-oT-DeA" id="Z8H-Iv-AUm"/>
+                <outlet property="tableViewBottomConstraint" destination="mQm-ML-XuO" id="JnF-Is-Z89"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
