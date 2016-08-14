@@ -44,7 +44,9 @@
 }
 -(void)librarySegmentedControlDatasource:(id<REDLUNSegmentedControlDatasource>)datasource willChooseIndex:(NSInteger)index {
     [self.delegate segmetedCell:self willChangeType:index];
-
+}
+-(void)changeSelectedSegmentedControl:(NSUInteger)index {
+    [self.segmentedControl setCurrentState:index];
 }
 
 @end

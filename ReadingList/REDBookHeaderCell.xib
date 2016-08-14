@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -129,6 +129,14 @@
                             <action selector="shareProgressAction:" destination="gTc-jG-T6s" eventType="touchUpInside" id="JMb-Aj-91Y"/>
                         </connections>
                     </button>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w2B-FY-MwS">
+                        <rect key="frame" x="105" y="15" width="110" height="140"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="QXh-Iz-iUP"/>
+                            <constraint firstAttribute="height" constant="140" id="qWf-Xw-hJ4"/>
+                        </constraints>
+                    </imageView>
                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UI8-8Y-c67">
                         <rect key="frame" x="185" y="253" width="20" height="20"/>
                     </activityIndicatorView>
@@ -148,6 +156,7 @@
                     <constraint firstItem="Jue-sH-oXX" firstAttribute="width" secondItem="OJk-5y-tm3" secondAttribute="width" id="2eH-G7-0zY"/>
                     <constraint firstItem="OJk-5y-tm3" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" constant="8" id="4Nx-X1-EA5"/>
                     <constraint firstAttribute="trailing" secondItem="Jue-sH-oXX" secondAttribute="trailing" constant="8" id="6zb-5c-Qu5"/>
+                    <constraint firstItem="w2B-FY-MwS" firstAttribute="centerX" secondItem="PvH-34-62f" secondAttribute="centerX" id="9kI-sw-2yO"/>
                     <constraint firstItem="LIu-cl-B3Q" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" constant="11" id="Ihl-A9-qxo"/>
                     <constraint firstItem="Vfq-a5-CC9" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" constant="7" id="K2u-X9-IS1"/>
                     <constraint firstItem="Jue-sH-oXX" firstAttribute="leading" secondItem="OJk-5y-tm3" secondAttribute="trailing" constant="8" id="OWe-Mb-5cO"/>
@@ -160,6 +169,7 @@
                     <constraint firstAttribute="bottom" secondItem="rV8-fE-MnP" secondAttribute="bottom" constant="8" id="dPW-fQ-kVx"/>
                     <constraint firstAttribute="bottom" secondItem="Jue-sH-oXX" secondAttribute="bottom" constant="8" id="f37-X4-bHQ"/>
                     <constraint firstItem="wS7-tS-Da0" firstAttribute="leading" secondItem="PvH-34-62f" secondAttribute="leading" constant="12" id="hfE-7K-H5R"/>
+                    <constraint firstItem="w2B-FY-MwS" firstAttribute="top" secondItem="PvH-34-62f" secondAttribute="top" constant="15" id="ipH-oa-ZoQ"/>
                     <constraint firstItem="Vfq-a5-CC9" firstAttribute="top" secondItem="LIu-cl-B3Q" secondAttribute="bottom" constant="8" id="k2y-8c-JW4"/>
                     <constraint firstItem="Jue-sH-oXX" firstAttribute="height" secondItem="OJk-5y-tm3" secondAttribute="height" id="kzH-tb-oNp"/>
                     <constraint firstItem="Yy9-eM-ghQ" firstAttribute="centerY" secondItem="LIu-cl-B3Q" secondAttribute="centerY" constant="2" id="nWK-be-Y4a"/>
@@ -180,6 +190,7 @@
                 <outlet property="addNoteButton" destination="OJk-5y-tm3" id="y1u-sM-g8f"/>
                 <outlet property="authorButton" destination="wS7-tS-Da0" id="I9o-0l-zht"/>
                 <outlet property="coverButton" destination="9Q5-zk-2v9" id="iEK-vm-SKt"/>
+                <outlet property="coverImageView" destination="w2B-FY-MwS" id="pBX-QN-1lR"/>
                 <outlet property="descriptionTextView" destination="rV8-fE-MnP" id="YNr-XB-WZe"/>
                 <outlet property="heartButton" destination="Yy9-eM-ghQ" id="tpp-2j-7lS"/>
                 <outlet property="nameTextField" destination="LIu-cl-B3Q" id="Ndb-1k-CFz"/>

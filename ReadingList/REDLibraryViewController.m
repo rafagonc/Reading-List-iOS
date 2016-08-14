@@ -64,6 +64,7 @@
 @property (strong, nonatomic) UISearchController * searchController;
 @property (weak, nonatomic) REDUserCell *userCell;
 @property (weak, nonatomic) REDLibraryCell *libraryCell;
+@property (weak, nonatomic) REDSegmentedCell *segmentedCell;
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookRepository> bookRepository;
@@ -192,6 +193,7 @@
     REDSegmentedCell * segmentedCell = [[REDSegmentedCell alloc] init];
     [segmentedCell setDelegate:self];
     [self.staticTableView addCell:segmentedCell onSection:section];
+    [self setSegmentedCell:segmentedCell];
     
     REDLibraryCell * libraryCell = [[REDLibraryCell alloc] init];
     [libraryCell setDelegate:self];
@@ -358,6 +360,7 @@
 }
 -(void)changeType:(REDLibraryType)type {
     [self.libraryCell.libraryView setType:type];
+    [self.segmentedCell changeSelectedSegmentedControl:type];
 }
 
 @end
