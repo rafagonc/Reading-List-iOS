@@ -42,6 +42,13 @@
     self.tableView.delegate = self;
     
     [self updateData];
+    [self setupBarButtonItems];
+}
+
+#pragma mark - setups
+-(void)setupBarButtonItems {
+    UIBarButtonItem * addCategory = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCategoryAction:)];
+    [self.navigationItem setRightBarButtonItem:addCategory];
 }
 
 #pragma mark - methods
@@ -56,6 +63,11 @@
     if (self.callback) self.callback(category);
     self.callback = nil;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - action
+-(void)addCategoryAction:(UIBarButtonItem *)item {
+    
 }
 
 #pragma mark - dealloc

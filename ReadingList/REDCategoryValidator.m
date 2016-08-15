@@ -17,6 +17,12 @@
         if (error) *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"Choose a category!"}];
         return NO;
     }
+    
+    if ([category name].length == 0 || [category name] == nil) {
+        if (error) *error = [NSError errorWithDomain:REDErrorDomain code:101 userInfo:@{NSLocalizedDescriptionKey : @"You need to choose a name!"}];
+        return NO;
+    }
+    
     return YES;
 }
 

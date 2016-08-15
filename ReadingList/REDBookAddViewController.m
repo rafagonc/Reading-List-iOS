@@ -288,9 +288,10 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self presentViewController:noteViewController animated:YES completion:nil];
 }
 -(void)bookHeaderCellWantsToShareProgress:(REDBookHeaderCell *)cell {
+    
     [Localytics tagEvent:@"Share Progress"];
     NSMutableArray *sharingItems = [NSMutableArray new];
-    [sharingItems addObject:[NSString stringWithFormat:@"%@/%@ completed",@([self.book pagesReadValue]), @([self.book pagesValue])]];
+    [sharingItems addObject:[NSString stringWithFormat:@"%@/%@ completed - %@",@([self.book pagesReadValue]), @([self.book pagesValue]), [self.book name]]];
     if ([self.book coverImage]) [sharingItems addObject:[self.book coverImage]];
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     [self presentViewController:activityController animated:YES completion:nil];
