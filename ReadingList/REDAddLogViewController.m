@@ -51,6 +51,7 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [Localytics tagScreen:self.title];
     self.processors = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
     [self createTableView];
 }

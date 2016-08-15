@@ -50,6 +50,7 @@
 
 #pragma mark - methods
 -(void)update;
+-(void)sync;
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

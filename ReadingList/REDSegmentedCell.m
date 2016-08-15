@@ -30,6 +30,7 @@
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.datasource setDelegate:self];
+        [self.segmentedControl setClipsToBounds:NO];
         [self.segmentedControl setSelectorViewColor:[UIColor red_redColor]];
         [self.segmentedControl setDelegate:self.datasource];
         [self.segmentedControl setDataSource:self.datasource];
@@ -43,7 +44,9 @@
 }
 -(void)librarySegmentedControlDatasource:(id<REDLUNSegmentedControlDatasource>)datasource willChooseIndex:(NSInteger)index {
     [self.delegate segmetedCell:self willChangeType:index];
-
+}
+-(void)changeSelectedSegmentedControl:(NSUInteger)index {
+    [self.segmentedControl setCurrentState:index];
 }
 
 @end

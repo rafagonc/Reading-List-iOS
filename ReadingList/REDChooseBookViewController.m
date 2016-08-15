@@ -35,6 +35,8 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
+    [Localytics tagScreen:self.title];
+    
     [self.datasource setData:[self.bookDataAccessObject allBooksSorted]];
     [self.datasource setDelegate:self];
     [self.tableView setDataSource:self.datasource];

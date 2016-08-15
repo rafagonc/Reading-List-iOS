@@ -17,6 +17,10 @@
 -(void)didSelectAuthorInBookHeaderCell:(REDBookHeaderCell *)headerCell;
 -(void)didSelectCoverInBookHeaderCell:(REDBookHeaderCell *)headerCell;
 -(void)didSelectSnippetTextViewInBookHeaderCell:(REDBookHeaderCell *)headerCell;
+-(void)bookHeaderCellWantsToAddNote:(REDBookHeaderCell *)cell;
+-(void)bookHeaderCellWantsToShareProgress:(REDBookHeaderCell *)cell;
+
+
 
 @end
 
@@ -30,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *authorButton;
 
 #pragma mark - properties
+@property (nonatomic,assign) BOOL didChangeRate;
 @property (nonatomic,assign) BOOL isLoading;
 @property (nonatomic,strong) NSString *snippet;
 @property (nonatomic,strong) NSString *coverURL;
@@ -37,5 +42,8 @@
 @property (nonatomic,strong) id<REDAuthorProtocol> author;
 @property (nonatomic,weak) id<REDBookHeaderCellDelegate> delegate;
 @property (nonatomic,strong) UIImage *coverImage;
+
+#pragma mark - getters
+-(CGFloat)rating;
 
 @end

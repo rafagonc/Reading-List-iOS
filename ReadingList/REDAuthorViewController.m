@@ -37,6 +37,8 @@
     
     self.title = @"Authors";
     
+    [Localytics tagScreen:self.title];
+    
     self.tableView.dataSource = self.datasource;
     self.tableView.delegate=  self;
     

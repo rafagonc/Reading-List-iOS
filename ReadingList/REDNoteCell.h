@@ -14,6 +14,7 @@
 @protocol REDNoteCellDelegate <NSObject>
 
 -(void)noteCell:(REDNoteCell *)cell wantsToOpenNote:(id<REDNotesProtocol>)note;
+-(void)noteCell:(REDNoteCell *)cell didUpdateNote:(id<REDNotesProtocol>)note;
 -(void)noteCell:(REDNoteCell *)cell wantsToDeleteNote:(id<REDNotesProtocol>)note;
 
 @end

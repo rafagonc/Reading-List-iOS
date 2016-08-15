@@ -53,6 +53,8 @@
     
     self.title = self.author ? @"Edit Author" : @"Create Author";
     
+    [Localytics tagScreen:self.title];
+    
     [self setUpBarButtonsItems];
     [self createTableview];
     

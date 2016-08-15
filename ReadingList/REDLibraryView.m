@@ -146,7 +146,7 @@
 }
 
 #pragma mark - methods
--(void)updateDataWithType:(REDLibraryType)type sync:(BOOL)sync{
+-(void)updateDataWithType:(REDLibraryType)type sync:(BOOL)sync {
     if (type == REDLibraryTypeCategories) [self setEditing:NO];
     NSError * error;
     if ([self isSearcingBooks]) {
@@ -165,6 +165,9 @@
 }
 -(void)update {
     [self updateDataWithType:self.type sync:NO];
+}
+-(void)sync {
+    [self updateDataWithType:self.type sync:YES];
 }
 
 

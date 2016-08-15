@@ -36,6 +36,7 @@
 
 #pragma mark - methods
 -(void)addCoverImage:(UIImage *)image forBook:(id<REDBookProtocol>)book {
+    if (image && book)
     [self.bookCovers setObject:image forKey:[book name]];
 }
 -(UIImage *)flyweightCoverImageForBook:(id<REDBookProtocol>)book {

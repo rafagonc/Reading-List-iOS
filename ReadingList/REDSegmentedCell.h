@@ -22,5 +22,6 @@
 @interface REDSegmentedCell : UITableViewCell
 
 @property (nonatomic,weak) id<REDSegmentedCellDelegate> delegate;
+-(void)changeSelectedSegmentedControl:(NSUInteger)index;
 
 @end

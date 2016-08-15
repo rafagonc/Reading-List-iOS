@@ -64,6 +64,7 @@
 @property (strong, nonatomic) UISearchController * searchController;
 @property (weak, nonatomic) REDUserCell *userCell;
 @property (weak, nonatomic) REDLibraryCell *libraryCell;
+@property (weak, nonatomic) REDSegmentedCell *segmentedCell;
 
 #pragma mark - properties
 @property (nonatomic,strong) id<REDBookRepository> bookRepository;
@@ -114,15 +115,17 @@
     [REDNavigationBarCustomizer customizeNavigationBar:self.navigationController.navigationBar andItem:self.navigationItem];
     [REDTabBarCustomizer customizeTabBar:self.tabBarController.tabBar];
     [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController.navigationBar setClipsToBounds:NO];
     [self.libraryCell.libraryView update];
     [self.searchBar setText:@""];
     self.tabBarController.tabBar.hidden = NO;
 }
 -(void)viewDidAppear:(BOOL)animated {
-    [self.staticTableView setContentOffset:CGPointMake(0, 40) animated:0];
+    //[self.staticTableView setContentOffset:CGPointMake(0, 40) animated:YES];
     [self.searchBar resignFirstResponder];
     [self.searchController dismissViewControllerAnimated:YES completion:nil];
     [self.userCell update];
+    [self.libraryCell.libraryView sync];
 }
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
@@ -190,6 +193,7 @@
     REDSegmentedCell * segmentedCell = [[REDSegmentedCell alloc] init];
     [segmentedCell setDelegate:self];
     [self.staticTableView addCell:segmentedCell onSection:section];
+    [self setSegmentedCell:segmentedCell];
     
     REDLibraryCell * libraryCell = [[REDLibraryCell alloc] init];
     [libraryCell setDelegate:self];
@@ -356,6 +360,7 @@
 }
 -(void)changeType:(REDLibraryType)type {
     [self.libraryCell.libraryView setType:type];
+    [self.segmentedCell changeSelectedSegmentedControl:type];
 }
 
 @end

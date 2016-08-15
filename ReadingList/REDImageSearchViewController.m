@@ -48,6 +48,8 @@
     [super viewDidLoad];
     self.title = @"Choose Cover";
     
+    [Localytics tagScreen:self.title];
+    
     self.collectionView.dataSource = self.datasource;
     self.collectionView.delegate = self.datasource;
     [self.datasource setDelegate:self];

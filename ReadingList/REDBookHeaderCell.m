@@ -13,6 +13,8 @@
 #import "UIFont+ReadingList.h"
 #import "UIImageView+WebCache.h"
 #import "REDTransactionManager.h"
+#import "UIColor+ReadingList.h"
+#import "HCSStarRatingView.h"
 
 @interface REDBookHeaderCell ()
 
@@ -23,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *starRatingView;
+@property (weak, nonatomic) IBOutlet UIButton *addNoteButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareProgressButton;
 
 #pragma mark - properties
 @property (nonatomic,assign) BOOL heart;
@@ -52,8 +57,27 @@
         self.shadowView.layer.shadowOpacity = 0.6;
         self.shadowView.layer.shadowOffset = CGSizeMake(0, 30);
         
+        [self.coverButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
+        
+        [self.addNoteButton.imageView setTintColor:[UIColor whiteColor]];
+        [self.addNoteButton setImage:[[UIImage imageNamed:@"add_note-2"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        
+        [self.shareProgressButton.imageView setTintColor:[UIColor whiteColor]];
+        [self.shareProgressButton setImage:[[UIImage imageNamed:@"gauge"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        
         [self.descriptionTextView setText:@"Click to open description"];
         [self.descriptionTextView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedSnippet:)]];
+        
+        //rating setup
+        UIImage *starImage = [UIImage imageNamed:@"stare"];
+        starImage = [starImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *highlightedStarImage = [UIImage imageNamed:@"starf"];
+        highlightedStarImage = [highlightedStarImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        self.starRatingView.emptyStarImage = starImage;
+        self.starRatingView.filledStarImage = highlightedStarImage;
+        self.starRatingView.tintColor = [UIColor red_redColor];
+        [self.starRatingView addTarget:self action:@selector(starRated:) forControlEvents:UIControlEventValueChanged];
+        
     } return self;
 }
 
@@ -62,22 +86,25 @@
     _book = book;
     [self setCoverImage:[book coverImage]];
     [self setAuthor:[book author]];
-    [self.heartButton setImage:[book loved] ? [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[UIImage imageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [self.starRatingView setValue:[book rate]];
+    [self.heartButton setTintColor:[UIColor red_redColor]];
+    [self.heartButton setImage:[book loved] ? [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[[UIImage imageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     if ([book name].length) [self.nameTextField setText:[book name]];
 }
 -(void)setAuthor:(id<REDAuthorProtocol>)author {
     _author = author;
     [self.authorButton setTitle:author ? [author name] : @"Tap to choose author" forState:UIControlStateNormal];
-    [self.authorButton setTitleColor:author ? [UIColor whiteColor] : [UIColor whiteColor] forState:UIControlStateNormal];
+    [self.authorButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
 }
 -(void)setCoverImage:(UIImage *)coverImage {
     _coverImage = coverImage;
     if (coverImage) {
-        [self.coverImageView setImage:coverImage ? [coverImage applyBlurToImageWithRadius:40.0f] : [UIImage imageNamed:@"default_blur"]];
+        [self.coverImageView setHidden:NO];
+        [self.coverImageView setImage:coverImage];
         [self.coverButton setTitle:coverImage ? @"" : @"cover" forState:UIControlStateNormal];
-        [self.coverButton setBackgroundImage:coverImage forState:UIControlStateNormal];
     } else if ([self.book coverURL]) {
         [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:[self.book coverURL]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [self.coverImageView setHidden:NO];
             [self.coverImageView setImage:image];
         }];
     }
@@ -110,10 +137,9 @@
     [self.heartButton setImage:heart ? [[UIImage imageNamed:@"heart_fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] : [[UIImage imageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
 }
 
-#pragma mark - actions
--(void)tappedSnippet:(UITapGestureRecognizer *)tap {
-    self.snippetOpen = !self.snippetOpen;
-    [self.delegate didSelectSnippetTextViewInBookHeaderCell:self];
+#pragma mark - getters
+-(CGFloat)rating {
+    return self.starRatingView.value;
 }
 
 #pragma mark - chain of responsiblity
@@ -121,6 +147,7 @@
     if (![self.bookNameValidator validate:self.nameTextField.text error:error]) return NO;
     if (![self.authorValidator validate:self.author error:error]) return NO;
     [book setLoved:self.heart];
+    [book setRate:self.starRatingView.value];
     [book setName:self.nameTextField.text];
     [book setAuthor:self.author];
     [book setCoverImage:self.coverButton.currentBackgroundImage];
@@ -132,13 +159,17 @@
 #pragma mark - height
 -(CGFloat)height {
     if (self.snippetOpen) {
-        return MAX([self.snippet boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont AvenirNextRegularWithSize:15.0f]} context:nil].size.height + self.descriptionTextView.frame.origin.y + 10, 235);
+        return MAX([self.snippet boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont AvenirNextRegularWithSize:15.0f]} context:nil].size.height + self.descriptionTextView.frame.origin.y + 10, 312);
     } else {
-        return 235;
+        return 312;
     }
 }
 
 #pragma mark - actions
+-(void)tappedSnippet:(UITapGestureRecognizer *)tap {
+    self.snippetOpen = !self.snippetOpen;
+    [self.delegate didSelectSnippetTextViewInBookHeaderCell:self];
+}
 -(IBAction)authorAction:(id)sender {
     [self.delegate didSelectAuthorInBookHeaderCell:self];
 }
@@ -147,6 +178,15 @@
 }
 -(IBAction)heartAction:(id)sender {
     self.heart = !self.heart;
+}
+-(IBAction)starRated:(id)sender {
+    if (self.starRatingView.value > 0) self.didChangeRate = YES;
+}
+-(IBAction)addNote:(id)sender {
+    [self.delegate bookHeaderCellWantsToAddNote:self];
+}
+-(IBAction)shareProgressAction:(id)sender {
+    [self.delegate bookHeaderCellWantsToShareProgress:self];
 }
 
 @end

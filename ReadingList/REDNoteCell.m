@@ -53,7 +53,7 @@
 
 #pragma mark - height
 -(CGFloat)height {
-    return MAX([self.textView.text boundingRectWithSize:CGSizeMake(self.textView.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.textView.font} context:nil].size.height + 8, 40);
+    return MAX([self.textView.text boundingRectWithSize:CGSizeMake(self.textView.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.textView.font} context:nil].size.height + 22, 44);
 }
 
 #pragma mark - delegate
@@ -71,6 +71,10 @@
     } else {
         [self.delegate noteCell:self wantsToDeleteNote:self.note];
     }
+}
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    [self.delegate noteCell:self didUpdateNote:self.note];
+    return YES;
 }
 
 #pragma mark - override
