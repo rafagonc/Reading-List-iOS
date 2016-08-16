@@ -23,6 +23,7 @@
 
 @implementation REDPhotoPickerPresenter
 
+#pragma mark - pick
 -(void)pickPhotoFromViewController:(UIViewController *)vc hasPhoto:(BOOL)hasPhoto withCallback:(REDPhotoPickerPresenterProtocolCallback)callback {
     self.callback = callback;
     self.imagePickerController = [[UIImagePickerController alloc] init];
@@ -55,7 +56,6 @@
         }
     }];
 }
-
 
 #pragma mark - delegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
