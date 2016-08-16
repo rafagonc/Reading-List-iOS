@@ -32,6 +32,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1A3383CD5E90AFD8DA3F9809 /* libPods-ReadingListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B9083672A0794DE875DF58 /* libPods-ReadingListTests.a */; };
 		2A0E34691D177F7600D7077C /* REDRLMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34681D177F7600D7077C /* REDRLMNote.m */; };
 		2A0E34731D17892700D7077C /* REDNoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0E34711D17892700D7077C /* REDNoteCell.m */; };
 		2A0E34741D17892700D7077C /* REDNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0E34721D17892700D7077C /* REDNoteCell.xib */; };
@@ -334,8 +335,7 @@
 		44F31D071CFC7C030067DA55 /* REDCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31D051CFC7C030067DA55 /* REDCloudViewController.m */; };
 		44F31D081CFC7C030067DA55 /* REDCloudViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F31D061CFC7C030067DA55 /* REDCloudViewController.xib */; };
 		44F31D0D1CFC7F390067DA55 /* REDTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31D0B1CFC7F390067DA55 /* REDTutorialViewController.m */; };
-		60FBA49CA798989170203D7E /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B5434FCCEC6A57BC8B4796 /* libPods-ReadingList.a */; };
-		A0A2A9C4DEC205F11DFF5573 /* libPods-ReadingListTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AF937690B63479DECB88F5 /* libPods-ReadingListTests.a */; };
+		E92A76D4994B628E368B3F84 /* libPods-ReadingList.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D80A7F0AA9AC49ECF91758 /* libPods-ReadingList.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -370,7 +370,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		25AF937690B63479DECB88F5 /* libPods-ReadingListTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingListTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17B9083672A0794DE875DF58 /* libPods-ReadingListTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingListTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0E34661D177F6A00D7077C /* REDNotesProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDNotesProtocol.h; sourceTree = "<group>"; };
 		2A0E34671D177F7600D7077C /* REDRLMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDRLMNote.h; sourceTree = "<group>"; };
 		2A0E34681D177F7600D7077C /* REDRLMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRLMNote.m; sourceTree = "<group>"; };
@@ -912,7 +912,6 @@
 		2AFD3C4C1C5932180003C423 /* REDUserScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserScrollView.h; sourceTree = "<group>"; };
 		2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUserScrollView.m; sourceTree = "<group>"; };
 		2AFD3C501C5935DC0003C423 /* ReadingList 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.8.xcdatamodel"; sourceTree = "<group>"; };
-		40B5434FCCEC6A57BC8B4796 /* libPods-ReadingList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		441701F41C764C560076F9C7 /* new.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new.txt; sourceTree = "<group>"; };
 		443108831CF36B2A00EC1963 /* ReadingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		443108871CF36B2B00EC1963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1006,10 +1005,11 @@
 		44F31D061CFC7C030067DA55 /* REDCloudViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDCloudViewController.xib; sourceTree = "<group>"; };
 		44F31D0A1CFC7F390067DA55 /* REDTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTutorialViewController.h; sourceTree = "<group>"; };
 		44F31D0B1CFC7F390067DA55 /* REDTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDTutorialViewController.m; sourceTree = "<group>"; };
-		8DF93F38E0ADD5FB4DCE466B /* Pods-ReadingListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A2F4D4A388923CEA46F2890A /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
-		AC308D11A8E61FA9AB098343 /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
-		C1D445A719A9C233B9ADAFA3 /* Pods-ReadingListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.release.xcconfig"; sourceTree = "<group>"; };
+		97F115F9518FA2629DA49552 /* Pods-ReadingListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.release.xcconfig"; sourceTree = "<group>"; };
+		B0F8C7B20719C6AC1DF77A2A /* Pods-ReadingListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C82DF9D1866DF965B3D82E18 /* Pods-ReadingList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.debug.xcconfig"; sourceTree = "<group>"; };
+		D0CB1C54E3E56EA2AC629A0E /* Pods-ReadingList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadingList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList.release.xcconfig"; sourceTree = "<group>"; };
+		D5D80A7F0AA9AC49ECF91758 /* libPods-ReadingList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1025,7 +1025,7 @@
 				44F31CFB1CFC777D0067DA55 /* FBSDKLoginKit.framework in Frameworks */,
 				2A5C69D91D0BDD3D00D10A2F /* libzbar.a in Frameworks */,
 				44F31CFC1CFC777D0067DA55 /* FBSDKShareKit.framework in Frameworks */,
-				60FBA49CA798989170203D7E /* libPods-ReadingList.a in Frameworks */,
+				E92A76D4994B628E368B3F84 /* libPods-ReadingList.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,7 +1033,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0A2A9C4DEC205F11DFF5573 /* libPods-ReadingListTests.a in Frameworks */,
+				1A3383CD5E90AFD8DA3F9809 /* libPods-ReadingListTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2072,7 +2072,7 @@
 				443108841CF36B2B00EC1963 /* ReadingUITests */,
 				2A74EBAB1BCD50B7005F5E74 /* Products */,
 				3C1B8AFD86E40D76DA605411 /* Frameworks */,
-				58063AC4D1AB960D44F0A1A6 /* Pods */,
+				8E35CAFA2E226B6C1DA4B727 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3482,8 +3482,8 @@
 				2A4393541D012C7F008AB65E /* FBSDKCoreKit.framework */,
 				2A4393551D012C7F008AB65E /* FBSDKLoginKit.framework */,
 				2A4393561D012C7F008AB65E /* FBSDKShareKit.framework */,
-				40B5434FCCEC6A57BC8B4796 /* libPods-ReadingList.a */,
-				25AF937690B63479DECB88F5 /* libPods-ReadingListTests.a */,
+				D5D80A7F0AA9AC49ECF91758 /* libPods-ReadingList.a */,
+				17B9083672A0794DE875DF58 /* libPods-ReadingListTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3947,13 +3947,13 @@
 			name = "Tutorial View Controller";
 			sourceTree = "<group>";
 		};
-		58063AC4D1AB960D44F0A1A6 /* Pods */ = {
+		8E35CAFA2E226B6C1DA4B727 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AC308D11A8E61FA9AB098343 /* Pods-ReadingList.debug.xcconfig */,
-				A2F4D4A388923CEA46F2890A /* Pods-ReadingList.release.xcconfig */,
-				8DF93F38E0ADD5FB4DCE466B /* Pods-ReadingListTests.debug.xcconfig */,
-				C1D445A719A9C233B9ADAFA3 /* Pods-ReadingListTests.release.xcconfig */,
+				C82DF9D1866DF965B3D82E18 /* Pods-ReadingList.debug.xcconfig */,
+				D0CB1C54E3E56EA2AC629A0E /* Pods-ReadingList.release.xcconfig */,
+				B0F8C7B20719C6AC1DF77A2A /* Pods-ReadingListTests.debug.xcconfig */,
+				97F115F9518FA2629DA49552 /* Pods-ReadingListTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -3972,7 +3972,6 @@
 				2A2A1E561BD308ED00677868 /* Fabric */,
 				5C61B0BBF162AB8D53D2C0E9 /* [CP] Embed Pods Frameworks */,
 				57655813C70D940111659F5A /* [CP] Copy Pods Resources */,
-				66824F0815F710858F0D3F9E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3995,7 +3994,6 @@
 				2A74EBC41BCD50B8005F5E74 /* Resources */,
 				30936BF94318B4190FA92F3A /* [CP] Embed Pods Frameworks */,
 				57607A2CD19280B73A6828F7 /* [CP] Copy Pods Resources */,
-				3F67F6E8353710168083C82A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -4222,21 +4220,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3F67F6E8353710168083C82A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadingListTests/Pods-ReadingListTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		57607A2CD19280B73A6828F7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4295,21 +4278,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		66824F0815F710858F0D3F9E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReadingList/Pods-ReadingList-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A4F76D06530DDE22D31725A /* [CP] Check Pods Manifest.lock */ = {
@@ -4706,7 +4674,7 @@
 		};
 		2A74EBDB1BCD50B8005F5E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC308D11A8E61FA9AB098343 /* Pods-ReadingList.debug.xcconfig */;
+			baseConfigurationReference = C82DF9D1866DF965B3D82E18 /* Pods-ReadingList.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -4737,7 +4705,7 @@
 		};
 		2A74EBDC1BCD50B8005F5E74 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2F4D4A388923CEA46F2890A /* Pods-ReadingList.release.xcconfig */;
+			baseConfigurationReference = D0CB1C54E3E56EA2AC629A0E /* Pods-ReadingList.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -4768,7 +4736,7 @@
 		};
 		2A74EBDE1BCD50B8005F5E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DF93F38E0ADD5FB4DCE466B /* Pods-ReadingListTests.debug.xcconfig */;
+			baseConfigurationReference = B0F8C7B20719C6AC1DF77A2A /* Pods-ReadingListTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReadingListTests/Info.plist;
@@ -4781,7 +4749,7 @@
 		};
 		2A74EBDF1BCD50B8005F5E74 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D445A719A9C233B9ADAFA3 /* Pods-ReadingListTests.release.xcconfig */;
+			baseConfigurationReference = 97F115F9518FA2629DA49552 /* Pods-ReadingListTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ReadingListTests/Info.plist;

@@ -613,21 +613,21 @@
     return self.selectorViewColor;
 }
 - (void)setupShadowForStateAtIndex:(NSInteger)index visible:(BOOL)visible animated:(BOOL)animated {
-//    self.shadowView.layer.shadowColor = [self shadowColorForStateAtIndex:index].CGColor;
-//    self.shadowView.layer.shadowRadius = 7.0;
-//    self.shadowView.layer.shadowOffset = CGSizeMake(0, 5);
-//    CGAffineTransform transform = CGAffineTransformMakeTranslation(self.stateViews[index].bounds.size.width * [self percentFromOffset:[self offsetFromState:index]], 0);
-//    self.shadowView.layer.shadowPath = CGPathCreateCopyByTransformingPath([self pathForSelectorViewFromPercentage:0], &transform);
-//    if (animated) {
-//        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
-//        animation.duration = visible?self.shadowShowDuration:self.shadowHideDuration;
-//        animation.toValue = @(visible ? 0.7 : 0.0);
-//        animation.fillMode = kCAFillModeForwards;
-//        animation.removedOnCompletion = NO;
-//        [self.shadowView.layer addAnimation:animation forKey:nil];
-//    } else {
-//        self.shadowView.layer.shadowOpacity = visible ? 0.7 : 0.0;
-//    }
+    self.shadowView.layer.shadowColor = [self shadowColorForStateAtIndex:index].CGColor;
+    self.shadowView.layer.shadowRadius = 7.0;
+    self.shadowView.layer.shadowOffset = CGSizeMake(0, 5);
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(self.stateViews[index].bounds.size.width * [self percentFromOffset:[self offsetFromState:index]], 0);
+    self.shadowView.layer.shadowPath = CGPathCreateCopyByTransformingPath([self pathForSelectorViewFromPercentage:0], &transform);
+    if (animated) {
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+        animation.duration = visible?self.shadowShowDuration:self.shadowHideDuration;
+        animation.toValue = @(visible ? 0.7 : 0.0);
+        animation.fillMode = kCAFillModeForwards;
+        animation.removedOnCompletion = NO;
+        [self.shadowView.layer addAnimation:animation forKey:nil];
+    } else {
+        self.shadowView.layer.shadowOpacity = visible ? 0.7 : 0.0;
+    }
 }
 
 #pragma mark - Data source

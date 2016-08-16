@@ -21,6 +21,7 @@ pod "Fabric"
 pod 'PhotoTweaks', '~> 1.0.2'
 pod "Localytics"
 pod 'LUNSegmentedControl'
+pod ‘UIAlertController+Blocks’
 
 end
 
