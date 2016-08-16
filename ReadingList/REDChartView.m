@@ -65,7 +65,7 @@
 
 #pragma mark - orientation
 -(void)orientationChanged:(NSNotification *)notification {
-    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width, 0)];
+   // [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentSize.width, 0)];
 }
 
 #pragma mark - chart delegate

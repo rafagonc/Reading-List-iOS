@@ -7,6 +7,7 @@
 //
 
 #import "REDUITextFieldCell.h"
+#import "UIColor+ReadingList.h"
 
 
 @implementation REDUITextFieldCell
@@ -15,7 +16,7 @@
 -(instancetype)init {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
     if (self) {
-
+        self.textField.tintColor = [UIColor red_redColor];
     } return self;
 }
 

@@ -66,6 +66,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
 
 #pragma mark - injected
+@property (setter=injected_share:) id<REDValidator> shareValidator;
 @property (setter=injected_name:) id<REDValidator> bookNameValidator;
 @property (setter=injected_author:) id<REDValidator> authorValidator;
 @property (setter=injected1:) id<REDUserProtocol> user;
@@ -288,9 +289,15 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     [self presentViewController:noteViewController animated:YES completion:nil];
 }
 -(void)bookHeaderCellWantsToShareProgress:(REDBookHeaderCell *)cell {
+    NSError * error;
+    if ([self.shareValidator validate:self.book error:&error] == NO) {
+        [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
+        return;
+    }
+    
     [Localytics tagEvent:@"Share Progress"];
     NSMutableArray *sharingItems = [NSMutableArray new];
-    [sharingItems addObject:[NSString stringWithFormat:@"%@/%@ completed",@([self.book pagesReadValue]), @([self.book pagesValue])]];
+    [sharingItems addObject:[NSString stringWithFormat:@"%@/%@ completed - %@",@([self.book pagesReadValue]), @([self.book pagesValue]), [self.book name]]];
     if ([self.book coverImage]) [sharingItems addObject:[self.book coverImage]];
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     [self presentViewController:activityController animated:YES completion:nil];

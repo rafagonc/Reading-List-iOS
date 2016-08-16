@@ -90,6 +90,8 @@
 #import "REDAuthorRemoverImpl.h"
 #import "REDLUNSegmentedControlDatasource.h"
 #import "REDLibrarySegmentedControlDatasource.h"
+#import "RECategoryNameValidator.h"
+#import "REDShareProgressValidator.h"
 
 @implementation REDDepedencyInjection
 
@@ -150,8 +152,11 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDDateValidator class] forProtocol:@protocol(REDValidator) context:@"date"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookNameValidator class] forProtocol:@protocol(REDValidator) context:@"name"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryValidator class] forProtocol:@protocol(REDValidator) context:@"category"];
+    [[DPRegistry sharedRegistry] registerImplementation:[RECategoryNameValidator class] forProtocol:@protocol(REDValidator) context:@"categoryName"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorValidator class] forProtocol:@protocol(REDValidator) context:@"author"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorNameValidator class] forProtocol:@protocol(REDValidator) context:@"authorName"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDShareProgressValidator class] forProtocol:@protocol(REDValidator) context:@"share"];
+
 
     //others
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorRemoverImpl class] forProtocol:@protocol(REDAuthorRemover) context:nil];

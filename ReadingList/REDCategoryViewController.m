@@ -9,6 +9,7 @@
 #import "REDCategoryViewController.h"
 #import "REDDatasourceProtocol.h"
 #import "REDCategoryDataAccessObject.h"
+#import "REDCategoryCreateViewController.h"
 
 @interface REDCategoryViewController () <UITableViewDelegate>
 
@@ -42,6 +43,17 @@
     self.tableView.delegate = self;
     
     [self updateData];
+    [self setupBarButtonItems];
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateData];
+}
+
+#pragma mark - setups
+-(void)setupBarButtonItems {
+    UIBarButtonItem * addCategory = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCategoryAction:)];
+    [self.navigationItem setRightBarButtonItem:addCategory];
 }
 
 #pragma mark - methods
@@ -56,6 +68,12 @@
     if (self.callback) self.callback(category);
     self.callback = nil;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - action
+-(void)addCategoryAction:(UIBarButtonItem *)item {
+    REDCategoryCreateViewController * vc = [[REDCategoryCreateViewController alloc] init];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:vc] animated:YES completion:nil];
 }
 
 #pragma mark - dealloc

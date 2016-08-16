@@ -12,4 +12,6 @@
 
 -(NSArray *)books;
 
+@property (nonatomic,assign) BOOL custom;
+
 @end
