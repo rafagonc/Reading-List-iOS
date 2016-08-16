@@ -14,5 +14,6 @@
 <REDCategoryProtocol>
 
 @property (nonatomic, nonnull) NSString *name;
+@property (nonatomic, assign) BOOL custom;
 
 @end

@@ -49,6 +49,7 @@
 #pragma mark - lifecycle
 -(void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpBarButtonsItems];
     [self createTableView];
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -72,6 +73,7 @@
 #pragma mark - table view
 -(void)createTableView {
     UIStaticTableViewSection * section = [[UIStaticTableViewSection alloc] init];
+    [section setHeaderName:@"Category Name"];
     
     REDUITextFieldCell * nameCell = [[REDUITextFieldCell alloc] init];
     [nameCell.textField setText:[self.category name]];
@@ -87,13 +89,14 @@
 }
 -(void)createAction:(UIBarButtonItem *)item {
     NSError * error;
-    if ([self.validator validate:self.nameCell.textField.text error:&error]) {
+    if ([self.validator validate:self.nameCell.textField.text error:&error] == NO) {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:error.localizedDescription];
         return;
     }
     
     id<REDCategoryProtocol> category = self.category ? self.category : [self.categoryDataAccessObject create];
     [self.transactionManager begin];
+    [category setCustom:YES];
     [category setName:[[self.nameCell textField] text]];
     [self.transactionManager commit];
     [self dismissViewControllerAnimated:YES completion:nil];
