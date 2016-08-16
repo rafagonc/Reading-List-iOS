@@ -92,15 +92,17 @@
 #import "REDLibrarySegmentedControlDatasource.h"
 #import "RECategoryNameValidator.h"
 #import "REDShareProgressValidator.h"
+#import "REDCategoryRemover.h"
+#import "REDCategoryRemoverImpl.h"
 
 @implementation REDDepedencyInjection
 
 +(void)registerImplementations {
     
-    [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
     
-    //migration
+    //realm
     [[DPRegistry sharedRegistry] registerImplementation:[[REDRealmMigrationV2 alloc] init] forProtocol:@protocol(REDRealmMigration) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
 
     //user
     if ([[[REDRLMUserDataAccessObject alloc] init] user])
@@ -159,6 +161,7 @@
 
 
     //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryRemoverImpl class] forProtocol:@protocol(REDCategoryRemover) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorRemoverImpl class] forProtocol:@protocol(REDAuthorRemover) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDLogRepositoryFactoryImpl class] forProtocol:@protocol(REDLogRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookRepositoryFactoryImpl class] forProtocol:@protocol(REDBookRepositoryFactory) context:nil];

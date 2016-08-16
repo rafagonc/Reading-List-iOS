@@ -44,6 +44,7 @@
 #import "REDSignUpViewController.h"
 #import "REDChartViewController.h"
 #import "UISearchBar+Toolbar.h"
+#import "REDCategoryCreateViewController.h"
 #import "UITableView+Autoresize.h"
 #import "REDAddLogViewController.h"
 
@@ -235,6 +236,10 @@
 }
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource didChangeEditing:(BOOL)editing {
     [self.navigationItem setLeftBarButtonItem:self.libraryCell.libraryView.editing ? doneButton : editButton];
+}
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>)datasource wantsToEditCategory:(id<REDCategoryProtocol>)category error:(NSError *)error {
+    REDCategoryCreateViewController * categoryCreateViewController = [[REDCategoryCreateViewController alloc] initWithCategory:category];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:categoryCreateViewController] animated:YES completion:nil];
 }
 -(void)segmetedCell:(REDSegmentedCell *)cell wantsToChangeType:(REDLibraryType)library {
     [self.libraryCell.libraryView setType:library];

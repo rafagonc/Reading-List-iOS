@@ -23,6 +23,7 @@
 #import "REDAuthorDatasourceDelegate.h"
 #import "REDCategoryDatasourceDelegate.h"
 #import "REDLogDatasourceDelegate.h"
+#import "REDCategoryRemover.h"
 
 @interface REDLibraryView () <REDBookDatasourceDelegate, UISearchBarDelegate, REDAuthorDatasourceDelegate, REDCategoryDatasourceDelegate, REDLogDatasourceDelegate>
 
@@ -38,6 +39,7 @@
 @property (setter=injected4:) id<REDLibraryDatasourceFactory> libraryDatasourceFactory;
 @property (setter=injected5:) id<REDServiceDispatcherProtocol> serviceDispatcher;
 @property (setter=injected6:) id<REDAuthorRemover> authorRemover;
+@property (setter=injected7:) id<REDCategoryRemover> categoryRemover;
 
 @end
 
@@ -134,6 +136,15 @@
 }
 -(void)datasource:(id<REDDatasourceProtocol>)datasource didDeleteRead:(id)read {
     [self updateDataWithType:self.type sync:YES];
+}
+-(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource wantsToEditCategory:(id<REDCategoryProtocol>)category {
+    [self.datasourceDelegate libraryView:self datasource:datasource wantsToEditCategory:category error:nil];
+}
+-(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource wantsToDelete:(id<REDCategoryProtocol>)category {
+    __weak typeof(self) welf = self;
+    [self.categoryRemover removeCategory:category withCallback:^{
+        [welf updateDataWithType:REDLibraryTypeCategories sync:YES];
+    }];
 }
 
 #pragma mark - searching

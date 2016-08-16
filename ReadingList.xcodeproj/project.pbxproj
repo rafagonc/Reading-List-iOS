@@ -328,6 +328,9 @@
 		44A787AB1CDD2B0B0038ED4A /* REDLogRepositoryFactoryImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A787AA1CDD2B0B0038ED4A /* REDLogRepositoryFactoryImpl.m */; };
 		44AF20941C76255200F6FC48 /* REDLogSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */; };
 		44AF20961C7625A100F6FC48 /* REDLogSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */; };
+		44B2B34A1D63A54A00FF6A50 /* REDCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B2B3491D63A54A00FF6A50 /* REDCategoryCell.m */; };
+		44B2B34C1D63A56900FF6A50 /* REDCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B2B34B1D63A56900FF6A50 /* REDCategoryCell.xib */; };
+		44B2B3501D63AA9F00FF6A50 /* REDCategoryRemoverImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 44B2B34F1D63AA9F00FF6A50 /* REDCategoryRemoverImpl.m */; };
 		44F31CF11CF49CEA0067DA55 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31CF01CF49CEA0067DA55 /* PopoverViewController.m */; };
 		44F31CF51CFC76B20067DA55 /* REDWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F31CF31CFC76B20067DA55 /* REDWelcomeViewController.m */; };
 		44F31CF61CFC76B20067DA55 /* REDWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44F31CF41CFC76B20067DA55 /* REDWelcomeViewController.xib */; };
@@ -1000,6 +1003,12 @@
 		44AF20921C76255200F6FC48 /* REDLogSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDLogSummaryViewController.h; sourceTree = "<group>"; };
 		44AF20931C76255200F6FC48 /* REDLogSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDLogSummaryViewController.m; sourceTree = "<group>"; };
 		44AF20951C7625A100F6FC48 /* REDLogSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDLogSummaryViewController.xib; sourceTree = "<group>"; };
+		44B2B3481D63A54A00FF6A50 /* REDCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCategoryCell.h; sourceTree = "<group>"; };
+		44B2B3491D63A54A00FF6A50 /* REDCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCategoryCell.m; sourceTree = "<group>"; };
+		44B2B34B1D63A56900FF6A50 /* REDCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDCategoryCell.xib; sourceTree = "<group>"; };
+		44B2B34E1D63AA9F00FF6A50 /* REDCategoryRemoverImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCategoryRemoverImpl.h; sourceTree = "<group>"; };
+		44B2B34F1D63AA9F00FF6A50 /* REDCategoryRemoverImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCategoryRemoverImpl.m; sourceTree = "<group>"; };
+		44B2B3511D63AAC600FF6A50 /* REDCategoryRemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCategoryRemover.h; sourceTree = "<group>"; };
 		44F31CEF1CF49CEA0067DA55 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
 		44F31CF01CF49CEA0067DA55 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 		44F31CF21CFC76B20067DA55 /* REDWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDWelcomeViewController.h; sourceTree = "<group>"; };
@@ -1210,8 +1219,9 @@
 		2A19B88B1BCDB3F2009C8F25 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				44B2B34D1D63A56C00FF6A50 /* Category Cell */,
 				2A74EC1E1BCDE2D4005F5E74 /* Book Header Cell */,
-				2A74EC2C1BCDE8F8005F5E74 /* Category Cell */,
+				2A74EC2C1BCDE8F8005F5E74 /* Book Category Cell */,
 				2A74EC3A1BCDF479005F5E74 /* Pages Cell */,
 				44721E741D2EFCDA00F4612F /* Author Cell */,
 				2A74EC421BCDF5DA005F5E74 /* Page Progress Cell */,
@@ -1307,6 +1317,7 @@
 				44721E6D1D2EF05A00F4612F /* Author Remover */,
 				2AB0F1701D451DE9009D7513 /* Book Cover Flyweight */,
 				2AB0F1741D451E5B009D7513 /* Book Cover Flyweight Factory */,
+				44B2B3541D63ACD400FF6A50 /* Category Remover */,
 			);
 			name = "General Classes";
 			sourceTree = "<group>";
@@ -2301,14 +2312,14 @@
 			name = UIColor;
 			sourceTree = "<group>";
 		};
-		2A74EC2C1BCDE8F8005F5E74 /* Category Cell */ = {
+		2A74EC2C1BCDE8F8005F5E74 /* Book Category Cell */ = {
 			isa = PBXGroup;
 			children = (
 				2A74EC291BCDE8F3005F5E74 /* REDBookCategoryCell.h */,
 				2A74EC2A1BCDE8F3005F5E74 /* REDBookCategoryCell.m */,
 				2A74EC2D1BCDE9A7005F5E74 /* REDBookCategoryCell.xib */,
 			);
-			name = "Category Cell";
+			name = "Book Category Cell";
 			sourceTree = "<group>";
 		};
 		2A74EC2F1BCDEA3D005F5E74 /* Table View */ = {
@@ -3950,6 +3961,42 @@
 			name = "Log Summary View Controller";
 			sourceTree = "<group>";
 		};
+		44B2B34D1D63A56C00FF6A50 /* Category Cell */ = {
+			isa = PBXGroup;
+			children = (
+				44B2B3481D63A54A00FF6A50 /* REDCategoryCell.h */,
+				44B2B3491D63A54A00FF6A50 /* REDCategoryCell.m */,
+				44B2B34B1D63A56900FF6A50 /* REDCategoryCell.xib */,
+			);
+			name = "Category Cell";
+			sourceTree = "<group>";
+		};
+		44B2B3521D63ACCB00FF6A50 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				44B2B34E1D63AA9F00FF6A50 /* REDCategoryRemoverImpl.h */,
+				44B2B34F1D63AA9F00FF6A50 /* REDCategoryRemoverImpl.m */,
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		44B2B3531D63ACD000FF6A50 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				44B2B3511D63AAC600FF6A50 /* REDCategoryRemover.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		44B2B3541D63ACD400FF6A50 /* Category Remover */ = {
+			isa = PBXGroup;
+			children = (
+				44B2B3521D63ACCB00FF6A50 /* Concrete */,
+				44B2B3531D63ACD000FF6A50 /* Abstract */,
+			);
+			name = "Category Remover";
+			sourceTree = "<group>";
+		};
 		44F31CFD1CFC77940067DA55 /* Welcome View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -4147,6 +4194,7 @@
 				2AB0F1591D42FCA6009D7513 /* REDChartViewController.xib in Resources */,
 				2A974E1B1D3B01D300842266 /* REDLibraryCell.xib in Resources */,
 				2A5C69D41D0BDC9800D10A2F /* zbar-back.png in Resources */,
+				44B2B34C1D63A56900FF6A50 /* REDCategoryCell.xib in Resources */,
 				44F31D021CFC79980067DA55 /* REDNameViewController.xib in Resources */,
 				2A19B89A1BCDB6EE009C8F25 /* REDBookCell.xib in Resources */,
 				2A77C0821C2DCE8800E21551 /* REDExploreViewController.xib in Resources */,
@@ -4437,6 +4485,7 @@
 				2A77C0A11C2E187F00E21551 /* REDGoogleBooksQueryRequest.m in Sources */,
 				2A2BCC1B1D61272800384E51 /* RECategoryNameValidator.m in Sources */,
 				2A74EC401BCDF5D8005F5E74 /* REDPageProgressCell.m in Sources */,
+				44B2B3501D63AA9F00FF6A50 /* REDCategoryRemoverImpl.m in Sources */,
 				2A77C0A51C2E1FE200E21551 /* REDGoogleBooksQueryCall.m in Sources */,
 				2A77C0931C2DD89000E21551 /* REDBookDataAccessObjectImpl.m in Sources */,
 				2A6601F81CC2FC8E00B6D835 /* REDTopRatedRequest.m in Sources */,
@@ -4462,6 +4511,7 @@
 				2A0E347E1D178CC500D7077C /* UITextView+Done.m in Sources */,
 				2A2BCC1F1D61287A00384E51 /* REDShareProgressValidator.m in Sources */,
 				2A4597771C619A130010D135 /* REDRLMAuthorDataAccessObject.m in Sources */,
+				44B2B34A1D63A54A00FF6A50 /* REDCategoryCell.m in Sources */,
 				2A1E15FE1D6005D100801F36 /* REDCategoryCreateViewController.m in Sources */,
 				2A74EBFF1BCD59B1005F5E74 /* _REDBook.m in Sources */,
 				2A45977D1C619A280010D135 /* REDRLMReadDataAccessObject.m in Sources */,

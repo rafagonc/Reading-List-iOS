@@ -12,6 +12,9 @@
 
 @protocol REDCategoryDatasourceDelegate <NSObject>
 
+-(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource wantsToDelete:(id<REDCategoryProtocol>)category;
 -(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource didSelectCategory:(id<REDCategoryProtocol>)category;
+-(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource wantsToEditCategory:(id<REDCategoryProtocol>)category;
+
 
 @end
