@@ -20,9 +20,9 @@
 
 -(void)migrate {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-    config.schemaVersion = 15;
+    config.schemaVersion = 16;
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
-        if (oldSchemaVersion < 15) {
+        if (oldSchemaVersion < 16) {
             
         }
     };
