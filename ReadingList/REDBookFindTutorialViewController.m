@@ -74,6 +74,12 @@
     [textField resignFirstResponder];
     return YES;
 }
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField.text.length > 2) {
+        [self callGoogleQueryRequest];
+    }
+    return YES;
+}
 
 #pragma mark - process
 -(BOOL)process:(REDTutorialViewController *)tutorial error:(NSError *__autoreleasing *)error {
@@ -92,7 +98,6 @@
     [self.books addObject:book];
     [self.coverInlineView setUrls:[self.books valueForKeyPath:@"@unionOfObjects.imageURL"]];
 }
-
 
 #pragma mark - service
 -(void)callGoogleQueryRequest {
