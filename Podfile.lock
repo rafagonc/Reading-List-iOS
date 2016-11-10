@@ -42,6 +42,7 @@ PODS:
   - TwitterCore (2.0.2):
     - Fabric
   - UIActionSheet+Blocks (0.9)
+  - UIAlertController+Blocks (0.9)
   - UIAlertView+Blocks (0.9)
 
 DEPENDENCIES:
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - SDWebImage
   - TwitterCore
   - UIActionSheet+Blocks
+  - UIAlertController+Blocks
   - UIAlertView+Blocks
 
 SPEC CHECKSUMS:
@@ -81,6 +83,9 @@ SPEC CHECKSUMS:
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
+  UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: e74b8bfbd96dbe0501b03aec42a6e1224be9e220
+
+COCOAPODS: 1.0.1
