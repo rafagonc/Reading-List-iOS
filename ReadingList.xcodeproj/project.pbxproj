@@ -18,17 +18,6 @@
 			name = mogenerator;
 			productName = mogenerator;
 		};
-		2A74EBE91BCD56F6005F5E74 /* versioner */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 2A74EBEA1BCD56F6005F5E74 /* Build configuration list for PBXAggregateTarget "versioner" */;
-			buildPhases = (
-				2A74EBED1BCD56F9005F5E74 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = versioner;
-			productName = versioner;
-		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -353,13 +342,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2A74EBA91BCD50B7005F5E74;
 			remoteInfo = ReadingList;
-		};
-		2A74EBEE1BCD571D005F5E74 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A74EBA21BCD50B7005F5E74 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A74EBE91BCD56F6005F5E74;
-			remoteInfo = versioner;
 		};
 		2A74EBF01BCD571F005F5E74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -4079,7 +4061,6 @@
 			);
 			dependencies = (
 				2A74EBF11BCD571F005F5E74 /* PBXTargetDependency */,
-				2A74EBEF1BCD571D005F5E74 /* PBXTargetDependency */,
 			);
 			name = ReadingList;
 			productName = ReadingList;
@@ -4152,9 +4133,6 @@
 					2A74EBE41BCD567E005F5E74 = {
 						CreatedOnToolsVersion = 7.0;
 					};
-					2A74EBE91BCD56F6005F5E74 = {
-						CreatedOnToolsVersion = 7.0;
-					};
 					443108821CF36B2A00EC1963 = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 2A74EBA91BCD50B7005F5E74;
@@ -4178,7 +4156,6 @@
 				2A74EBC51BCD50B8005F5E74 /* ReadingListTests */,
 				443108821CF36B2A00EC1963 /* ReadingUITests */,
 				2A74EBE41BCD567E005F5E74 /* mogenerator */,
-				2A74EBE91BCD56F6005F5E74 /* versioner */,
 			);
 		};
 /* End PBXProject section */
@@ -4297,19 +4274,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "mogenerator -m ReadingList/ReadingList.xcdatamodeld -O ReadingList/PersistentEntities --template-var arc=true";
-		};
-		2A74EBED1BCD56F9005F5E74 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#enviroment variables\nPROJECTNAME='ReadingList' #spaces not allowed (otherwise escape chars)\nINFONAME='Info.plist'\nFIELD=\"CFBundleVersion\"\n\n#script\ncd \"$PROJECTNAME\"\nLINE=$(grep -n \"CFBundleVersion\" $INFONAME | cut -c 1,2)\nNUMBERLINE=$((LINE+1))\nVERSIONSTRING=$(sed -n \"$NUMBERLINE p\" $INFONAME | cut -d \">\" -f 2 | cut -d \"<\" -f 1)\nDATE=$(date +\"%s\")\nsed \"s/$VERSIONSTRING/$DATE/g\" $INFONAME > versioner.txt\nrm Info.plist\ncp versioner.txt Info.plist\nrm versioner.txt";
 		};
 		30936BF94318B4190FA92F3A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4673,11 +4637,6 @@
 			target = 2A74EBA91BCD50B7005F5E74 /* ReadingList */;
 			targetProxy = 2A74EBC71BCD50B8005F5E74 /* PBXContainerItemProxy */;
 		};
-		2A74EBEF1BCD571D005F5E74 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2A74EBE91BCD56F6005F5E74 /* versioner */;
-			targetProxy = 2A74EBEE1BCD571D005F5E74 /* PBXContainerItemProxy */;
-		};
 		2A74EBF11BCD571F005F5E74 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2A74EBE41BCD567E005F5E74 /* mogenerator */;
@@ -4897,20 +4856,6 @@
 			};
 			name = Release;
 		};
-		2A74EBEB1BCD56F6005F5E74 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		2A74EBEC1BCD56F6005F5E74 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		4431088B1CF36B2B00EC1963 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4974,15 +4919,6 @@
 			buildConfigurations = (
 				2A74EBE51BCD567E005F5E74 /* Debug */,
 				2A74EBE61BCD567E005F5E74 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A74EBEA1BCD56F6005F5E74 /* Build configuration list for PBXAggregateTarget "versioner" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A74EBEB1BCD56F6005F5E74 /* Debug */,
-				2A74EBEC1BCD56F6005F5E74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

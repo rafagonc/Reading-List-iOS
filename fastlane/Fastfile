@@ -29,9 +29,15 @@ platform :ios do
   lane :appstore do
     ensure_git_status_clean
     set_info_plist_value(path: "./ReadingList/REDServerMetadata.plist", key: "Active Environment", value: "Production")
+    increment_version_number(
+     bump_type: "patch" # Automatically increment patch version number
+    )   
+    increment_build_number
+    add_git_tag
     sigh
     gym(scheme: "ReadingList") # Build your app - more options available
     deliver(force: true)
+    notification(subtitle: "Finished Deploy", message: "App was just sent for review.")
   end
 
 end
