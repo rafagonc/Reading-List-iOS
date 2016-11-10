@@ -116,7 +116,10 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     
     [self createTableView];
     if ([self.book snippet].length == 0 && self.actionType == REDBookAddViewControllerActionTypeEditing) [self callServiceForBookDescription];
+    
     [self setUpBarButtonItems];
+    [self setupTapRecognizer];
+    
     [self.quoteLabel setText:[REDRandomQuoteGenerator quote]];
 }
 -(void)viewWillAppear:(BOOL)animated {
@@ -140,6 +143,10 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
     UIBarButtonItem * cancelButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"cancel"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction:)];
     [cancelButton setTintColor:[UIColor colorWithWhite:0.8 alpha:1]];
     [self.navigationItem setLeftBarButtonItem:cancelButton];
+}
+-(void)setupTapRecognizer {
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss:)];
+    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - table view
@@ -381,6 +388,9 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
         [self.bookDataAccessObject remove:self.book];
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)dismiss:(UITapGestureRecognizer *)tap {
+    [self.view endEditing:YES];
 }
 
 #pragma mark - keyboard
