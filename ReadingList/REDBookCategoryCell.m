@@ -50,6 +50,11 @@
         [self.delegate didSelectCategoryCell:self];
     }
 }
+- (IBAction)selectAction:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didSelectCategoryCell:)]) {
+        [self.delegate didSelectCategoryCell:self];
+    }
+}
 
 
 @end

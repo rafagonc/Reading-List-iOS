@@ -259,7 +259,7 @@
 }
 -(void)userCellWantsToOpen:(REDUserCell *)cell {
     [self.staticTableView beginUpdates];
-    [UIView animateWithDuration:.6 delay:0 usingSpringWithDamping:.6 initialSpringVelocity:2 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:.4 delay:0 usingSpringWithDamping:.6 initialSpringVelocity:2 options:UIViewAnimationOptionCurveEaseIn animations:^{
         [self.userCell setFrame:CGRectMake(self.userCell.frame.origin.x, self.userCell.frame.origin.y, self.userCell.frame.size.width, [self.userCell height])];
         [self.userCell layoutIfNeeded];
     } completion:^(BOOL finished) {
