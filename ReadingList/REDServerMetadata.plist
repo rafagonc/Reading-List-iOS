@@ -6,25 +6,25 @@
 	<string>Production</string>
 	<key>Environments</key>
 	<dict>
-		<key>Santander</key>
+		<key>Local</key>
 		<dict>
 			<key>v1</key>
-			<string>http://192.168.137.121:5000/</string>
+			<string>http://172.20.10.2:5000/</string>
 		</dict>
 		<key>LocalIP</key>
 		<dict>
 			<key>v1</key>
 			<string>http://192.168.1.31:5000/</string>
 		</dict>
-		<key>Local</key>
-		<dict>
-			<key>v1</key>
-			<string>http://172.20.10.2:5000/</string>
-		</dict>
 		<key>Production</key>
 		<dict>
 			<key>v1</key>
 			<string>https://reading-list-prod.herokuapp.com/</string>
+		</dict>
+		<key>Santander</key>
+		<dict>
+			<key>v1</key>
+			<string>http://192.168.137.121:5000/</string>
 		</dict>
 		<key>Stage</key>
 		<dict>
