@@ -90,15 +90,19 @@
 #import "REDAuthorRemoverImpl.h"
 #import "REDLUNSegmentedControlDatasource.h"
 #import "REDLibrarySegmentedControlDatasource.h"
+#import "RECategoryNameValidator.h"
+#import "REDShareProgressValidator.h"
+#import "REDCategoryRemover.h"
+#import "REDCategoryRemoverImpl.h"
 
 @implementation REDDepedencyInjection
 
 +(void)registerImplementations {
     
-    [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
     
-    //migration
+    //realm
     [[DPRegistry sharedRegistry] registerImplementation:[[REDRealmMigrationV2 alloc] init] forProtocol:@protocol(REDRealmMigration) context:nil];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDRealm class] forProtocol:@protocol(REDTransactionManager) context:nil];
 
     //user
     if ([[[REDRLMUserDataAccessObject alloc] init] user])
@@ -150,10 +154,14 @@
     [[DPRegistry sharedRegistry] registerImplementation:[REDDateValidator class] forProtocol:@protocol(REDValidator) context:@"date"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookNameValidator class] forProtocol:@protocol(REDValidator) context:@"name"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryValidator class] forProtocol:@protocol(REDValidator) context:@"category"];
+    [[DPRegistry sharedRegistry] registerImplementation:[RECategoryNameValidator class] forProtocol:@protocol(REDValidator) context:@"categoryName"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorValidator class] forProtocol:@protocol(REDValidator) context:@"author"];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorNameValidator class] forProtocol:@protocol(REDValidator) context:@"authorName"];
+    [[DPRegistry sharedRegistry] registerImplementation:[REDShareProgressValidator class] forProtocol:@protocol(REDValidator) context:@"share"];
+
 
     //others
+    [[DPRegistry sharedRegistry] registerImplementation:[REDCategoryRemoverImpl class] forProtocol:@protocol(REDCategoryRemover) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDAuthorRemoverImpl class] forProtocol:@protocol(REDAuthorRemover) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDLogRepositoryFactoryImpl class] forProtocol:@protocol(REDLogRepositoryFactory) context:nil];
     [[DPRegistry sharedRegistry] registerImplementation:[REDBookRepositoryFactoryImpl class] forProtocol:@protocol(REDBookRepositoryFactory) context:nil];

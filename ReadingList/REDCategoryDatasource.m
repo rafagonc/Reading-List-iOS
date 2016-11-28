@@ -11,8 +11,9 @@
 #import "UIFont+ReadingList.h"
 #import "UITableViewCell+Clear.h"
 #import "REDCategoryDatasourceDelegate.h"
+#import "REDCategoryCell.h"
 
-@interface REDCategoryDatasource ()
+@interface REDCategoryDatasource () <REDCategoryCellDelegate>
 
 #pragma mark - properties
 @property (nonatomic,strong) NSArray *categories;
@@ -48,21 +49,35 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *cellID = @"REDCategoryCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    REDCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([REDCategoryCell class]) owner:self options:nil] firstObject];
         [cell.textLabel setFont:[UIFont AvenirNextRegularWithSize:14.0f]];
         [cell clearBackgroundSelection];
     }
     
-    id<REDCategoryProtocol> category = self.categories[indexPath.row];
-    cell.textLabel.text = [category name];
+    cell.category = self.categories[indexPath.row];
+    cell.delegate = self;
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.delegate categoryDatasource:self didSelectCategory:self.categories[indexPath.row]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[self.categories objectAtIndex:indexPath.row] custom];
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.delegate categoryDatasource:self wantsToDelete:self.categories[indexPath.row]];
+    }
+}
+
+#pragma mark - cell delegate
+-(void)categoryCellWantsToEditCategory:(REDCategoryCell *)categoryCell {
+    [self.delegate categoryDatasource:self wantsToEditCategory:categoryCell.category];
 }
 
 @end

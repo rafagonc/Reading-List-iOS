@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="eTL-12-Fe8" customClass="REDCategoryCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eTL-12-Fe8" id="t1X-qR-P8a">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="qwE-iI-tBd">
+                        <rect key="frame" x="282" y="17" width="30" height="17"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="Lof-ne-soM"/>
+                            <constraint firstAttribute="height" constant="17" id="e1q-Pf-F2H"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yag-Gt-9td">
+                        <rect key="frame" x="8" y="0.0" width="266" height="50.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzw-4V-ePs">
+                        <rect key="frame" x="270" y="0.0" width="50" height="50.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="qPP-xe-izn"/>
+                        </constraints>
+                        <connections>
+                            <action selector="editAction:" destination="eTL-12-Fe8" eventType="touchUpInside" id="a3S-a9-58n"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Tzw-4V-ePs" secondAttribute="trailing" id="Er8-2U-xTp"/>
+                    <constraint firstAttribute="trailing" secondItem="qwE-iI-tBd" secondAttribute="trailing" constant="8" id="Llp-Ax-MvL"/>
+                    <constraint firstAttribute="bottom" secondItem="Tzw-4V-ePs" secondAttribute="bottom" id="bC4-iI-7Hd"/>
+                    <constraint firstAttribute="bottom" secondItem="yag-Gt-9td" secondAttribute="bottom" id="kCf-Tk-7KP"/>
+                    <constraint firstItem="Tzw-4V-ePs" firstAttribute="top" secondItem="t1X-qR-P8a" secondAttribute="top" id="s3b-mH-spt"/>
+                    <constraint firstItem="yag-Gt-9td" firstAttribute="top" secondItem="t1X-qR-P8a" secondAttribute="top" id="uIP-m1-wfg"/>
+                    <constraint firstItem="yag-Gt-9td" firstAttribute="leading" secondItem="t1X-qR-P8a" secondAttribute="leading" constant="8" id="uqm-bO-rdl"/>
+                    <constraint firstItem="qwE-iI-tBd" firstAttribute="centerY" secondItem="t1X-qR-P8a" secondAttribute="centerY" id="vm1-j1-Z28"/>
+                    <constraint firstItem="qwE-iI-tBd" firstAttribute="leading" secondItem="yag-Gt-9td" secondAttribute="trailing" constant="8" id="w0h-j9-a3A"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="editButton" destination="Tzw-4V-ePs" id="xyt-r6-Abz"/>
+                <outlet property="editImageView" destination="qwE-iI-tBd" id="yd7-Rj-Rl5"/>
+                <outlet property="nameLabel" destination="yag-Gt-9td" id="Jrl-12-y9B"/>
+            </connections>
+            <point key="canvasLocation" x="327" y="288.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="edit" width="30" height="30"/>
+    </resources>
+</document>

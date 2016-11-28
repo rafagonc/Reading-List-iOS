@@ -9,8 +9,11 @@
 #import "REDCategoryViewController.h"
 #import "REDDatasourceProtocol.h"
 #import "REDCategoryDataAccessObject.h"
+#import "REDCategoryCreateViewController.h"
+#import "REDCategoryDatasourceDelegate.h"
+#import "REDCategoryCreateViewController.h"
 
-@interface REDCategoryViewController () <UITableViewDelegate>
+@interface REDCategoryViewController () <UITableViewDelegate, REDCategoryDatasourceDelegate>
 
 #pragma mark - ui
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -38,10 +41,22 @@
     
     [Localytics tagScreen:self.title];
     
+    [self.datasource setDelegate:self];
     self.tableView.dataSource = self.datasource;
-    self.tableView.delegate = self;
+    self.tableView.delegate = self.datasource;
     
     [self updateData];
+    [self setupBarButtonItems];
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateData];
+}
+
+#pragma mark - setups
+-(void)setupBarButtonItems {
+    UIBarButtonItem * addCategory = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCategoryAction:)];
+    [self.navigationItem setRightBarButtonItem:addCategory];
 }
 
 #pragma mark - methods
@@ -50,12 +65,20 @@
 }
 
 #pragma mark - table view delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    id<REDCategoryProtocol> category = [self.datasource data][indexPath.row];
+-(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource didSelectCategory:(id<REDCategoryProtocol>)category {
     if (self.callback) self.callback(category);
     self.callback = nil;
     [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)categoryDatasource:(id<REDDatasourceProtocol>)datasource wantsToEditCategory:(id<REDCategoryProtocol>)category {
+    REDCategoryCreateViewController * createViewController = [[REDCategoryCreateViewController alloc] initWithCategory:category];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:createViewController] animated:YES completion:nil];
+}
+
+#pragma mark - action
+-(void)addCategoryAction:(UIBarButtonItem *)item {
+    REDCategoryCreateViewController * vc = [[REDCategoryCreateViewController alloc] init];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:vc] animated:YES completion:nil];
 }
 
 #pragma mark - dealloc

@@ -25,6 +25,7 @@
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource didSelectAuthor:(id<REDAuthorProtocol>)book error:(NSError *)error;
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource wantsToEditAuthor:(id<REDAuthorProtocol>)book error:(NSError *)error;
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource didSelectCategory:(id<REDCategoryProtocol>)book error:(NSError *)error;
+-(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource wantsToEditCategory:(id<REDCategoryProtocol>)book error:(NSError *)error;
 -(void)libraryView:(REDLibraryView *)libraryView datasource:(id<REDDatasourceProtocol>) datasource didChangeEditing:(BOOL)editing;
 
 
