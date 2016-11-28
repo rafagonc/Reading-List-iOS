@@ -67,7 +67,7 @@
 }
 -(void)removeForUser:(id<REDUserProtocol>)user book:(id<REDBookProtocol>)book callback:(REDBookRepositoryDeleteCallback)callback error:(REDErrorCallback)error {
     @try {
-        REDRemoveBookRequest * bookRequest = [[REDRemoveBookRequest alloc] initWithUserId:[user userId] book:[book name]];
+        REDRemoveBookRequest * bookRequest = [[REDRemoveBookRequest alloc] initWithUserId:[user userId] book:[book identifier]];
         [self.serviceDispatcher callWithRequest:bookRequest withTarget:self andSelector:@selector(removeBookResponse:)];
         [self.bookDataAccessObject remove:book];
         callback();
