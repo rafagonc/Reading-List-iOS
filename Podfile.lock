@@ -32,7 +32,6 @@ PODS:
   - LUNSegmentedControl (1.0.7)
   - NSDate-Escort (1.7.0)
   - OCMock (3.2.2)
-  - PhotoTweaks (1.0.2)
   - Realm (0.97.1):
     - Realm/Headers (= 0.97.1)
   - Realm/Headers (0.97.1)
@@ -57,7 +56,6 @@ DEPENDENCIES:
   - LUNSegmentedControl
   - NSDate-Escort
   - OCMock
-  - PhotoTweaks (~> 1.0.2)
   - Realm
   - Realm/Headers
   - SDWebImage
@@ -78,7 +76,6 @@ SPEC CHECKSUMS:
   LUNSegmentedControl: f868b1ea740f9917f05dbcb4cded85c33ec606e6
   NSDate-Escort: 3469fefab423c094108c2e864416b61b6ac0edbc
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
-  PhotoTweaks: e91ce097f9df435049e7c35d419f9a7749e252bc
   Realm: 6854f49cc788171573a0605fe5e55d3224bc39f9
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
@@ -86,6 +83,6 @@ SPEC CHECKSUMS:
   UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: e74b8bfbd96dbe0501b03aec42a6e1224be9e220
+PODFILE CHECKSUM: 27716b3e4cccfba00560db530e40405f6da21e4f
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

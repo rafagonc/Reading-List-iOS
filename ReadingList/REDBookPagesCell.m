@@ -47,7 +47,7 @@
 
 #pragma mark - text field delegate
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    [self.delegate pagesCell:self didChangeBookPages:[textField.text integerValue]];
+    [self.delegate pagesCell:self didChangeBookPages:[[NSString stringWithFormat:@"%@%@",textField.text,string] integerValue]];
     return YES;
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField {

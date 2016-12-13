@@ -285,6 +285,9 @@
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
 		2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AFD3C481C5931EE0003C423 /* REDPagesInfoView.xib */; };
 		2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */; };
+		2AFDC4A21DECCAB00029260F /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDC49D1DECCAB00029260F /* PhotoTweaksViewController.m */; };
+		2AFDC4A31DECCAB00029260F /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDC49F1DECCAB00029260F /* PhotoTweakView.m */; };
+		2AFDC4A41DECCAB00029260F /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDC4A11DECCAB00029260F /* UIColor+Tweak.m */; };
 		441701F51C764C560076F9C7 /* new.txt in Resources */ = {isa = PBXBuildFile; fileRef = 441701F41C764C560076F9C7 /* new.txt */; };
 		443AE2131C9342FE00D926F5 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443AE2121C9342FE00D926F5 /* HCSStarRatingView.m */; };
 		445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 445786981C74AF900029355D /* REDDateChart+Interaction.m */; };
@@ -911,6 +914,12 @@
 		2AFD3C4C1C5932180003C423 /* REDUserScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserScrollView.h; sourceTree = "<group>"; };
 		2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUserScrollView.m; sourceTree = "<group>"; };
 		2AFD3C501C5935DC0003C423 /* ReadingList 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.8.xcdatamodel"; sourceTree = "<group>"; };
+		2AFDC49C1DECCAB00029260F /* PhotoTweaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweaksViewController.h; sourceTree = "<group>"; };
+		2AFDC49D1DECCAB00029260F /* PhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweaksViewController.m; sourceTree = "<group>"; };
+		2AFDC49E1DECCAB00029260F /* PhotoTweakView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweakView.h; sourceTree = "<group>"; };
+		2AFDC49F1DECCAB00029260F /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
+		2AFDC4A01DECCAB00029260F /* UIColor+Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tweak.h"; sourceTree = "<group>"; };
+		2AFDC4A11DECCAB00029260F /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
 		441701F41C764C560076F9C7 /* new.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new.txt; sourceTree = "<group>"; };
 		443108831CF36B2A00EC1963 /* ReadingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		443108871CF36B2B00EC1963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2152,6 +2161,12 @@
 		2A74EBAD1BCD50B7005F5E74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2AFDC49C1DECCAB00029260F /* PhotoTweaksViewController.h */,
+				2AFDC49D1DECCAB00029260F /* PhotoTweaksViewController.m */,
+				2AFDC49E1DECCAB00029260F /* PhotoTweakView.h */,
+				2AFDC49F1DECCAB00029260F /* PhotoTweakView.m */,
+				2AFDC4A01DECCAB00029260F /* UIColor+Tweak.h */,
+				2AFDC4A11DECCAB00029260F /* UIColor+Tweak.m */,
 				2AB0F1481D42F1F4009D7513 /* RFRateMe */,
 				2A5C69B31D0BDC9800D10A2F /* LibzBar */,
 				441701F41C764C560076F9C7 /* new.txt */,
@@ -4350,7 +4365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8A4F76D06530DDE22D31725A /* [CP] Check Pods Manifest.lock */ = {
@@ -4365,7 +4380,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4411,6 +4426,7 @@
 				44F31D0D1CFC7F390067DA55 /* REDTutorialViewController.m in Sources */,
 				2ADA28821C59B2B90068CCAC /* REDDateValidator.m in Sources */,
 				2A4393771D01472E008AB65E /* REDAllSetViewController.m in Sources */,
+				2AFDC4A31DECCAB00029260F /* PhotoTweakView.m in Sources */,
 				2ABB971A1CED7275001C1E29 /* NSDate+Additions.m in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
 				2A4597901C6C21500010D135 /* REDAuthorNameValidator.m in Sources */,
@@ -4559,6 +4575,7 @@
 				4486C35A1D1C73840008888C /* REDUpdateNoteCall.m in Sources */,
 				2A0E34691D177F7600D7077C /* REDRLMNote.m in Sources */,
 				2A4393631D013440008AB65E /* REDBookFindTutorialViewController.m in Sources */,
+				2AFDC4A21DECCAB00029260F /* PhotoTweaksViewController.m in Sources */,
 				2A5C69631D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m in Sources */,
 				44A787761CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m in Sources */,
 				2A974E261D3BF4BD00842266 /* REDSegmentedCell.m in Sources */,
@@ -4570,6 +4587,7 @@
 				2A74EC4F1BCE3FAA005F5E74 /* REDStaticData.m in Sources */,
 				2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */,
 				2A4393731D013FDE008AB65E /* REDTransientBookCompletedAdapter.m in Sources */,
+				2AFDC4A41DECCAB00029260F /* UIColor+Tweak.m in Sources */,
 				2A74EC1D1BCDE2D0005F5E74 /* REDBookHeaderCell.m in Sources */,
 				2ABB96FC1CE78B3B001C1E29 /* REDRemoveUserCall.m in Sources */,
 				2AFCE53F1C6EC14C00680A53 /* REDLocalToRealm.m in Sources */,
