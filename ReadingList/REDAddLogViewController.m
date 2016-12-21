@@ -125,13 +125,13 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
         return;
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     [[self.logRepositoryFactory repository] createForUser:self.user log:self.read callback:^(id<REDReadProtocol> read) {} error:^(NSError *error) {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[error localizedDescription]];
     }];
 }
 -(void)cancelAction:(UIBarButtonItem *)item {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - dealloc
