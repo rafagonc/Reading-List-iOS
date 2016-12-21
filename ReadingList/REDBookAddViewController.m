@@ -359,7 +359,7 @@ typedef NS_ENUM(NSUInteger, REDBookAddViewControllerActionType) {
 -(void)doneAction:(UIBarButtonItem *)createButton {
     [self finishBookWithSuccessCallback:^{
         [self savePageChangedIfNeeded];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popToRootViewControllerAnimated:YES];
         [[REDDataStack sharedManager] commit];
         if (self.actionType == REDBookAddViewControllerActionTypeEditing) {
             [Localytics tagEvent:@"Edit Book"];

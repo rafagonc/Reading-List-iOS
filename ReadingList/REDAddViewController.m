@@ -53,14 +53,14 @@
     UIStaticTableViewSection * bookSection = [[UIStaticTableViewSection alloc] init];
     [bookSection setHeaderName:@"Adding Books"];
     
-    REDSelectCell * searchBookCell = [[REDSelectCell alloc] initWithTitle:@"Search By Name"];
+    REDSelectCell * searchBookCell = [[REDSelectCell alloc] initWithTitle:@"By Name"];
     [searchBookCell handleSelection:^{
         REDExploreViewController * explore = [[REDExploreViewController alloc] init];
         [welf.navigationController pushViewController:explore animated:YES];
     }];
     [self.tableView addCell:searchBookCell onSection:bookSection];
     
-    REDSelectCell * scanBarcodeCell = [[REDSelectCell alloc] initWithTitle:@"Scan ISBN/Barcode"];
+    REDSelectCell * scanBarcodeCell = [[REDSelectCell alloc] initWithTitle:@"By ISBN"];
     [scanBarcodeCell handleSelection:^{
         ZBarReaderViewController *codeReader = [ZBarReaderViewController new];
         codeReader.readerDelegate = welf.zbarDelegate;
