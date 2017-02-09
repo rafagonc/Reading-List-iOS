@@ -2,7 +2,7 @@
 An simple app for keep tracking of books
 
 ## Todo
-
+- not mandatory books
 - epub, pdf support, branch = import.
 - good explore page.
 
