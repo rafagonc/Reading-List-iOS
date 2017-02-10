@@ -50,13 +50,11 @@
     
     [Localytics tagScreen:self.title];
     
-    self.collectionView.dataSource = self.datasource;
-    self.collectionView.delegate = self.datasource;
-    [self.datasource setDelegate:self];
-    
-    [self.collectionView reloadData];
+//    self.collectionView.dataSource = self.datasource;
+//    self.collectionView.delegate = self.datasource;
+//    [self.datasource setDelegate:self];
+//    [self.collectionView reloadData];
     [self setUpBarButtonItems];
-    [self consume];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -75,7 +73,6 @@
 
 #pragma mark - service
 -(void)consume {
-    [self startFullLoading];
     REDImageSearchRequest *request = [[REDImageSearchRequest alloc] initWithQuery:[self query]];
     [request nextPage];
     [self.dispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
@@ -88,7 +85,6 @@
     } else {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
     }
-    [self stopFullLoading];
 }
 
 #pragma mark - delegates
@@ -155,7 +151,6 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Library not available"];
     }
 }
-
 
 #pragma mark - dealloc
 -(void)didReceiveMemoryWarning {
