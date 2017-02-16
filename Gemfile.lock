@@ -11,6 +11,8 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     babosa (1.0.2)
+    cert (2.0.0)
+      fastlane (>= 2.0.0, < 3.0.0)
     claide (1.0.1)
     colored (1.2)
     commander (4.4.3)
@@ -143,6 +145,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cert
   fastlane
 
 BUNDLED WITH
