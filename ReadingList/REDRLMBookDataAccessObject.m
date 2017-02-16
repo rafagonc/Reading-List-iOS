@@ -53,6 +53,7 @@
     [book setLoved:0];
     [book setSnippet:@""];
     [book setRate:0.0];
+    [book setCategory:[self.categoryDataAccessObject unespecified]];
     [realm addObject:book];
     [self.transactionManager commit];
     return book;

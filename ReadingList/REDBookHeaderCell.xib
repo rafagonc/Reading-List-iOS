@@ -82,7 +82,7 @@
                         </connections>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJk-5y-tm3">
-                        <rect key="frame" x="8" y="269" width="148" height="35"/>
+                        <rect key="frame" x="8" y="269" width="148" height="34"/>
                         <color key="backgroundColor" red="1" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                         <inset key="imageEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -116,7 +116,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jue-sH-oXX">
-                        <rect key="frame" x="164" y="269" width="148" height="35"/>
+                        <rect key="frame" x="164" y="269" width="148" height="34"/>
                         <color key="backgroundColor" red="0.40784313725490196" green="0.56862745098039214" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                         <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>

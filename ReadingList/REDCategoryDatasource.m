@@ -29,7 +29,7 @@
 
 #pragma mark - getters and setters
 -(void)setData:(NSArray *)data {
-    _categories = data;
+    _categories = [[[[NSSet alloc] initWithArray:data] allObjects] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
     [self.tableView reloadData];
 }
 -(NSArray *)data {

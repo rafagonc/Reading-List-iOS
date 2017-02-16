@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOL-88-Bf1">
-                    <rect key="frame" x="20" y="182" width="280" height="204"/>
+                    <rect key="frame" x="20" y="142" width="280" height="204"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="204" id="ajM-aF-QIa"/>
                     </constraints>
@@ -29,11 +29,27 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qE-c7-T3U">
+                    <rect key="frame" x="100" y="354" width="120" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="DhB-y8-PHc"/>
+                        <constraint firstAttribute="width" constant="120" id="z9V-pJ-LT6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                    <state key="normal" title="Open Browser">
+                        <color key="titleColor" red="0.78823529410000004" green="0.2784313725" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="openBrowerAction:" destination="-1" eventType="touchUpInside" id="fz5-1q-vuh"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="7qE-c7-T3U" firstAttribute="top" secondItem="TOL-88-Bf1" secondAttribute="bottom" constant="8" id="Bpm-21-tod"/>
+                <constraint firstItem="7qE-c7-T3U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H4n-Pu-mCc"/>
                 <constraint firstItem="TOL-88-Bf1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="UlW-G0-n07"/>
-                <constraint firstItem="TOL-88-Bf1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="VLx-fg-UlQ"/>
+                <constraint firstItem="TOL-88-Bf1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-40" id="VLx-fg-UlQ"/>
                 <constraint firstItem="TOL-88-Bf1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hK6-DA-2cM"/>
                 <constraint firstAttribute="trailing" secondItem="TOL-88-Bf1" secondAttribute="trailing" constant="20" id="qMK-2g-Jan"/>
             </constraints>

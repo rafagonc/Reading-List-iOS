@@ -25,6 +25,7 @@ PODS:
   - Depend (0.1.3)
   - Digits (2.0.2):
     - TwitterCore (= 2.0.2)
+  - DZNWebViewController (3.2)
   - EDStarRating (1.1)
   - Fabric (1.6.7)
   - LLARingSpinnerView (0.1.3)
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - Crashlytics
   - Depend
   - Digits
+  - DZNWebViewController
   - EDStarRating
   - Fabric
   - LLARingSpinnerView
@@ -69,6 +71,7 @@ SPEC CHECKSUMS:
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   Depend: 3626f36923415485bedcfad4ae21f07151727aad
   Digits: a5c8ddfed18d5e0496e9b6f459f0bca44de588db
+  DZNWebViewController: 8e927a5de637fe0c4104c001d5cccd4fa5621e50
   EDStarRating: a41a6440a945020745d0e9ff8ada7d1afa952114
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   LLARingSpinnerView: d5f9057460e97989aff1c52a247c6acb62b8d883
@@ -83,6 +86,6 @@ SPEC CHECKSUMS:
   UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
   UIAlertView+Blocks: a46c99c5144f6c5dbc7d62fd2a0678daceec89a3
 
-PODFILE CHECKSUM: 27716b3e4cccfba00560db530e40405f6da21e4f
+PODFILE CHECKSUM: 048fb4648e65644e186a539fd3be65a7fea55229
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

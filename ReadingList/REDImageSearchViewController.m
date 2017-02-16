@@ -17,6 +17,8 @@
 #import "UIViewController+Loading.h"
 #import "UIViewController+NotificationShow.h"
 #import "PhotoTweaksViewController.h"
+#import "DZNWebViewController.h"
+#import "UIColor+ReadingList.h"
 
 @interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate, UIImagePickerControllerDelegate, PhotoTweaksViewControllerDelegate, UINavigationControllerDelegate>
 
@@ -140,6 +142,21 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Camera not available"];
     }
 }
+-(void)openBrowerAction:(id)sender {
+    NSURL *URL = [NSURL URLWithString:[[NSString stringWithFormat:@"http://www.google.com/search?q=%@ %@ book cover&tbm=isch", self.bookName, self.authorName] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
+    
+    DZNWebViewController *WVC = [[DZNWebViewController alloc] initWithURL:URL];
+    
+    WVC.supportedWebNavigationTools = DZNWebNavigationToolAll;
+    WVC.supportedWebActions = DZNWebActionAll;
+    WVC.showLoadingProgress = YES;
+    WVC.allowHistory = YES;
+    WVC.hideBarsWithGestures = YES;
+    
+    [WVC.view setTintColor:[UIColor red_redColor]];
+    
+    [self.navigationController pushViewController:WVC animated:YES];
+}
 -(void)libraryAction:(UIBarButtonItem *)item {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -150,6 +167,9 @@
     } else {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Library not available"];
     }
+}
+-(void)dismissBrowser {
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - dealloc

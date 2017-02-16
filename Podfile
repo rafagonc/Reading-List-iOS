@@ -4,7 +4,7 @@
 # use_frameworks!
 
 target 'ReadingList' do
-
+pod 'DZNWebViewController'
 pod 'AFNetworking', '~> 2.5'
 pod 'Depend'
 pod 'SDWebImage'
