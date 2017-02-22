@@ -29,6 +29,16 @@
     [self.transactionManager commit];
     return category;
 }
+-(id<REDCategoryProtocol>)unespecified {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    id<REDCategoryProtocol> cat = [self categoryByName:@"Unespecified"];
+    if (!cat) {
+        REDRLMCategory *cat = [[REDRLMCategory alloc] init];
+        [cat setName:@"Unespecified"];
+        [realm addObject:cat];
+    }
+    return cat;
+}
 
 #pragma mark - queries
 -(NSArray *)list {

@@ -1,41 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="REDImageSearchViewController">
             <connections>
-                <outlet property="collectionView" destination="PeH-x1-tKW" id="Lby-wS-Wh7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PeH-x1-tKW">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CHQ-uR-9pK">
-                        <size key="itemSize" width="108" height="108"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOL-88-Bf1">
+                    <rect key="frame" x="20" y="142" width="280" height="204"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="204" id="ajM-aF-QIa"/>
+                    </constraints>
+                    <string key="text">I was paying lot of money to keep the book cover search from Google Books working, I couldn't afford it anymore. I suggest you find the cover on google, hold your finger on the image to save it and select it from library. Sorry and thank you! 🙁</string>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qE-c7-T3U">
+                    <rect key="frame" x="100" y="354" width="120" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="DhB-y8-PHc"/>
+                        <constraint firstAttribute="width" constant="120" id="z9V-pJ-LT6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                    <state key="normal" title="Open Browser">
+                        <color key="titleColor" red="0.78823529410000004" green="0.2784313725" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="openBrowerAction:" destination="-1" eventType="touchUpInside" id="fz5-1q-vuh"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="PeH-x1-tKW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3jz-t7-2RU"/>
-                <constraint firstAttribute="bottom" secondItem="PeH-x1-tKW" secondAttribute="bottom" id="7Z1-bb-dWl"/>
-                <constraint firstAttribute="trailing" secondItem="PeH-x1-tKW" secondAttribute="trailing" id="9Yp-eJ-wKq"/>
-                <constraint firstItem="PeH-x1-tKW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bMB-rJ-tTD"/>
+                <constraint firstItem="7qE-c7-T3U" firstAttribute="top" secondItem="TOL-88-Bf1" secondAttribute="bottom" constant="8" id="Bpm-21-tod"/>
+                <constraint firstItem="7qE-c7-T3U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H4n-Pu-mCc"/>
+                <constraint firstItem="TOL-88-Bf1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="UlW-G0-n07"/>
+                <constraint firstItem="TOL-88-Bf1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-40" id="VLx-fg-UlQ"/>
+                <constraint firstItem="TOL-88-Bf1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hK6-DA-2cM"/>
+                <constraint firstAttribute="trailing" secondItem="TOL-88-Bf1" secondAttribute="trailing" constant="20" id="qMK-2g-Jan"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="-127" y="-14"/>
         </view>
     </objects>
 </document>

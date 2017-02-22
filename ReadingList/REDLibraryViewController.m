@@ -46,6 +46,7 @@
 #import "UISearchBar+Toolbar.h"
 #import "REDCategoryCreateViewController.h"
 #import "UITableView+Autoresize.h"
+#import "REDAddViewController.h"
 #import "REDAddLogViewController.h"
 
 @interface REDLibraryViewController ()
@@ -142,8 +143,8 @@
     UIBarButtonItem *addAction = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
     [self.navigationItem setRightBarButtonItem:addAction];
     
-    UIBarButtonItem *barAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barcode"] style:UIBarButtonItemStylePlain target:self action:@selector(barAction:)];
-    [self.navigationItem setRightBarButtonItems:@[addAction, barAction]];
+//    UIBarButtonItem *barAction = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"barcode"] style:UIBarButtonItemStylePlain target:self action:@selector(barAction:)];
+//    [self.navigationItem setRightBarButtonItems:@[addAction, barAction]];
 }
 -(void)setUpSearchController {
     [self setDefinesPresentationContext:YES];
@@ -311,7 +312,10 @@
     id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
     ZBarSymbol *symbol = nil;
     for(symbol in results) break;
+    UITabBarController *tab = (UITabBarController *)picker.presentingViewController;
+    UIViewController * vc = tab.selectedViewController;
     [picker dismissViewControllerAnimated:YES completion:^{
+        [(UINavigationController *)vc popToRootViewControllerAnimated:YES];
         if (symbol.data) {
             [self startFullLoading];
             REDGoogleBooksQueryRequest * googleRequest = [[REDGoogleBooksQueryRequest alloc] initWithQuery:symbol.data];
@@ -337,17 +341,8 @@
 
 #pragma mark - actions
 -(void)addAction:(UIBarButtonItem *)addbutton {
-    REDNewOptionsViewController *newViewController = [[REDNewOptionsViewController alloc] init];
-    [newViewController whatToCreateCallback:^(REDNewOptions option) {
-        if (option == REDNewOptionsNewBook) {
-            REDBookAddViewController *detailViewController = [[REDBookAddViewController alloc] init];
-            [self.navigationController pushViewController:detailViewController animated:YES];
-        } else {
-            REDAddLogViewController *addLog = [[REDAddLogViewController alloc] init];
-            [self.navigationController pushViewController:addLog animated:YES];
-        }
-    }];
-    [self presentViewController:newViewController animated:YES completion:nil];
+    REDAddViewController * addVC = [[REDAddViewController alloc] initWithDelegate:self];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 -(void)editAction:(UIBarButtonItem *)editAction {
     [self.libraryCell.libraryView setEditing:!self.libraryCell.libraryView.editing];

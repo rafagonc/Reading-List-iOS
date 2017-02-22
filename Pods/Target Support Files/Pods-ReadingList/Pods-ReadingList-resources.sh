@@ -18,16 +18,13 @@ case "${TARGETED_DEVICE_FAMILY}" in
   2)
     TARGET_DEVICE_ARGS="--target-device ipad"
     ;;
+  3)
+    TARGET_DEVICE_ARGS="--target-device tv"
+    ;;
   *)
     TARGET_DEVICE_ARGS="--target-device mac"
     ;;
 esac
-
-realpath() {
-  DIRECTORY="$(cd "${1%/*}" && pwd)"
-  FILENAME="${1##*/}"
-  echo "$DIRECTORY/$FILENAME"
-}
 
 install_resource()
 {
@@ -70,7 +67,7 @@ EOM
       xcrun mapc "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcmappingmodel`.cdm"
       ;;
     *.xcassets)
-      ABSOLUTE_XCASSET_FILE=$(realpath "$RESOURCE_PATH")
+      ABSOLUTE_XCASSET_FILE="$RESOURCE_PATH"
       XCASSET_FILES+=("$ABSOLUTE_XCASSET_FILE")
       ;;
     *)
@@ -80,10 +77,66 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_chrome@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_chrome@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_dolphin@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_dolphin@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_link@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_link@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_opera@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_opera@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_safari@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_safari@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_action.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_action@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_action@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_backward.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_backward@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_backward@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_forward.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_forward@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_forward@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_reload.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_reload@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_reload@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_stop.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_stop@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_stop@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/de.lproj"
+  install_resource "DZNWebViewController/Source/Resources/en.lproj"
+  install_resource "DZNWebViewController/Source/Resources/es.lproj"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/Depend-iOS8.0/Depend.bundle"
   install_resource "Digits/iOS/DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_chrome@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_chrome@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_dolphin@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_dolphin@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_link@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_link@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_opera@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_opera@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_safari@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_activity_safari@2x~ipad.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_action.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_action@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_action@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_backward.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_backward@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_backward@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_forward.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_forward@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_forward@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_reload.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_reload@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_reload@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_stop.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_stop@2x.png"
+  install_resource "DZNWebViewController/Source/Resources/dzn_icn_toolbar_stop@3x.png"
+  install_resource "DZNWebViewController/Source/Resources/de.lproj"
+  install_resource "DZNWebViewController/Source/Resources/en.lproj"
+  install_resource "DZNWebViewController/Source/Resources/es.lproj"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/Depend-iOS8.0/Depend.bundle"
   install_resource "Digits/iOS/DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle"
 fi
@@ -101,7 +154,7 @@ then
   # Find all other xcassets (this unfortunately includes those of path pods and other targets).
   OTHER_XCASSETS=$(find "$PWD" -iname "*.xcassets" -type d)
   while read line; do
-    if [[ $line != "`realpath $PODS_ROOT`*" ]]; then
+    if [[ $line != "${PODS_ROOT}*" ]]; then
       XCASSET_FILES+=("$line")
     fi
   done <<<"$OTHER_XCASSETS"

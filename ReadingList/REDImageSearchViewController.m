@@ -17,6 +17,8 @@
 #import "UIViewController+Loading.h"
 #import "UIViewController+NotificationShow.h"
 #import "PhotoTweaksViewController.h"
+#import "DZNWebViewController.h"
+#import "UIColor+ReadingList.h"
 
 @interface REDImageSearchViewController () <REDImageSearchCollectionViewDatasourceDelegate, UIImagePickerControllerDelegate, PhotoTweaksViewControllerDelegate, UINavigationControllerDelegate>
 
@@ -50,13 +52,11 @@
     
     [Localytics tagScreen:self.title];
     
-    self.collectionView.dataSource = self.datasource;
-    self.collectionView.delegate = self.datasource;
-    [self.datasource setDelegate:self];
-    
-    [self.collectionView reloadData];
+//    self.collectionView.dataSource = self.datasource;
+//    self.collectionView.delegate = self.datasource;
+//    [self.datasource setDelegate:self];
+//    [self.collectionView reloadData];
     [self setUpBarButtonItems];
-    [self consume];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -75,7 +75,6 @@
 
 #pragma mark - service
 -(void)consume {
-    [self startFullLoading];
     REDImageSearchRequest *request = [[REDImageSearchRequest alloc] initWithQuery:[self query]];
     [request nextPage];
     [self.dispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
@@ -88,7 +87,6 @@
     } else {
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:[[response error] localizedDescription]];
     }
-    [self stopFullLoading];
 }
 
 #pragma mark - delegates
@@ -144,6 +142,21 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Camera not available"];
     }
 }
+-(void)openBrowerAction:(id)sender {
+    NSURL *URL = [NSURL URLWithString:[[NSString stringWithFormat:@"http://www.google.com/search?q=%@ %@ book cover&tbm=isch", self.bookName, self.authorName] stringByReplacingOccurrencesOfString:@" " withString:@"%20"]];
+    
+    DZNWebViewController *WVC = [[DZNWebViewController alloc] initWithURL:URL];
+    
+    WVC.supportedWebNavigationTools = DZNWebNavigationToolAll;
+    WVC.supportedWebActions = DZNWebActionAll;
+    WVC.showLoadingProgress = YES;
+    WVC.allowHistory = YES;
+    WVC.hideBarsWithGestures = YES;
+    
+    [WVC.view setTintColor:[UIColor red_redColor]];
+    
+    [self.navigationController pushViewController:WVC animated:YES];
+}
 -(void)libraryAction:(UIBarButtonItem *)item {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -155,7 +168,9 @@
         [self showNotificationWithType:SHNotificationViewTypeError withMessage:@"Library not available"];
     }
 }
-
+-(void)dismissBrowser {
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark - dealloc
 -(void)didReceiveMemoryWarning {

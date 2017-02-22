@@ -15,6 +15,7 @@
 #import "REDTransactionManager.h"
 #import "UIColor+ReadingList.h"
 #import "HCSStarRatingView.h"
+#import "REDBookCoverFlyweight.h"
 
 @interface REDBookHeaderCell ()
 
@@ -150,7 +151,8 @@
     [book setRate:self.starRatingView.value];
     [book setName:self.nameTextField.text];
     [book setAuthor:self.author];
-    [book setCoverImage:self.coverButton.currentBackgroundImage];
+    [book setCoverImage:self.coverImage];
+    [[REDBookCoverFlyweight sharedFlyweight] addCoverImage:self.coverImage forBook:book];
     [book setSnippet:self.snippet];
     [book setCoverURL:self.coverURL];
     return YES;

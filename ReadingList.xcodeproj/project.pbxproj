@@ -285,9 +285,16 @@
 		2AFD3C421C5931C80003C423 /* REDPagesInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C411C5931C80003C423 /* REDPagesInfoView.m */; };
 		2AFD3C491C5931EE0003C423 /* REDPagesInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AFD3C481C5931EE0003C423 /* REDPagesInfoView.xib */; };
 		2AFD3C4E1C5932180003C423 /* REDUserScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */; };
+		2AFDC4A21DECCAB00029260F /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDC49D1DECCAB00029260F /* PhotoTweaksViewController.m */; };
+		2AFDC4A31DECCAB00029260F /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDC49F1DECCAB00029260F /* PhotoTweakView.m */; };
+		2AFDC4A41DECCAB00029260F /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDC4A11DECCAB00029260F /* UIColor+Tweak.m */; };
 		441701F51C764C560076F9C7 /* new.txt in Resources */ = {isa = PBXBuildFile; fileRef = 441701F41C764C560076F9C7 /* new.txt */; };
 		443AE2131C9342FE00D926F5 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 443AE2121C9342FE00D926F5 /* HCSStarRatingView.m */; };
 		445786991C74AF900029355D /* REDDateChart+Interaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 445786981C74AF900029355D /* REDDateChart+Interaction.m */; };
+		446170E01E0AB23D0076DEC0 /* REDAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446170DF1E0AB23D0076DEC0 /* REDAddViewController.m */; };
+		446170E21E0AB2460076DEC0 /* REDAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446170E11E0AB2460076DEC0 /* REDAddViewController.xib */; };
+		446170EC1E0AB4DE0076DEC0 /* REDSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 446170EA1E0AB4DE0076DEC0 /* REDSelectCell.m */; };
+		446170ED1E0AB4DE0076DEC0 /* REDSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446170EB1E0AB4DE0076DEC0 /* REDSelectCell.xib */; };
 		44721E6C1D2EF05700F4612F /* REDAuthorRemoverImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 44721E6B1D2EF05700F4612F /* REDAuthorRemoverImpl.m */; };
 		44721E711D2EFCCF00F4612F /* REDAuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44721E701D2EFCCF00F4612F /* REDAuthorCell.m */; };
 		44721E731D2EFCD700F4612F /* REDAuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44721E721D2EFCD700F4612F /* REDAuthorCell.xib */; };
@@ -373,7 +380,6 @@
 		2A0E347C1D178CC500D7077C /* UITextView+Done.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Done.h"; sourceTree = "<group>"; };
 		2A0E347D1D178CC500D7077C /* UITextView+Done.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Done.m"; sourceTree = "<group>"; };
 		2A13EEA01C2E433D005DB34E /* REDTransientBookDatasourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTransientBookDatasourceDelegate.h; sourceTree = "<group>"; };
-		2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ReadingList.entitlements; sourceTree = "<group>"; };
 		2A13EEA51C2E5550005DB34E /* REDCloudMigrationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCloudMigrationHandler.h; sourceTree = "<group>"; };
 		2A13EEA61C2E5550005DB34E /* REDCloudMigrationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCloudMigrationHandler.m; sourceTree = "<group>"; };
 		2A13EEA91C2E5C1C005DB34E /* REDCloudDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCloudDataStack.h; sourceTree = "<group>"; };
@@ -911,6 +917,12 @@
 		2AFD3C4C1C5932180003C423 /* REDUserScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDUserScrollView.h; sourceTree = "<group>"; };
 		2AFD3C4D1C5932180003C423 /* REDUserScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDUserScrollView.m; sourceTree = "<group>"; };
 		2AFD3C501C5935DC0003C423 /* ReadingList 1.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ReadingList 1.8.xcdatamodel"; sourceTree = "<group>"; };
+		2AFDC49C1DECCAB00029260F /* PhotoTweaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweaksViewController.h; sourceTree = "<group>"; };
+		2AFDC49D1DECCAB00029260F /* PhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweaksViewController.m; sourceTree = "<group>"; };
+		2AFDC49E1DECCAB00029260F /* PhotoTweakView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweakView.h; sourceTree = "<group>"; };
+		2AFDC49F1DECCAB00029260F /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
+		2AFDC4A01DECCAB00029260F /* UIColor+Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tweak.h"; sourceTree = "<group>"; };
+		2AFDC4A11DECCAB00029260F /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
 		441701F41C764C560076F9C7 /* new.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = new.txt; sourceTree = "<group>"; };
 		443108831CF36B2A00EC1963 /* ReadingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		443108871CF36B2B00EC1963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -919,6 +931,12 @@
 		445786971C74AF900029355D /* REDDateChart+Interaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "REDDateChart+Interaction.h"; sourceTree = "<group>"; };
 		445786981C74AF900029355D /* REDDateChart+Interaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "REDDateChart+Interaction.m"; sourceTree = "<group>"; };
 		4457869A1C74F7300029355D /* REDDateChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateChartDelegate.h; sourceTree = "<group>"; };
+		446170DE1E0AB23D0076DEC0 /* REDAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAddViewController.h; sourceTree = "<group>"; };
+		446170DF1E0AB23D0076DEC0 /* REDAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAddViewController.m; sourceTree = "<group>"; };
+		446170E11E0AB2460076DEC0 /* REDAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDAddViewController.xib; sourceTree = "<group>"; };
+		446170E91E0AB4DE0076DEC0 /* REDSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDSelectCell.h; sourceTree = "<group>"; };
+		446170EA1E0AB4DE0076DEC0 /* REDSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDSelectCell.m; sourceTree = "<group>"; };
+		446170EB1E0AB4DE0076DEC0 /* REDSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDSelectCell.xib; sourceTree = "<group>"; };
 		44721E6A1D2EF05700F4612F /* REDAuthorRemoverImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAuthorRemoverImpl.h; sourceTree = "<group>"; };
 		44721E6B1D2EF05700F4612F /* REDAuthorRemoverImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAuthorRemoverImpl.m; sourceTree = "<group>"; };
 		44721E6E1D2EF09B00F4612F /* REDAuthorRemover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAuthorRemover.h; sourceTree = "<group>"; };
@@ -1187,6 +1205,7 @@
 				2A5C696A1D0BAF6000D10A2F /* Book Predicate View Controller */,
 				2A0E347B1D1789A600D7077C /* Add Note View Controller */,
 				2AB0F1641D445568009D7513 /* New Options View Controller */,
+				446170E31E0AB2490076DEC0 /* Add View Controller */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1224,6 +1243,7 @@
 				2A974E161D3AFA3D00842266 /* User Cell */,
 				2A974E1C1D3B01DA00842266 /* Library Cell */,
 				2A974E281D3BF4C100842266 /* Segmented Cell */,
+				44BF68831E0AB50800BC3CB4 /* Select Cell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2152,10 +2172,15 @@
 		2A74EBAD1BCD50B7005F5E74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2AFDC49C1DECCAB00029260F /* PhotoTweaksViewController.h */,
+				2AFDC49D1DECCAB00029260F /* PhotoTweaksViewController.m */,
+				2AFDC49E1DECCAB00029260F /* PhotoTweakView.h */,
+				2AFDC49F1DECCAB00029260F /* PhotoTweakView.m */,
+				2AFDC4A01DECCAB00029260F /* UIColor+Tweak.h */,
+				2AFDC4A11DECCAB00029260F /* UIColor+Tweak.m */,
 				2AB0F1481D42F1F4009D7513 /* RFRateMe */,
 				2A5C69B31D0BDC9800D10A2F /* LibzBar */,
 				441701F41C764C560076F9C7 /* new.txt */,
-				2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */,
 				2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */,
 				2ADCC0B41BD2EC90009F638A /* books.json */,
 				2ADCC0AE1BD2E69A009F638A /* the-little-prince-summary.jpg */,
@@ -3544,6 +3569,16 @@
 			path = ReadingUITests;
 			sourceTree = "<group>";
 		};
+		446170E31E0AB2490076DEC0 /* Add View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				446170DE1E0AB23D0076DEC0 /* REDAddViewController.h */,
+				446170DF1E0AB23D0076DEC0 /* REDAddViewController.m */,
+				446170E11E0AB2460076DEC0 /* REDAddViewController.xib */,
+			);
+			name = "Add View Controller";
+			sourceTree = "<group>";
+		};
 		4462B78C1CEF3464009C27D9 /* Start Rating View */ = {
 			isa = PBXGroup;
 			children = (
@@ -3992,6 +4027,16 @@
 			name = "Category Remover";
 			sourceTree = "<group>";
 		};
+		44BF68831E0AB50800BC3CB4 /* Select Cell */ = {
+			isa = PBXGroup;
+			children = (
+				446170E91E0AB4DE0076DEC0 /* REDSelectCell.h */,
+				446170EA1E0AB4DE0076DEC0 /* REDSelectCell.m */,
+				446170EB1E0AB4DE0076DEC0 /* REDSelectCell.xib */,
+			);
+			name = "Select Cell";
+			sourceTree = "<group>";
+		};
 		44F31CFD1CFC77940067DA55 /* Welcome View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -4119,8 +4164,11 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 8P5355PV9G;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
 							com.apple.iCloud = {
 								enabled = 0;
 							};
@@ -4198,6 +4246,7 @@
 				2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */,
 				44F31D081CFC7C030067DA55 /* REDCloudViewController.xib in Resources */,
 				2AB0F1631D445558009D7513 /* REDNewOptionsViewController.xib in Resources */,
+				446170E21E0AB2460076DEC0 /* REDAddViewController.xib in Resources */,
 				2A746DE61CD6ED5E0061F2B9 /* REDServerMetadata.plist in Resources */,
 				2A4393651D01344B008AB65E /* REDBookFindTutorialViewController.xib in Resources */,
 				2A5C69D71D0BDC9800D10A2F /* zbar-samples.png in Resources */,
@@ -4224,6 +4273,7 @@
 				2A74EC201BCDE2E2005F5E74 /* REDBookHeaderCell.xib in Resources */,
 				2ADA28641C5995280068CCAC /* REDPagesReadCell.xib in Resources */,
 				2ADA28701C59A91F0068CCAC /* REDChooseBookViewController.xib in Resources */,
+				446170ED1E0AB4DE0076DEC0 /* REDSelectCell.xib in Resources */,
 				2A74EC7F1BD0A558005F5E74 /* REDImageSearchViewController.xib in Resources */,
 				2A74EC411BCDF5D8005F5E74 /* REDPageProgressCell.xib in Resources */,
 				2AE8BAFE1C7561E4004C1BB0 /* REDChartCallout.xib in Resources */,
@@ -4347,7 +4397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8A4F76D06530DDE22D31725A /* [CP] Check Pods Manifest.lock */ = {
@@ -4362,7 +4412,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4374,6 +4424,7 @@
 			files = (
 				2A974E3A1D3C835200842266 /* REDUserCellStateClosed.m in Sources */,
 				2A13EEA71C2E5550005DB34E /* REDCloudMigrationHandler.m in Sources */,
+				446170E01E0AB23D0076DEC0 /* REDAddViewController.m in Sources */,
 				2ABB96DE1CE6E069001C1E29 /* REDListBooksFactory.m in Sources */,
 				2A74EC461BCE0037005F5E74 /* REDCategoryViewController.m in Sources */,
 				2A1632D91C580E6C0015F06E /* _REDUser.m in Sources */,
@@ -4408,6 +4459,7 @@
 				44F31D0D1CFC7F390067DA55 /* REDTutorialViewController.m in Sources */,
 				2ADA28821C59B2B90068CCAC /* REDDateValidator.m in Sources */,
 				2A4393771D01472E008AB65E /* REDAllSetViewController.m in Sources */,
+				2AFDC4A31DECCAB00029260F /* PhotoTweakView.m in Sources */,
 				2ABB971A1CED7275001C1E29 /* NSDate+Additions.m in Sources */,
 				2A74EC641BD08FAD005F5E74 /* REDAuthor.m in Sources */,
 				2A4597901C6C21500010D135 /* REDAuthorNameValidator.m in Sources */,
@@ -4471,6 +4523,7 @@
 				2A6601F81CC2FC8E00B6D835 /* REDTopRatedRequest.m in Sources */,
 				2A19B8B21BCDBE94009C8F25 /* REDBookAddViewController.m in Sources */,
 				2A2A1E4E1BD2F0E000677868 /* UISearchBar+Toolbar.m in Sources */,
+				446170EC1E0AB4DE0076DEC0 /* REDSelectCell.m in Sources */,
 				2A746DE51CD6ED5E0061F2B9 /* REDServerMetadata.m in Sources */,
 				44721E711D2EFCCF00F4612F /* REDAuthorCell.m in Sources */,
 				2A77C08F1C2DD74000E21551 /* REDDefaultDataAccessObject.m in Sources */,
@@ -4556,6 +4609,7 @@
 				4486C35A1D1C73840008888C /* REDUpdateNoteCall.m in Sources */,
 				2A0E34691D177F7600D7077C /* REDRLMNote.m in Sources */,
 				2A4393631D013440008AB65E /* REDBookFindTutorialViewController.m in Sources */,
+				2AFDC4A21DECCAB00029260F /* PhotoTweaksViewController.m in Sources */,
 				2A5C69631D0BA59D00D10A2F /* REDLibraryAuthorDatasource.m in Sources */,
 				44A787761CDBCC740038ED4A /* REDBookRepositoryFactoryImpl.m in Sources */,
 				2A974E261D3BF4BD00842266 /* REDSegmentedCell.m in Sources */,
@@ -4567,6 +4621,7 @@
 				2A74EC4F1BCE3FAA005F5E74 /* REDStaticData.m in Sources */,
 				2A8D056F1BD05E0C004364F5 /* NSString+Digits.m in Sources */,
 				2A4393731D013FDE008AB65E /* REDTransientBookCompletedAdapter.m in Sources */,
+				2AFDC4A41DECCAB00029260F /* UIColor+Tweak.m in Sources */,
 				2A74EC1D1BCDE2D0005F5E74 /* REDBookHeaderCell.m in Sources */,
 				2ABB96FC1CE78B3B001C1E29 /* REDRemoveUserCall.m in Sources */,
 				2AFCE53F1C6EC14C00680A53 /* REDLocalToRealm.m in Sources */,
@@ -4751,6 +4806,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8P5355PV9G;
 				ENABLE_BITCODE = YES;
@@ -4773,7 +4829,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = ReadingListDevelopmnet;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReadingList/ReadingList-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -4786,8 +4842,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8P5355PV9G;
 				ENABLE_BITCODE = YES;
@@ -4809,8 +4866,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9b5df12f-bdaf-470f-9451-88c1e99a3a2c";
+				PROVISIONING_PROFILE_SPECIFIER = ReadingListDistribution20170216;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReadingList/ReadingList-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

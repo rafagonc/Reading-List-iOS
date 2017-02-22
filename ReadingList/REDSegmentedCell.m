@@ -34,6 +34,7 @@
         [self.segmentedControl setSelectorViewColor:[UIColor red_redColor]];
         [self.segmentedControl setDelegate:self.datasource];
         [self.segmentedControl setDataSource:self.datasource];
+        [self.segmentedControl setShadowsEnabled:NO];
         [self.segmentedControl setShapeStyle:LUNSegmentedControlShapeStyleLiquid];
     } return self;
 }

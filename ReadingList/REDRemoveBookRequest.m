@@ -11,10 +11,10 @@
 @implementation REDRemoveBookRequest
 
 #pragma mark - constructor
--(instancetype)initWithUserId:(NSString *)userId book:(NSString *)bookName {
+-(instancetype)initWithUserId:(NSString *)userId book:(NSUInteger)bookId {
     if (self = [super init]) {
         _userId = userId;
-        _bookName = bookName;
+        _bookId = bookId;
     } return self;
 }
 
@@ -26,7 +26,7 @@
     return @{};
 }
 -(NSDictionary *)HTTPEncode {
-    return @{@"user_id" : self.userId, @"book_name" : self.bookName};
+    return @{@"user_id" : self.userId, @"book_id" : @(self.bookId)};
 }
 -(REDSerializer)Serializer {
     return REDJSONSerializer;

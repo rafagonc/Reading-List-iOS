@@ -16,10 +16,10 @@
 
 #pragma mark - constructor
 -(instancetype)init __attribute__ ((unavailable("use designated initalizer")));
--(instancetype)initWithUserId:(NSString *)userId book:(NSString *)bookName;
+-(instancetype)initWithUserId:(NSString *)userId book:(NSUInteger)bookId;
 
 #pragma mark - properties
 @property (nonatomic,readonly) NSString *userId;
-@property (nonatomic,readonly) NSString *bookName;
+@property (nonatomic,readonly) NSUInteger bookId;
 
 @end

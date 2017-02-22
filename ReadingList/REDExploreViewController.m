@@ -102,7 +102,7 @@
     }
     
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh)];
-    [self.navigationItem setLeftBarButtonItem:refreshButton];
+    [self.navigationItem setRightBarButtonItem:refreshButton];
 }
 
 #pragma mark - delegate

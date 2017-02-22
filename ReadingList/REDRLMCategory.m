@@ -14,4 +14,12 @@
     return [self linkingObjectsOfClass:@"REDRLMBook" forProperty:@"_category"];
 }
 
+-(NSUInteger)hash {
+    return self.name.hash;
+}
+-(BOOL)isEqual:(id)object {
+    if (object == nil) return NO;
+    return [[(id<REDCategoryProtocol>)object name] isEqual:self.name];
+}
+
 @end

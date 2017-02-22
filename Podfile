@@ -4,7 +4,7 @@
 # use_frameworks!
 
 target 'ReadingList' do
-
+pod 'DZNWebViewController'
 pod 'AFNetworking', '~> 2.5'
 pod 'Depend'
 pod 'SDWebImage'
@@ -18,7 +18,6 @@ pod "Digits"
 pod "Crashlytics"
 pod "TwitterCore"
 pod "Fabric"
-pod 'PhotoTweaks', '~> 1.0.2'
 pod "Localytics"
 pod 'LUNSegmentedControl'
 pod ‘UIAlertController+Blocks’
