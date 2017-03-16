@@ -4,10 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AddBookAction.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
+		</dict>
+		<key>AddBookShare.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
+		</dict>
 		<key>ReadingList.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>Transferir.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>30</integer>
 		</dict>
 		<key>mogenerator.xcscheme</key>
 		<dict>
@@ -22,6 +37,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2A4ABE061E7B101700B56424</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A4ABE1A1E7B186100B56424</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2A74EBA91BCD50B7005F5E74</key>
 		<dict>
 			<key>primary</key>
@@ -43,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>2A74EBE91BCD56F6005F5E74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A8FA3761E7B0D0D00CECB4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

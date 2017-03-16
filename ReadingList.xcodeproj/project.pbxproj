@@ -101,6 +101,12 @@
 		2A4597831C62EDDA0010D135 /* REDRLMResultsToNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4597821C62EDDA0010D135 /* REDRLMResultsToNSArray.m */; };
 		2A45978D1C63998F0010D135 /* REDRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45978C1C63998F0010D135 /* REDRealm.m */; };
 		2A4597901C6C21500010D135 /* REDAuthorNameValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45978F1C6C21500010D135 /* REDAuthorNameValidator.m */; };
+		2A4ABE0B1E7B101700B56424 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4ABE0A1E7B101700B56424 /* ShareViewController.m */; };
+		2A4ABE0E1E7B101700B56424 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A4ABE0C1E7B101700B56424 /* MainInterface.storyboard */; };
+		2A4ABE121E7B101700B56424 /* AddBookShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A4ABE071E7B101700B56424 /* AddBookShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2A4ABE1F1E7B186100B56424 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4ABE1E1E7B186100B56424 /* ActionViewController.m */; };
+		2A4ABE221E7B186100B56424 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A4ABE201E7B186100B56424 /* MainInterface.storyboard */; };
+		2A4ABE261E7B186100B56424 /* Transferir.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A4ABE1B1E7B186100B56424 /* Transferir.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2A52A01E1BE520A1005809CC /* SHNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A52A01C1BE520A1005809CC /* SHNotificationView.m */; };
 		2A52A01F1BE520A1005809CC /* SHNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A52A01D1BE520A1005809CC /* SHNotificationView.xib */; };
 		2A5C69541D0265DC00D10A2F /* REDBookCoverInlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5C69531D0265DC00D10A2F /* REDBookCoverInlineView.m */; };
@@ -343,6 +349,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2A4ABE101E7B101700B56424 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A74EBA21BCD50B7005F5E74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A4ABE061E7B101700B56424;
+			remoteInfo = AddBookShare;
+		};
+		2A4ABE241E7B186100B56424 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A74EBA21BCD50B7005F5E74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A4ABE1A1E7B186100B56424;
+			remoteInfo = Transferir;
+		};
 		2A74EBC71BCD50B8005F5E74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2A74EBA21BCD50B7005F5E74 /* Project object */;
@@ -365,6 +385,21 @@
 			remoteInfo = ReadingList;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2A8FA3851E7B0D0D00CECB4B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2A4ABE261E7B186100B56424 /* Transferir.appex in Embed App Extensions */,
+				2A4ABE121E7B101700B56424 /* AddBookShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		17B9083672A0794DE875DF58 /* libPods-ReadingListTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadingListTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -533,6 +568,17 @@
 		2A45978C1C63998F0010D135 /* REDRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDRealm.m; sourceTree = "<group>"; };
 		2A45978E1C6C21500010D135 /* REDAuthorNameValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDAuthorNameValidator.h; sourceTree = "<group>"; };
 		2A45978F1C6C21500010D135 /* REDAuthorNameValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDAuthorNameValidator.m; sourceTree = "<group>"; };
+		2A4ABE071E7B101700B56424 /* AddBookShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddBookShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4ABE091E7B101700B56424 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		2A4ABE0A1E7B101700B56424 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		2A4ABE0D1E7B101700B56424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2A4ABE0F1E7B101700B56424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A4ABE161E7B102500B56424 /* AddBookShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AddBookShare.entitlements; sourceTree = "<group>"; };
+		2A4ABE1B1E7B186100B56424 /* Transferir.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Transferir.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4ABE1D1E7B186100B56424 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		2A4ABE1E1E7B186100B56424 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		2A4ABE211E7B186100B56424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2A4ABE231E7B186100B56424 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A52A01B1BE520A1005809CC /* SHNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNotificationView.h; sourceTree = "<group>"; };
 		2A52A01C1BE520A1005809CC /* SHNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNotificationView.m; sourceTree = "<group>"; };
 		2A52A01D1BE520A1005809CC /* SHNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHNotificationView.xib; sourceTree = "<group>"; };
@@ -1037,6 +1083,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2A4ABE041E7B101700B56424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A4ABE181E7B186100B56424 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A74EBA71BCD50B7005F5E74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1834,6 +1894,29 @@
 			name = "Author Name Validator";
 			sourceTree = "<group>";
 		};
+		2A4ABE081E7B101700B56424 /* AddBookShare */ = {
+			isa = PBXGroup;
+			children = (
+				2A4ABE161E7B102500B56424 /* AddBookShare.entitlements */,
+				2A4ABE091E7B101700B56424 /* ShareViewController.h */,
+				2A4ABE0A1E7B101700B56424 /* ShareViewController.m */,
+				2A4ABE0C1E7B101700B56424 /* MainInterface.storyboard */,
+				2A4ABE0F1E7B101700B56424 /* Info.plist */,
+			);
+			path = AddBookShare;
+			sourceTree = "<group>";
+		};
+		2A4ABE1C1E7B186100B56424 /* Transferir */ = {
+			isa = PBXGroup;
+			children = (
+				2A4ABE1D1E7B186100B56424 /* ActionViewController.h */,
+				2A4ABE1E1E7B186100B56424 /* ActionViewController.m */,
+				2A4ABE201E7B186100B56424 /* MainInterface.storyboard */,
+				2A4ABE231E7B186100B56424 /* Info.plist */,
+			);
+			path = Transferir;
+			sourceTree = "<group>";
+		};
 		2A5C69511D0263CC00D10A2F /* Complete Adapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -2130,6 +2213,8 @@
 				2A74EBAC1BCD50B7005F5E74 /* ReadingList */,
 				2A74EBC91BCD50B8005F5E74 /* ReadingListTests */,
 				443108841CF36B2B00EC1963 /* ReadingUITests */,
+				2A4ABE081E7B101700B56424 /* AddBookShare */,
+				2A4ABE1C1E7B186100B56424 /* Transferir */,
 				2A74EBAB1BCD50B7005F5E74 /* Products */,
 				3C1B8AFD86E40D76DA605411 /* Frameworks */,
 				8E35CAFA2E226B6C1DA4B727 /* Pods */,
@@ -2142,6 +2227,8 @@
 				2A74EBAA1BCD50B7005F5E74 /* ReadingList.app */,
 				2A74EBC61BCD50B8005F5E74 /* ReadingListTests.xctest */,
 				443108831CF36B2A00EC1963 /* ReadingUITests.xctest */,
+				2A4ABE071E7B101700B56424 /* AddBookShare.appex */,
+				2A4ABE1B1E7B186100B56424 /* Transferir.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4092,6 +4179,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2A4ABE061E7B101700B56424 /* AddBookShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A4ABE151E7B101700B56424 /* Build configuration list for PBXNativeTarget "AddBookShare" */;
+			buildPhases = (
+				2A4ABE031E7B101700B56424 /* Sources */,
+				2A4ABE041E7B101700B56424 /* Frameworks */,
+				2A4ABE051E7B101700B56424 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddBookShare;
+			productName = AddBookShare;
+			productReference = 2A4ABE071E7B101700B56424 /* AddBookShare.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2A4ABE1A1E7B186100B56424 /* Transferir */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A4ABE271E7B186100B56424 /* Build configuration list for PBXNativeTarget "Transferir" */;
+			buildPhases = (
+				2A4ABE171E7B186100B56424 /* Sources */,
+				2A4ABE181E7B186100B56424 /* Frameworks */,
+				2A4ABE191E7B186100B56424 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Transferir;
+			productName = Transferir;
+			productReference = 2A4ABE1B1E7B186100B56424 /* Transferir.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		2A74EBA91BCD50B7005F5E74 /* ReadingList */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A74EBDA1BCD50B8005F5E74 /* Build configuration list for PBXNativeTarget "ReadingList" */;
@@ -4103,11 +4224,14 @@
 				2A2A1E561BD308ED00677868 /* Fabric */,
 				5C61B0BBF162AB8D53D2C0E9 /* [CP] Embed Pods Frameworks */,
 				57655813C70D940111659F5A /* [CP] Copy Pods Resources */,
+				2A8FA3851E7B0D0D00CECB4B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				2A74EBF11BCD571F005F5E74 /* PBXTargetDependency */,
+				2A4ABE111E7B101700B56424 /* PBXTargetDependency */,
+				2A4ABE251E7B186100B56424 /* PBXTargetDependency */,
 			);
 			name = ReadingList;
 			productName = ReadingList;
@@ -4159,15 +4283,34 @@
 		2A74EBA21BCD50B7005F5E74 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Rafael Gonzalves";
 				TargetAttributes = {
+					2A4ABE061E7B101700B56424 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8P5355PV9G;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					2A4ABE1A1E7B186100B56424 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8P5355PV9G;
+						ProvisioningStyle = Automatic;
+					};
 					2A74EBA91BCD50B7005F5E74 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 8P5355PV9G;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -4206,11 +4349,29 @@
 				2A74EBC51BCD50B8005F5E74 /* ReadingListTests */,
 				443108821CF36B2A00EC1963 /* ReadingUITests */,
 				2A74EBE41BCD567E005F5E74 /* mogenerator */,
+				2A4ABE061E7B101700B56424 /* AddBookShare */,
+				2A4ABE1A1E7B186100B56424 /* Transferir */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2A4ABE051E7B101700B56424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A4ABE0E1E7B101700B56424 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A4ABE191E7B186100B56424 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A4ABE221E7B186100B56424 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A74EBA81BCD50B7005F5E74 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4420,6 +4581,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2A4ABE031E7B101700B56424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A4ABE0B1E7B101700B56424 /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A4ABE171E7B186100B56424 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A4ABE1F1E7B186100B56424 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A74EBA61BCD50B7005F5E74 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4689,6 +4866,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2A4ABE111E7B101700B56424 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A4ABE061E7B101700B56424 /* AddBookShare */;
+			targetProxy = 2A4ABE101E7B101700B56424 /* PBXContainerItemProxy */;
+		};
+		2A4ABE251E7B186100B56424 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A4ABE1A1E7B186100B56424 /* Transferir */;
+			targetProxy = 2A4ABE241E7B186100B56424 /* PBXContainerItemProxy */;
+		};
 		2A74EBC81BCD50B8005F5E74 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2A74EBA91BCD50B7005F5E74 /* ReadingList */;
@@ -4707,6 +4894,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2A4ABE0C1E7B101700B56424 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A4ABE0D1E7B101700B56424 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		2A4ABE201E7B186100B56424 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A4ABE211E7B186100B56424 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		2A74EBBE1BCD50B8005F5E74 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -4718,6 +4921,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2A4ABE131E7B101700B56424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_ENTITLEMENTS = AddBookShare/AddBookShare.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8P5355PV9G;
+				INFOPLIST_FILE = AddBookShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList.AddBookShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2A4ABE141E7B101700B56424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_ENTITLEMENTS = AddBookShare/AddBookShare.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8P5355PV9G;
+				INFOPLIST_FILE = AddBookShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList.AddBookShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2A4ABE281E7B186100B56424 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8P5355PV9G;
+				INFOPLIST_FILE = Transferir/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList.Transferir;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2A4ABE291E7B186100B56424 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8P5355PV9G;
+				INFOPLIST_FILE = Transferir/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList.Transferir;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		2A74EBD81BCD50B8005F5E74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4948,6 +5229,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2A4ABE151E7B101700B56424 /* Build configuration list for PBXNativeTarget "AddBookShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A4ABE131E7B101700B56424 /* Debug */,
+				2A4ABE141E7B101700B56424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2A4ABE271E7B186100B56424 /* Build configuration list for PBXNativeTarget "Transferir" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A4ABE281E7B186100B56424 /* Debug */,
+				2A4ABE291E7B186100B56424 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		2A74EBA51BCD50B7005F5E74 /* Build configuration list for PBXProject "ReadingList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
