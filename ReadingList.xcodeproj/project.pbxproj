@@ -415,7 +415,6 @@
 		2A0E347C1D178CC500D7077C /* UITextView+Done.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Done.h"; sourceTree = "<group>"; };
 		2A0E347D1D178CC500D7077C /* UITextView+Done.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Done.m"; sourceTree = "<group>"; };
 		2A13EEA01C2E433D005DB34E /* REDTransientBookDatasourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDTransientBookDatasourceDelegate.h; sourceTree = "<group>"; };
-		2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ReadingList.entitlements; sourceTree = "<group>"; };
 		2A13EEA51C2E5550005DB34E /* REDCloudMigrationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCloudMigrationHandler.h; sourceTree = "<group>"; };
 		2A13EEA61C2E5550005DB34E /* REDCloudMigrationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDCloudMigrationHandler.m; sourceTree = "<group>"; };
 		2A13EEA91C2E5C1C005DB34E /* REDCloudDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDCloudDataStack.h; sourceTree = "<group>"; };
@@ -2269,7 +2268,6 @@
 				2AB0F1481D42F1F4009D7513 /* RFRateMe */,
 				2A5C69B31D0BDC9800D10A2F /* LibzBar */,
 				441701F41C764C560076F9C7 /* new.txt */,
-				2A13EEA11C2E52F3005DB34E /* ReadingList.entitlements */,
 				2A2A1E501BD2F5A100677868 /* romeo-and-juliet.jpg */,
 				2ADCC0B41BD2EC90009F638A /* books.json */,
 				2ADCC0AE1BD2E69A009F638A /* the-little-prince-summary.jpg */,
@@ -4306,13 +4304,13 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 8P5355PV9G;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 0;
@@ -5087,10 +5085,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8P5355PV9G;
 				ENABLE_BITCODE = YES;
@@ -5113,7 +5110,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = ReadingListDevelopmnet;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReadingList/ReadingList-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -5126,10 +5123,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ReadingList/ReadingList.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 4;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8P5355PV9G;
 				ENABLE_BITCODE = YES;
@@ -5151,8 +5147,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9b5df12f-bdaf-470f-9451-88c1e99a3a2c";
+				PROVISIONING_PROFILE_SPECIFIER = ReadingListDistribution20170216;
 				SWIFT_OBJC_BRIDGING_HEADER = "ReadingList/ReadingList-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
