@@ -261,6 +261,7 @@
 		2ADA287C1C59B2AB0068CCAC /* REDPagesValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA287B1C59B2AB0068CCAC /* REDPagesValidator.m */; };
 		2ADA287F1C59B2B30068CCAC /* REDBookValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA287E1C59B2B30068CCAC /* REDBookValidator.m */; };
 		2ADA28821C59B2B90068CCAC /* REDDateValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADA28811C59B2B90068CCAC /* REDDateValidator.m */; };
+		2ADB8D851EC2DBCB0050ED05 /* REDExploreTutorialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADB8D831EC2DBCB0050ED05 /* REDExploreTutorialCell.xib */; };
 		2ADCC04D1BD1FB4C009F638A /* REDServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC04B1BD1FB4C009F638A /* REDServiceResponse.m */; };
 		2ADCC0531BD1FB91009F638A /* REDHTTPRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC0521BD1FB91009F638A /* REDHTTPRequestFactory.m */; };
 		2ADCC05B1BD1FC69009F638A /* REDDELETEHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADCC05A1BD1FC69009F638A /* REDDELETEHTTPRequest.m */; };
@@ -899,6 +900,7 @@
 		2ADA287E1C59B2B30068CCAC /* REDBookValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDBookValidator.m; sourceTree = "<group>"; };
 		2ADA28801C59B2B90068CCAC /* REDDateValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDDateValidator.h; sourceTree = "<group>"; };
 		2ADA28811C59B2B90068CCAC /* REDDateValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDDateValidator.m; sourceTree = "<group>"; };
+		2ADB8D831EC2DBCB0050ED05 /* REDExploreTutorialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = REDExploreTutorialCell.xib; sourceTree = "<group>"; };
 		2ADCC04A1BD1FB4C009F638A /* REDServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponse.h; sourceTree = "<group>"; };
 		2ADCC04B1BD1FB4C009F638A /* REDServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REDServiceResponse.m; sourceTree = "<group>"; };
 		2ADCC04C1BD1FB4C009F638A /* REDServiceResponseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REDServiceResponseProtocol.h; sourceTree = "<group>"; };
@@ -1304,6 +1306,7 @@
 				2A974E1C1D3B01DA00842266 /* Library Cell */,
 				2A974E281D3BF4C100842266 /* Segmented Cell */,
 				44BF68831E0AB50800BC3CB4 /* Select Cell */,
+				2ADB8D861EC2DBCF0050ED05 /* Explore Tut Cell */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -3277,6 +3280,14 @@
 			name = "Pages Validator";
 			sourceTree = "<group>";
 		};
+		2ADB8D861EC2DBCF0050ED05 /* Explore Tut Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2ADB8D831EC2DBCB0050ED05 /* REDExploreTutorialCell.xib */,
+			);
+			name = "Explore Tut Cell";
+			sourceTree = "<group>";
+		};
 		2ADCC04E1BD1FB50009F638A /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
@@ -4304,7 +4315,7 @@
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 8P5355PV9G;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -4403,6 +4414,7 @@
 				2A974E151D3AF82A00842266 /* REDUserCell.xib in Resources */,
 				2A218FC11C57DA7D00D5D6FA /* REDAddLogViewController.xib in Resources */,
 				2A1FF5B91C568C9600520949 /* REDLogCell.xib in Resources */,
+				2ADB8D851EC2DBCB0050ED05 /* REDExploreTutorialCell.xib in Resources */,
 				2A974E211D3BEFDC00842266 /* REDLibraryView.xib in Resources */,
 				2A2A1E511BD2F5A100677868 /* romeo-and-juliet.jpg in Resources */,
 				44F31D081CFC7C030067DA55 /* REDCloudViewController.xib in Resources */,
@@ -5089,7 +5101,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 8P5355PV9G;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5110,7 +5122,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = ReadingListDevelopmnet;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReadingList/ReadingList-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -5124,10 +5136,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 8P5355PV9G;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5147,8 +5159,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafagonc.ReadingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b5df12f-bdaf-470f-9451-88c1e99a3a2c";
-				PROVISIONING_PROFILE_SPECIFIER = ReadingListDistribution20170216;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReadingList/ReadingList-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -5232,6 +5244,7 @@
 				2A4ABE141E7B101700B56424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A4ABE271E7B186100B56424 /* Build configuration list for PBXNativeTarget "Transferir" */ = {
 			isa = XCConfigurationList;
@@ -5240,6 +5253,7 @@
 				2A4ABE291E7B186100B56424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A74EBA51BCD50B7005F5E74 /* Build configuration list for PBXProject "ReadingList" */ = {
 			isa = XCConfigurationList;

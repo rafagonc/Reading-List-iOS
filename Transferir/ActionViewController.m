@@ -19,21 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Get the item[s] we're handling from the extension context.
-    
-    // For example, look for an image and place it into an image view.
-    // Replace this with something appropriate for the type[s] your extension supports.
     BOOL imageFound = NO;
     for (NSExtensionItem *item in self.extensionContext.inputItems) {
         for (NSItemProvider *itemProvider in item.attachments) {
-            if ([itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypeImage]) {
+            if ([itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypeText]) {
                 // This is an image. We'll load it, then place it in our image view.
-                __weak UIImageView *imageView = self.imageView;
-                [itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeImage options:nil completionHandler:^(UIImage *image, NSError *error) {
-                    if(image) {
+                [itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeText options:nil completionHandler:^(NSString *text, NSError *error) {
+                    if(text) {
+                        NSLog(@"%@",text);
                         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                            [imageView setImage:image];
                         }];
                     }
                 }];

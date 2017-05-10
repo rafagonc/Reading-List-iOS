@@ -133,8 +133,10 @@
 }
 -(void)callGoogleBooksQueryService {
     //if (self.wait) dispatch_group_enter(services);
-    REDGoogleBooksQueryRequest *request = [[REDGoogleBooksQueryRequest alloc] initWithQuery:[self searchString]];
-    [self.dispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
+    if (self.searchBar.text.length) {
+        REDGoogleBooksQueryRequest *request = [[REDGoogleBooksQueryRequest alloc] initWithQuery:[self searchBar].text];
+        [self.dispatcher callWithRequest:request withTarget:self andSelector:@selector(response:)];
+    }
 }
 -(void)response:(NSNotification *)notification {
     id<REDServiceResponseProtocol> response = notification.object;
@@ -165,13 +167,6 @@
 }
 
 #pragma mark - getters
--(NSString *)searchString {
-    if (self.searchBar.text.length) {
-        return self.searchBar.text;
-    } else if ([self.bookDataAccessObject list].count) {
-        return [self.categoryDataAccessObject mostUsedCategoryName];
-    } else return nil;
-}
 -(BOOL)hasAddedAnyBook {
     return [self.bookDataAccessObject list].count > 0;
 }

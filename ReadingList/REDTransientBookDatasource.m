@@ -48,7 +48,7 @@ static NSInteger const REDTopRatedSection = 0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == REDSearchSection) {
-        return UITableViewAutomaticDimension;
+        return self.books.count == 0 ? 100 : UITableViewAutomaticDimension;
     } else if(indexPath.section == REDTopRatedSection) {
         return 50.f;
     }
@@ -59,7 +59,7 @@ static NSInteger const REDTopRatedSection = 0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == REDSearchSection) {
-        return self.books.count;
+        return self.books.count == 0 ? 1 : self.books.count;
     } else if(section == REDTopRatedSection) {
         return self.topRatedBooks.count;
     }
@@ -75,9 +75,13 @@ static NSInteger const REDTopRatedSection = 0;
     }
     
     if (indexPath.section == REDSearchSection) {
-        REDTransientBookCell * tCell = (REDTransientBookCell *)cell;
-        tCell.book = self.books[indexPath.row];
-        tCell.delegate = self;
+        if (self.books.count == 0) {
+            return [[[NSBundle mainBundle] loadNibNamed:@"REDExploreTutorialCell" owner:self options:nil] firstObject];
+        } else {
+            REDTransientBookCell * tCell = (REDTransientBookCell *)cell;
+            tCell.book = self.books[indexPath.row];
+            tCell.delegate = self;
+        }
     } else if(indexPath.section == REDTopRatedSection) {
         REDTopRatedCell * tCell = (REDTopRatedCell *)cell;
         tCell.book = self.topRatedBooks[indexPath.row];
