@@ -13,7 +13,7 @@ pod 'EDStarRating'
 pod 'UIAlertView+Blocks'
 pod 'UIActionSheet+Blocks'
 pod 'NSDate-Escort'
-pod 'Realm'
+pod 'Realm', '~> 0.97.1'
 pod "Digits"
 pod "Crashlytics"
 pod "TwitterCore"
