@@ -5,7 +5,7 @@
 
 target 'ReadingList' do
 
-pod 'AFNetworking', '~> 2.5'
+pod 'AFNetworking', '2.5'
 pod 'Depend'
 pod 'SDWebImage'
 pod 'LLARingSpinnerView'
@@ -13,12 +13,12 @@ pod 'EDStarRating'
 pod 'UIAlertView+Blocks'
 pod 'UIActionSheet+Blocks'
 pod 'NSDate-Escort'
-pod 'Realm', '~> 0.97.1'
+pod 'Realm', '0.97.1'
 pod "Digits"
 pod "Crashlytics"
 pod "TwitterCore"
 pod "Fabric"
-pod 'PhotoTweaks', '~> 1.0.2'
+pod 'PhotoTweaks', '1.0.2'
 pod "Localytics"
 pod 'LUNSegmentedControl'
 pod ‘UIAlertController+Blocks’
@@ -28,7 +28,7 @@ end
 target 'ReadingListTests' do
 
 pod 'Realm/Headers'
-pod 'AFNetworking', '~> 2.5'
+pod 'AFNetworking', '2.5'
 pod 'Depend'
 pod 'SDWebImage'
 pod 'LLARingSpinnerView'
